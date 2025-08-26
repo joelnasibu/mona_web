@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue?vue&type=style&index=0&scoped=a8069c1a&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.icon {\r\n  transition: transform 0.3s linear;\r\n}\r\na {\r\n  color: currentColor;\r\n}\r\n",
+      "start": 1756118028221,
+      "end": 1756118028221,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue"
+        ],
+        "names": [],
+        "mappings": ";AAoHA,CAAC,CAAC,CAAC,CAAC,EAAE;EACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC;AACA,EAAE;EACA,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <v-form ref=\"formRef\" class=\"form-data\" @submit.prevent>\r\n    <v-text-field\r\n      placeholder=\"Email or username\"\r\n      prepend-inner-icon=\"mdi-email-outline\"\r\n      v-model.trim=\"payload.username\"\r\n      autofocus\r\n      :rules=\"rules\"\r\n      @keypress.enter.prevent=\"handleContinue()\"\r\n      bg-color=\"white\"\r\n    ></v-text-field>\r\n    <v-btn\r\n      class=\"my-1 text-none text-caption\"\r\n      flat\r\n      density=\"comfortable\"\r\n      color=\"primary-accent\"\r\n      block\r\n      @click.prevent=\"handleContinue()\"\r\n    >\r\n      <span>Continue</span>\r\n    </v-btn>\r\n    <div class=\"my-3 text-caption text-center\">\r\n      <!-- <span>Or continue with</span>\r\n      <div class=\"mt-3 d-flex flex-column ga-3\">\r\n        <div\r\n          v-for=\"(social, i) in socials\"\r\n          :key=\"i\"\r\n          :title=\"`Login with ${social}`\"\r\n          class=\"w-100\"\r\n        >\r\n          <v-btn\r\n            class=\"card-outlined text-caption rounded-lg\"\r\n            variant=\"text\"\r\n            block\r\n          >\r\n            <div class=\"d-flex align-center\">\r\n              <Icon :name=\"`devicon:${social}`\" size=\"1.3rem\" />\r\n              <span class=\"px-2\">{{ social }}</span>\r\n            </div>\r\n          </v-btn>\r\n        </div>\r\n      </div> -->\r\n      <div class=\"text-start my-5 text-caption-2\">\r\n        <span class=\"text-grey-darken-3\">\r\n          By proceeding, I consent to {{ appConfig.public.app_name }}'s\r\n          <a href=\"#\" class=\"text-decoration-underline\">\r\n            Free Membership Agreement</a\r\n          >\r\n          and\r\n          <a href=\"#\" class=\"text-decoration-underline\"> Private Policy</a\r\n          >.</span\r\n        >\r\n      </div>\r\n    </div>\r\n    <div class=\"text-caption my-2\">\r\n      <a @click=\"showHelp = !showHelp\" class=\"d-flex text-black cursor-pointer\">\r\n        <v-icon\r\n          icon=\"mdi-menu-right\"\r\n          start\r\n          class=\"icon\"\r\n          :class=\"{ transform: showHelp }\"\r\n        ></v-icon>\r\n        <div class=\"text-caption my-auto\">\r\n          <b>Help?</b>\r\n          <v-expand-transition>\r\n            <div class=\"text-caption d-flex flex-column\" v-if=\"showHelp\">\r\n              <NuxtLink\r\n                :to=\"{ name: 'auth-forgot-password' }\"\r\n                class=\"text-primary-accent mt-1\"\r\n              >\r\n                <span>Forgot your password</span>\r\n              </NuxtLink>\r\n              <a href=\"javascript:void(0)\" class=\"text-primary-accent mt-1\"\r\n                >Other issues with Sign in?</a\r\n              >\r\n            </div>\r\n          </v-expand-transition>\r\n        </div>\r\n      </a>\r\n    </div>\r\n    <div class=\"text-caption w-100\">\r\n      <div class=\"d-flex align-center w-100\">\r\n        <span>New Skill Up account?</span>\r\n        <NuxtLink\r\n          :to=\"{ name: 'auth-create-account' }\"\r\n          class=\"px-2 text-primary-accent\"\r\n        >\r\n          <span>Sign up</span>\r\n        </NuxtLink>\r\n      </div>\r\n    </div>\r\n  </v-form>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  payload: Object,\r\n});\r\nconst emit = defineEmits([\"continue\"]);\r\n\r\nconst appConfig = useRuntimeConfig();\r\n\r\nconst showHelp = ref(false);\r\nconst formRef = ref(\"\");\r\nconst rules = [(v) => !!v || \"Required\"];\r\nconst handleContinue = async () => {\r\n  const { valid } = await formRef.value.validate();\r\n  if (valid) {\r\n    emit(\"continue\");\r\n  }\r\n};\r\n\r\nconst socials = [\"facebook\", \"google\"];\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.icon {\r\n  transition: transform 0.3s linear;\r\n}\r\na {\r\n  color: currentColor;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118028221,
+      "end": 1756118028221,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118028221,
+      "end": 1756118028221,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118028222,
+      "end": 1756118028222,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118028222,
+      "end": 1756118028222,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118028223,
+      "end": 1756118028223,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".icon{transition:transform .3s linear}a{color:currentColor}",
+      "start": 1756118028223,
+      "end": 1756118028227,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue",
+        "mappings": "AACA,MACE,+BACF,CACA,EACE,kBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.icon {\r\n  transition: transform 0.3s linear;\r\n}\r\na {\r\n  color: currentColor;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118028227,
+      "end": 1756118028228,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118028234,
+      "end": 1756118028234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118028234,
+      "end": 1756118028234,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".icon[data-v-a8069c1a]{transition:transform .3s linear}a[data-v-a8069c1a]{color:currentColor}",
+      "start": 1756118028235,
+      "end": 1756118028239,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue",
+        "mappings": "AAAA,uBAAM,+BAA+B,CAAC,mBAAE,kBAAkB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/auth/username.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118028241,
+      "end": 1756118028241,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118028241,
+      "end": 1756118028241,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118028241,
+      "end": 1756118028241,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118028241,
+      "end": 1756118028241,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118028241,
+      "end": 1756118028241,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118028242,
+      "end": 1756118028242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118028243,
+      "end": 1756118028243,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118028244,
+      "end": 1756118028244,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118028244,
+      "end": 1756118028249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118028249,
+      "end": 1756118028249,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756118028249,
+      "end": 1756118028249,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118028250,
+      "end": 1756118028250,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118028250,
+      "end": 1756118028250,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118028250,
+      "end": 1756118028250,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118028250,
+      "end": 1756118028250,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118028250,
+      "end": 1756118028250,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118028251,
+      "end": 1756118028251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118028251,
+      "end": 1756118028252,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118028252,
+      "end": 1756118028252,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118028252,
+      "end": 1756118028252,
+      "order": "normal"
+    }
+  ]
+}

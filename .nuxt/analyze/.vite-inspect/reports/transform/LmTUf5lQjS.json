@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/previousDay.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { getDay } from \"./getDay.mjs\";\r\nimport { subDays } from \"./subDays.mjs\";\r\n\r\n/**\r\n * @name previousDay\r\n * @category Weekday Helpers\r\n * @summary When is the previous day of the week?\r\n *\r\n * @description\r\n * When is the previous day of the week? 0-6 the day of the week, 0 represents Sunday.\r\n *\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to check\r\n * @param day - The day of the week\r\n *\r\n * @returns The date is the previous day of week\r\n *\r\n * @example\r\n * // When is the previous Monday before Mar, 20, 2020?\r\n * const result = previousDay(new Date(2020, 2, 20), 1)\r\n * //=> Mon Mar 16 2020 00:00:00\r\n *\r\n * @example\r\n * // When is the previous Tuesday before Mar, 21, 2020?\r\n * const result = previousDay(new Date(2020, 2, 21), 2)\r\n * //=> Tue Mar 17 2020 00:00:00\r\n */\r\nexport function previousDay(date, day) {\r\n  let delta = getDay(date) - day;\r\n  if (delta <= 0) delta += 7;\r\n\r\n  return subDays(date, delta);\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default previousDay;\r\n",
+      "start": 1756117962547,
+      "end": 1756117962618,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117962618,
+      "end": 1756117962618,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117962618,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117962619,
+      "end": 1756117962619,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VList/VList.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, resolveDirective as _resolveDirective } from \"vue\";\r\n// Styles\r\nimport \"./VList.css\";\r\n\r\n// Components\r\nimport { VListChildren } from \"./VListChildren.mjs\"; // Composables\r\nimport { createList } from \"./list.mjs\";\r\nimport { makeBorderProps, useBorder } from \"../../composables/border.mjs\";\r\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeDensityProps, useDensity } from \"../../composables/density.mjs\";\r\nimport { makeDimensionProps, useDimension } from \"../../composables/dimensions.mjs\";\r\nimport { makeElevationProps, useElevation } from \"../../composables/elevation.mjs\";\r\nimport { makeItemsProps } from \"../../composables/list-items.mjs\";\r\nimport { makeNestedProps, useNested } from \"../../composables/nested/nested.mjs\";\r\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\";\r\nimport { makeThemeProps, provideTheme } from \"../../composables/theme.mjs\";\r\nimport { makeVariantProps } from \"../../composables/variant.mjs\"; // Utilities\r\nimport { computed, ref, shallowRef, toRef } from 'vue';\r\nimport { focusChild, genericComponent, getPropertyFromItem, omit, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nfunction isPrimitive(value) {\r\n  return typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean';\r\n}\r\nfunction transformItem(props, item) {\r\n  const type = getPropertyFromItem(item, props.itemType, 'item');\r\n  const title = isPrimitive(item) ? item : getPropertyFromItem(item, props.itemTitle);\r\n  const value = getPropertyFromItem(item, props.itemValue, undefined);\r\n  const children = getPropertyFromItem(item, props.itemChildren);\r\n  const itemProps = props.itemProps === true ? omit(item, ['children']) : getPropertyFromItem(item, props.itemProps);\r\n  const _props = {\r\n    title,\r\n    value,\r\n    ...itemProps\r\n  };\r\n  return {\r\n    type,\r\n    title: _props.title,\r\n    value: _props.value,\r\n    props: _props,\r\n    children: type === 'item' && children ? transformItems(props, children) : undefined,\r\n    raw: item\r\n  };\r\n}\r\nfunction transformItems(props, items) {\r\n  const array = [];\r\n  for (const item of items) {\r\n    array.push(transformItem(props, item));\r\n  }\r\n  return array;\r\n}\r\nfunction useListItems(props) {\r\n  const items = computed(() => transformItems(props, props.items));\r\n  return {\r\n    items\r\n  };\r\n}\r\nexport const makeVListProps = propsFactory({\r\n  baseColor: String,\r\n  /* @deprecated */\r\n  activeColor: String,\r\n  activeClass: String,\r\n  bgColor: String,\r\n  disabled: Boolean,\r\n  expandIcon: String,\r\n  collapseIcon: String,\r\n  lines: {\r\n    type: [Boolean, String],\r\n    default: 'one'\r\n  },\r\n  slim: Boolean,\r\n  nav: Boolean,\r\n  ...makeNestedProps({\r\n    selectStrategy: 'single-leaf',\r\n    openStrategy: 'list'\r\n  }),\r\n  ...makeBorderProps(),\r\n  ...makeComponentProps(),\r\n  ...makeDensityProps(),\r\n  ...makeDimensionProps(),\r\n  ...makeElevationProps(),\r\n  itemType: {\r\n    type: String,\r\n    default: 'type'\r\n  },\r\n  ...makeItemsProps(),\r\n  ...makeRoundedProps(),\r\n  ...makeTagProps(),\r\n  ...makeThemeProps(),\r\n  ...makeVariantProps({\r\n    variant: 'text'\r\n  })\r\n}, 'VList');\r\nexport const VList = genericComponent()({\r\n  name: 'VList',\r\n  props: makeVListProps(),\r\n  emits: {\r\n    'update:selected': value => true,\r\n    'update:opened': value => true,\r\n    'click:open': value => true,\r\n    'click:select': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      items\r\n    } = useListItems(props);\r\n    const {\r\n      themeClasses\r\n    } = provideTheme(props);\r\n    const {\r\n      backgroundColorClasses,\r\n      backgroundColorStyles\r\n    } = useBackgroundColor(toRef(props, 'bgColor'));\r\n    const {\r\n      borderClasses\r\n    } = useBorder(props);\r\n    const {\r\n      densityClasses\r\n    } = useDensity(props);\r\n    const {\r\n      dimensionStyles\r\n    } = useDimension(props);\r\n    const {\r\n      elevationClasses\r\n    } = useElevation(props);\r\n    const {\r\n      roundedClasses\r\n    } = useRounded(props);\r\n    const {\r\n      open,\r\n      select\r\n    } = useNested(props);\r\n    const lineClasses = computed(() => props.lines ? `v-list--${props.lines}-line` : undefined);\r\n    const activeColor = toRef(props, 'activeColor');\r\n    const baseColor = toRef(props, 'baseColor');\r\n    const color = toRef(props, 'color');\r\n    createList();\r\n    provideDefaults({\r\n      VListGroup: {\r\n        activeColor,\r\n        baseColor,\r\n        color,\r\n        expandIcon: toRef(props, 'expandIcon'),\r\n        collapseIcon: toRef(props, 'collapseIcon')\r\n      },\r\n      VListItem: {\r\n        activeClass: toRef(props, 'activeClass'),\r\n        activeColor,\r\n        baseColor,\r\n        color,\r\n        density: toRef(props, 'density'),\r\n        disabled: toRef(props, 'disabled'),\r\n        lines: toRef(props, 'lines'),\r\n        nav: toRef(props, 'nav'),\r\n        slim: toRef(props, 'slim'),\r\n        variant: toRef(props, 'variant')\r\n      }\r\n    });\r\n    const isFocused = shallowRef(false);\r\n    const contentRef = ref();\r\n    function onFocusin(e) {\r\n      isFocused.value = true;\r\n    }\r\n    function onFocusout(e) {\r\n      isFocused.value = false;\r\n    }\r\n    function onFocus(e) {\r\n      if (!isFocused.value && !(e.relatedTarget && contentRef.value?.contains(e.relatedTarget))) focus();\r\n    }\r\n    function onKeydown(e) {\r\n      if (!contentRef.value) return;\r\n      if (e.key === 'ArrowDown') {\r\n        focus('next');\r\n      } else if (e.key === 'ArrowUp') {\r\n        focus('prev');\r\n      } else if (e.key === 'Home') {\r\n        focus('first');\r\n      } else if (e.key === 'End') {\r\n        focus('last');\r\n      } else {\r\n        return;\r\n      }\r\n      e.preventDefault();\r\n    }\r\n    function onMousedown(e) {\r\n      isFocused.value = true;\r\n    }\r\n    function focus(location) {\r\n      if (contentRef.value) {\r\n        return focusChild(contentRef.value, location);\r\n      }\r\n    }\r\n    useRender(() => {\r\n      return _createVNode(props.tag, {\r\n        \"ref\": contentRef,\r\n        \"class\": ['v-list', {\r\n          'v-list--disabled': props.disabled,\r\n          'v-list--nav': props.nav,\r\n          'v-list--slim': props.slim\r\n        }, themeClasses.value, backgroundColorClasses.value, borderClasses.value, densityClasses.value, elevationClasses.value, lineClasses.value, roundedClasses.value, props.class],\r\n        \"style\": [backgroundColorStyles.value, dimensionStyles.value, props.style],\r\n        \"tabindex\": props.disabled || isFocused.value ? -1 : 0,\r\n        \"role\": \"listbox\",\r\n        \"aria-activedescendant\": undefined,\r\n        \"onFocusin\": onFocusin,\r\n        \"onFocusout\": onFocusout,\r\n        \"onFocus\": onFocus,\r\n        \"onKeydown\": onKeydown,\r\n        \"onMousedown\": onMousedown\r\n      }, {\r\n        default: () => [_createVNode(VListChildren, {\r\n          \"items\": items.value,\r\n          \"returnObject\": props.returnObject\r\n        }, slots)]\r\n      });\r\n    });\r\n    return {\r\n      open,\r\n      select,\r\n      focus\r\n    };\r\n  }\r\n});\r\n//# sourceMappingURL=VList.mjs.map",
+      "start": 1756118028299,
+      "end": 1756118029141,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118029141,
+      "end": 1756118029141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118029141,
+      "end": 1756118029141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118029141,
+      "end": 1756118029141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118029141,
+      "end": 1756118029141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118029141,
+      "end": 1756118029141,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118029141,
+      "end": 1756118029141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118029141,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029142,
+      "end": 1756118029142,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118029142,
+      "end": 1756118029144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { createVNode as _createVNode, resolveDirective as _resolveDirective } from \"vue\";\nimport \"./VList.css\";\nimport { VListChildren } from \"./VListChildren.mjs\";\nimport { createList } from \"./list.mjs\";\nimport { makeBorderProps, useBorder } from \"../../composables/border.mjs\";\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\nimport { makeComponentProps } from \"../../composables/component.mjs\";\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\nimport { makeDensityProps, useDensity } from \"../../composables/density.mjs\";\nimport { makeDimensionProps, useDimension } from \"../../composables/dimensions.mjs\";\nimport { makeElevationProps, useElevation } from \"../../composables/elevation.mjs\";\nimport { makeItemsProps } from \"../../composables/list-items.mjs\";\nimport { makeNestedProps, useNested } from \"../../composables/nested/nested.mjs\";\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\nimport { makeTagProps } from \"../../composables/tag.mjs\";\nimport { makeThemeProps, provideTheme } from \"../../composables/theme.mjs\";\nimport { makeVariantProps } from \"../../composables/variant.mjs\";\nimport { computed, ref, shallowRef, toRef } from \"vue\";\nimport { focusChild, genericComponent, getPropertyFromItem, omit, propsFactory, useRender } from \"../../util/index.mjs\";\nfunction isPrimitive(value) {\n  return typeof value === \"string\" || typeof value === \"number\" || typeof value === \"boolean\";\n}\nfunction transformItem(props, item) {\n  const type = getPropertyFromItem(item, props.itemType, \"item\");\n  const title = isPrimitive(item) ? item : getPropertyFromItem(item, props.itemTitle);\n  const value = getPropertyFromItem(item, props.itemValue, void 0);\n  const children = getPropertyFromItem(item, props.itemChildren);\n  const itemProps = props.itemProps === true ? omit(item, [\"children\"]) : getPropertyFromItem(item, props.itemProps);\n  const _props = {\n    title,\n    value,\n    ...itemProps\n  };\n  return {\n    type,\n    title: _props.title,\n    value: _props.value,\n    props: _props,\n    children: type === \"item\" && children ? transformItems(props, children) : void 0,\n    raw: item\n  };\n}\nfunction transformItems(props, items) {\n  const array = [];\n  for (const item of items) {\n    array.push(transformItem(props, item));\n  }\n  return array;\n}\nfunction useListItems(props) {\n  const items = computed(() => transformItems(props, props.items));\n  return {\n    items\n  };\n}\nexport const makeVListProps = propsFactory({\n  baseColor: String,\n  /* @deprecated */\n  activeColor: String,\n  activeClass: String,\n  bgColor: String,\n  disabled: Boolean,\n  expandIcon: String,\n  collapseIcon: String,\n  lines: {\n    type: [Boolean, String],\n    default: \"one\"\n  },\n  slim: Boolean,\n  nav: Boolean,\n  ...makeNestedProps({\n    selectStrategy: \"single-leaf\",\n    openStrategy: \"list\"\n  }),\n  ...makeBorderProps(),\n  ...makeComponentProps(),\n  ...makeDensityProps(),\n  ...makeDimensionProps(),\n  ...makeElevationProps(),\n  itemType: {\n    type: String,\n    default: \"type\"\n  },\n  ...makeItemsProps(),\n  ...makeRoundedProps(),\n  ...makeTagProps(),\n  ...makeThemeProps(),\n  ...makeVariantProps({\n    variant: \"text\"\n  })\n}, \"VList\");\nexport const VList = genericComponent()({\n  name: \"VList\",\n  props: makeVListProps(),\n  emits: {\n    \"update:selected\": (value) => true,\n    \"update:opened\": (value) => true,\n    \"click:open\": (value) => true,\n    \"click:select\": (value) => true\n  },\n  setup(props, _ref) {\n    let {\n      slots\n    } = _ref;\n    const {\n      items\n    } = useListItems(props);\n    const {\n      themeClasses\n    } = provideTheme(props);\n    const {\n      backgroundColorClasses,\n      backgroundColorStyles\n    } = useBackgroundColor(toRef(props, \"bgColor\"));\n    const {\n      borderClasses\n    } = useBorder(props);\n    const {\n      densityClasses\n    } = useDensity(props);\n    const {\n      dimensionStyles\n    } = useDimension(props);\n    const {\n      elevationClasses\n    } = useElevation(props);\n    const {\n      roundedClasses\n    } = useRounded(props);\n    const {\n      open,\n      select\n    } = useNested(props);\n    const lineClasses = computed(() => props.lines ? `v-list--${props.lines}-line` : void 0);\n    const activeColor = toRef(props, \"activeColor\");\n    const baseColor = toRef(props, \"baseColor\");\n    const color = toRef(props, \"color\");\n    createList();\n    provideDefaults({\n      VListGroup: {\n        activeColor,\n        baseColor,\n        color,\n        expandIcon: toRef(props, \"expandIcon\"),\n        collapseIcon: toRef(props, \"collapseIcon\")\n      },\n      VListItem: {\n        activeClass: toRef(props, \"activeClass\"),\n        activeColor,\n        baseColor,\n        color,\n        density: toRef(props, \"density\"),\n        disabled: toRef(props, \"disabled\"),\n        lines: toRef(props, \"lines\"),\n        nav: toRef(props, \"nav\"),\n        slim: toRef(props, \"slim\"),\n        variant: toRef(props, \"variant\")\n      }\n    });\n    const isFocused = shallowRef(false);\n    const contentRef = ref();\n    function onFocusin(e) {\n      isFocused.value = true;\n    }\n    function onFocusout(e) {\n      isFocused.value = false;\n    }\n    function onFocus(e) {\n      if (!isFocused.value && !(e.relatedTarget && contentRef.value?.contains(e.relatedTarget)))\n        focus();\n    }\n    function onKeydown(e) {\n      if (!contentRef.value)\n        return;\n      if (e.key === \"ArrowDown\") {\n        focus(\"next\");\n      } else if (e.key === \"ArrowUp\") {\n        focus(\"prev\");\n      } else if (e.key === \"Home\") {\n        focus(\"first\");\n      } else if (e.key === \"End\") {\n        focus(\"last\");\n      } else {\n        return;\n      }\n      e.preventDefault();\n    }\n    function onMousedown(e) {\n      isFocused.value = true;\n    }\n    function focus(location) {\n      if (contentRef.value) {\n        return focusChild(contentRef.value, location);\n      }\n    }\n    useRender(() => {\n      return _createVNode(props.tag, {\n        \"ref\": contentRef,\n        \"class\": [\"v-list\", {\n          \"v-list--disabled\": props.disabled,\n          \"v-list--nav\": props.nav,\n          \"v-list--slim\": props.slim\n        }, themeClasses.value, backgroundColorClasses.value, borderClasses.value, densityClasses.value, elevationClasses.value, lineClasses.value, roundedClasses.value, props.class],\n        \"style\": [backgroundColorStyles.value, dimensionStyles.value, props.style],\n        \"tabindex\": props.disabled || isFocused.value ? -1 : 0,\n        \"role\": \"listbox\",\n        \"aria-activedescendant\": void 0,\n        \"onFocusin\": onFocusin,\n        \"onFocusout\": onFocusout,\n        \"onFocus\": onFocus,\n        \"onKeydown\": onKeydown,\n        \"onMousedown\": onMousedown\n      }, {\n        default: () => [_createVNode(VListChildren, {\n          \"items\": items.value,\n          \"returnObject\": props.returnObject\n        }, slots)]\n      });\n    });\n    return {\n      open,\n      select,\n      focus\n    };\n  }\n});\n",
+      "start": 1756118029144,
+      "end": 1756118029599,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VList/VList.mjs\"],\n  \"sourcesContent\": [\"import { createVNode as _createVNode, resolveDirective as _resolveDirective } from \\\"vue\\\";\\r\\n// Styles\\r\\nimport \\\"./VList.css\\\";\\r\\n\\r\\n// Components\\r\\nimport { VListChildren } from \\\"./VListChildren.mjs\\\"; // Composables\\r\\nimport { createList } from \\\"./list.mjs\\\";\\r\\nimport { makeBorderProps, useBorder } from \\\"../../composables/border.mjs\\\";\\r\\nimport { useBackgroundColor } from \\\"../../composables/color.mjs\\\";\\r\\nimport { makeComponentProps } from \\\"../../composables/component.mjs\\\";\\r\\nimport { provideDefaults } from \\\"../../composables/defaults.mjs\\\";\\r\\nimport { makeDensityProps, useDensity } from \\\"../../composables/density.mjs\\\";\\r\\nimport { makeDimensionProps, useDimension } from \\\"../../composables/dimensions.mjs\\\";\\r\\nimport { makeElevationProps, useElevation } from \\\"../../composables/elevation.mjs\\\";\\r\\nimport { makeItemsProps } from \\\"../../composables/list-items.mjs\\\";\\r\\nimport { makeNestedProps, useNested } from \\\"../../composables/nested/nested.mjs\\\";\\r\\nimport { makeRoundedProps, useRounded } from \\\"../../composables/rounded.mjs\\\";\\r\\nimport { makeTagProps } from \\\"../../composables/tag.mjs\\\";\\r\\nimport { makeThemeProps, provideTheme } from \\\"../../composables/theme.mjs\\\";\\r\\nimport { makeVariantProps } from \\\"../../composables/variant.mjs\\\"; // Utilities\\r\\nimport { computed, ref, shallowRef, toRef } from 'vue';\\r\\nimport { focusChild, genericComponent, getPropertyFromItem, omit, propsFactory, useRender } from \\\"../../util/index.mjs\\\"; // Types\\r\\nfunction isPrimitive(value) {\\r\\n  return typeof value === 'string' || typeof value === 'number' || typeof value === 'boolean';\\r\\n}\\r\\nfunction transformItem(props, item) {\\r\\n  const type = getPropertyFromItem(item, props.itemType, 'item');\\r\\n  const title = isPrimitive(item) ? item : getPropertyFromItem(item, props.itemTitle);\\r\\n  const value = getPropertyFromItem(item, props.itemValue, undefined);\\r\\n  const children = getPropertyFromItem(item, props.itemChildren);\\r\\n  const itemProps = props.itemProps === true ? omit(item, ['children']) : getPropertyFromItem(item, props.itemProps);\\r\\n  const _props = {\\r\\n    title,\\r\\n    value,\\r\\n    ...itemProps\\r\\n  };\\r\\n  return {\\r\\n    type,\\r\\n    title: _props.title,\\r\\n    value: _props.value,\\r\\n    props: _props,\\r\\n    children: type === 'item' && children ? transformItems(props, children) : undefined,\\r\\n    raw: item\\r\\n  };\\r\\n}\\r\\nfunction transformItems(props, items) {\\r\\n  const array = [];\\r\\n  for (const item of items) {\\r\\n    array.push(transformItem(props, item));\\r\\n  }\\r\\n  return array;\\r\\n}\\r\\nfunction useListItems(props) {\\r\\n  const items = computed(() => transformItems(props, props.items));\\r\\n  return {\\r\\n    items\\r\\n  };\\r\\n}\\r\\nexport const makeVListProps = propsFactory({\\r\\n  baseColor: String,\\r\\n  /* @deprecated */\\r\\n  activeColor: String,\\r\\n  activeClass: String,\\r\\n  bgColor: String,\\r\\n  disabled: Boolean,\\r\\n  expandIcon: String,\\r\\n  collapseIcon: String,\\r\\n  lines: {\\r\\n    type: [Boolean, String],\\r\\n    default: 'one'\\r\\n  },\\r\\n  slim: Boolean,\\r\\n  nav: Boolean,\\r\\n  ...makeNestedProps({\\r\\n    selectStrategy: 'single-leaf',\\r\\n    openStrategy: 'list'\\r\\n  }),\\r\\n  ...makeBorderProps(),\\r\\n  ...makeComponentProps(),\\r\\n  ...makeDensityProps(),\\r\\n  ...makeDimensionProps(),\\r\\n  ...makeElevationProps(),\\r\\n  itemType: {\\r\\n    type: String,\\r\\n    default: 'type'\\r\\n  },\\r\\n  ...makeItemsProps(),\\r\\n  ...makeRoundedProps(),\\r\\n  ...makeTagProps(),\\r\\n  ...makeThemeProps(),\\r\\n  ...makeVariantProps({\\r\\n    variant: 'text'\\r\\n  })\\r\\n}, 'VList');\\r\\nexport const VList = genericComponent()({\\r\\n  name: 'VList',\\r\\n  props: makeVListProps(),\\r\\n  emits: {\\r\\n    'update:selected': value => true,\\r\\n    'update:opened': value => true,\\r\\n    'click:open': value => true,\\r\\n    'click:select': value => true\\r\\n  },\\r\\n  setup(props, _ref) {\\r\\n    let {\\r\\n      slots\\r\\n    } = _ref;\\r\\n    const {\\r\\n      items\\r\\n    } = useListItems(props);\\r\\n    const {\\r\\n      themeClasses\\r\\n    } = provideTheme(props);\\r\\n    const {\\r\\n      backgroundColorClasses,\\r\\n      backgroundColorStyles\\r\\n    } = useBackgroundColor(toRef(props, 'bgColor'));\\r\\n    const {\\r\\n      borderClasses\\r\\n    } = useBorder(props);\\r\\n    const {\\r\\n      densityClasses\\r\\n    } = useDensity(props);\\r\\n    const {\\r\\n      dimensionStyles\\r\\n    } = useDimension(props);\\r\\n    const {\\r\\n      elevationClasses\\r\\n    } = useElevation(props);\\r\\n    const {\\r\\n      roundedClasses\\r\\n    } = useRounded(props);\\r\\n    const {\\r\\n      open,\\r\\n      select\\r\\n    } = useNested(props);\\r\\n    const lineClasses = computed(() => props.lines ? `v-list--${props.lines}-line` : undefined);\\r\\n    const activeColor = toRef(props, 'activeColor');\\r\\n    const baseColor = toRef(props, 'baseColor');\\r\\n    const color = toRef(props, 'color');\\r\\n    createList();\\r\\n    provideDefaults({\\r\\n      VListGroup: {\\r\\n        activeColor,\\r\\n        baseColor,\\r\\n        color,\\r\\n        expandIcon: toRef(props, 'expandIcon'),\\r\\n        collapseIcon: toRef(props, 'collapseIcon')\\r\\n      },\\r\\n      VListItem: {\\r\\n        activeClass: toRef(props, 'activeClass'),\\r\\n        activeColor,\\r\\n        baseColor,\\r\\n        color,\\r\\n        density: toRef(props, 'density'),\\r\\n        disabled: toRef(props, 'disabled'),\\r\\n        lines: toRef(props, 'lines'),\\r\\n        nav: toRef(props, 'nav'),\\r\\n        slim: toRef(props, 'slim'),\\r\\n        variant: toRef(props, 'variant')\\r\\n      }\\r\\n    });\\r\\n    const isFocused = shallowRef(false);\\r\\n    const contentRef = ref();\\r\\n    function onFocusin(e) {\\r\\n      isFocused.value = true;\\r\\n    }\\r\\n    function onFocusout(e) {\\r\\n      isFocused.value = false;\\r\\n    }\\r\\n    function onFocus(e) {\\r\\n      if (!isFocused.value && !(e.relatedTarget && contentRef.value?.contains(e.relatedTarget))) focus();\\r\\n    }\\r\\n    function onKeydown(e) {\\r\\n      if (!contentRef.value) return;\\r\\n      if (e.key === 'ArrowDown') {\\r\\n        focus('next');\\r\\n      } else if (e.key === 'ArrowUp') {\\r\\n        focus('prev');\\r\\n      } else if (e.key === 'Home') {\\r\\n        focus('first');\\r\\n      } else if (e.key === 'End') {\\r\\n        focus('last');\\r\\n      } else {\\r\\n        return;\\r\\n      }\\r\\n      e.preventDefault();\\r\\n    }\\r\\n    function onMousedown(e) {\\r\\n      isFocused.value = true;\\r\\n    }\\r\\n    function focus(location) {\\r\\n      if (contentRef.value) {\\r\\n        return focusChild(contentRef.value, location);\\r\\n      }\\r\\n    }\\r\\n    useRender(() => {\\r\\n      return _createVNode(props.tag, {\\r\\n        \\\"ref\\\": contentRef,\\r\\n        \\\"class\\\": ['v-list', {\\r\\n          'v-list--disabled': props.disabled,\\r\\n          'v-list--nav': props.nav,\\r\\n          'v-list--slim': props.slim\\r\\n        }, themeClasses.value, backgroundColorClasses.value, borderClasses.value, densityClasses.value, elevationClasses.value, lineClasses.value, roundedClasses.value, props.class],\\r\\n        \\\"style\\\": [backgroundColorStyles.value, dimensionStyles.value, props.style],\\r\\n        \\\"tabindex\\\": props.disabled || isFocused.value ? -1 : 0,\\r\\n        \\\"role\\\": \\\"listbox\\\",\\r\\n        \\\"aria-activedescendant\\\": undefined,\\r\\n        \\\"onFocusin\\\": onFocusin,\\r\\n        \\\"onFocusout\\\": onFocusout,\\r\\n        \\\"onFocus\\\": onFocus,\\r\\n        \\\"onKeydown\\\": onKeydown,\\r\\n        \\\"onMousedown\\\": onMousedown\\r\\n      }, {\\r\\n        default: () => [_createVNode(VListChildren, {\\r\\n          \\\"items\\\": items.value,\\r\\n          \\\"returnObject\\\": props.returnObject\\r\\n        }, slots)]\\r\\n      });\\r\\n    });\\r\\n    return {\\r\\n      open,\\r\\n      select,\\r\\n      focus\\r\\n    };\\r\\n  }\\r\\n});\\r\\n//# sourceMappingURL=VList.mjs.map\"],\n  \"mappings\": \"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\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118029599,
+      "end": 1756118029599,
+      "order": "normal"
+    }
+  ]
+}

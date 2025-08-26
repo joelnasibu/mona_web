@@ -1,0 +1,227 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@nuxtjs/algolia/dist/runtime/composables/useAlgoliaSearch.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { computed } from \"vue\";\r\nimport { useAlgoliaInitIndex } from \"./useAlgoliaInitIndex.mjs\";\r\nimport { useState, useRuntimeConfig, useNuxtApp } from \"#imports\";\r\nexport function useAlgoliaSearch(indexName) {\r\n  const config = useRuntimeConfig();\r\n  const index = indexName || config.public.algolia.globalIndex;\r\n  if (!index)\r\n    throw new Error(\"`[@nuxtjs/algolia]` Cannot search in Algolia without `globalIndex` or `indexName` passed as a parameter\");\r\n  const algoliaIndex = useAlgoliaInitIndex(index);\r\n  const result = useState(`${index}-search-result`, () => null);\r\n  const search = async ({ query, requestOptions }) => {\r\n    if (process.server) {\r\n      const nuxtApp = useNuxtApp();\r\n      if (config.public.algolia.useFetch) {\r\n        nuxtApp.$algolia.transporter.requester = (await import(\"@algolia/requester-fetch\").then((lib) => lib.default || lib)).createFetchRequester();\r\n      } else {\r\n        nuxtApp.$algolia.transporter.requester = (await import(\"@algolia/requester-node-http\").then((lib) => lib.default || lib)).createNodeHttpRequester();\r\n      }\r\n    }\r\n    const searchResult = await algoliaIndex.search(query, requestOptions);\r\n    result.value = searchResult;\r\n    return searchResult;\r\n  };\r\n  return {\r\n    result: computed(() => result.value),\r\n    search\r\n  };\r\n}\r\n",
+      "start": 1756117967562,
+      "end": 1756117967783,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967783,
+      "end": 1756117967783,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117967784,
+      "end": 1756117967784,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117967784,
+      "end": 1756117967784,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117967784,
+      "end": 1756117967784,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117967784,
+      "end": 1756117967784,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967784,
+      "end": 1756117967784,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117967784,
+      "end": 1756117967784,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { computed } from \"vue\";\nimport { useAlgoliaInitIndex } from \"./useAlgoliaInitIndex.mjs\";\nimport { useState, useRuntimeConfig, useNuxtApp } from \"#imports\";\nexport function useAlgoliaSearch(indexName) {\n  const config = useRuntimeConfig();\n  const index = indexName || config.public.algolia.globalIndex;\n  if (!index)\n    throw new Error(\"`[@nuxtjs/algolia]` Cannot search in Algolia without `globalIndex` or `indexName` passed as a parameter\");\n  const algoliaIndex = useAlgoliaInitIndex(index);\n  const result = useState(`${index}-search-result`, () => null);\n  const search = async ({ query, requestOptions }) => {\n    if (false) {\n      const nuxtApp = useNuxtApp();\n      if (config.public.algolia.useFetch) {\n        nuxtApp.$algolia.transporter.requester = (await null.then((lib) => lib.default || lib)).createFetchRequester();\n      } else {\n        nuxtApp.$algolia.transporter.requester = (await null.then((lib) => lib.default || lib)).createNodeHttpRequester();\n      }\n    }\n    const searchResult = await algoliaIndex.search(query, requestOptions);\n    result.value = searchResult;\n    return searchResult;\n  };\n  return {\n    result: computed(() => result.value),\n    search\n  };\n}\n",
+      "start": 1756117967784,
+      "end": 1756117967946,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117967946,
+      "end": 1756117967946,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117967946,
+      "end": 1756117967948,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useState } from '#app/composables/state';\nimport { useRuntimeConfig, useNuxtApp } from '#app/nuxt';\nimport { computed } from \"vue\";\nimport { useAlgoliaInitIndex } from \"./useAlgoliaInitIndex.mjs\";\nexport function useAlgoliaSearch(indexName) {\n  const config = useRuntimeConfig();\n  const index = indexName || config.public.algolia.globalIndex;\n  if (!index)\n    throw new Error(\"`[@nuxtjs/algolia]` Cannot search in Algolia without `globalIndex` or `indexName` passed as a parameter\");\n  const algoliaIndex = useAlgoliaInitIndex(index);\n  const result = useState(`${index}-search-result`, () => null);\n  const search = async ({ query, requestOptions }) => {\n    if (false) {\n      const nuxtApp = useNuxtApp();\n      if (config.public.algolia.useFetch) {\n        nuxtApp.$algolia.transporter.requester = (await null.then((lib) => lib.default || lib)).createFetchRequester();\n      } else {\n        nuxtApp.$algolia.transporter.requester = (await null.then((lib) => lib.default || lib)).createNodeHttpRequester();\n      }\n    }\n    const searchResult = await algoliaIndex.search(query, requestOptions);\n    result.value = searchResult;\n    return searchResult;\n  };\n  return {\n    result: computed(() => result.value),\n    search\n  };\n}\n",
+      "start": 1756117967948,
+      "end": 1756117967949,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAE/D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9H,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC;AACH;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117967949,
+      "end": 1756117967950,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117967950,
+      "end": 1756117967950,
+      "order": "normal"
+    }
+  ]
+}

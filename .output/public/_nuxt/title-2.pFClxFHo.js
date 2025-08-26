@@ -1,0 +1,1 @@
+import{_ as e,o as s,c as a,a as o,t as _}from"./entry.d7ew7f-K.js";const c={class:"title-2"},n={__name:"title-2",props:{title:String},setup(t){return(r,i)=>(s(),a("div",c,[o("b",null,_(t.title),1)]))}},p=e(n,[["__scopeId","data-v-f77ba217"]]);export{p as _};

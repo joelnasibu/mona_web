@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue?vue&type=style&index=0&scoped=831baa04&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px);\r\n    background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n",
+      "start": 1756118024488,
+      "end": 1756118024488,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue"
+        ],
+        "names": [],
+        "mappings": ";AAsEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACT,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC/B,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;IAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AAC9D",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"w-100\">\r\n    <div class=\"py-2 text-center\">\r\n      <b>Set new Password</b>\r\n    </div>\r\n    <div class=\"d-flex align-center justify-center w-100\">\r\n      <v-card\r\n        class=\"mx-auto mt-4 pa-4 auth-card rounded-lg bg-transparent\"\r\n        flat\r\n      >\r\n        <v-form ref=\"formData\">\r\n          <v-text-field\r\n            label=\"New password\"\r\n            append-inner-icon=\"mdi-lock-outline\"\r\n            v-model=\"emailAddress\"\r\n            :rules=\"email()\"\r\n            @keypress.enter.prevent=\"handleForgot\"\r\n          ></v-text-field>\r\n          <v-text-field\r\n            label=\"Confirm password\"\r\n            append-inner-icon=\"mdi-lock-outline\"\r\n            v-model=\"emailAddress\"\r\n            :rules=\"email()\"\r\n            @keypress.enter.prevent=\"handleForgot\"\r\n          ></v-text-field>\r\n          <v-btn\r\n            class=\"rounded-lg text-none text-caption\"\r\n            color=\"primary-accent\"\r\n            block\r\n            flat\r\n            size=\"small\"\r\n            :loading=\"loading\"\r\n            @click=\"handleForgot\"\r\n          >\r\n            <span>Submit</span>\r\n          </v-btn>\r\n        </v-form>\r\n        asdf\r\n      </v-card>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst environmentVariable = useRuntimeConfig();\r\nconst { email } = useRules();\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { loading, error } = storeToRefs(useAppStore());\r\n\r\nimport { useAuthStore } from \"~/store/auth\";\r\nconst { forgotPassword } = useAuthStore();\r\n\r\nconst emailAddress = ref(\"\");\r\nconst formData = ref(null);\r\nconst handleForgot = async () => {\r\n  const { valid } = await formData.value.validate();\r\n  if (valid) {\r\n    await forgotPassword({ email: emailAddress.value });\r\n    if (!error.value) {\r\n      emailAddress.value = \"\";\r\n      navigateTo({\r\n        name: \"auth\",\r\n      });\r\n    }\r\n  }\r\n};\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px);\r\n    background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118024489,
+      "end": 1756118024489,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118024489,
+      "end": 1756118024489,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118024489,
+      "end": 1756118024490,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118024489,
+      "end": 1756118024490,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118024493,
+      "end": 1756118024493,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".auth-card{width:clamp(320px,30%,420px)}",
+      "start": 1756118024493,
+      "end": 1756118024500,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue",
+        "mappings": "AACA,WACE,4BAGF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px);\r\n    background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118024500,
+      "end": 1756118024500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118024503,
+      "end": 1756118024503,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118024504,
+      "end": 1756118024504,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".auth-card[data-v-831baa04]{width:clamp(320px,30%,420px)}",
+      "start": 1756118024504,
+      "end": 1756118024508,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue",
+        "mappings": "AAAA,4BAAW,4BAA4B",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/reset-passwordss.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118024511,
+      "end": 1756118024513,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118024515,
+      "end": 1756118024515,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118024515,
+      "end": 1756118024515,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118024515,
+      "end": 1756118024515,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118024515,
+      "end": 1756118024515,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118024515,
+      "end": 1756118024515,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118024527,
+      "end": 1756118024527,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118024529,
+      "end": 1756118024529,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118024529,
+      "end": 1756118024529,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118024529,
+      "end": 1756118024529,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".auth-card[data-v-831baa04]{width:clamp(320px,30%,420px)}\"",
+      "start": 1756118024530,
+      "end": 1756118024530,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118024533,
+      "end": 1756118024533,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118024534,
+      "end": 1756118024534,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118024534,
+      "end": 1756118024535,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118024535,
+      "end": 1756118024535,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118024535,
+      "end": 1756118024535,
+      "order": "normal"
+    }
+  ]
+}

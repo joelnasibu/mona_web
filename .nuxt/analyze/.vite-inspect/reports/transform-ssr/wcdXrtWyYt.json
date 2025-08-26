@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue?vue&type=style&index=0&scoped=479d4694&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\nspan {\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  background-color: currentColor;\r\n  -webkit-mask-image: v-bind(iconUrl);\r\n  mask-image: v-bind(iconUrl);\r\n  -webkit-mask-repeat: no-repeat;\r\n  mask-repeat: no-repeat;\r\n  -webkit-mask-size: 100% 100%;\r\n  mask-size: 100% 100%;\r\n}\r\n",
+      "start": 1756118026402,
+      "end": 1756118026402,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue"
+        ],
+        "names": [],
+        "mappings": ";AAqEA,CAAC,CAAC,CAAC,EAAE;EACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACtB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<script setup lang=\"ts\">\r\nimport { computed } from 'vue'\r\nimport { useAppConfig } from '#imports'\r\nimport { resolveIconName } from './utils'\r\n\r\nconst appConfig = useAppConfig() as {\r\n  nuxtIcon: {\r\n    size?: string\r\n    class?: string\r\n    aliases?: Record<string, string>\r\n    iconifyApiOptions?: {\r\n      url?: string\r\n      publicApiFallback?: boolean\r\n    }\r\n  }\r\n}\r\n\r\nconst props = defineProps({\r\n  name: {\r\n    type: String,\r\n    required: true\r\n  },\r\n  size: {\r\n    type: String,\r\n    default: ''\r\n  }\r\n})\r\n\r\nconst iconName = computed(() => {\r\n  if (appConfig.nuxtIcon?.aliases?.[props.name]) {\r\n    return appConfig.nuxtIcon.aliases[props.name]\r\n  }\r\n  return props.name\r\n})\r\nconst resolvedIcon = computed(() => resolveIconName(iconName.value))\r\nconst iconUrl = computed(() => {\r\n  const customUrl = appConfig.nuxtIcon?.iconifyApiOptions?.url\r\n\r\n  if (customUrl) {\r\n    // validate the custom Iconify API URL\r\n    try {\r\n      new URL(customUrl)\r\n    } catch (e) {\r\n      console.warn('Nuxt IconCSS: Invalid custom Iconify API URL')\r\n      return\r\n    }\r\n  }\r\n\r\n  const baseUrl = customUrl || 'https://api.iconify.design'\r\n  return `url('${baseUrl}/${resolvedIcon.value.prefix}/${resolvedIcon.value.name}.svg')`\r\n})\r\nconst sSize = computed(() => {\r\n  // Disable size if appConfig.nuxtIcon.size === false\r\n  if (!props.size && typeof appConfig.nuxtIcon?.size === 'boolean' && !appConfig.nuxtIcon?.size) {\r\n    return undefined\r\n  }\r\n  const size = props.size || appConfig.nuxtIcon?.size || '1em'\r\n  if (String(Number(size)) === size) {\r\n    return `${size}px`\r\n  }\r\n  return size\r\n})\r\n</script>\r\n\r\n<template>\r\n  <span :style=\"{ width: sSize, height: sSize }\" />\r\n</template>\r\n\r\n<style scoped>\r\nspan {\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  background-color: currentColor;\r\n  -webkit-mask-image: v-bind(iconUrl);\r\n  mask-image: v-bind(iconUrl);\r\n  -webkit-mask-repeat: no-repeat;\r\n  mask-repeat: no-repeat;\r\n  -webkit-mask-size: 100% 100%;\r\n  mask-size: 100% 100%;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118026403,
+      "end": 1756118026403,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118026403,
+      "end": 1756118026403,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118026403,
+      "end": 1756118026404,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118026403,
+      "end": 1756118026404,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118026404,
+      "end": 1756118026404,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "span{background-color:currentColor;display:inline-block;-webkit-mask-image:v-bind(iconUrl);mask-image:v-bind(iconUrl);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%;vertical-align:middle}",
+      "start": 1756118026405,
+      "end": 1756118026415,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue",
+        "mappings": "AACA,KAGE,6BAA8B,CAF9B,oBAAqB,CAGrB,kCAAmC,CACnC,0BAA2B,CAC3B,6BAA8B,CAC9B,qBAAsB,CACtB,2BAA4B,CAC5B,mBAAoB,CAPpB,qBAQF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue"
+        ],
+        "sourcesContent": [
+          "\r\nspan {\r\n  display: inline-block;\r\n  vertical-align: middle;\r\n  background-color: currentColor;\r\n  -webkit-mask-image: v-bind(iconUrl);\r\n  mask-image: v-bind(iconUrl);\r\n  -webkit-mask-repeat: no-repeat;\r\n  mask-repeat: no-repeat;\r\n  -webkit-mask-size: 100% 100%;\r\n  mask-size: 100% 100%;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118026415,
+      "end": 1756118026415,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118026415,
+      "end": 1756118026415,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118026416,
+      "end": 1756118026416,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "span[data-v-479d4694]{background-color:currentColor;display:inline-block;-webkit-mask-image:var(--3cc06416);mask-image:var(--3cc06416);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%;vertical-align:middle}",
+      "start": 1756118026416,
+      "end": 1756118026418,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue",
+        "mappings": "AAAA,sBAAK,6BAA6B,CAAC,oBAAoB,CAAC,kCAAkC,CAAC,0BAA0B,CAAC,6BAA6B,CAAC,qBAAqB,CAAC,2BAA2B,CAAC,mBAAmB,CAAC,qBAAqB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt-icon/dist/runtime/IconCSS.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118026418,
+      "end": 1756118026418,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118026418,
+      "end": 1756118026418,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118026418,
+      "end": 1756118026418,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118026418,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118026418,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118026419,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118026419,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118026419,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118026419,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118026419,
+      "end": 1756118026419,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \"span[data-v-479d4694]{background-color:currentColor;display:inline-block;-webkit-mask-image:var(--3cc06416);mask-image:var(--3cc06416);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:100% 100%;mask-size:100% 100%;vertical-align:middle}\"",
+      "start": 1756118026419,
+      "end": 1756118026419,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118026420,
+      "end": 1756118026420,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118026421,
+      "end": 1756118026421,
+      "order": "normal"
+    }
+  ]
+}

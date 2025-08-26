@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/transitions/createTransition.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Utilities\r\nimport { h, Transition, TransitionGroup } from 'vue';\r\nimport { genericComponent, propsFactory } from \"../../util/index.mjs\"; // Types\r\nexport const makeTransitionProps = propsFactory({\r\n  disabled: Boolean,\r\n  group: Boolean,\r\n  hideOnLeave: Boolean,\r\n  leaveAbsolute: Boolean,\r\n  mode: String,\r\n  origin: String\r\n}, 'transition');\r\nexport function createCssTransition(name, origin, mode) {\r\n  return genericComponent()({\r\n    name,\r\n    props: makeTransitionProps({\r\n      mode,\r\n      origin\r\n    }),\r\n    setup(props, _ref) {\r\n      let {\r\n        slots\r\n      } = _ref;\r\n      const functions = {\r\n        onBeforeEnter(el) {\r\n          if (props.origin) {\r\n            el.style.transformOrigin = props.origin;\r\n          }\r\n        },\r\n        onLeave(el) {\r\n          if (props.leaveAbsolute) {\r\n            const {\r\n              offsetTop,\r\n              offsetLeft,\r\n              offsetWidth,\r\n              offsetHeight\r\n            } = el;\r\n            el._transitionInitialStyles = {\r\n              position: el.style.position,\r\n              top: el.style.top,\r\n              left: el.style.left,\r\n              width: el.style.width,\r\n              height: el.style.height\r\n            };\r\n            el.style.position = 'absolute';\r\n            el.style.top = `${offsetTop}px`;\r\n            el.style.left = `${offsetLeft}px`;\r\n            el.style.width = `${offsetWidth}px`;\r\n            el.style.height = `${offsetHeight}px`;\r\n          }\r\n          if (props.hideOnLeave) {\r\n            el.style.setProperty('display', 'none', 'important');\r\n          }\r\n        },\r\n        onAfterLeave(el) {\r\n          if (props.leaveAbsolute && el?._transitionInitialStyles) {\r\n            const {\r\n              position,\r\n              top,\r\n              left,\r\n              width,\r\n              height\r\n            } = el._transitionInitialStyles;\r\n            delete el._transitionInitialStyles;\r\n            el.style.position = position || '';\r\n            el.style.top = top || '';\r\n            el.style.left = left || '';\r\n            el.style.width = width || '';\r\n            el.style.height = height || '';\r\n          }\r\n        }\r\n      };\r\n      return () => {\r\n        const tag = props.group ? TransitionGroup : Transition;\r\n        return h(tag, {\r\n          name: props.disabled ? '' : name,\r\n          css: !props.disabled,\r\n          ...(props.group ? undefined : {\r\n            mode: props.mode\r\n          }),\r\n          ...(props.disabled ? {} : functions)\r\n        }, slots.default);\r\n      };\r\n    }\r\n  });\r\n}\r\nexport function createJavascriptTransition(name, functions) {\r\n  let mode = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'in-out';\r\n  return genericComponent()({\r\n    name,\r\n    props: {\r\n      mode: {\r\n        type: String,\r\n        default: mode\r\n      },\r\n      disabled: Boolean\r\n    },\r\n    setup(props, _ref2) {\r\n      let {\r\n        slots\r\n      } = _ref2;\r\n      return () => {\r\n        return h(Transition, {\r\n          name: props.disabled ? '' : name,\r\n          css: !props.disabled,\r\n          // mode: props.mode, // TODO: vuejs/vue-next#3104\r\n          ...(props.disabled ? {} : functions)\r\n        }, slots.default);\r\n      };\r\n    }\r\n  });\r\n}\r\n//# sourceMappingURL=createTransition.mjs.map",
+      "start": 1756118029125,
+      "end": 1756118029897,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029897,
+      "end": 1756118029897,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118029898,
+      "end": 1756118029898,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118029898,
+      "end": 1756118029899,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118029898,
+      "end": 1756118029899,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118029899,
+      "end": 1756118029899,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118029899,
+      "end": 1756118029899,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118029899,
+      "end": 1756118029899,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118029899,
+      "end": 1756118029899,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118029899,
+      "end": 1756118029899,
+      "order": "normal"
+    }
+  ]
+}

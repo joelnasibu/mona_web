@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/directives/click-outside/index.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Utilities\r\nimport { attachedRoot } from \"../../util/index.mjs\"; // Types\r\nfunction defaultConditional() {\r\n  return true;\r\n}\r\nfunction checkEvent(e, el, binding) {\r\n  // The include element callbacks below can be expensive\r\n  // so we should avoid calling them when we're not active.\r\n  // Explicitly check for false to allow fallback compatibility\r\n  // with non-toggleable components\r\n  if (!e || checkIsActive(e, binding) === false) return false;\r\n\r\n  // If we're clicking inside the shadowroot, then the app root doesn't get the same\r\n  // level of introspection as to _what_ we're clicking. We want to check to see if\r\n  // our target is the shadowroot parent container, and if it is, ignore.\r\n  const root = attachedRoot(el);\r\n  if (typeof ShadowRoot !== 'undefined' && root instanceof ShadowRoot && root.host === e.target) return false;\r\n\r\n  // Check if additional elements were passed to be included in check\r\n  // (click must be outside all included elements, if any)\r\n  const elements = (typeof binding.value === 'object' && binding.value.include || (() => []))();\r\n  // Add the root element for the component this directive was defined on\r\n  elements.push(el);\r\n\r\n  // Check if it's a click outside our elements, and then if our callback returns true.\r\n  // Non-toggleable components should take action in their callback and return falsy.\r\n  // Toggleable can return true if it wants to deactivate.\r\n  // Note that, because we're in the capture phase, this callback will occur before\r\n  // the bubbling click event on any outside elements.\r\n  return !elements.some(el => el?.contains(e.target));\r\n}\r\nfunction checkIsActive(e, binding) {\r\n  const isActive = typeof binding.value === 'object' && binding.value.closeConditional || defaultConditional;\r\n  return isActive(e);\r\n}\r\nfunction directive(e, el, binding) {\r\n  const handler = typeof binding.value === 'function' ? binding.value : binding.value.handler;\r\n  el._clickOutside.lastMousedownWasOutside && checkEvent(e, el, binding) && setTimeout(() => {\r\n    checkIsActive(e, binding) && handler && handler(e);\r\n  }, 0);\r\n}\r\nfunction handleShadow(el, callback) {\r\n  const root = attachedRoot(el);\r\n  callback(document);\r\n  if (typeof ShadowRoot !== 'undefined' && root instanceof ShadowRoot) {\r\n    callback(root);\r\n  }\r\n}\r\nexport const ClickOutside = {\r\n  // [data-app] may not be found\r\n  // if using bind, inserted makes\r\n  // sure that the root element is\r\n  // available, iOS does not support\r\n  // clicks on body\r\n  mounted(el, binding) {\r\n    const onClick = e => directive(e, el, binding);\r\n    const onMousedown = e => {\r\n      el._clickOutside.lastMousedownWasOutside = checkEvent(e, el, binding);\r\n    };\r\n    handleShadow(el, app => {\r\n      app.addEventListener('click', onClick, true);\r\n      app.addEventListener('mousedown', onMousedown, true);\r\n    });\r\n    if (!el._clickOutside) {\r\n      el._clickOutside = {\r\n        lastMousedownWasOutside: false\r\n      };\r\n    }\r\n    el._clickOutside[binding.instance.$.uid] = {\r\n      onClick,\r\n      onMousedown\r\n    };\r\n  },\r\n  unmounted(el, binding) {\r\n    if (!el._clickOutside) return;\r\n    handleShadow(el, app => {\r\n      if (!app || !el._clickOutside?.[binding.instance.$.uid]) return;\r\n      const {\r\n        onClick,\r\n        onMousedown\r\n      } = el._clickOutside[binding.instance.$.uid];\r\n      app.removeEventListener('click', onClick, true);\r\n      app.removeEventListener('mousedown', onMousedown, true);\r\n    });\r\n    delete el._clickOutside[binding.instance.$.uid];\r\n  }\r\n};\r\nexport default ClickOutside;\r\n//# sourceMappingURL=index.mjs.map",
+      "start": 1756117967015,
+      "end": 1756117967141,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967141,
+      "end": 1756117967141,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117967141,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117967142,
+      "end": 1756117967142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117967143,
+      "end": 1756117967143,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117967143,
+      "end": 1756117967143,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117967143,
+      "end": 1756117967143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117967143,
+      "end": 1756117967143,
+      "order": "normal"
+    }
+  ]
+}

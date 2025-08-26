@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/_lib/format/lightFormatters.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { addLeadingZeros } from \"../addLeadingZeros.mjs\";\r\n\r\n/*\r\n * |     | Unit                           |     | Unit                           |\r\n * |-----|--------------------------------|-----|--------------------------------|\r\n * |  a  | AM, PM                         |  A* |                                |\r\n * |  d  | Day of month                   |  D  |                                |\r\n * |  h  | Hour [1-12]                    |  H  | Hour [0-23]                    |\r\n * |  m  | Minute                         |  M  | Month                          |\r\n * |  s  | Second                         |  S  | Fraction of second             |\r\n * |  y  | Year (abs)                     |  Y  |                                |\r\n *\r\n * Letters marked by * are not implemented but reserved by Unicode standard.\r\n */\r\n\r\nexport const lightFormatters = {\r\n  // Year\r\n  y(date, token) {\r\n    // From http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_tokens\r\n    // | Year     |     y | yy |   yyy |  yyyy | yyyyy |\r\n    // |----------|-------|----|-------|-------|-------|\r\n    // | AD 1     |     1 | 01 |   001 |  0001 | 00001 |\r\n    // | AD 12    |    12 | 12 |   012 |  0012 | 00012 |\r\n    // | AD 123   |   123 | 23 |   123 |  0123 | 00123 |\r\n    // | AD 1234  |  1234 | 34 |  1234 |  1234 | 01234 |\r\n    // | AD 12345 | 12345 | 45 | 12345 | 12345 | 12345 |\r\n\r\n    const signedYear = date.getFullYear();\r\n    // Returns 1 for 1 BC (which is year 0 in JavaScript)\r\n    const year = signedYear > 0 ? signedYear : 1 - signedYear;\r\n    return addLeadingZeros(token === \"yy\" ? year % 100 : year, token.length);\r\n  },\r\n\r\n  // Month\r\n  M(date, token) {\r\n    const month = date.getMonth();\r\n    return token === \"M\" ? String(month + 1) : addLeadingZeros(month + 1, 2);\r\n  },\r\n\r\n  // Day of the month\r\n  d(date, token) {\r\n    return addLeadingZeros(date.getDate(), token.length);\r\n  },\r\n\r\n  // AM or PM\r\n  a(date, token) {\r\n    const dayPeriodEnumValue = date.getHours() / 12 >= 1 ? \"pm\" : \"am\";\r\n\r\n    switch (token) {\r\n      case \"a\":\r\n      case \"aa\":\r\n        return dayPeriodEnumValue.toUpperCase();\r\n      case \"aaa\":\r\n        return dayPeriodEnumValue;\r\n      case \"aaaaa\":\r\n        return dayPeriodEnumValue[0];\r\n      case \"aaaa\":\r\n      default:\r\n        return dayPeriodEnumValue === \"am\" ? \"a.m.\" : \"p.m.\";\r\n    }\r\n  },\r\n\r\n  // Hour [1-12]\r\n  h(date, token) {\r\n    return addLeadingZeros(date.getHours() % 12 || 12, token.length);\r\n  },\r\n\r\n  // Hour [0-23]\r\n  H(date, token) {\r\n    return addLeadingZeros(date.getHours(), token.length);\r\n  },\r\n\r\n  // Minute\r\n  m(date, token) {\r\n    return addLeadingZeros(date.getMinutes(), token.length);\r\n  },\r\n\r\n  // Second\r\n  s(date, token) {\r\n    return addLeadingZeros(date.getSeconds(), token.length);\r\n  },\r\n\r\n  // Fraction of second\r\n  S(date, token) {\r\n    const numberOfDigits = token.length;\r\n    const milliseconds = date.getMilliseconds();\r\n    const fractionalSeconds = Math.trunc(\r\n      milliseconds * Math.pow(10, numberOfDigits - 3),\r\n    );\r\n    return addLeadingZeros(fractionalSeconds, token.length);\r\n  },\r\n};\r\n",
+      "start": 1756117965115,
+      "end": 1756117965332,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117965332,
+      "end": 1756117965332,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965332,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117965333,
+      "end": 1756117965333,
+      "order": "normal"
+    }
+  ]
+}

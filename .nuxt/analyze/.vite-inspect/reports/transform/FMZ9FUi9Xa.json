@@ -1,0 +1,218 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/composables/useSupabase.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import {\r\n  createClient\r\n} from '@supabase/supabase-js'\r\n\r\nconst supabaseUrl =\r\n  import.meta.env.VITE_SUPABASE_URL\r\nconst supabaseKey =\r\n  import.meta.env.VITE_SUPABASE_API_KEY\r\n\r\n\r\nexport const useSupabase = () => createClient(supabaseUrl, supabaseKey);",
+      "start": 1756117957806,
+      "end": 1756117958406,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117958406,
+      "end": 1756117958406,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117958406,
+      "end": 1756117958407,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117958407,
+      "end": 1756117958407,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117958407,
+      "end": 1756117958408,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117958408,
+      "end": 1756117958408,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import {\n  createClient\n} from \"@supabase/supabase-js\";\nconst supabaseUrl = \"https://ubpttprwtcbnnnfrcdww.supabase.co\";\nconst supabaseKey = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVicHR0cHJ3dGNibm5uZnJjZHd3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Mjk1NzI2MjMsImV4cCI6MjA0NTE0ODYyM30.1NUS459ebTcgNiAAmM7Xx4fI1RvCWIQQfcndlhMxi9M\";\nexport const useSupabase = () => createClient(supabaseUrl, supabaseKey);\n",
+      "start": 1756117958408,
+      "end": 1756117958576,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117958576,
+      "end": 1756117958576,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117958576,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117958577,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117958577,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117958577,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117958577,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117958577,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117958577,
+      "end": 1756117958577,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117958577,
+      "end": 1756117958578,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117958578,
+      "end": 1756117958578,
+      "order": "normal"
+    }
+  ]
+}

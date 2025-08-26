@@ -1,0 +1,25 @@
+export default {
+  light: {
+    colors: {
+      primary: "#0e6597",
+      "primary-accent": "#4494c4",
+      "primary-dark": "#0f74a0",
+      secondary: "#e6672b",
+      "secondary-accent": "#3dc642",
+      "secondary-dark": "#164717",
+      link: "#ea3321",
+      surface: "#ffffff",
+      background: "#ffffff",
+      default: "#032f46",
+      "default-light": "#044262",
+      border: "#DEE2E7",
+      white: "#fff",
+      "off-white": "#fdfdfd",
+      "off-white-1": "#fbfbfb",
+      card: "hsl(200, 5%, 97.8%)",
+      // card: "#fbf6ff",
+      foreground: "#136C7E",
+      drawer: "#03364D",
+    },
+  },
+};

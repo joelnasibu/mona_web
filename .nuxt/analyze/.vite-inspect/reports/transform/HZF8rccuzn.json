@@ -1,0 +1,240 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/help.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div>HELP</div>\r\n</template>\r\n\r\n<script setup>\r\ndefinePageMeta({\r\n  layout: \"landing\",\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117938090,
+      "end": 1756117938693,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117938694,
+      "end": 1756117938694,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'help',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: \"landing\",\r\n});\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, \"HELP\"))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117938694,
+      "end": 1756117938695,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117938695,
+      "end": 1756117938695,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117938695,
+      "end": 1756117938695,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'help',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: \"landing\",\r\n});\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, \"HELP\"))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117938696,
+      "end": 1756117938696,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { definePageMeta } from 'C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt/dist/pages/runtime/composables';\nimport { openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'help',\n  setup(__props) {\n\r\ndefinePageMeta({\r\n  layout: \"landing\",\r\n});\r\n\nreturn (_ctx, _cache) => {\n  return (_openBlock(), _createElementBlock(\"div\", null, \"HELP\"))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117938696,
+      "end": 1756117938697,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;AAGvF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC;;AAEH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChE;AACA;;AAEA;;;;AAIA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117938697,
+      "end": 1756117938698,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "const __nuxt_page_meta = {\r\n  layout: \"landing\",\r\n}\nexport default __nuxt_page_meta",
+      "start": 1756117938698,
+      "end": 1756117938699,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;AAAA"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117938699,
+      "end": 1756117938699,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117938699,
+      "end": 1756117938699,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117938699,
+      "end": 1756117938699,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117938699,
+      "end": 1756117938699,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117938699,
+      "end": 1756117938699,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117938699,
+      "end": 1756117938699,
+      "order": "normal"
+    }
+  ]
+}

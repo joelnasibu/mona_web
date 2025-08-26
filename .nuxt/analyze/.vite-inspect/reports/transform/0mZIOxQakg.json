@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/btn/details-btn.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-btn\r\n    class=\"text-capitalize\"\r\n    icon=\"mdi-dots-horizontal\"\r\n    rounded=\"lg\"\r\n    size=\"28\"\r\n    flat\r\n    color=\"primary-dark\"\r\n    title=\"Preview details\"\r\n    @click=\"emits('details')\"\r\n  >\r\n  </v-btn>\r\n</template>\r\n\r\n<script setup>\r\nconst emits = defineEmits([\"details\"]);\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117946631,
+      "end": 1756117946866,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117946866,
+      "end": 1756117946866,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'details-btn',\n  emits: [\"details\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst emits = __emit;\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n\n  return (_openBlock(), _createBlock(_component_v_btn, {\n    class: \"text-capitalize\",\n    icon: \"mdi-dots-horizontal\",\n    rounded: \"lg\",\n    size: \"28\",\n    flat: \"\",\n    color: \"primary-dark\",\n    title: \"Preview details\",\n    onClick: _cache[0] || (_cache[0] = $event => (emits('details')))\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117946866,
+      "end": 1756117946869,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'details-btn',\n  emits: [\"details\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst emits = __emit;\r\n\nreturn (_ctx, _cache) => {\n                                                     \n\n  return (_openBlock(), _createBlock(_component_v_btn, {\n    class: \"text-capitalize\",\n    icon: \"mdi-dots-horizontal\",\n    rounded: \"lg\",\n    size: \"28\",\n    flat: \"\",\n    color: \"primary-dark\",\n    title: \"Preview details\",\n    onClick: _cache[0] || (_cache[0] = $event => (emits('details')))\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\n\n",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117946869,
+      "end": 1756117946869,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117946870,
+      "end": 1756117946870,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117946870,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117946871,
+      "end": 1756117946871,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117946871,
+      "end": 1756117946872,
+      "order": "normal"
+    }
+  ]
+}

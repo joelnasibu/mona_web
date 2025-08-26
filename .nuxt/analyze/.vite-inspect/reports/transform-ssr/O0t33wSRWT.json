@@ -1,0 +1,269 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerEdit.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-color-picker-edit {\r\n  display: flex;\r\n  margin-top: 24px;\r\n}\r\n\r\n.v-color-picker-edit__input {\r\n  width: 100%;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  text-align: center;\r\n}\r\n.v-color-picker-edit__input:not(:last-child) {\r\n  margin-inline-end: 8px;\r\n}\r\n.v-color-picker-edit__input input {\r\n  border-radius: 4px;\r\n  margin-bottom: 8px;\r\n  min-width: 0;\r\n  outline: none;\r\n  text-align: center;\r\n  width: 100%;\r\n  height: 32px;\r\n  background: rgba(var(--v-theme-surface-variant), 0.2);\r\n  color: rgba(var(--v-theme-on-surface));\r\n}\r\n.v-color-picker-edit__input span {\r\n  font-size: 0.75rem;\r\n}",
+      "start": 1756118036912,
+      "end": 1756118037132,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118037132,
+      "end": 1756118037132,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118037132,
+      "end": 1756118037132,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118037132,
+      "end": 1756118037132,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118037132,
+      "end": 1756118037132,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118037132,
+      "end": 1756118037132,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-color-picker-edit{display:flex;margin-top:24px}.v-color-picker-edit__input{display:flex;flex-wrap:wrap;justify-content:center;text-align:center;width:100%}.v-color-picker-edit__input:not(:last-child){margin-inline-end:8px}.v-color-picker-edit__input input{background:rgba(var(--v-theme-surface-variant),.2);border-radius:4px;color:rgba(var(--v-theme-on-surface));height:32px;margin-bottom:8px;min-width:0;outline:none;text-align:center;width:100%}.v-color-picker-edit__input span{font-size:.75rem}",
+      "start": 1756118037132,
+      "end": 1756118037143,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerEdit.css",
+        "mappings": "AAAA,qBACE,YAAa,CACb,eACF,CAEA,4BAEE,YAAa,CACb,cAAe,CACf,sBAAuB,CACvB,iBAAkB,CAJlB,UAKF,CACA,6CACE,qBACF,CACA,kCAQE,kDAAqD,CAPrD,iBAAkB,CAQlB,qCAAsC,CAFtC,WAAY,CALZ,iBAAkB,CAClB,WAAY,CACZ,YAAa,CACb,iBAAkB,CAClB,UAIF,CACA,iCACE,gBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerEdit.css"
+        ],
+        "sourcesContent": [
+          ".v-color-picker-edit {\r\n  display: flex;\r\n  margin-top: 24px;\r\n}\r\n\r\n.v-color-picker-edit__input {\r\n  width: 100%;\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\r\n  text-align: center;\r\n}\r\n.v-color-picker-edit__input:not(:last-child) {\r\n  margin-inline-end: 8px;\r\n}\r\n.v-color-picker-edit__input input {\r\n  border-radius: 4px;\r\n  margin-bottom: 8px;\r\n  min-width: 0;\r\n  outline: none;\r\n  text-align: center;\r\n  width: 100%;\r\n  height: 32px;\r\n  background: rgba(var(--v-theme-surface-variant), 0.2);\r\n  color: rgba(var(--v-theme-on-surface));\r\n}\r\n.v-color-picker-edit__input span {\r\n  font-size: 0.75rem;\r\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118037143,
+      "end": 1756118037143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".v-color-picker-edit{display:flex;margin-top:24px}.v-color-picker-edit__input{display:flex;flex-wrap:wrap;justify-content:center;text-align:center;width:100%}.v-color-picker-edit__input:not(:last-child){margin-inline-end:8px}.v-color-picker-edit__input input{background:rgba(var(--v-theme-surface-variant),.2);border-radius:4px;color:rgba(var(--v-theme-on-surface));height:32px;margin-bottom:8px;min-width:0;outline:none;text-align:center;width:100%}.v-color-picker-edit__input span{font-size:.75rem}\"",
+      "start": 1756118037143,
+      "end": 1756118037144,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118037144,
+      "end": 1756118037144,
+      "order": "normal"
+    }
+  ]
+}

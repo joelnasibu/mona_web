@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VDataTable/composables/paginate.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Composables\r\nimport { useProxiedModel } from \"../../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { computed, inject, provide, watch, watchEffect } from 'vue';\r\nimport { clamp, getCurrentInstance, propsFactory } from \"../../../util/index.mjs\"; // Types\r\nexport const makeDataTablePaginateProps = propsFactory({\r\n  page: {\r\n    type: [Number, String],\r\n    default: 1\r\n  },\r\n  itemsPerPage: {\r\n    type: [Number, String],\r\n    default: 10\r\n  }\r\n}, 'DataTable-paginate');\r\nconst VDataTablePaginationSymbol = Symbol.for('vuetify:data-table-pagination');\r\nexport function createPagination(props) {\r\n  const page = useProxiedModel(props, 'page', undefined, value => +(value ?? 1));\r\n  const itemsPerPage = useProxiedModel(props, 'itemsPerPage', undefined, value => +(value ?? 10));\r\n  return {\r\n    page,\r\n    itemsPerPage\r\n  };\r\n}\r\nexport function providePagination(options) {\r\n  const {\r\n    page,\r\n    itemsPerPage,\r\n    itemsLength\r\n  } = options;\r\n  const startIndex = computed(() => {\r\n    if (itemsPerPage.value === -1) return 0;\r\n    return itemsPerPage.value * (page.value - 1);\r\n  });\r\n  const stopIndex = computed(() => {\r\n    if (itemsPerPage.value === -1) return itemsLength.value;\r\n    return Math.min(itemsLength.value, startIndex.value + itemsPerPage.value);\r\n  });\r\n  const pageCount = computed(() => {\r\n    if (itemsPerPage.value === -1 || itemsLength.value === 0) return 1;\r\n    return Math.ceil(itemsLength.value / itemsPerPage.value);\r\n  });\r\n  watchEffect(() => {\r\n    if (page.value > pageCount.value) {\r\n      page.value = pageCount.value;\r\n    }\r\n  });\r\n  function setItemsPerPage(value) {\r\n    itemsPerPage.value = value;\r\n    page.value = 1;\r\n  }\r\n  function nextPage() {\r\n    page.value = clamp(page.value + 1, 1, pageCount.value);\r\n  }\r\n  function prevPage() {\r\n    page.value = clamp(page.value - 1, 1, pageCount.value);\r\n  }\r\n  function setPage(value) {\r\n    page.value = clamp(value, 1, pageCount.value);\r\n  }\r\n  const data = {\r\n    page,\r\n    itemsPerPage,\r\n    startIndex,\r\n    stopIndex,\r\n    pageCount,\r\n    itemsLength,\r\n    nextPage,\r\n    prevPage,\r\n    setPage,\r\n    setItemsPerPage\r\n  };\r\n  provide(VDataTablePaginationSymbol, data);\r\n  return data;\r\n}\r\nexport function usePagination() {\r\n  const data = inject(VDataTablePaginationSymbol);\r\n  if (!data) throw new Error('Missing pagination!');\r\n  return data;\r\n}\r\nexport function usePaginatedItems(options) {\r\n  const vm = getCurrentInstance('usePaginatedItems');\r\n  const {\r\n    items,\r\n    startIndex,\r\n    stopIndex,\r\n    itemsPerPage\r\n  } = options;\r\n  const paginatedItems = computed(() => {\r\n    if (itemsPerPage.value <= 0) return items.value;\r\n    return items.value.slice(startIndex.value, stopIndex.value);\r\n  });\r\n  watch(paginatedItems, val => {\r\n    vm.emit('update:currentItems', val);\r\n  });\r\n  return {\r\n    paginatedItems\r\n  };\r\n}\r\n//# sourceMappingURL=paginate.mjs.map",
+      "start": 1756117963393,
+      "end": 1756117963554,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117963554,
+      "end": 1756117963554,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117963554,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117963555,
+      "end": 1756117963555,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117963555,
+      "end": 1756117963556,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117963556,
+      "end": 1756117963556,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117963556,
+      "end": 1756117963556,
+      "order": "normal"
+    }
+  ]
+}

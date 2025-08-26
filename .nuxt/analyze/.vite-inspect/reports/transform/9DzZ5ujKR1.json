@@ -1,0 +1,227 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.PostgrestError = exports.PostgrestBuilder = exports.PostgrestTransformBuilder = exports.PostgrestFilterBuilder = exports.PostgrestQueryBuilder = exports.PostgrestClient = void 0;\r\n// Always update wrapper.mjs when updating this file.\r\nconst PostgrestClient_1 = __importDefault(require(\"./PostgrestClient\"));\r\nexports.PostgrestClient = PostgrestClient_1.default;\r\nconst PostgrestQueryBuilder_1 = __importDefault(require(\"./PostgrestQueryBuilder\"));\r\nexports.PostgrestQueryBuilder = PostgrestQueryBuilder_1.default;\r\nconst PostgrestFilterBuilder_1 = __importDefault(require(\"./PostgrestFilterBuilder\"));\r\nexports.PostgrestFilterBuilder = PostgrestFilterBuilder_1.default;\r\nconst PostgrestTransformBuilder_1 = __importDefault(require(\"./PostgrestTransformBuilder\"));\r\nexports.PostgrestTransformBuilder = PostgrestTransformBuilder_1.default;\r\nconst PostgrestBuilder_1 = __importDefault(require(\"./PostgrestBuilder\"));\r\nexports.PostgrestBuilder = PostgrestBuilder_1.default;\r\nconst PostgrestError_1 = __importDefault(require(\"./PostgrestError\"));\r\nexports.PostgrestError = PostgrestError_1.default;\r\nexports.default = {\r\n    PostgrestClient: PostgrestClient_1.default,\r\n    PostgrestQueryBuilder: PostgrestQueryBuilder_1.default,\r\n    PostgrestFilterBuilder: PostgrestFilterBuilder_1.default,\r\n    PostgrestTransformBuilder: PostgrestTransformBuilder_1.default,\r\n    PostgrestBuilder: PostgrestBuilder_1.default,\r\n    PostgrestError: PostgrestError_1.default,\r\n};\r\n//# sourceMappingURL=index.js.map",
+      "start": 1756117968156,
+      "end": 1756117968281,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968281,
+      "end": 1756117968281,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968281,
+      "end": 1756117968282,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968282,
+      "end": 1756117968282,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as cjs } from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/index.js?commonjs-exports\";\nimport require$$0 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestQueryBuilder.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestFilterBuilder.js?commonjs-proxy\";\nimport require$$3 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestTransformBuilder.js?commonjs-proxy\";\nimport require$$4 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestBuilder.js?commonjs-proxy\";\nimport require$$5 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js?commonjs-proxy\";\n\n\"use strict\";\r\nvar __importDefault = (commonjsHelpers.commonjsGlobal && commonjsHelpers.commonjsGlobal.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(cjs, \"__esModule\", { value: true });\r\nvar PostgrestError = cjs.PostgrestError = PostgrestBuilder = cjs.PostgrestBuilder = PostgrestTransformBuilder = cjs.PostgrestTransformBuilder = PostgrestFilterBuilder = cjs.PostgrestFilterBuilder = PostgrestQueryBuilder = cjs.PostgrestQueryBuilder = PostgrestClient = cjs.PostgrestClient = void 0;\r\n// Always update wrapper.mjs when updating this file.\r\nconst PostgrestClient_1 = __importDefault(require$$0);\r\nvar PostgrestClient = cjs.PostgrestClient = PostgrestClient_1.default;\r\nconst PostgrestQueryBuilder_1 = __importDefault(require$$1);\r\nvar PostgrestQueryBuilder = cjs.PostgrestQueryBuilder = PostgrestQueryBuilder_1.default;\r\nconst PostgrestFilterBuilder_1 = __importDefault(require$$2);\r\nvar PostgrestFilterBuilder = cjs.PostgrestFilterBuilder = PostgrestFilterBuilder_1.default;\r\nconst PostgrestTransformBuilder_1 = __importDefault(require$$3);\r\nvar PostgrestTransformBuilder = cjs.PostgrestTransformBuilder = PostgrestTransformBuilder_1.default;\r\nconst PostgrestBuilder_1 = __importDefault(require$$4);\r\nvar PostgrestBuilder = cjs.PostgrestBuilder = PostgrestBuilder_1.default;\r\nconst PostgrestError_1 = __importDefault(require$$5);\r\nPostgrestError = cjs.PostgrestError = PostgrestError_1.default;\r\nvar _default = cjs.default = {\r\n    PostgrestClient: PostgrestClient_1.default,\r\n    PostgrestQueryBuilder: PostgrestQueryBuilder_1.default,\r\n    PostgrestFilterBuilder: PostgrestFilterBuilder_1.default,\r\n    PostgrestTransformBuilder: PostgrestTransformBuilder_1.default,\r\n    PostgrestBuilder: PostgrestBuilder_1.default,\r\n    PostgrestError: PostgrestError_1.default,\r\n};\r\n//# sourceMappingURL=index.js.map\n\nexport { cjs as __moduleExports, PostgrestError, PostgrestBuilder, PostgrestTransformBuilder, PostgrestFilterBuilder, PostgrestQueryBuilder, PostgrestClient, _default as default };",
+      "start": 1756117968282,
+      "end": 1756117969115,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [
+          "this"
+        ],
+        "mappings": ";;;;;;;;;AAAA,YAAY,CAAC;AACb,IAAI,eAAe,GAAG,CAACA,8BAAI,IAAIA,8BAAI,CAAC,eAAe,KAAK,UAAU,GAAG,EAAE;AACvE,IAAI,OAAO,CAAC,GAAG,IAAI,GAAG,CAAC,UAAU,IAAI,GAAG,GAAG,EAAE,SAAS,EAAE,GAAG,EAAE,CAAC;AAC9D,CAAC,CAAC;AACF,MAAM,CAAC,cAAc,CAAC,GAAO,EAAE,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;AAC9D,uCAAsB,GAAG,uCAAwB,GAAG,yDAAiC,GAAG,mDAA8B,GAAG,iDAA6B,GAAG,qCAAuB,GAAG,KAAK,CAAC,CAAC;AAC1L;AACA,MAAM,iBAAiB,GAAG,eAAe,CAAC,UAA4B,CAAC,CAAC;AACxE,yCAAuB,GAAG,iBAAiB,CAAC,OAAO,CAAC;AACpD,MAAM,uBAAuB,GAAG,eAAe,CAAC,UAAkC,CAAC,CAAC;AACpF,qDAA6B,GAAG,uBAAuB,CAAC,OAAO,CAAC;AAChE,MAAM,wBAAwB,GAAG,eAAe,CAAC,UAAmC,CAAC,CAAC;AACtF,uDAA8B,GAAG,wBAAwB,CAAC,OAAO,CAAC;AAClE,MAAM,2BAA2B,GAAG,eAAe,CAAC,UAAsC,CAAC,CAAC;AAC5F,6DAAiC,GAAG,2BAA2B,CAAC,OAAO,CAAC;AACxE,MAAM,kBAAkB,GAAG,eAAe,CAAC,UAA6B,CAAC,CAAC;AAC1E,2CAAwB,GAAG,kBAAkB,CAAC,OAAO,CAAC;AACtD,MAAM,gBAAgB,GAAG,eAAe,CAAC,UAA2B,CAAC,CAAC;AACtE,mCAAsB,GAAG,gBAAgB,CAAC,OAAO,CAAC;AAClD,0BAAe,GAAG;AAClB,IAAI,eAAe,EAAE,iBAAiB,CAAC,OAAO;AAC9C,IAAI,qBAAqB,EAAE,uBAAuB,CAAC,OAAO;AAC1D,IAAI,sBAAsB,EAAE,wBAAwB,CAAC,OAAO;AAC5D,IAAI,yBAAyB,EAAE,2BAA2B,CAAC,OAAO;AAClE,IAAI,gBAAgB,EAAE,kBAAkB,CAAC,OAAO;AAChD,IAAI,cAAc,EAAE,gBAAgB,CAAC,OAAO;AAC5C,CAAC,CAAC;AACF"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117969115,
+      "end": 1756117969115,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117969115,
+      "end": 1756117969115,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117969115,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117969116,
+      "end": 1756117969116,
+      "order": "normal"
+    }
+  ]
+}

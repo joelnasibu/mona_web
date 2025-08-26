@@ -1,0 +1,254 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerPreview.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VColorPickerPreview.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VSlider } from \"../VSlider/index.mjs\"; // Composables\r\nimport { makeComponentProps } from \"../../composables/component.mjs\"; // Utilities\r\nimport { onUnmounted } from 'vue';\r\nimport { nullColor } from \"./util/index.mjs\";\r\nimport { defineComponent, HexToHSV, HSVtoCSS, propsFactory, SUPPORTS_EYE_DROPPER, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVColorPickerPreviewProps = propsFactory({\r\n  color: {\r\n    type: Object\r\n  },\r\n  disabled: Boolean,\r\n  hideAlpha: Boolean,\r\n  ...makeComponentProps()\r\n}, 'VColorPickerPreview');\r\nexport const VColorPickerPreview = defineComponent({\r\n  name: 'VColorPickerPreview',\r\n  props: makeVColorPickerPreviewProps(),\r\n  emits: {\r\n    'update:color': color => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      emit\r\n    } = _ref;\r\n    const abortController = new AbortController();\r\n    onUnmounted(() => abortController.abort());\r\n    async function openEyeDropper() {\r\n      if (!SUPPORTS_EYE_DROPPER) return;\r\n      const eyeDropper = new window.EyeDropper();\r\n      try {\r\n        const result = await eyeDropper.open({\r\n          signal: abortController.signal\r\n        });\r\n        const colorHexValue = HexToHSV(result.sRGBHex);\r\n        emit('update:color', {\r\n          ...(props.color ?? nullColor),\r\n          ...colorHexValue\r\n        });\r\n      } catch (e) {}\r\n    }\r\n    useRender(() => _createVNode(\"div\", {\r\n      \"class\": ['v-color-picker-preview', {\r\n        'v-color-picker-preview--hide-alpha': props.hideAlpha\r\n      }, props.class],\r\n      \"style\": props.style\r\n    }, [SUPPORTS_EYE_DROPPER && _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-preview__eye-dropper\",\r\n      \"key\": \"eyeDropper\"\r\n    }, [_createVNode(VBtn, {\r\n      \"onClick\": openEyeDropper,\r\n      \"icon\": \"$eyeDropper\",\r\n      \"variant\": \"plain\",\r\n      \"density\": \"comfortable\"\r\n    }, null)]), _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-preview__dot\"\r\n    }, [_createVNode(\"div\", {\r\n      \"style\": {\r\n        background: HSVtoCSS(props.color ?? nullColor)\r\n      }\r\n    }, null)]), _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-preview__sliders\"\r\n    }, [_createVNode(VSlider, {\r\n      \"class\": \"v-color-picker-preview__track v-color-picker-preview__hue\",\r\n      \"modelValue\": props.color?.h,\r\n      \"onUpdate:modelValue\": h => emit('update:color', {\r\n        ...(props.color ?? nullColor),\r\n        h\r\n      }),\r\n      \"step\": 0,\r\n      \"min\": 0,\r\n      \"max\": 360,\r\n      \"disabled\": props.disabled,\r\n      \"thumbSize\": 14,\r\n      \"trackSize\": 8,\r\n      \"trackFillColor\": \"white\",\r\n      \"hideDetails\": true\r\n    }, null), !props.hideAlpha && _createVNode(VSlider, {\r\n      \"class\": \"v-color-picker-preview__track v-color-picker-preview__alpha\",\r\n      \"modelValue\": props.color?.a ?? 1,\r\n      \"onUpdate:modelValue\": a => emit('update:color', {\r\n        ...(props.color ?? nullColor),\r\n        a\r\n      }),\r\n      \"step\": 1 / 256,\r\n      \"min\": 0,\r\n      \"max\": 1,\r\n      \"disabled\": props.disabled,\r\n      \"thumbSize\": 14,\r\n      \"trackSize\": 8,\r\n      \"trackFillColor\": \"white\",\r\n      \"hideDetails\": true\r\n    }, null)])]));\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VColorPickerPreview.mjs.map",
+      "start": 1756118036489,
+      "end": 1756118036918,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118036918,
+      "end": 1756118036918,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118036918,
+      "end": 1756118036918,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118036919,
+      "end": 1756118036919,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118036919,
+      "end": 1756118036922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { createVNode as _createVNode } from \"vue\";\nimport \"./VColorPickerPreview.css\";\nimport { VBtn } from \"../VBtn/index.mjs\";\nimport { VSlider } from \"../VSlider/index.mjs\";\nimport { makeComponentProps } from \"../../composables/component.mjs\";\nimport { onUnmounted } from \"vue\";\nimport { nullColor } from \"./util/index.mjs\";\nimport { defineComponent, HexToHSV, HSVtoCSS, propsFactory, SUPPORTS_EYE_DROPPER, useRender } from \"../../util/index.mjs\";\nexport const makeVColorPickerPreviewProps = propsFactory({\n  color: {\n    type: Object\n  },\n  disabled: Boolean,\n  hideAlpha: Boolean,\n  ...makeComponentProps()\n}, \"VColorPickerPreview\");\nexport const VColorPickerPreview = defineComponent({\n  name: \"VColorPickerPreview\",\n  props: makeVColorPickerPreviewProps(),\n  emits: {\n    \"update:color\": (color) => true\n  },\n  setup(props, _ref) {\n    let {\n      emit\n    } = _ref;\n    const abortController = new AbortController();\n    onUnmounted(() => abortController.abort());\n    async function openEyeDropper() {\n      if (!SUPPORTS_EYE_DROPPER)\n        return;\n      const eyeDropper = new (void 0).EyeDropper();\n      try {\n        const result = await eyeDropper.open({\n          signal: abortController.signal\n        });\n        const colorHexValue = HexToHSV(result.sRGBHex);\n        emit(\"update:color\", {\n          ...props.color ?? nullColor,\n          ...colorHexValue\n        });\n      } catch (e) {\n      }\n    }\n    useRender(() => _createVNode(\"div\", {\n      \"class\": [\"v-color-picker-preview\", {\n        \"v-color-picker-preview--hide-alpha\": props.hideAlpha\n      }, props.class],\n      \"style\": props.style\n    }, [SUPPORTS_EYE_DROPPER && _createVNode(\"div\", {\n      \"class\": \"v-color-picker-preview__eye-dropper\",\n      \"key\": \"eyeDropper\"\n    }, [_createVNode(VBtn, {\n      \"onClick\": openEyeDropper,\n      \"icon\": \"$eyeDropper\",\n      \"variant\": \"plain\",\n      \"density\": \"comfortable\"\n    }, null)]), _createVNode(\"div\", {\n      \"class\": \"v-color-picker-preview__dot\"\n    }, [_createVNode(\"div\", {\n      \"style\": {\n        background: HSVtoCSS(props.color ?? nullColor)\n      }\n    }, null)]), _createVNode(\"div\", {\n      \"class\": \"v-color-picker-preview__sliders\"\n    }, [_createVNode(VSlider, {\n      \"class\": \"v-color-picker-preview__track v-color-picker-preview__hue\",\n      \"modelValue\": props.color?.h,\n      \"onUpdate:modelValue\": (h) => emit(\"update:color\", {\n        ...props.color ?? nullColor,\n        h\n      }),\n      \"step\": 0,\n      \"min\": 0,\n      \"max\": 360,\n      \"disabled\": props.disabled,\n      \"thumbSize\": 14,\n      \"trackSize\": 8,\n      \"trackFillColor\": \"white\",\n      \"hideDetails\": true\n    }, null), !props.hideAlpha && _createVNode(VSlider, {\n      \"class\": \"v-color-picker-preview__track v-color-picker-preview__alpha\",\n      \"modelValue\": props.color?.a ?? 1,\n      \"onUpdate:modelValue\": (a) => emit(\"update:color\", {\n        ...props.color ?? nullColor,\n        a\n      }),\n      \"step\": 1 / 256,\n      \"min\": 0,\n      \"max\": 1,\n      \"disabled\": props.disabled,\n      \"thumbSize\": 14,\n      \"trackSize\": 8,\n      \"trackFillColor\": \"white\",\n      \"hideDetails\": true\n    }, null)])]));\n    return {};\n  }\n});\n",
+      "start": 1756118036922,
+      "end": 1756118037024,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerPreview.mjs\"],\n  \"sourcesContent\": [\"import { createVNode as _createVNode } from \\\"vue\\\";\\r\\n// Styles\\r\\nimport \\\"./VColorPickerPreview.css\\\";\\r\\n\\r\\n// Components\\r\\nimport { VBtn } from \\\"../VBtn/index.mjs\\\";\\r\\nimport { VSlider } from \\\"../VSlider/index.mjs\\\"; // Composables\\r\\nimport { makeComponentProps } from \\\"../../composables/component.mjs\\\"; // Utilities\\r\\nimport { onUnmounted } from 'vue';\\r\\nimport { nullColor } from \\\"./util/index.mjs\\\";\\r\\nimport { defineComponent, HexToHSV, HSVtoCSS, propsFactory, SUPPORTS_EYE_DROPPER, useRender } from \\\"../../util/index.mjs\\\"; // Types\\r\\nexport const makeVColorPickerPreviewProps = propsFactory({\\r\\n  color: {\\r\\n    type: Object\\r\\n  },\\r\\n  disabled: Boolean,\\r\\n  hideAlpha: Boolean,\\r\\n  ...makeComponentProps()\\r\\n}, 'VColorPickerPreview');\\r\\nexport const VColorPickerPreview = defineComponent({\\r\\n  name: 'VColorPickerPreview',\\r\\n  props: makeVColorPickerPreviewProps(),\\r\\n  emits: {\\r\\n    'update:color': color => true\\r\\n  },\\r\\n  setup(props, _ref) {\\r\\n    let {\\r\\n      emit\\r\\n    } = _ref;\\r\\n    const abortController = new AbortController();\\r\\n    onUnmounted(() => abortController.abort());\\r\\n    async function openEyeDropper() {\\r\\n      if (!SUPPORTS_EYE_DROPPER) return;\\r\\n      const eyeDropper = new window.EyeDropper();\\r\\n      try {\\r\\n        const result = await eyeDropper.open({\\r\\n          signal: abortController.signal\\r\\n        });\\r\\n        const colorHexValue = HexToHSV(result.sRGBHex);\\r\\n        emit('update:color', {\\r\\n          ...(props.color ?? nullColor),\\r\\n          ...colorHexValue\\r\\n        });\\r\\n      } catch (e) {}\\r\\n    }\\r\\n    useRender(() => _createVNode(\\\"div\\\", {\\r\\n      \\\"class\\\": ['v-color-picker-preview', {\\r\\n        'v-color-picker-preview--hide-alpha': props.hideAlpha\\r\\n      }, props.class],\\r\\n      \\\"style\\\": props.style\\r\\n    }, [SUPPORTS_EYE_DROPPER && _createVNode(\\\"div\\\", {\\r\\n      \\\"class\\\": \\\"v-color-picker-preview__eye-dropper\\\",\\r\\n      \\\"key\\\": \\\"eyeDropper\\\"\\r\\n    }, [_createVNode(VBtn, {\\r\\n      \\\"onClick\\\": openEyeDropper,\\r\\n      \\\"icon\\\": \\\"$eyeDropper\\\",\\r\\n      \\\"variant\\\": \\\"plain\\\",\\r\\n      \\\"density\\\": \\\"comfortable\\\"\\r\\n    }, null)]), _createVNode(\\\"div\\\", {\\r\\n      \\\"class\\\": \\\"v-color-picker-preview__dot\\\"\\r\\n    }, [_createVNode(\\\"div\\\", {\\r\\n      \\\"style\\\": {\\r\\n        background: HSVtoCSS(props.color ?? nullColor)\\r\\n      }\\r\\n    }, null)]), _createVNode(\\\"div\\\", {\\r\\n      \\\"class\\\": \\\"v-color-picker-preview__sliders\\\"\\r\\n    }, [_createVNode(VSlider, {\\r\\n      \\\"class\\\": \\\"v-color-picker-preview__track v-color-picker-preview__hue\\\",\\r\\n      \\\"modelValue\\\": props.color?.h,\\r\\n      \\\"onUpdate:modelValue\\\": h => emit('update:color', {\\r\\n        ...(props.color ?? nullColor),\\r\\n        h\\r\\n      }),\\r\\n      \\\"step\\\": 0,\\r\\n      \\\"min\\\": 0,\\r\\n      \\\"max\\\": 360,\\r\\n      \\\"disabled\\\": props.disabled,\\r\\n      \\\"thumbSize\\\": 14,\\r\\n      \\\"trackSize\\\": 8,\\r\\n      \\\"trackFillColor\\\": \\\"white\\\",\\r\\n      \\\"hideDetails\\\": true\\r\\n    }, null), !props.hideAlpha && _createVNode(VSlider, {\\r\\n      \\\"class\\\": \\\"v-color-picker-preview__track v-color-picker-preview__alpha\\\",\\r\\n      \\\"modelValue\\\": props.color?.a ?? 1,\\r\\n      \\\"onUpdate:modelValue\\\": a => emit('update:color', {\\r\\n        ...(props.color ?? nullColor),\\r\\n        a\\r\\n      }),\\r\\n      \\\"step\\\": 1 / 256,\\r\\n      \\\"min\\\": 0,\\r\\n      \\\"max\\\": 1,\\r\\n      \\\"disabled\\\": props.disabled,\\r\\n      \\\"thumbSize\\\": 14,\\r\\n      \\\"trackSize\\\": 8,\\r\\n      \\\"trackFillColor\\\": \\\"white\\\",\\r\\n      \\\"hideDetails\\\": true\\r\\n    }, null)])]));\\r\\n    return {};\\r\\n  }\\r\\n});\\r\\n//# sourceMappingURL=VColorPickerPreview.mjs.map\"],\n  \"mappings\": \"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\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118037025,
+      "end": 1756118037025,
+      "order": "normal"
+    }
+  ]
+}

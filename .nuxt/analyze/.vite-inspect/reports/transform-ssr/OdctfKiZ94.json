@@ -1,0 +1,284 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/landing/footer.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <ClientOnly>\r\n    <v-footer app absolute color=\"white\">\r\n      <v-container class=\"pa-0 text-caption\" fluid>\r\n        <v-row>\r\n          <v-col cols=\"12\" sm=\"6\">\r\n            <div class=\"text-center text-md-start\">\r\n              <span\r\n                >&copy; {{ new Date().getFullYear() }} - Smartsell, All rights\r\n                reserved</span\r\n              >\r\n            </div>\r\n          </v-col>\r\n          <v-col cols=\"12\" sm=\"6\">\r\n            <div class=\"text-center text-md-end\">\r\n              <span\r\n                >Powered by\r\n                <a\r\n                  href=\"https://mijinitech.com\"\r\n                  target=\"_blank\"\r\n                  class=\"text-link\"\r\n                  >Mijinitech</a\r\n                ></span\r\n              >\r\n            </div>\r\n          </v-col>\r\n        </v-row>\r\n      </v-container>\r\n    </v-footer>\r\n  </ClientOnly>\r\n</template>\r\n\r\n<script setup></script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756118034903,
+      "end": 1756118035918,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118035918,
+      "end": 1756118035918,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n  const _component_v_footer = _resolveComponent(\"v-footer\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_v_col = _resolveComponent(\"v-col\")\n\n  _push(_ssrRenderComponent(_component_ClientOnly, _attrs, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(_component_v_footer, {\n          app: \"\",\n          absolute: \"\",\n          color: \"white\"\n        }, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(_ssrRenderComponent(_component_v_container, {\n                class: \"pa-0 text-caption\",\n                fluid: \"\"\n              }, {\n                default: _withCtx((_, _push, _parent, _scopeId) => {\n                  if (_push) {\n                    _push(_ssrRenderComponent(_component_v_row, null, {\n                      default: _withCtx((_, _push, _parent, _scopeId) => {\n                        if (_push) {\n                          _push(_ssrRenderComponent(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx((_, _push, _parent, _scopeId) => {\n                              if (_push) {\n                                _push(`<div class=\"text-center text-md-start\"${\n                                  _scopeId\n                                }><span${\n                                  _scopeId\n                                }>© ${\n                                  _ssrInterpolate(new Date().getFullYear())\n                                } - Smartsell, All rights reserved</span></div>`)\n                              } else {\n                                return [\n                                  _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                                    _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                                  ])\n                                ]\n                              }\n                            }),\n                            _: 1\n                          }, _parent, _scopeId))\n                          _push(_ssrRenderComponent(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx((_, _push, _parent, _scopeId) => {\n                              if (_push) {\n                                _push(`<div class=\"text-center text-md-end\"${\n                                  _scopeId\n                                }><span${\n                                  _scopeId\n                                }>Powered by <a href=\"https://mijinitech.com\" target=\"_blank\" class=\"text-link\"${\n                                  _scopeId\n                                }>Mijinitech</a></span></div>`)\n                              } else {\n                                return [\n                                  _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                                    _createVNode(\"span\", null, [\n                                      _createTextVNode(\"Powered by \"),\n                                      _createVNode(\"a\", {\n                                        href: \"https://mijinitech.com\",\n                                        target: \"_blank\",\n                                        class: \"text-link\"\n                                      }, \"Mijinitech\")\n                                    ])\n                                  ])\n                                ]\n                              }\n                            }),\n                            _: 1\n                          }, _parent, _scopeId))\n                        } else {\n                          return [\n                            _createVNode(_component_v_col, {\n                              cols: \"12\",\n                              sm: \"6\"\n                            }, {\n                              default: _withCtx(() => [\n                                _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                                  _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                                ])\n                              ]),\n                              _: 1\n                            }),\n                            _createVNode(_component_v_col, {\n                              cols: \"12\",\n                              sm: \"6\"\n                            }, {\n                              default: _withCtx(() => [\n                                _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                                  _createVNode(\"span\", null, [\n                                    _createTextVNode(\"Powered by \"),\n                                    _createVNode(\"a\", {\n                                      href: \"https://mijinitech.com\",\n                                      target: \"_blank\",\n                                      class: \"text-link\"\n                                    }, \"Mijinitech\")\n                                  ])\n                                ])\n                              ]),\n                              _: 1\n                            })\n                          ]\n                        }\n                      }),\n                      _: 1\n                    }, _parent, _scopeId))\n                  } else {\n                    return [\n                      _createVNode(_component_v_row, null, {\n                        default: _withCtx(() => [\n                          _createVNode(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx(() => [\n                              _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                                _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                              ])\n                            ]),\n                            _: 1\n                          }),\n                          _createVNode(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx(() => [\n                              _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                                _createVNode(\"span\", null, [\n                                  _createTextVNode(\"Powered by \"),\n                                  _createVNode(\"a\", {\n                                    href: \"https://mijinitech.com\",\n                                    target: \"_blank\",\n                                    class: \"text-link\"\n                                  }, \"Mijinitech\")\n                                ])\n                              ])\n                            ]),\n                            _: 1\n                          })\n                        ]),\n                        _: 1\n                      })\n                    ]\n                  }\n                }),\n                _: 1\n              }, _parent, _scopeId))\n            } else {\n              return [\n                _createVNode(_component_v_container, {\n                  class: \"pa-0 text-caption\",\n                  fluid: \"\"\n                }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_row, null, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_col, {\n                          cols: \"12\",\n                          sm: \"6\"\n                        }, {\n                          default: _withCtx(() => [\n                            _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                              _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                            ])\n                          ]),\n                          _: 1\n                        }),\n                        _createVNode(_component_v_col, {\n                          cols: \"12\",\n                          sm: \"6\"\n                        }, {\n                          default: _withCtx(() => [\n                            _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                              _createVNode(\"span\", null, [\n                                _createTextVNode(\"Powered by \"),\n                                _createVNode(\"a\", {\n                                  href: \"https://mijinitech.com\",\n                                  target: \"_blank\",\n                                  class: \"text-link\"\n                                }, \"Mijinitech\")\n                              ])\n                            ])\n                          ]),\n                          _: 1\n                        })\n                      ]),\n                      _: 1\n                    })\n                  ]),\n                  _: 1\n                })\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(_component_v_footer, {\n            app: \"\",\n            absolute: \"\",\n            color: \"white\"\n          }, {\n            default: _withCtx(() => [\n              _createVNode(_component_v_container, {\n                class: \"pa-0 text-caption\",\n                fluid: \"\"\n              }, {\n                default: _withCtx(() => [\n                  _createVNode(_component_v_row, null, {\n                    default: _withCtx(() => [\n                      _createVNode(_component_v_col, {\n                        cols: \"12\",\n                        sm: \"6\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                            _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                          ])\n                        ]),\n                        _: 1\n                      }),\n                      _createVNode(_component_v_col, {\n                        cols: \"12\",\n                        sm: \"6\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                            _createVNode(\"span\", null, [\n                              _createTextVNode(\"Powered by \"),\n                              _createVNode(\"a\", {\n                                href: \"https://mijinitech.com\",\n                                target: \"_blank\",\n                                class: \"text-link\"\n                              }, \"Mijinitech\")\n                            ])\n                          ])\n                        ]),\n                        _: 1\n                      })\n                    ]),\n                    _: 1\n                  })\n                ]),\n                _: 1\n              })\n            ]),\n            _: 1\n          })\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/landing/footer.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])",
+      "start": 1756118035918,
+      "end": 1756118035923,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/landing/footer.vue"
+        ],
+        "names": [],
+        "mappings": "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",
+        "sourcesContent": [
+          "<template>\r\n  <ClientOnly>\r\n    <v-footer app absolute color=\"white\">\r\n      <v-container class=\"pa-0 text-caption\" fluid>\r\n        <v-row>\r\n          <v-col cols=\"12\" sm=\"6\">\r\n            <div class=\"text-center text-md-start\">\r\n              <span\r\n                >&copy; {{ new Date().getFullYear() }} - Smartsell, All rights\r\n                reserved</span\r\n              >\r\n            </div>\r\n          </v-col>\r\n          <v-col cols=\"12\" sm=\"6\">\r\n            <div class=\"text-center text-md-end\">\r\n              <span\r\n                >Powered by\r\n                <a\r\n                  href=\"https://mijinitech.com\"\r\n                  target=\"_blank\"\r\n                  class=\"text-link\"\r\n                  >Mijinitech</a\r\n                ></span\r\n              >\r\n            </div>\r\n          </v-col>\r\n        </v-row>\r\n      </v-container>\r\n    </v-footer>\r\n  </ClientOnly>\r\n</template>\r\n\r\n<script setup></script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118035923,
+      "end": 1756118035923,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118035923,
+      "end": 1756118035923,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118035923,
+      "end": 1756118035923,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118035923,
+      "end": 1756118035923,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118035923,
+      "end": 1756118035923,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n                                                           \n                                                                 \n                                                     \n                                                     \n\n  _push(_ssrRenderComponent(_component_ClientOnly, _attrs, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(_component_v_footer, {\n          app: \"\",\n          absolute: \"\",\n          color: \"white\"\n        }, {\n          default: _withCtx((_, _push, _parent, _scopeId) => {\n            if (_push) {\n              _push(_ssrRenderComponent(_component_v_container, {\n                class: \"pa-0 text-caption\",\n                fluid: \"\"\n              }, {\n                default: _withCtx((_, _push, _parent, _scopeId) => {\n                  if (_push) {\n                    _push(_ssrRenderComponent(_component_v_row, null, {\n                      default: _withCtx((_, _push, _parent, _scopeId) => {\n                        if (_push) {\n                          _push(_ssrRenderComponent(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx((_, _push, _parent, _scopeId) => {\n                              if (_push) {\n                                _push(`<div class=\"text-center text-md-start\"${\n                                  _scopeId\n                                }><span${\n                                  _scopeId\n                                }>© ${\n                                  _ssrInterpolate(new Date().getFullYear())\n                                } - Smartsell, All rights reserved</span></div>`)\n                              } else {\n                                return [\n                                  _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                                    _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                                  ])\n                                ]\n                              }\n                            }),\n                            _: 1\n                          }, _parent, _scopeId))\n                          _push(_ssrRenderComponent(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx((_, _push, _parent, _scopeId) => {\n                              if (_push) {\n                                _push(`<div class=\"text-center text-md-end\"${\n                                  _scopeId\n                                }><span${\n                                  _scopeId\n                                }>Powered by <a href=\"https://mijinitech.com\" target=\"_blank\" class=\"text-link\"${\n                                  _scopeId\n                                }>Mijinitech</a></span></div>`)\n                              } else {\n                                return [\n                                  _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                                    _createVNode(\"span\", null, [\n                                      _createTextVNode(\"Powered by \"),\n                                      _createVNode(\"a\", {\n                                        href: \"https://mijinitech.com\",\n                                        target: \"_blank\",\n                                        class: \"text-link\"\n                                      }, \"Mijinitech\")\n                                    ])\n                                  ])\n                                ]\n                              }\n                            }),\n                            _: 1\n                          }, _parent, _scopeId))\n                        } else {\n                          return [\n                            _createVNode(_component_v_col, {\n                              cols: \"12\",\n                              sm: \"6\"\n                            }, {\n                              default: _withCtx(() => [\n                                _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                                  _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                                ])\n                              ]),\n                              _: 1\n                            }),\n                            _createVNode(_component_v_col, {\n                              cols: \"12\",\n                              sm: \"6\"\n                            }, {\n                              default: _withCtx(() => [\n                                _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                                  _createVNode(\"span\", null, [\n                                    _createTextVNode(\"Powered by \"),\n                                    _createVNode(\"a\", {\n                                      href: \"https://mijinitech.com\",\n                                      target: \"_blank\",\n                                      class: \"text-link\"\n                                    }, \"Mijinitech\")\n                                  ])\n                                ])\n                              ]),\n                              _: 1\n                            })\n                          ]\n                        }\n                      }),\n                      _: 1\n                    }, _parent, _scopeId))\n                  } else {\n                    return [\n                      _createVNode(_component_v_row, null, {\n                        default: _withCtx(() => [\n                          _createVNode(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx(() => [\n                              _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                                _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                              ])\n                            ]),\n                            _: 1\n                          }),\n                          _createVNode(_component_v_col, {\n                            cols: \"12\",\n                            sm: \"6\"\n                          }, {\n                            default: _withCtx(() => [\n                              _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                                _createVNode(\"span\", null, [\n                                  _createTextVNode(\"Powered by \"),\n                                  _createVNode(\"a\", {\n                                    href: \"https://mijinitech.com\",\n                                    target: \"_blank\",\n                                    class: \"text-link\"\n                                  }, \"Mijinitech\")\n                                ])\n                              ])\n                            ]),\n                            _: 1\n                          })\n                        ]),\n                        _: 1\n                      })\n                    ]\n                  }\n                }),\n                _: 1\n              }, _parent, _scopeId))\n            } else {\n              return [\n                _createVNode(_component_v_container, {\n                  class: \"pa-0 text-caption\",\n                  fluid: \"\"\n                }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_row, null, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_col, {\n                          cols: \"12\",\n                          sm: \"6\"\n                        }, {\n                          default: _withCtx(() => [\n                            _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                              _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                            ])\n                          ]),\n                          _: 1\n                        }),\n                        _createVNode(_component_v_col, {\n                          cols: \"12\",\n                          sm: \"6\"\n                        }, {\n                          default: _withCtx(() => [\n                            _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                              _createVNode(\"span\", null, [\n                                _createTextVNode(\"Powered by \"),\n                                _createVNode(\"a\", {\n                                  href: \"https://mijinitech.com\",\n                                  target: \"_blank\",\n                                  class: \"text-link\"\n                                }, \"Mijinitech\")\n                              ])\n                            ])\n                          ]),\n                          _: 1\n                        })\n                      ]),\n                      _: 1\n                    })\n                  ]),\n                  _: 1\n                })\n              ]\n            }\n          }),\n          _: 1\n        }, _parent, _scopeId))\n      } else {\n        return [\n          _createVNode(_component_v_footer, {\n            app: \"\",\n            absolute: \"\",\n            color: \"white\"\n          }, {\n            default: _withCtx(() => [\n              _createVNode(_component_v_container, {\n                class: \"pa-0 text-caption\",\n                fluid: \"\"\n              }, {\n                default: _withCtx(() => [\n                  _createVNode(_component_v_row, null, {\n                    default: _withCtx(() => [\n                      _createVNode(_component_v_col, {\n                        cols: \"12\",\n                        sm: \"6\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"div\", { class: \"text-center text-md-start\" }, [\n                            _createVNode(\"span\", null, \"© \" + _toDisplayString(new Date().getFullYear()) + \" - Smartsell, All rights reserved\", 1)\n                          ])\n                        ]),\n                        _: 1\n                      }),\n                      _createVNode(_component_v_col, {\n                        cols: \"12\",\n                        sm: \"6\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(\"div\", { class: \"text-center text-md-end\" }, [\n                            _createVNode(\"span\", null, [\n                              _createTextVNode(\"Powered by \"),\n                              _createVNode(\"a\", {\n                                href: \"https://mijinitech.com\",\n                                target: \"_blank\",\n                                class: \"text-link\"\n                              }, \"Mijinitech\")\n                            ])\n                          ])\n                        ]),\n                        _: 1\n                      })\n                    ]),\n                    _: 1\n                  })\n                ]),\n                _: 1\n              })\n            ]),\n            _: 1\n          })\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/landing/footer.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])\n\n/* Vuetify */\nimport { VFooter as _component_v_footer } from \"vuetify/lib/components/VFooter/index.mjs\"\nimport { VContainer as _component_v_container, VRow as _component_v_row, VCol as _component_v_col } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756118035923,
+      "end": 1756118035924,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118035924,
+      "end": 1756118035924,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118035924,
+      "end": 1756118035924,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118035924,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118035926,
+      "end": 1756118035926,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118035926,
+      "end": 1756118035927,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118035926,
+      "end": 1756118035927,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118035927,
+      "end": 1756118035934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118035927,
+      "end": 1756118035934,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118035934,
+      "end": 1756118035934,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118035934,
+      "end": 1756118035934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118035934,
+      "end": 1756118035934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118035934,
+      "end": 1756118035934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n                                                           \n                                                                 \n                                                     \n                                                     \n\n  _push(_ssrRenderComponent(_component_ClientOnly, _attrs, {\n    \n      }, _parent))\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/landing/footer.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])\n\n/* Vuetify */\n\n\n\n",
+      "start": 1756118035934,
+      "end": 1756118035943,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtL,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEjH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3D,CAAC,CAAC,CAAC;AA6PH,CAAC,CAAC,CAAC,CACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb;;;AAGA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/F,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;"
+      }
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt/dist/app/components/client-only\";\nconst _sfc_main = {}\nimport { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, createTextVNode as _createTextVNode } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\nfunction _sfc_ssrRender(_ctx, _push, _parent, _attrs) {\n  const _component_ClientOnly = __nuxt_component_0\n                                                           \n                                                                 \n                                                     \n                                                     \n\n  _push(_ssrRenderComponent(_component_ClientOnly, _attrs, {\n    \n      }, _parent))\n}\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/landing/footer.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['ssrRender',_sfc_ssrRender]])\n\n/* Vuetify */\n\n\n\n",
+      "start": 1756118035944,
+      "end": 1756118035944,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtL,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEjH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3D,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB;;;AAGA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/F,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvD;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEjF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;"
+      }
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118035944,
+      "end": 1756118035944,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118035944,
+      "end": 1756118035945,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118035945,
+      "end": 1756118035945,
+      "order": "normal"
+    }
+  ]
+}

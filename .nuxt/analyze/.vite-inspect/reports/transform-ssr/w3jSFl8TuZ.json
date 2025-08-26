@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue?vue&type=style&index=0&scoped=3be9042a&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px); */\r\n  /* background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n",
+      "start": 1756118024101,
+      "end": 1756118024101,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue"
+        ],
+        "names": [],
+        "mappings": ";AA4CA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACT,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC/B,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;EAChC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AAC/D",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"w-100\">\r\n    <div class=\"py-2 text-center\">\r\n      <b>Welcome to {{ environmentVariable.public.app_name }}</b>\r\n    </div>\r\n\r\n    <div class=\"d-flex align-center justify-center w-100\">\r\n      <v-card\r\n        class=\"mx-auto mt-4 pa-4 auth-card rounded-lg bg-transparent\"\r\n        flat\r\n      >\r\n        <v-window v-model=\"username\">\r\n          <v-window-item :value=\"true\" class=\"mt-1\">\r\n            <ClientAuthUsername\r\n              v-if=\"username\"\r\n              @continue=\"username = false\"\r\n              :payload=\"payload\"\r\n            />\r\n          </v-window-item>\r\n          <v-window-item :value=\"false\">\r\n            <ClientAuthPassword\r\n              v-if=\"!username\"\r\n              @return=\"username = true\"\r\n              :payload=\"payload\"\r\n            />\r\n          </v-window-item>\r\n        </v-window>\r\n      </v-card>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst environmentVariable = useRuntimeConfig();\r\n\r\nconst payload = ref({\r\n  username: \"\",\r\n  password: \"\",\r\n});\r\n\r\nconst username = ref(true);\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px); */\r\n  /* background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118024102,
+      "end": 1756118024102,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118024102,
+      "end": 1756118024102,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118024102,
+      "end": 1756118024102,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118024102,
+      "end": 1756118024102,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118024103,
+      "end": 1756118024103,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".auth-card{width:clamp(320px,30%,420px)}",
+      "start": 1756118024103,
+      "end": 1756118024111,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue",
+        "mappings": "AACA,WACE,4BAGF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px); */\r\n  /* background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118024111,
+      "end": 1756118024111,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118024115,
+      "end": 1756118024115,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118024116,
+      "end": 1756118024116,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".auth-card[data-v-3be9042a]{width:clamp(320px,30%,420px)}",
+      "start": 1756118024120,
+      "end": 1756118024123,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue",
+        "mappings": "AAAA,4BAAW,4BAA4B",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/auth/index.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118024125,
+      "end": 1756118024125,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118024125,
+      "end": 1756118024125,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118024125,
+      "end": 1756118024125,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118024125,
+      "end": 1756118024125,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118024125,
+      "end": 1756118024125,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118024129,
+      "end": 1756118024130,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118024130,
+      "end": 1756118024130,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118024136,
+      "end": 1756118024136,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118024137,
+      "end": 1756118024137,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118024137,
+      "end": 1756118024137,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".auth-card[data-v-3be9042a]{width:clamp(320px,30%,420px)}\"",
+      "start": 1756118024139,
+      "end": 1756118024139,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118024139,
+      "end": 1756118024139,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118024139,
+      "end": 1756118024139,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118024140,
+      "end": 1756118024140,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118024141,
+      "end": 1756118024141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118024141,
+      "end": 1756118024141,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118024142,
+      "end": 1756118024142,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118024143,
+      "end": 1756118024143,
+      "order": "normal"
+    }
+  ]
+}

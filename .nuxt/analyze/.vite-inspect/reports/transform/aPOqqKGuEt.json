@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/et/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    standalone: {\r\n      one: \"vähem kui üks sekund\",\r\n      other: \"vähem kui {{count}} sekundit\",\r\n    },\r\n    withPreposition: {\r\n      one: \"vähem kui ühe sekundi\",\r\n      other: \"vähem kui {{count}} sekundi\",\r\n    },\r\n  },\r\n\r\n  xSeconds: {\r\n    standalone: {\r\n      one: \"üks sekund\",\r\n      other: \"{{count}} sekundit\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe sekundi\",\r\n      other: \"{{count}} sekundi\",\r\n    },\r\n  },\r\n\r\n  halfAMinute: {\r\n    standalone: \"pool minutit\",\r\n    withPreposition: \"poole minuti\",\r\n  },\r\n\r\n  lessThanXMinutes: {\r\n    standalone: {\r\n      one: \"vähem kui üks minut\",\r\n      other: \"vähem kui {{count}} minutit\",\r\n    },\r\n    withPreposition: {\r\n      one: \"vähem kui ühe minuti\",\r\n      other: \"vähem kui {{count}} minuti\",\r\n    },\r\n  },\r\n\r\n  xMinutes: {\r\n    standalone: {\r\n      one: \"üks minut\",\r\n      other: \"{{count}} minutit\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe minuti\",\r\n      other: \"{{count}} minuti\",\r\n    },\r\n  },\r\n\r\n  aboutXHours: {\r\n    standalone: {\r\n      one: \"umbes üks tund\",\r\n      other: \"umbes {{count}} tundi\",\r\n    },\r\n    withPreposition: {\r\n      one: \"umbes ühe tunni\",\r\n      other: \"umbes {{count}} tunni\",\r\n    },\r\n  },\r\n\r\n  xHours: {\r\n    standalone: {\r\n      one: \"üks tund\",\r\n      other: \"{{count}} tundi\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe tunni\",\r\n      other: \"{{count}} tunni\",\r\n    },\r\n  },\r\n\r\n  xDays: {\r\n    standalone: {\r\n      one: \"üks päev\",\r\n      other: \"{{count}} päeva\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe päeva\",\r\n      other: \"{{count}} päeva\",\r\n    },\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    standalone: {\r\n      one: \"umbes üks nädal\",\r\n      other: \"umbes {{count}} nädalat\",\r\n    },\r\n    withPreposition: {\r\n      one: \"umbes ühe nädala\",\r\n      other: \"umbes {{count}} nädala\",\r\n    },\r\n  },\r\n\r\n  xWeeks: {\r\n    standalone: {\r\n      one: \"üks nädal\",\r\n      other: \"{{count}} nädalat\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe nädala\",\r\n      other: \"{{count}} nädala\",\r\n    },\r\n  },\r\n\r\n  aboutXMonths: {\r\n    standalone: {\r\n      one: \"umbes üks kuu\",\r\n      other: \"umbes {{count}} kuud\",\r\n    },\r\n    withPreposition: {\r\n      one: \"umbes ühe kuu\",\r\n      other: \"umbes {{count}} kuu\",\r\n    },\r\n  },\r\n\r\n  xMonths: {\r\n    standalone: {\r\n      one: \"üks kuu\",\r\n      other: \"{{count}} kuud\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe kuu\",\r\n      other: \"{{count}} kuu\",\r\n    },\r\n  },\r\n\r\n  aboutXYears: {\r\n    standalone: {\r\n      one: \"umbes üks aasta\",\r\n      other: \"umbes {{count}} aastat\",\r\n    },\r\n    withPreposition: {\r\n      one: \"umbes ühe aasta\",\r\n      other: \"umbes {{count}} aasta\",\r\n    },\r\n  },\r\n\r\n  xYears: {\r\n    standalone: {\r\n      one: \"üks aasta\",\r\n      other: \"{{count}} aastat\",\r\n    },\r\n    withPreposition: {\r\n      one: \"ühe aasta\",\r\n      other: \"{{count}} aasta\",\r\n    },\r\n  },\r\n\r\n  overXYears: {\r\n    standalone: {\r\n      one: \"rohkem kui üks aasta\",\r\n      other: \"rohkem kui {{count}} aastat\",\r\n    },\r\n    withPreposition: {\r\n      one: \"rohkem kui ühe aasta\",\r\n      other: \"rohkem kui {{count}} aasta\",\r\n    },\r\n  },\r\n\r\n  almostXYears: {\r\n    standalone: {\r\n      one: \"peaaegu üks aasta\",\r\n      other: \"peaaegu {{count}} aastat\",\r\n    },\r\n    withPreposition: {\r\n      one: \"peaaegu ühe aasta\",\r\n      other: \"peaaegu {{count}} aasta\",\r\n    },\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const usageGroup = options?.addSuffix\r\n    ? formatDistanceLocale[token].withPreposition\r\n    : formatDistanceLocale[token].standalone;\r\n\r\n  let result;\r\n  if (typeof usageGroup === \"string\") {\r\n    result = usageGroup;\r\n  } else if (count === 1) {\r\n    result = usageGroup.one;\r\n  } else {\r\n    result = usageGroup.other.replace(\"{{count}}\", String(count));\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return result + \" pärast\";\r\n    } else {\r\n      return result + \" eest\";\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756117965820,
+      "end": 1756117965878,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117965878,
+      "end": 1756117965878,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965878,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117965879,
+      "end": 1756117965879,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117965879,
+      "end": 1756117965880,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117965880,
+      "end": 1756117965880,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117965880,
+      "end": 1756117965880,
+      "order": "normal"
+    }
+  ]
+}

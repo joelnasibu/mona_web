@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/uk/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function declension(scheme, count) {\r\n  // scheme for count=1 exists\r\n  if (scheme.one !== undefined && count === 1) {\r\n    return scheme.one;\r\n  }\r\n\r\n  const rem10 = count % 10;\r\n  const rem100 = count % 100;\r\n\r\n  // 1, 21, 31, ...\r\n  if (rem10 === 1 && rem100 !== 11) {\r\n    return scheme.singularNominative.replace(\"{{count}}\", String(count));\r\n\r\n    // 2, 3, 4, 22, 23, 24, 32 ...\r\n  } else if (rem10 >= 2 && rem10 <= 4 && (rem100 < 10 || rem100 > 20)) {\r\n    return scheme.singularGenitive.replace(\"{{count}}\", String(count));\r\n\r\n    // 5, 6, 7, 8, 9, 10, 11, ...\r\n  } else {\r\n    return scheme.pluralGenitive.replace(\"{{count}}\", String(count));\r\n  }\r\n}\r\n\r\nfunction buildLocalizeTokenFn(scheme) {\r\n  return (count, options) => {\r\n    if (options && options.addSuffix) {\r\n      if (options.comparison && options.comparison > 0) {\r\n        if (scheme.future) {\r\n          return declension(scheme.future, count);\r\n        } else {\r\n          return \"за \" + declension(scheme.regular, count);\r\n        }\r\n      } else {\r\n        if (scheme.past) {\r\n          return declension(scheme.past, count);\r\n        } else {\r\n          return declension(scheme.regular, count) + \" тому\";\r\n        }\r\n      }\r\n    } else {\r\n      return declension(scheme.regular, count);\r\n    }\r\n  };\r\n}\r\n\r\nconst halfAtMinute = (_, options) => {\r\n  if (options && options.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return \"за півхвилини\";\r\n    } else {\r\n      return \"півхвилини тому\";\r\n    }\r\n  }\r\n\r\n  return \"півхвилини\";\r\n};\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: buildLocalizeTokenFn({\r\n    regular: {\r\n      one: \"менше секунди\",\r\n      singularNominative: \"менше {{count}} секунди\",\r\n      singularGenitive: \"менше {{count}} секунд\",\r\n      pluralGenitive: \"менше {{count}} секунд\",\r\n    },\r\n    future: {\r\n      one: \"менше, ніж за секунду\",\r\n      singularNominative: \"менше, ніж за {{count}} секунду\",\r\n      singularGenitive: \"менше, ніж за {{count}} секунди\",\r\n      pluralGenitive: \"менше, ніж за {{count}} секунд\",\r\n    },\r\n  }),\r\n\r\n  xSeconds: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} секунда\",\r\n      singularGenitive: \"{{count}} секунди\",\r\n      pluralGenitive: \"{{count}} секунд\",\r\n    },\r\n    past: {\r\n      singularNominative: \"{{count}} секунду тому\",\r\n      singularGenitive: \"{{count}} секунди тому\",\r\n      pluralGenitive: \"{{count}} секунд тому\",\r\n    },\r\n    future: {\r\n      singularNominative: \"за {{count}} секунду\",\r\n      singularGenitive: \"за {{count}} секунди\",\r\n      pluralGenitive: \"за {{count}} секунд\",\r\n    },\r\n  }),\r\n\r\n  halfAMinute: halfAtMinute,\r\n\r\n  lessThanXMinutes: buildLocalizeTokenFn({\r\n    regular: {\r\n      one: \"менше хвилини\",\r\n      singularNominative: \"менше {{count}} хвилини\",\r\n      singularGenitive: \"менше {{count}} хвилин\",\r\n      pluralGenitive: \"менше {{count}} хвилин\",\r\n    },\r\n    future: {\r\n      one: \"менше, ніж за хвилину\",\r\n      singularNominative: \"менше, ніж за {{count}} хвилину\",\r\n      singularGenitive: \"менше, ніж за {{count}} хвилини\",\r\n      pluralGenitive: \"менше, ніж за {{count}} хвилин\",\r\n    },\r\n  }),\r\n\r\n  xMinutes: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} хвилина\",\r\n      singularGenitive: \"{{count}} хвилини\",\r\n      pluralGenitive: \"{{count}} хвилин\",\r\n    },\r\n    past: {\r\n      singularNominative: \"{{count}} хвилину тому\",\r\n      singularGenitive: \"{{count}} хвилини тому\",\r\n      pluralGenitive: \"{{count}} хвилин тому\",\r\n    },\r\n    future: {\r\n      singularNominative: \"за {{count}} хвилину\",\r\n      singularGenitive: \"за {{count}} хвилини\",\r\n      pluralGenitive: \"за {{count}} хвилин\",\r\n    },\r\n  }),\r\n\r\n  aboutXHours: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"близько {{count}} години\",\r\n      singularGenitive: \"близько {{count}} годин\",\r\n      pluralGenitive: \"близько {{count}} годин\",\r\n    },\r\n    future: {\r\n      singularNominative: \"приблизно за {{count}} годину\",\r\n      singularGenitive: \"приблизно за {{count}} години\",\r\n      pluralGenitive: \"приблизно за {{count}} годин\",\r\n    },\r\n  }),\r\n\r\n  xHours: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} годину\",\r\n      singularGenitive: \"{{count}} години\",\r\n      pluralGenitive: \"{{count}} годин\",\r\n    },\r\n  }),\r\n\r\n  xDays: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} день\",\r\n      singularGenitive: \"{{count}} днi\",\r\n      pluralGenitive: \"{{count}} днів\",\r\n    },\r\n  }),\r\n\r\n  aboutXWeeks: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"близько {{count}} тижня\",\r\n      singularGenitive: \"близько {{count}} тижнів\",\r\n      pluralGenitive: \"близько {{count}} тижнів\",\r\n    },\r\n    future: {\r\n      singularNominative: \"приблизно за {{count}} тиждень\",\r\n      singularGenitive: \"приблизно за {{count}} тижні\",\r\n      pluralGenitive: \"приблизно за {{count}} тижнів\",\r\n    },\r\n  }),\r\n\r\n  xWeeks: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} тиждень\",\r\n      singularGenitive: \"{{count}} тижні\",\r\n      pluralGenitive: \"{{count}} тижнів\",\r\n    },\r\n  }),\r\n\r\n  aboutXMonths: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"близько {{count}} місяця\",\r\n      singularGenitive: \"близько {{count}} місяців\",\r\n      pluralGenitive: \"близько {{count}} місяців\",\r\n    },\r\n    future: {\r\n      singularNominative: \"приблизно за {{count}} місяць\",\r\n      singularGenitive: \"приблизно за {{count}} місяці\",\r\n      pluralGenitive: \"приблизно за {{count}} місяців\",\r\n    },\r\n  }),\r\n\r\n  xMonths: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} місяць\",\r\n      singularGenitive: \"{{count}} місяці\",\r\n      pluralGenitive: \"{{count}} місяців\",\r\n    },\r\n  }),\r\n\r\n  aboutXYears: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"близько {{count}} року\",\r\n      singularGenitive: \"близько {{count}} років\",\r\n      pluralGenitive: \"близько {{count}} років\",\r\n    },\r\n    future: {\r\n      singularNominative: \"приблизно за {{count}} рік\",\r\n      singularGenitive: \"приблизно за {{count}} роки\",\r\n      pluralGenitive: \"приблизно за {{count}} років\",\r\n    },\r\n  }),\r\n\r\n  xYears: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"{{count}} рік\",\r\n      singularGenitive: \"{{count}} роки\",\r\n      pluralGenitive: \"{{count}} років\",\r\n    },\r\n  }),\r\n\r\n  overXYears: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"більше {{count}} року\",\r\n      singularGenitive: \"більше {{count}} років\",\r\n      pluralGenitive: \"більше {{count}} років\",\r\n    },\r\n    future: {\r\n      singularNominative: \"більше, ніж за {{count}} рік\",\r\n      singularGenitive: \"більше, ніж за {{count}} роки\",\r\n      pluralGenitive: \"більше, ніж за {{count}} років\",\r\n    },\r\n  }),\r\n\r\n  almostXYears: buildLocalizeTokenFn({\r\n    regular: {\r\n      singularNominative: \"майже {{count}} рік\",\r\n      singularGenitive: \"майже {{count}} роки\",\r\n      pluralGenitive: \"майже {{count}} років\",\r\n    },\r\n    future: {\r\n      singularNominative: \"майже за {{count}} рік\",\r\n      singularGenitive: \"майже за {{count}} роки\",\r\n      pluralGenitive: \"майже за {{count}} років\",\r\n    },\r\n  }),\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  options = options || {};\r\n\r\n  return formatDistanceLocale[token](count, options);\r\n};\r\n",
+      "start": 1756117966856,
+      "end": 1756117966924,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117966924,
+      "end": 1756117966924,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117966924,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117966925,
+      "end": 1756117966925,
+      "order": "normal"
+    }
+  ]
+}

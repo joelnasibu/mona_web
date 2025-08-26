@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue?vue&type=style&index=0&scoped=bb967857&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n",
+      "start": 1756118029067,
+      "end": 1756118029067,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue"
+        ],
+        "names": [],
+        "mappings": ";AAoWA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACf;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n\r\n  <div :id=\"`field_${handle_id}`\">\r\n    <v-text-field :label=\"label\" :maxLength=\"9\" v-model.number=\"phone\" @keypress=\"digitsOnly\" :id=\"handle_id\"\r\n      :rules=\"required ? number() : []\" :loading=\"loading\" :hide-details=\"!required\">\r\n      <!-- :prefix=\"getCountryCallingCode(country) ?? '+243'\" -->\r\n      <template v-slot:prepend-inner>\r\n        <div class=\"d-flex align-center justify-center append text-caption\" :id=\"`country_${handle_id}`\">\r\n          <!-- \r\n          <flag :iso=\"country.cca2\" :title=\"chainCountryName(country)\" :squared=\"false\" /> -->\r\n          <span class=\"mx-2\">{{\r\n            getCountryCallingCode(country) ?? \"+243\"\r\n          }}</span>\r\n          <v-icon class=\"icon\" icon=\"mdi-chevron-down\" :class=\"{ 'transform-180deg': menu }\" size=\"13\"\r\n            color=\"grey\"></v-icon>\r\n        </div>\r\n      </template>\r\n      <v-menu :activator=\"`#country_${handle_id}`\" :close-on-content-click=\"false\" v-model=\"menu\">\r\n        <v-list class=\"pa-0 position-relative card-outlined rounded-lg mt-2 mb-4 ml-n3 hide-scrollbar\" max-height=\"250\"\r\n          :width=\"inputWidth\" density=\"compact\" lines=\"false\">\r\n          <div class=\"pa-0 text-caption bg-grey-lighten-3 position-sticky\" style=\"top: 0; z-index: 1\">\r\n            <input type=\"search\" :placeholder=\"`Filter (${allCountries.length}) items...`\"\r\n              class=\"px-3 w-100 filter-input\" id=\"searchInput\" v-model=\"search\" autofocus autocomplete=\"off\" />\r\n          </div>\r\n          <v-divider></v-divider>\r\n          <div v-for=\"(item, i) in allCountries\" :key=\"i\" class=\"text-caption\" :title=\"chainCountryName(item)\">\r\n            <v-list-item color=\"secondary\" @click=\"setCountry(item)\" :active=\"country == item\">\r\n              <template v-slot:prepend>\r\n                <div class=\"pr-3\">\r\n                  <!-- <flag :iso=\"item.cca2\" :title=\"item.name.official\" :squared=\"false\" /> -->\r\n                </div>\r\n              </template>\r\n              <span class=\"\">{{\r\n                `${item.name.common} (${getCountryCallingCode(item)})`\r\n              }}</span>\r\n            </v-list-item>\r\n            <v-divider></v-divider>\r\n          </div>\r\n          <div class=\"\" v-if=\"allCountries.length === 0\">\r\n            <div class=\"py-5 text-caption text-center\">\r\n              <span>No countries</span>\r\n            </div>\r\n          </div>\r\n        </v-list>\r\n      </v-menu>\r\n    </v-text-field>\r\n  </div>\r\n\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  number: [String, Number],\r\n  required: {\r\n    type: Boolean,\r\n    default: true,\r\n  },\r\n  label: {\r\n    type: String,\r\n    default: \"Telephone number\",\r\n  },\r\n});\r\nconst emits = defineEmits([\"setPhone\"]);\r\n// const phone = defineModel()\r\n\r\nconst { digitsOnly } = useHelpers();\r\nconst { number } = useRules();\r\n\r\nconst country = ref({\r\n  name: {\r\n    common: \"DR Congo\",\r\n    official: \"Democratic Republic of the Congo\",\r\n    nativeName: {\r\n      fra: {\r\n        official: \"République démocratique du Congo\",\r\n        common: \"RD Congo\",\r\n      },\r\n      kon: {\r\n        official: \"Repubilika ya Kongo Demokratiki\",\r\n        common: \"Repubilika ya Kongo Demokratiki\",\r\n      },\r\n      lin: {\r\n        official: \"Republiki ya Kongó Demokratiki\",\r\n        common: \"Republiki ya Kongó Demokratiki\",\r\n      },\r\n      lua: {\r\n        official: \"Ditunga dia Kongu wa Mungalaata\",\r\n        common: \"Ditunga dia Kongu wa Mungalaata\",\r\n      },\r\n      swa: {\r\n        official: \"Jamhuri ya Kidemokrasia ya Kongo\",\r\n        common: \"Jamhuri ya Kidemokrasia ya Kongo\",\r\n      },\r\n    },\r\n  },\r\n  tld: [\".cd\"],\r\n  cca2: \"CD\",\r\n  ccn3: \"180\",\r\n  cca3: \"COD\",\r\n  cioc: \"COD\",\r\n  independent: true,\r\n  status: \"officially-assigned\",\r\n  unMember: true,\r\n  currencies: {\r\n    CDF: {\r\n      name: \"Congolese franc\",\r\n      symbol: \"FC\",\r\n    },\r\n  },\r\n  idd: {\r\n    root: \"+2\",\r\n    suffixes: [\"43\"],\r\n  },\r\n  capital: [\"Kinshasa\"],\r\n  altSpellings: [\r\n    \"CD\",\r\n    \"DR Congo\",\r\n    \"Congo-Kinshasa\",\r\n    \"Congo, the Democratic Republic of the\",\r\n    \"DRC\",\r\n  ],\r\n  region: \"Africa\",\r\n  subregion: \"Middle Africa\",\r\n  languages: {\r\n    fra: \"French\",\r\n    kon: \"Kikongo\",\r\n    lin: \"Lingala\",\r\n    lua: \"Tshiluba\",\r\n    swa: \"Swahili\",\r\n  },\r\n  translations: {\r\n    ara: {\r\n      official: \"جمهورية الكونغو الديمقراطية\",\r\n      common: \"الكونغو\",\r\n    },\r\n    bre: {\r\n      official: \"Republik Demokratel Kongo\",\r\n      common: \"Kongo-Kinshasa\",\r\n    },\r\n    ces: {\r\n      official: \"Demokratická republika Kongo\",\r\n      common: \"DR Kongo\",\r\n    },\r\n    cym: {\r\n      official: \"Gweriniaeth Ddemocrataidd Congo\",\r\n      common: \"Gweriniaeth Ddemocrataidd Congo\",\r\n    },\r\n    deu: {\r\n      official: \"Demokratische Republik Kongo\",\r\n      common: \"Kongo (Dem. Rep.)\",\r\n    },\r\n    est: {\r\n      official: \"Kongo Demokraatlik Vabariik\",\r\n      common: \"Kongo DV\",\r\n    },\r\n    fin: {\r\n      official: \"Kongon demokraattinen tasavalta\",\r\n      common: \"Kongon demokraattinen tasavalta\",\r\n    },\r\n    fra: {\r\n      official: \"République démocratique du Congo\",\r\n      common: \"Congo (Rép. dém.)\",\r\n    },\r\n    hrv: {\r\n      official: \"Demokratska Republika Kongo\",\r\n      common: \"Kongo, Demokratska Republika\",\r\n    },\r\n    hun: {\r\n      official: \"Kongói Demokratikus Köztársaság\",\r\n      common: \"Kongói Demokratikus Köztársaság\",\r\n    },\r\n    ita: {\r\n      official: \"Repubblica Democratica del Congo\",\r\n      common: \"Congo (Rep. Dem.)\",\r\n    },\r\n    jpn: {\r\n      official: \"コンゴ民主共和国\",\r\n      common: \"コンゴ民主共和国\",\r\n    },\r\n    kor: {\r\n      official: \"콩고 민주 공화국\",\r\n      common: \"콩고 민주 공화국\",\r\n    },\r\n    nld: {\r\n      official: \"Democratische Republiek Congo\",\r\n      common: \"Congo (DRC)\",\r\n    },\r\n    per: {\r\n      official: \"جمهوری دموکراتیک کنگو\",\r\n      common: \"کنگو دموکراتیک\",\r\n    },\r\n    pol: {\r\n      official: \"Demokratyczna Republika Konga\",\r\n      common: \"Demokratyczna Republika Konga\",\r\n    },\r\n    por: {\r\n      official: \"República Democrática do Congo\",\r\n      common: \"República Democrática do Congo\",\r\n    },\r\n    rus: {\r\n      official: \"Демократическая Республика Конго\",\r\n      common: \"Демократическая Республика Конго\",\r\n    },\r\n    slk: {\r\n      official: \"Konžská demokratická republika\",\r\n      common: \"Kongo\",\r\n    },\r\n    spa: {\r\n      official: \"República Democrática del Congo\",\r\n      common: \"Congo (Rep. Dem.)\",\r\n    },\r\n    srp: {\r\n      official: \"Демократска Република Конго\",\r\n      common: \"ДР Конго\",\r\n    },\r\n    swe: {\r\n      official: \"Demokratiska republiken Kongo\",\r\n      common: \"Kongo-Kinshasa\",\r\n    },\r\n    tur: {\r\n      official: \"Kongo Demokratik Cumhuriyeti\",\r\n      common: \"Kongo Demokratik Cumhuriyeti\",\r\n    },\r\n    urd: {\r\n      official: \"جمہوری جمہوریہ کانگو\",\r\n      common: \"کانگو\",\r\n    },\r\n    zho: {\r\n      official: \"刚果民主共和国\",\r\n      common: \"民主刚果\",\r\n    },\r\n  },\r\n  latlng: [0, 25],\r\n  landlocked: false,\r\n  borders: [\"AGO\", \"BDI\", \"CAF\", \"COG\", \"RWA\", \"SSD\", \"TZA\", \"UGA\", \"ZMB\"],\r\n  area: 2344858,\r\n  demonyms: {\r\n    eng: {\r\n      f: \"Congolese\",\r\n      m: \"Congolese\",\r\n    },\r\n    fra: {\r\n      f: \"Congolaise\",\r\n      m: \"Congolais\",\r\n    },\r\n  },\r\n  flag: \"🇨🇩\",\r\n  maps: {\r\n    googleMaps: \"https://goo.gl/maps/KfhNVn6VqdZXWu8n9\",\r\n    openStreetMaps: \"https://www.openstreetmap.org/relation/192795\",\r\n  },\r\n  population: 108407721,\r\n  gini: {\r\n    2012: 42.1,\r\n  },\r\n  fifa: \"COD\",\r\n  car: {\r\n    signs: [\"CGO\"],\r\n    side: \"right\",\r\n  },\r\n  timezones: [\"UTC+01:00\", \"UTC+02:00\"],\r\n  continents: [\"Africa\"],\r\n  flags: {\r\n    png: \"https://flagcdn.com/w320/cd.png\",\r\n    svg: \"https://flagcdn.com/cd.svg\",\r\n    alt: \"The flag of the Democratic Republic of the Congo has a sky-blue field with a yellow-edged red diagonal band that extends from the lower hoist-side corner to the upper fly-side corner of the field. A large five-pointed yellow star is situated above the diagonal band on the upper hoist side of the field.\",\r\n  },\r\n  coatOfArms: {\r\n    png: \"https://mainfacts.com/media/images/coats_of_arms/cd.png\",\r\n    svg: \"https://mainfacts.com/media/images/coats_of_arms/cd.svg\",\r\n  },\r\n  startOfWeek: \"monday\",\r\n  capitalInfo: {\r\n    latlng: [-4.32, 15.3],\r\n  },\r\n});\r\nconst phone = computed({\r\n  get() {\r\n    let code, num;\r\n    if (String(props.number).charAt(0) === \"+\" || props.number.length >= 12) {\r\n      code =\r\n        String(props.number).charAt(0) === \"+\"\r\n          ? props.number.substring(0, 4)\r\n          : `+${props.number.substring(0, 3)}`;\r\n      num = props.number.substring(props.number.charAt(0) === \"+\" ? 4 : 3);\r\n      country.value = countries.value.find(\r\n        (c) => getCountryCallingCode(c) === code\r\n      );\r\n    } else {\r\n      num = props.number;\r\n    }\r\n\r\n    return num;\r\n  },\r\n  set(val) {\r\n    emits(\"setPhone\", `${getCountryCallingCode(country.value)}${val}`);\r\n  },\r\n});\r\n\r\nconst handle_id = computed(() => {\r\n  return props.label === \"Telephone number\"\r\n    ? \"default_telephone\"\r\n    : props.label.replaceAll(\" \", \"_\");\r\n});\r\n\r\nimport { useAppStore } from \"@/store/app\";\r\nconst app = useAppStore();\r\nconst { loading } = storeToRefs(app);\r\n\r\nconst search = ref(\"\");\r\nconst countries = ref(await app.getCountries());\r\n\r\nconst allCountries = computed(() => {\r\n  let all = countries.value\r\n    .sort((a, b) => (a.name.common > b.name.common ? 1 : -1))\r\n    .filter((val) => {\r\n      return String(val.name.official)\r\n        .toLowerCase()\r\n        .includes(search.value.toLowerCase());\r\n    });\r\n  return [\r\n    country.value,\r\n    ...all.filter((c) => c.name.official !== country.value.name.official),\r\n  ];\r\n});\r\n\r\nconst menu = ref(false);\r\nconst setCountry = (ctry) => {\r\n  menu.value = false;\r\n  country.value = ctry;\r\n  country.value.callingCode = getCountryCallingCode(ctry);\r\n  document.getElementById(handle_id.value).focus();\r\n\r\n  emits(\r\n    \"setPhone\",\r\n    `${getCountryCallingCode(country.value)}${props.number.substring(4)}`\r\n  );\r\n};\r\n\r\nconst getCountryCallingCode = (ctry) => {\r\n  return Object.keys(ctry?.idd).length !== 0\r\n    ? `${ctry.idd?.root}${ctry.idd?.suffixes[0]}`\r\n    : \"-\";\r\n};\r\nconst chainCountryName = (ctry) => {\r\n  return `${ctry.name.official}`;\r\n};\r\n\r\nconst inputWidth = ref(0);\r\nonMounted(() => {\r\n  let input = document.getElementById(`field_${handle_id.value}`);\r\n  inputWidth.value = input.offsetWidth;\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118029067,
+      "end": 1756118029067,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118029067,
+      "end": 1756118029067,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118029067,
+      "end": 1756118029067,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118029067,
+      "end": 1756118029067,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118029067,
+      "end": 1756118029067,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".filter-input:focus{border:none;outline:none}.filter-input{padding-block:8.5px}",
+      "start": 1756118029067,
+      "end": 1756118029072,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue",
+        "mappings": "AACA,oBACE,WAAY,CACZ,YACF,CAEA,cACE,mBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118029073,
+      "end": 1756118029073,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118029073,
+      "end": 1756118029073,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118029073,
+      "end": 1756118029073,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".filter-input[data-v-bb967857]:focus{border:none;outline:none}.filter-input[data-v-bb967857]{padding-block:8.5px}",
+      "start": 1756118029073,
+      "end": 1756118029074,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue",
+        "mappings": "AAAA,qCAAoB,WAAW,CAAC,YAAY,CAAC,+BAAc,mBAAmB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/telephone.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118029074,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118029075,
+      "end": 1756118029075,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118029075,
+      "end": 1756118029078,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118029078,
+      "end": 1756118029078,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756118029078,
+      "end": 1756118029078,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118029078,
+      "end": 1756118029078,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118029078,
+      "end": 1756118029078,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118029078,
+      "end": 1756118029078,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118029078,
+      "end": 1756118029079,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118029079,
+      "end": 1756118029079,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/util/helpers.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function _classPrivateFieldInitSpec(obj, privateMap, value) { _checkPrivateRedeclaration(obj, privateMap); privateMap.set(obj, value); }\r\nfunction _checkPrivateRedeclaration(obj, privateCollection) { if (privateCollection.has(obj)) { throw new TypeError(\"Cannot initialize the same private elements twice on an object\"); } }\r\nfunction _classPrivateFieldSet(receiver, privateMap, value) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, \"set\"); _classApplyDescriptorSet(receiver, descriptor, value); return value; }\r\nfunction _classApplyDescriptorSet(receiver, descriptor, value) { if (descriptor.set) { descriptor.set.call(receiver, value); } else { if (!descriptor.writable) { throw new TypeError(\"attempted to set read only private field\"); } descriptor.value = value; } }\r\nfunction _classPrivateFieldGet(receiver, privateMap) { var descriptor = _classExtractFieldDescriptor(receiver, privateMap, \"get\"); return _classApplyDescriptorGet(receiver, descriptor); }\r\nfunction _classExtractFieldDescriptor(receiver, privateMap, action) { if (!privateMap.has(receiver)) { throw new TypeError(\"attempted to \" + action + \" private field on non-instance\"); } return privateMap.get(receiver); }\r\nfunction _classApplyDescriptorGet(receiver, descriptor) { if (descriptor.get) { return descriptor.get.call(receiver); } return descriptor.value; }\r\n// Utilities\r\nimport { capitalize, Comment, computed, Fragment, isVNode, reactive, toRefs, unref, watchEffect } from 'vue';\r\nimport { IN_BROWSER } from \"./globals.mjs\"; // Types\r\nexport function getNestedValue(obj, path, fallback) {\r\n  const last = path.length - 1;\r\n  if (last < 0) return obj === undefined ? fallback : obj;\r\n  for (let i = 0; i < last; i++) {\r\n    if (obj == null) {\r\n      return fallback;\r\n    }\r\n    obj = obj[path[i]];\r\n  }\r\n  if (obj == null) return fallback;\r\n  return obj[path[last]] === undefined ? fallback : obj[path[last]];\r\n}\r\nexport function deepEqual(a, b) {\r\n  if (a === b) return true;\r\n  if (a instanceof Date && b instanceof Date && a.getTime() !== b.getTime()) {\r\n    // If the values are Date, compare them as timestamps\r\n    return false;\r\n  }\r\n  if (a !== Object(a) || b !== Object(b)) {\r\n    // If the values aren't objects, they were already checked for equality\r\n    return false;\r\n  }\r\n  const props = Object.keys(a);\r\n  if (props.length !== Object.keys(b).length) {\r\n    // Different number of props, don't bother to check\r\n    return false;\r\n  }\r\n  return props.every(p => deepEqual(a[p], b[p]));\r\n}\r\nexport function getObjectValueByPath(obj, path, fallback) {\r\n  // credit: http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key#comment55278413_6491621\r\n  if (obj == null || !path || typeof path !== 'string') return fallback;\r\n  if (obj[path] !== undefined) return obj[path];\r\n  path = path.replace(/\\[(\\w+)\\]/g, '.$1'); // convert indexes to properties\r\n  path = path.replace(/^\\./, ''); // strip a leading dot\r\n  return getNestedValue(obj, path.split('.'), fallback);\r\n}\r\nexport function getPropertyFromItem(item, property, fallback) {\r\n  if (property === true) return item === undefined ? fallback : item;\r\n  if (property == null || typeof property === 'boolean') return fallback;\r\n  if (item !== Object(item)) {\r\n    if (typeof property !== 'function') return fallback;\r\n    const value = property(item, fallback);\r\n    return typeof value === 'undefined' ? fallback : value;\r\n  }\r\n  if (typeof property === 'string') return getObjectValueByPath(item, property, fallback);\r\n  if (Array.isArray(property)) return getNestedValue(item, property, fallback);\r\n  if (typeof property !== 'function') return fallback;\r\n  const value = property(item, fallback);\r\n  return typeof value === 'undefined' ? fallback : value;\r\n}\r\nexport function createRange(length) {\r\n  let start = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;\r\n  return Array.from({\r\n    length\r\n  }, (v, k) => start + k);\r\n}\r\nexport function getZIndex(el) {\r\n  if (!el || el.nodeType !== Node.ELEMENT_NODE) return 0;\r\n  const index = +window.getComputedStyle(el).getPropertyValue('z-index');\r\n  if (!index) return getZIndex(el.parentNode);\r\n  return index;\r\n}\r\nexport function convertToUnit(str) {\r\n  let unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'px';\r\n  if (str == null || str === '') {\r\n    return undefined;\r\n  } else if (isNaN(+str)) {\r\n    return String(str);\r\n  } else if (!isFinite(+str)) {\r\n    return undefined;\r\n  } else {\r\n    return `${Number(str)}${unit}`;\r\n  }\r\n}\r\nexport function isObject(obj) {\r\n  return obj !== null && typeof obj === 'object' && !Array.isArray(obj);\r\n}\r\nexport function refElement(obj) {\r\n  if (obj && '$el' in obj) {\r\n    const el = obj.$el;\r\n    if (el?.nodeType === Node.TEXT_NODE) {\r\n      // Multi-root component, use the first element\r\n      return el.nextElementSibling;\r\n    }\r\n    return el;\r\n  }\r\n  return obj;\r\n}\r\n\r\n// KeyboardEvent.keyCode aliases\r\nexport const keyCodes = Object.freeze({\r\n  enter: 13,\r\n  tab: 9,\r\n  delete: 46,\r\n  esc: 27,\r\n  space: 32,\r\n  up: 38,\r\n  down: 40,\r\n  left: 37,\r\n  right: 39,\r\n  end: 35,\r\n  home: 36,\r\n  del: 46,\r\n  backspace: 8,\r\n  insert: 45,\r\n  pageup: 33,\r\n  pagedown: 34,\r\n  shift: 16\r\n});\r\nexport const keyValues = Object.freeze({\r\n  enter: 'Enter',\r\n  tab: 'Tab',\r\n  delete: 'Delete',\r\n  esc: 'Escape',\r\n  space: 'Space',\r\n  up: 'ArrowUp',\r\n  down: 'ArrowDown',\r\n  left: 'ArrowLeft',\r\n  right: 'ArrowRight',\r\n  end: 'End',\r\n  home: 'Home',\r\n  del: 'Delete',\r\n  backspace: 'Backspace',\r\n  insert: 'Insert',\r\n  pageup: 'PageUp',\r\n  pagedown: 'PageDown',\r\n  shift: 'Shift'\r\n});\r\nexport function keys(o) {\r\n  return Object.keys(o);\r\n}\r\nexport function has(obj, key) {\r\n  return key.every(k => obj.hasOwnProperty(k));\r\n}\r\n// Array of keys\r\nexport function pick(obj, paths) {\r\n  const found = {};\r\n  const keys = new Set(Object.keys(obj));\r\n  for (const path of paths) {\r\n    if (keys.has(path)) {\r\n      found[path] = obj[path];\r\n    }\r\n  }\r\n  return found;\r\n}\r\n\r\n// Array of keys\r\n\r\n// Array of keys or RegExp to test keys against\r\n\r\nexport function pickWithRest(obj, paths, exclude) {\r\n  const found = Object.create(null);\r\n  const rest = Object.create(null);\r\n  for (const key in obj) {\r\n    if (paths.some(path => path instanceof RegExp ? path.test(key) : path === key) && !exclude?.some(path => path === key)) {\r\n      found[key] = obj[key];\r\n    } else {\r\n      rest[key] = obj[key];\r\n    }\r\n  }\r\n  return [found, rest];\r\n}\r\nexport function omit(obj, exclude) {\r\n  const clone = {\r\n    ...obj\r\n  };\r\n  exclude.forEach(prop => delete clone[prop]);\r\n  return clone;\r\n}\r\nexport function only(obj, include) {\r\n  const clone = {};\r\n  include.forEach(prop => clone[prop] = obj[prop]);\r\n  return clone;\r\n}\r\nconst onRE = /^on[^a-z]/;\r\nexport const isOn = key => onRE.test(key);\r\nconst bubblingEvents = ['onAfterscriptexecute', 'onAnimationcancel', 'onAnimationend', 'onAnimationiteration', 'onAnimationstart', 'onAuxclick', 'onBeforeinput', 'onBeforescriptexecute', 'onChange', 'onClick', 'onCompositionend', 'onCompositionstart', 'onCompositionupdate', 'onContextmenu', 'onCopy', 'onCut', 'onDblclick', 'onFocusin', 'onFocusout', 'onFullscreenchange', 'onFullscreenerror', 'onGesturechange', 'onGestureend', 'onGesturestart', 'onGotpointercapture', 'onInput', 'onKeydown', 'onKeypress', 'onKeyup', 'onLostpointercapture', 'onMousedown', 'onMousemove', 'onMouseout', 'onMouseover', 'onMouseup', 'onMousewheel', 'onPaste', 'onPointercancel', 'onPointerdown', 'onPointerenter', 'onPointerleave', 'onPointermove', 'onPointerout', 'onPointerover', 'onPointerup', 'onReset', 'onSelect', 'onSubmit', 'onTouchcancel', 'onTouchend', 'onTouchmove', 'onTouchstart', 'onTransitioncancel', 'onTransitionend', 'onTransitionrun', 'onTransitionstart', 'onWheel'];\r\nconst compositionIgnoreKeys = ['ArrowUp', 'ArrowDown', 'ArrowRight', 'ArrowLeft', 'Enter', 'Escape', 'Tab', ' '];\r\nexport function isComposingIgnoreKey(e) {\r\n  return e.isComposing && compositionIgnoreKeys.includes(e.key);\r\n}\r\n\r\n/**\r\n * Filter attributes that should be applied to\r\n * the root element of an input component. Remaining\r\n * attributes should be passed to the <input> element inside.\r\n */\r\nexport function filterInputAttrs(attrs) {\r\n  const [events, props] = pickWithRest(attrs, [onRE]);\r\n  const inputEvents = omit(events, bubblingEvents);\r\n  const [rootAttrs, inputAttrs] = pickWithRest(props, ['class', 'style', 'id', /^data-/]);\r\n  Object.assign(rootAttrs, events);\r\n  Object.assign(inputAttrs, inputEvents);\r\n  return [rootAttrs, inputAttrs];\r\n}\r\n\r\n/**\r\n * Returns the set difference of B and A, i.e. the set of elements in B but not in A\r\n */\r\nexport function arrayDiff(a, b) {\r\n  const diff = [];\r\n  for (let i = 0; i < b.length; i++) {\r\n    if (!a.includes(b[i])) diff.push(b[i]);\r\n  }\r\n  return diff;\r\n}\r\nexport function wrapInArray(v) {\r\n  return v == null ? [] : Array.isArray(v) ? v : [v];\r\n}\r\nexport function defaultFilter(value, search, item) {\r\n  return value != null && search != null && typeof value !== 'boolean' && value.toString().toLocaleLowerCase().indexOf(search.toLocaleLowerCase()) !== -1;\r\n}\r\nexport function debounce(fn, delay) {\r\n  let timeoutId = 0;\r\n  const wrap = function () {\r\n    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {\r\n      args[_key] = arguments[_key];\r\n    }\r\n    clearTimeout(timeoutId);\r\n    timeoutId = setTimeout(() => fn(...args), unref(delay));\r\n  };\r\n  wrap.clear = () => {\r\n    clearTimeout(timeoutId);\r\n  };\r\n  wrap.immediate = fn;\r\n  return wrap;\r\n}\r\nexport function throttle(fn, limit) {\r\n  let throttling = false;\r\n  return function () {\r\n    if (!throttling) {\r\n      throttling = true;\r\n      setTimeout(() => throttling = false, limit);\r\n      return fn(...arguments);\r\n    }\r\n  };\r\n}\r\nexport function clamp(value) {\r\n  let min = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;\r\n  let max = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 1;\r\n  return Math.max(min, Math.min(max, value));\r\n}\r\nexport function getDecimals(value) {\r\n  const trimmedStr = value.toString().trim();\r\n  return trimmedStr.includes('.') ? trimmedStr.length - trimmedStr.indexOf('.') - 1 : 0;\r\n}\r\nexport function padEnd(str, length) {\r\n  let char = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '0';\r\n  return str + char.repeat(Math.max(0, length - str.length));\r\n}\r\nexport function padStart(str, length) {\r\n  let char = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '0';\r\n  return char.repeat(Math.max(0, length - str.length)) + str;\r\n}\r\nexport function chunk(str) {\r\n  let size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;\r\n  const chunked = [];\r\n  let index = 0;\r\n  while (index < str.length) {\r\n    chunked.push(str.substr(index, size));\r\n    index += size;\r\n  }\r\n  return chunked;\r\n}\r\nexport function chunkArray(array) {\r\n  let size = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1;\r\n  return Array.from({\r\n    length: Math.ceil(array.length / size)\r\n  }, (v, i) => array.slice(i * size, i * size + size));\r\n}\r\nexport function humanReadableFileSize(bytes) {\r\n  let base = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 1000;\r\n  if (bytes < base) {\r\n    return `${bytes} B`;\r\n  }\r\n  const prefix = base === 1024 ? ['Ki', 'Mi', 'Gi'] : ['k', 'M', 'G'];\r\n  let unit = -1;\r\n  while (Math.abs(bytes) >= base && unit < prefix.length - 1) {\r\n    bytes /= base;\r\n    ++unit;\r\n  }\r\n  return `${bytes.toFixed(1)} ${prefix[unit]}B`;\r\n}\r\nexport function mergeDeep() {\r\n  let source = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};\r\n  let target = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};\r\n  let arrayFn = arguments.length > 2 ? arguments[2] : undefined;\r\n  const out = {};\r\n  for (const key in source) {\r\n    out[key] = source[key];\r\n  }\r\n  for (const key in target) {\r\n    const sourceProperty = source[key];\r\n    const targetProperty = target[key];\r\n\r\n    // Only continue deep merging if\r\n    // both properties are objects\r\n    if (isObject(sourceProperty) && isObject(targetProperty)) {\r\n      out[key] = mergeDeep(sourceProperty, targetProperty, arrayFn);\r\n      continue;\r\n    }\r\n    if (Array.isArray(sourceProperty) && Array.isArray(targetProperty) && arrayFn) {\r\n      out[key] = arrayFn(sourceProperty, targetProperty);\r\n      continue;\r\n    }\r\n    out[key] = targetProperty;\r\n  }\r\n  return out;\r\n}\r\nexport function flattenFragments(nodes) {\r\n  return nodes.map(node => {\r\n    if (node.type === Fragment) {\r\n      return flattenFragments(node.children);\r\n    } else {\r\n      return node;\r\n    }\r\n  }).flat();\r\n}\r\nexport function toKebabCase() {\r\n  let str = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';\r\n  if (toKebabCase.cache.has(str)) return toKebabCase.cache.get(str);\r\n  const kebab = str.replace(/[^a-z]/gi, '-').replace(/\\B([A-Z])/g, '-$1').toLowerCase();\r\n  toKebabCase.cache.set(str, kebab);\r\n  return kebab;\r\n}\r\ntoKebabCase.cache = new Map();\r\nexport function findChildrenWithProvide(key, vnode) {\r\n  if (!vnode || typeof vnode !== 'object') return [];\r\n  if (Array.isArray(vnode)) {\r\n    return vnode.map(child => findChildrenWithProvide(key, child)).flat(1);\r\n  } else if (Array.isArray(vnode.children)) {\r\n    return vnode.children.map(child => findChildrenWithProvide(key, child)).flat(1);\r\n  } else if (vnode.component) {\r\n    if (Object.getOwnPropertySymbols(vnode.component.provides).includes(key)) {\r\n      return [vnode.component];\r\n    } else if (vnode.component.subTree) {\r\n      return findChildrenWithProvide(key, vnode.component.subTree).flat(1);\r\n    }\r\n  }\r\n  return [];\r\n}\r\nvar _arr = /*#__PURE__*/new WeakMap();\r\nvar _pointer = /*#__PURE__*/new WeakMap();\r\nexport class CircularBuffer {\r\n  constructor(size) {\r\n    _classPrivateFieldInitSpec(this, _arr, {\r\n      writable: true,\r\n      value: []\r\n    });\r\n    _classPrivateFieldInitSpec(this, _pointer, {\r\n      writable: true,\r\n      value: 0\r\n    });\r\n    this.size = size;\r\n  }\r\n  push(val) {\r\n    _classPrivateFieldGet(this, _arr)[_classPrivateFieldGet(this, _pointer)] = val;\r\n    _classPrivateFieldSet(this, _pointer, (_classPrivateFieldGet(this, _pointer) + 1) % this.size);\r\n  }\r\n  values() {\r\n    return _classPrivateFieldGet(this, _arr).slice(_classPrivateFieldGet(this, _pointer)).concat(_classPrivateFieldGet(this, _arr).slice(0, _classPrivateFieldGet(this, _pointer)));\r\n  }\r\n}\r\nexport function getEventCoordinates(e) {\r\n  if ('touches' in e) {\r\n    return {\r\n      clientX: e.touches[0].clientX,\r\n      clientY: e.touches[0].clientY\r\n    };\r\n  }\r\n  return {\r\n    clientX: e.clientX,\r\n    clientY: e.clientY\r\n  };\r\n}\r\n\r\n// Only allow a single return type\r\n\r\n/**\r\n * Convert a computed ref to a record of refs.\r\n * The getter function must always return an object with the same keys.\r\n */\r\n\r\nexport function destructComputed(getter) {\r\n  const refs = reactive({});\r\n  const base = computed(getter);\r\n  watchEffect(() => {\r\n    for (const key in base.value) {\r\n      refs[key] = base.value[key];\r\n    }\r\n  }, {\r\n    flush: 'sync'\r\n  });\r\n  return toRefs(refs);\r\n}\r\n\r\n/** Array.includes but value can be any type */\r\nexport function includes(arr, val) {\r\n  return arr.includes(val);\r\n}\r\nexport function eventName(propName) {\r\n  return propName[2].toLowerCase() + propName.slice(3);\r\n}\r\nexport const EventProp = () => [Function, Array];\r\nexport function hasEvent(props, name) {\r\n  name = 'on' + capitalize(name);\r\n  return !!(props[name] || props[`${name}Once`] || props[`${name}Capture`] || props[`${name}OnceCapture`] || props[`${name}CaptureOnce`]);\r\n}\r\nexport function callEvent(handler) {\r\n  for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {\r\n    args[_key2 - 1] = arguments[_key2];\r\n  }\r\n  if (Array.isArray(handler)) {\r\n    for (const h of handler) {\r\n      h(...args);\r\n    }\r\n  } else if (typeof handler === 'function') {\r\n    handler(...args);\r\n  }\r\n}\r\nexport function focusableChildren(el) {\r\n  let filterByTabIndex = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;\r\n  const targets = ['button', '[href]', 'input:not([type=\"hidden\"])', 'select', 'textarea', '[tabindex]'].map(s => `${s}${filterByTabIndex ? ':not([tabindex=\"-1\"])' : ''}:not([disabled])`).join(', ');\r\n  return [...el.querySelectorAll(targets)];\r\n}\r\nexport function getNextElement(elements, location, condition) {\r\n  let _el;\r\n  let idx = elements.indexOf(document.activeElement);\r\n  const inc = location === 'next' ? 1 : -1;\r\n  do {\r\n    idx += inc;\r\n    _el = elements[idx];\r\n  } while ((!_el || _el.offsetParent == null || !(condition?.(_el) ?? true)) && idx < elements.length && idx >= 0);\r\n  return _el;\r\n}\r\nexport function focusChild(el, location) {\r\n  const focusable = focusableChildren(el);\r\n  if (!location) {\r\n    if (el === document.activeElement || !el.contains(document.activeElement)) {\r\n      focusable[0]?.focus();\r\n    }\r\n  } else if (location === 'first') {\r\n    focusable[0]?.focus();\r\n  } else if (location === 'last') {\r\n    focusable.at(-1)?.focus();\r\n  } else if (typeof location === 'number') {\r\n    focusable[location]?.focus();\r\n  } else {\r\n    const _el = getNextElement(focusable, location);\r\n    if (_el) _el.focus();else focusChild(el, location === 'next' ? 'first' : 'last');\r\n  }\r\n}\r\nexport function isEmpty(val) {\r\n  return val === null || val === undefined || typeof val === 'string' && val.trim() === '';\r\n}\r\nexport function noop() {}\r\n\r\n/** Returns null if the selector is not supported or we can't check */\r\nexport function matchesSelector(el, selector) {\r\n  const supportsSelector = IN_BROWSER && typeof CSS !== 'undefined' && typeof CSS.supports !== 'undefined' && CSS.supports(`selector(${selector})`);\r\n  if (!supportsSelector) return null;\r\n  try {\r\n    return !!el && el.matches(selector);\r\n  } catch (err) {\r\n    return null;\r\n  }\r\n}\r\nexport function ensureValidVNode(vnodes) {\r\n  return vnodes.some(child => {\r\n    if (!isVNode(child)) return true;\r\n    if (child.type === Comment) return false;\r\n    return child.type !== Fragment || ensureValidVNode(child.children);\r\n  }) ? vnodes : null;\r\n}\r\nexport function defer(timeout, cb) {\r\n  if (!IN_BROWSER || timeout === 0) {\r\n    cb();\r\n    return () => {};\r\n  }\r\n  const timeoutId = window.setTimeout(cb, timeout);\r\n  return () => window.clearTimeout(timeoutId);\r\n}\r\n//# sourceMappingURL=helpers.mjs.map",
+      "start": 1756117961226,
+      "end": 1756117961394,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117961395,
+      "end": 1756117961395,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117961395,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117961396,
+      "end": 1756117961396,
+      "order": "normal"
+    }
+  ]
+}

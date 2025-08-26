@@ -1,0 +1,99 @@
+import { ae as useDisplay, m as useDevice, h as useAppStore, s as storeToRefs, j as __nuxt_component_0$1 } from '../server.mjs';
+import { u as useHelpers } from './useHelpers-kUuDaVs4.mjs';
+import { ref, computed, watchEffect, useSSRContext } from 'vue';
+import { a as useSeoMeta } from './index-S1hhTCs3.mjs';
+import { ssrRenderComponent } from 'vue/server-renderer';
+import { u as useBusinessStore } from './business-xWrgr4rc.mjs';
+import { u as useJobStore } from './jobs-XJs56wMu.mjs';
+import '../../nitro/firebase-gen-2.mjs';
+import 'firebase-functions/v2/https';
+import 'node:http';
+import 'node:https';
+import 'fs';
+import 'path';
+import 'unhead';
+import '@unhead/shared';
+import 'vue-router';
+import '@algolia/cache-in-memory';
+import 'pinia-plugin-persistedstate';
+import 'date-fns';
+import 'date-fns/locale';
+
+const _sfc_main = {
+  __name: "index",
+  __ssrInlineRender: true,
+  setup(__props) {
+    const { smAndDown } = useDisplay();
+    const { isMobile } = useDevice();
+    const { replaceObjectEmptyStrings, filterDataPerField } = useHelpers();
+    const appStore = useAppStore();
+    const { loading, error, currentUser } = storeToRefs(appStore);
+    const { getBusinesses } = useBusinessStore();
+    const businesses = ref([]);
+    const business = ref({ name: "ALL BUSINESSES", id: 0 });
+    computed(() => {
+      let businessMap = businesses.value.map((c) => c.businessName);
+      return ["ALL BUSINESSES", ...businessMap];
+    });
+    const { getJobs, publishJob } = useJobStore();
+    const data = ref([]);
+    const getData = async () => {
+      let allData = await getJobs();
+      businesses.value = await getBusinesses(false);
+      data.value = allData.filter(
+        (i) => currentUser.value.accessLevel === 3 ? i.createdBy === currentUser.value.userId : i
+      );
+      data.value = replaceObjectEmptyStrings(data.value);
+    };
+    watchEffect(() => {
+      getData();
+    });
+    computed(() => {
+      return business.value.name !== "ALL BUSINESSES" ? filterDataPerField(data.value, search.value, {
+        isPublished: status.value,
+        businessId: business.value.id
+      }) : filterDataPerField(data.value, search.value, {
+        isPublished: status.value
+      });
+    });
+    computed(() => {
+      return isMobile || smAndDown.value;
+    });
+    const search = ref("");
+    const status = ref(true);
+    computed(() => {
+      let list = [
+        // { title: "#", value: "no", show: true },
+        { title: "ID", value: "jobId", show: true },
+        { title: "Name", value: "jobName", show: true },
+        // { title: "Job type", value: "jobtype", show: true },
+        { title: "Category", value: "category.name", show: true },
+        //   { title: "Subcategory", value: "category.subcategory" },
+        { title: "Business", value: "business.businessName", show: true },
+        { title: "Applications", value: "applications", show: status.value },
+        { title: "Status", value: "jobstatus", show: status.value },
+        { title: "Published", value: "publish", show: !status.value },
+        { title: "Action", value: "action", show: true }
+      ];
+      return list.filter((h) => h.show);
+    });
+    ref(false);
+    ref({});
+    useSeoMeta({
+      title: "Jobs"
+    });
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_ClientOnly = __nuxt_component_0$1;
+      _push(ssrRenderComponent(_component_ClientOnly, _attrs, {}, _parent));
+    };
+  }
+};
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("pages/admin/jobs/index.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+
+export { _sfc_main as default };
+//# sourceMappingURL=index-_i49_7z_.mjs.map

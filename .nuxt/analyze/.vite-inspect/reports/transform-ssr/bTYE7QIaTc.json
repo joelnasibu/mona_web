@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue?vue&type=style&index=0&scoped=480cae49&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.system-bg {\r\n  background: url(\"~/assets/images/bg/white.png\");\r\n  background-position: center;\r\n  background-size: contain;\r\n  /* background-color: hsla(240, 100%, 90%, 0.1); */\r\n}\r\n",
+      "start": 1756118034605,
+      "end": 1756118034605,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue"
+        ],
+        "names": [],
+        "mappings": ";AAgCA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACT,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC/C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACxB,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AACnD",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <v-app>\r\n    <AdminAppBar />\r\n    <v-main class=\"system-bg\">\r\n      <v-container class=\"px-4 py-2\">\r\n        <NuxtPage />\r\n      </v-container>\r\n    </v-main>\r\n    <AdminFooter />\r\n  </v-app>\r\n</template>\r\n\r\n<script setup>\r\nconst environmentVariable = useRuntimeConfig();\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { currentUser, token } = storeToRefs(useAppStore());\r\n\r\nuseHead({\r\n  titleTemplate: (title) => `${title} - Administration`,\r\n});\r\nuseSeoMeta({\r\n  title: environmentVariable.public.app_name,\r\n  ogTitle: \"Skill Up\",\r\n  description: \"Skill up administration description.\",\r\n  ogDescription: \"Skill up administration description OG.\",\r\n  ogImage: \"https://preview-skill\",\r\n  twitterCard: \"summary_large_image\",\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.system-bg {\r\n  background: url(\"~/assets/images/bg/white.png\");\r\n  background-position: center;\r\n  background-size: contain;\r\n  /* background-color: hsla(240, 100%, 90%, 0.1); */\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118034606,
+      "end": 1756118034606,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118034606,
+      "end": 1756118034606,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118034606,
+      "end": 1756118034606,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118034606,
+      "end": 1756118034606,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118034606,
+      "end": 1756118034606,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".system-bg{background:url(__VITE_ASSET__2aBjRqb2__);background-position:50%;background-size:contain}",
+      "start": 1756118034607,
+      "end": 1756118034629,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue",
+        "mappings": "AACA,WACE,wCAA+C,CAC/C,uBAA2B,CAC3B,uBAEF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.system-bg {\r\n  background: url(\"~/assets/images/bg/white.png\");\r\n  background-position: center;\r\n  background-size: contain;\r\n  /* background-color: hsla(240, 100%, 90%, 0.1); */\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118034629,
+      "end": 1756118034629,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118034629,
+      "end": 1756118034629,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118034630,
+      "end": 1756118034630,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".system-bg[data-v-480cae49]{background:url(__VITE_ASSET__2aBjRqb2__);background-position:50%;background-size:contain}",
+      "start": 1756118034630,
+      "end": 1756118034631,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue",
+        "mappings": "AAAA,4BAAW,wCAAwC,CAAC,uBAAuB,CAAC,uBAAuB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118034631,
+      "end": 1756118034631,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118034631,
+      "end": 1756118034631,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118034631,
+      "end": 1756118034631,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118034631,
+      "end": 1756118034631,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118034631,
+      "end": 1756118034631,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118034631,
+      "end": 1756118034631,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118034632,
+      "end": 1756118034632,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118034632,
+      "end": 1756118034632,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118034633,
+      "end": 1756118034633,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118034633,
+      "end": 1756118034633,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".system-bg[data-v-480cae49]{background:url(__VITE_ASSET__2aBjRqb2__);background-position:50%;background-size:contain}\"",
+      "start": 1756118034633,
+      "end": 1756118034633,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118034633,
+      "end": 1756118034633,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118034633,
+      "end": 1756118034633,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118034633,
+      "end": 1756118034633,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118034634,
+      "end": 1756118034634,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118034635,
+      "end": 1756118034635,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118034636,
+      "end": 1756118034636,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/cy/_lib/localize.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { buildLocalizeFn } from \"../../_lib/buildLocalizeFn.mjs\";\r\n\r\nconst eraValues = {\r\n  narrow: [\"C\", \"O\"],\r\n  abbreviated: [\"CC\", \"OC\"],\r\n  wide: [\"Cyn Crist\", \"Ar ôl Crist\"],\r\n};\r\n\r\nconst quarterValues = {\r\n  narrow: [\"1\", \"2\", \"3\", \"4\"],\r\n  abbreviated: [\"Ch1\", \"Ch2\", \"Ch3\", \"Ch4\"],\r\n  wide: [\"Chwarter 1af\", \"2ail chwarter\", \"3ydd chwarter\", \"4ydd chwarter\"],\r\n};\r\n\r\n// Note: in English, the names of days of the week and months are capitalized.\r\n// If you are making a new locale based on this one, check if the same is true for the language you're working on.\r\n// Generally, formatted dates should look like they are in the middle of a sentence,\r\n// e.g. in Spanish language the weekdays and months should be in the lowercase.\r\nconst monthValues = {\r\n  narrow: [\"I\", \"Ch\", \"Ma\", \"E\", \"Mi\", \"Me\", \"G\", \"A\", \"Md\", \"H\", \"T\", \"Rh\"],\r\n\r\n  abbreviated: [\r\n    \"Ion\",\r\n    \"Chwe\",\r\n    \"Maw\",\r\n    \"Ebr\",\r\n    \"Mai\",\r\n    \"Meh\",\r\n    \"Gor\",\r\n    \"Aws\",\r\n    \"Med\",\r\n    \"Hyd\",\r\n    \"Tach\",\r\n    \"Rhag\",\r\n  ],\r\n\r\n  wide: [\r\n    \"Ionawr\",\r\n    \"Chwefror\",\r\n    \"Mawrth\",\r\n    \"Ebrill\",\r\n    \"Mai\",\r\n    \"Mehefin\",\r\n    \"Gorffennaf\",\r\n    \"Awst\",\r\n    \"Medi\",\r\n    \"Hydref\",\r\n    \"Tachwedd\",\r\n    \"Rhagfyr\",\r\n  ],\r\n};\r\n\r\nconst dayValues = {\r\n  narrow: [\"S\", \"Ll\", \"M\", \"M\", \"I\", \"G\", \"S\"],\r\n  short: [\"Su\", \"Ll\", \"Ma\", \"Me\", \"Ia\", \"Gw\", \"Sa\"],\r\n  abbreviated: [\"Sul\", \"Llun\", \"Maw\", \"Mer\", \"Iau\", \"Gwe\", \"Sad\"],\r\n  wide: [\r\n    \"dydd Sul\",\r\n    \"dydd Llun\",\r\n    \"dydd Mawrth\",\r\n    \"dydd Mercher\",\r\n    \"dydd Iau\",\r\n    \"dydd Gwener\",\r\n    \"dydd Sadwrn\",\r\n  ],\r\n};\r\n\r\nconst dayPeriodValues = {\r\n  narrow: {\r\n    am: \"b\",\r\n    pm: \"h\",\r\n    midnight: \"hn\",\r\n    noon: \"hd\",\r\n    morning: \"bore\",\r\n    afternoon: \"prynhawn\",\r\n    evening: \"gyda'r nos\",\r\n    night: \"nos\",\r\n  },\r\n  abbreviated: {\r\n    am: \"yb\",\r\n    pm: \"yh\",\r\n    midnight: \"hanner nos\",\r\n    noon: \"hanner dydd\",\r\n    morning: \"bore\",\r\n    afternoon: \"prynhawn\",\r\n    evening: \"gyda'r nos\",\r\n    night: \"nos\",\r\n  },\r\n  wide: {\r\n    am: \"y.b.\",\r\n    pm: \"y.h.\",\r\n    midnight: \"hanner nos\",\r\n    noon: \"hanner dydd\",\r\n    morning: \"bore\",\r\n    afternoon: \"prynhawn\",\r\n    evening: \"gyda'r nos\",\r\n    night: \"nos\",\r\n  },\r\n};\r\n\r\nconst formattingDayPeriodValues = {\r\n  narrow: {\r\n    am: \"b\",\r\n    pm: \"h\",\r\n    midnight: \"hn\",\r\n    noon: \"hd\",\r\n    morning: \"yn y bore\",\r\n    afternoon: \"yn y prynhawn\",\r\n    evening: \"gyda'r nos\",\r\n    night: \"yn y nos\",\r\n  },\r\n  abbreviated: {\r\n    am: \"yb\",\r\n    pm: \"yh\",\r\n    midnight: \"hanner nos\",\r\n    noon: \"hanner dydd\",\r\n    morning: \"yn y bore\",\r\n    afternoon: \"yn y prynhawn\",\r\n    evening: \"gyda'r nos\",\r\n    night: \"yn y nos\",\r\n  },\r\n  wide: {\r\n    am: \"y.b.\",\r\n    pm: \"y.h.\",\r\n    midnight: \"hanner nos\",\r\n    noon: \"hanner dydd\",\r\n    morning: \"yn y bore\",\r\n    afternoon: \"yn y prynhawn\",\r\n    evening: \"gyda'r nos\",\r\n    night: \"yn y nos\",\r\n  },\r\n};\r\n\r\nconst ordinalNumber = (dirtyNumber, _options) => {\r\n  const number = Number(dirtyNumber);\r\n\r\n  if (number < 20) {\r\n    switch (number) {\r\n      case 0:\r\n        return number + \"fed\";\r\n      case 1:\r\n        return number + \"af\";\r\n      case 2:\r\n        return number + \"ail\";\r\n      case 3:\r\n      case 4:\r\n        return number + \"ydd\";\r\n      case 5:\r\n      case 6:\r\n        return number + \"ed\";\r\n      case 7:\r\n      case 8:\r\n      case 9:\r\n      case 10:\r\n      case 12:\r\n      case 15:\r\n      case 18:\r\n        return number + \"fed\";\r\n      case 11:\r\n      case 13:\r\n      case 14:\r\n      case 16:\r\n      case 17:\r\n      case 19:\r\n        return number + \"eg\";\r\n    }\r\n  } else if ((number >= 50 && number <= 60) || number === 80 || number >= 100) {\r\n    return number + \"fed\";\r\n  }\r\n  return number + \"ain\";\r\n};\r\n\r\nexport const localize = {\r\n  ordinalNumber,\r\n\r\n  era: buildLocalizeFn({\r\n    values: eraValues,\r\n    defaultWidth: \"wide\",\r\n  }),\r\n\r\n  quarter: buildLocalizeFn({\r\n    values: quarterValues,\r\n    defaultWidth: \"wide\",\r\n    argumentCallback: (quarter) => quarter - 1,\r\n  }),\r\n\r\n  month: buildLocalizeFn({\r\n    values: monthValues,\r\n    defaultWidth: \"wide\",\r\n  }),\r\n\r\n  day: buildLocalizeFn({\r\n    values: dayValues,\r\n    defaultWidth: \"wide\",\r\n  }),\r\n\r\n  dayPeriod: buildLocalizeFn({\r\n    values: dayPeriodValues,\r\n    defaultWidth: \"wide\",\r\n    formattingValues: formattingDayPeriodValues,\r\n    defaultFormattingWidth: \"wide\",\r\n  }),\r\n};\r\n",
+      "start": 1756117965655,
+      "end": 1756117965735,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117965736,
+      "end": 1756117965736,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117965736,
+      "end": 1756117965737,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117965737,
+      "end": 1756117965737,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117965737,
+      "end": 1756117965737,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117965737,
+      "end": 1756117965737,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117965737,
+      "end": 1756117965737,
+      "order": "normal"
+    }
+  ]
+}

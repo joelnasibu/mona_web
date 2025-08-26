@@ -1,0 +1,227 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\r\nvar __importDefault = (this && this.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nconst PostgrestQueryBuilder_1 = __importDefault(require(\"./PostgrestQueryBuilder\"));\r\nconst PostgrestFilterBuilder_1 = __importDefault(require(\"./PostgrestFilterBuilder\"));\r\nconst constants_1 = require(\"./constants\");\r\n/**\r\n * PostgREST client.\r\n *\r\n * @typeParam Database - Types for the schema from the [type\r\n * generator](https://supabase.com/docs/reference/javascript/next/typescript-support)\r\n *\r\n * @typeParam SchemaName - Postgres schema to switch to. Must be a string\r\n * literal, the same one passed to the constructor. If the schema is not\r\n * `\"public\"`, this must be supplied manually.\r\n */\r\nclass PostgrestClient {\r\n    // TODO: Add back shouldThrowOnError once we figure out the typings\r\n    /**\r\n     * Creates a PostgREST client.\r\n     *\r\n     * @param url - URL of the PostgREST endpoint\r\n     * @param options - Named parameters\r\n     * @param options.headers - Custom headers\r\n     * @param options.schema - Postgres schema to switch to\r\n     * @param options.fetch - Custom fetch\r\n     */\r\n    constructor(url, { headers = {}, schema, fetch, } = {}) {\r\n        this.url = url;\r\n        this.headers = Object.assign(Object.assign({}, constants_1.DEFAULT_HEADERS), headers);\r\n        this.schemaName = schema;\r\n        this.fetch = fetch;\r\n    }\r\n    /**\r\n     * Perform a query on a table or a view.\r\n     *\r\n     * @param relation - The table or view name to query\r\n     */\r\n    from(relation) {\r\n        const url = new URL(`${this.url}/${relation}`);\r\n        return new PostgrestQueryBuilder_1.default(url, {\r\n            headers: Object.assign({}, this.headers),\r\n            schema: this.schemaName,\r\n            fetch: this.fetch,\r\n        });\r\n    }\r\n    /**\r\n     * Select a schema to query or perform an function (rpc) call.\r\n     *\r\n     * The schema needs to be on the list of exposed schemas inside Supabase.\r\n     *\r\n     * @param schema - The schema to query\r\n     */\r\n    schema(schema) {\r\n        return new PostgrestClient(this.url, {\r\n            headers: this.headers,\r\n            schema,\r\n            fetch: this.fetch,\r\n        });\r\n    }\r\n    /**\r\n     * Perform a function call.\r\n     *\r\n     * @param fn - The function name to call\r\n     * @param args - The arguments to pass to the function call\r\n     * @param options - Named parameters\r\n     * @param options.head - When set to `true`, `data` will not be returned.\r\n     * Useful if you only need the count.\r\n     * @param options.get - When set to `true`, the function will be called with\r\n     * read-only access mode.\r\n     * @param options.count - Count algorithm to use to count rows returned by the\r\n     * function. Only applicable for [set-returning\r\n     * functions](https://www.postgresql.org/docs/current/functions-srf.html).\r\n     *\r\n     * `\"exact\"`: Exact but slow count algorithm. Performs a `COUNT(*)` under the\r\n     * hood.\r\n     *\r\n     * `\"planned\"`: Approximated but fast count algorithm. Uses the Postgres\r\n     * statistics under the hood.\r\n     *\r\n     * `\"estimated\"`: Uses exact count for low numbers and planned count for high\r\n     * numbers.\r\n     */\r\n    rpc(fn, args = {}, { head = false, get = false, count, } = {}) {\r\n        let method;\r\n        const url = new URL(`${this.url}/rpc/${fn}`);\r\n        let body;\r\n        if (head || get) {\r\n            method = head ? 'HEAD' : 'GET';\r\n            Object.entries(args)\r\n                // params with undefined value needs to be filtered out, otherwise it'll\r\n                // show up as `?param=undefined`\r\n                .filter(([_, value]) => value !== undefined)\r\n                // array values need special syntax\r\n                .map(([name, value]) => [name, Array.isArray(value) ? `{${value.join(',')}}` : `${value}`])\r\n                .forEach(([name, value]) => {\r\n                url.searchParams.append(name, value);\r\n            });\r\n        }\r\n        else {\r\n            method = 'POST';\r\n            body = args;\r\n        }\r\n        const headers = Object.assign({}, this.headers);\r\n        if (count) {\r\n            headers['Prefer'] = `count=${count}`;\r\n        }\r\n        return new PostgrestFilterBuilder_1.default({\r\n            method,\r\n            url,\r\n            headers,\r\n            schema: this.schemaName,\r\n            body,\r\n            fetch: this.fetch,\r\n            allowEmpty: false,\r\n        });\r\n    }\r\n}\r\nexports.default = PostgrestClient;\r\n//# sourceMappingURL=PostgrestClient.js.map",
+      "start": 1756117968477,
+      "end": 1756117968708,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968709,
+      "end": 1756117968709,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968710,
+      "end": 1756117968710,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as PostgrestClient_1 } from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestClient.js?commonjs-exports\";\nimport require$$0 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestQueryBuilder.js?commonjs-proxy\";\nimport require$$1 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestFilterBuilder.js?commonjs-proxy\";\nimport require$$2 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/constants.js?commonjs-proxy\";\n\n\"use strict\";\r\nvar __importDefault = (commonjsHelpers.commonjsGlobal && commonjsHelpers.commonjsGlobal.__importDefault) || function (mod) {\r\n    return (mod && mod.__esModule) ? mod : { \"default\": mod };\r\n};\r\nObject.defineProperty(PostgrestClient_1, \"__esModule\", { value: true });\r\nconst PostgrestQueryBuilder_1 = __importDefault(require$$0);\r\nconst PostgrestFilterBuilder_1 = __importDefault(require$$1);\r\nconst constants_1 = require$$2;\r\n/**\r\n * PostgREST client.\r\n *\r\n * @typeParam Database - Types for the schema from the [type\r\n * generator](https://supabase.com/docs/reference/javascript/next/typescript-support)\r\n *\r\n * @typeParam SchemaName - Postgres schema to switch to. Must be a string\r\n * literal, the same one passed to the constructor. If the schema is not\r\n * `\"public\"`, this must be supplied manually.\r\n */\r\nclass PostgrestClient {\r\n    // TODO: Add back shouldThrowOnError once we figure out the typings\r\n    /**\r\n     * Creates a PostgREST client.\r\n     *\r\n     * @param url - URL of the PostgREST endpoint\r\n     * @param options - Named parameters\r\n     * @param options.headers - Custom headers\r\n     * @param options.schema - Postgres schema to switch to\r\n     * @param options.fetch - Custom fetch\r\n     */\r\n    constructor(url, { headers = {}, schema, fetch, } = {}) {\r\n        this.url = url;\r\n        this.headers = Object.assign(Object.assign({}, constants_1.DEFAULT_HEADERS), headers);\r\n        this.schemaName = schema;\r\n        this.fetch = fetch;\r\n    }\r\n    /**\r\n     * Perform a query on a table or a view.\r\n     *\r\n     * @param relation - The table or view name to query\r\n     */\r\n    from(relation) {\r\n        const url = new URL(`${this.url}/${relation}`);\r\n        return new PostgrestQueryBuilder_1.default(url, {\r\n            headers: Object.assign({}, this.headers),\r\n            schema: this.schemaName,\r\n            fetch: this.fetch,\r\n        });\r\n    }\r\n    /**\r\n     * Select a schema to query or perform an function (rpc) call.\r\n     *\r\n     * The schema needs to be on the list of exposed schemas inside Supabase.\r\n     *\r\n     * @param schema - The schema to query\r\n     */\r\n    schema(schema) {\r\n        return new PostgrestClient(this.url, {\r\n            headers: this.headers,\r\n            schema,\r\n            fetch: this.fetch,\r\n        });\r\n    }\r\n    /**\r\n     * Perform a function call.\r\n     *\r\n     * @param fn - The function name to call\r\n     * @param args - The arguments to pass to the function call\r\n     * @param options - Named parameters\r\n     * @param options.head - When set to `true`, `data` will not be returned.\r\n     * Useful if you only need the count.\r\n     * @param options.get - When set to `true`, the function will be called with\r\n     * read-only access mode.\r\n     * @param options.count - Count algorithm to use to count rows returned by the\r\n     * function. Only applicable for [set-returning\r\n     * functions](https://www.postgresql.org/docs/current/functions-srf.html).\r\n     *\r\n     * `\"exact\"`: Exact but slow count algorithm. Performs a `COUNT(*)` under the\r\n     * hood.\r\n     *\r\n     * `\"planned\"`: Approximated but fast count algorithm. Uses the Postgres\r\n     * statistics under the hood.\r\n     *\r\n     * `\"estimated\"`: Uses exact count for low numbers and planned count for high\r\n     * numbers.\r\n     */\r\n    rpc(fn, args = {}, { head = false, get = false, count, } = {}) {\r\n        let method;\r\n        const url = new URL(`${this.url}/rpc/${fn}`);\r\n        let body;\r\n        if (head || get) {\r\n            method = head ? 'HEAD' : 'GET';\r\n            Object.entries(args)\r\n                // params with undefined value needs to be filtered out, otherwise it'll\r\n                // show up as `?param=undefined`\r\n                .filter(([_, value]) => value !== undefined)\r\n                // array values need special syntax\r\n                .map(([name, value]) => [name, Array.isArray(value) ? `{${value.join(',')}}` : `${value}`])\r\n                .forEach(([name, value]) => {\r\n                url.searchParams.append(name, value);\r\n            });\r\n        }\r\n        else {\r\n            method = 'POST';\r\n            body = args;\r\n        }\r\n        const headers = Object.assign({}, this.headers);\r\n        if (count) {\r\n            headers['Prefer'] = `count=${count}`;\r\n        }\r\n        return new PostgrestFilterBuilder_1.default({\r\n            method,\r\n            url,\r\n            headers,\r\n            schema: this.schemaName,\r\n            body,\r\n            fetch: this.fetch,\r\n            allowEmpty: false,\r\n        });\r\n    }\r\n}\r\nvar _default = PostgrestClient_1.default = PostgrestClient;\r\n//# sourceMappingURL=PostgrestClient.js.map\n\nexport { PostgrestClient_1 as __moduleExports, _default as default };",
+      "start": 1756117968710,
+      "end": 1756117969099,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [
+          "this"
+        ],
+        "mappings": ";;;;;;AAAA,YAAY,CAAC;AACb,IAAI,eAAe,GAAG,CAACA,8BAAI,IAAIA,8BAAI,CAAC,eAAe,KAAK,UAAU,GAAG,EAAE;AACvE,IAAI,OAAO,CAAC,GAAG,IAAI,GAAG,CAAC,UAAU,IAAI,GAAG,GAAG,EAAE,SAAS,EAAE,GAAG,EAAE,CAAC;AAC9D,CAAC,CAAC;AACF,MAAM,CAAC,cAAc,CAAC,iBAAO,EAAE,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;AAC9D,MAAM,uBAAuB,GAAG,eAAe,CAAC,UAAkC,CAAC,CAAC;AACpF,MAAM,wBAAwB,GAAG,eAAe,CAAC,UAAmC,CAAC,CAAC;AACtF,MAAM,WAAW,GAAG,UAAsB,CAAC;AAC3C;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,MAAM,eAAe,CAAC;AACtB;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,WAAW,CAAC,GAAG,EAAE,EAAE,OAAO,GAAG,EAAE,EAAE,MAAM,EAAE,KAAK,GAAG,GAAG,EAAE,EAAE;AAC5D,QAAQ,IAAI,CAAC,GAAG,GAAG,GAAG,CAAC;AACvB,QAAQ,IAAI,CAAC,OAAO,GAAG,MAAM,CAAC,MAAM,CAAC,MAAM,CAAC,MAAM,CAAC,EAAE,EAAE,WAAW,CAAC,eAAe,CAAC,EAAE,OAAO,CAAC,CAAC;AAC9F,QAAQ,IAAI,CAAC,UAAU,GAAG,MAAM,CAAC;AACjC,QAAQ,IAAI,CAAC,KAAK,GAAG,KAAK,CAAC;AAC3B,KAAK;AACL;AACA;AACA;AACA;AACA;AACA,IAAI,IAAI,CAAC,QAAQ,EAAE;AACnB,QAAQ,MAAM,GAAG,GAAG,IAAI,GAAG,CAAC,CAAC,EAAE,IAAI,CAAC,GAAG,CAAC,CAAC,EAAE,QAAQ,CAAC,CAAC,CAAC,CAAC;AACvD,QAAQ,OAAO,IAAI,uBAAuB,CAAC,OAAO,CAAC,GAAG,EAAE;AACxD,YAAY,OAAO,EAAE,MAAM,CAAC,MAAM,CAAC,EAAE,EAAE,IAAI,CAAC,OAAO,CAAC;AACpD,YAAY,MAAM,EAAE,IAAI,CAAC,UAAU;AACnC,YAAY,KAAK,EAAE,IAAI,CAAC,KAAK;AAC7B,SAAS,CAAC,CAAC;AACX,KAAK;AACL;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,MAAM,CAAC,MAAM,EAAE;AACnB,QAAQ,OAAO,IAAI,eAAe,CAAC,IAAI,CAAC,GAAG,EAAE;AAC7C,YAAY,OAAO,EAAE,IAAI,CAAC,OAAO;AACjC,YAAY,MAAM;AAClB,YAAY,KAAK,EAAE,IAAI,CAAC,KAAK;AAC7B,SAAS,CAAC,CAAC;AACX,KAAK;AACL;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA,IAAI,GAAG,CAAC,EAAE,EAAE,IAAI,GAAG,EAAE,EAAE,EAAE,IAAI,GAAG,KAAK,EAAE,GAAG,GAAG,KAAK,EAAE,KAAK,GAAG,GAAG,EAAE,EAAE;AACnE,QAAQ,IAAI,MAAM,CAAC;AACnB,QAAQ,MAAM,GAAG,GAAG,IAAI,GAAG,CAAC,CAAC,EAAE,IAAI,CAAC,GAAG,CAAC,KAAK,EAAE,EAAE,CAAC,CAAC,CAAC,CAAC;AACrD,QAAQ,IAAI,IAAI,CAAC;AACjB,QAAQ,IAAI,IAAI,IAAI,GAAG,EAAE;AACzB,YAAY,MAAM,GAAG,IAAI,GAAG,MAAM,GAAG,KAAK,CAAC;AAC3C,YAAY,MAAM,CAAC,OAAO,CAAC,IAAI,CAAC;AAChC;AACA;AACA,iBAAiB,MAAM,CAAC,CAAC,CAAC,CAAC,EAAE,KAAK,CAAC,KAAK,KAAK,KAAK,SAAS,CAAC;AAC5D;AACA,iBAAiB,GAAG,CAAC,CAAC,CAAC,IAAI,EAAE,KAAK,CAAC,KAAK,CAAC,IAAI,EAAE,KAAK,CAAC,OAAO,CAAC,KAAK,CAAC,GAAG,CAAC,CAAC,EAAE,KAAK,CAAC,IAAI,CAAC,GAAG,CAAC,CAAC,CAAC,CAAC,GAAG,CAAC,EAAE,KAAK,CAAC,CAAC,CAAC,CAAC;AAC3G,iBAAiB,OAAO,CAAC,CAAC,CAAC,IAAI,EAAE,KAAK,CAAC,KAAK;AAC5C,gBAAgB,GAAG,CAAC,YAAY,CAAC,MAAM,CAAC,IAAI,EAAE,KAAK,CAAC,CAAC;AACrD,aAAa,CAAC,CAAC;AACf,SAAS;AACT,aAAa;AACb,YAAY,MAAM,GAAG,MAAM,CAAC;AAC5B,YAAY,IAAI,GAAG,IAAI,CAAC;AACxB,SAAS;AACT,QAAQ,MAAM,OAAO,GAAG,MAAM,CAAC,MAAM,CAAC,EAAE,EAAE,IAAI,CAAC,OAAO,CAAC,CAAC;AACxD,QAAQ,IAAI,KAAK,EAAE;AACnB,YAAY,OAAO,CAAC,QAAQ,CAAC,GAAG,CAAC,MAAM,EAAE,KAAK,CAAC,CAAC,CAAC;AACjD,SAAS;AACT,QAAQ,OAAO,IAAI,wBAAwB,CAAC,OAAO,CAAC;AACpD,YAAY,MAAM;AAClB,YAAY,GAAG;AACf,YAAY,OAAO;AACnB,YAAY,MAAM,EAAE,IAAI,CAAC,UAAU;AACnC,YAAY,IAAI;AAChB,YAAY,KAAK,EAAE,IAAI,CAAC,KAAK;AAC7B,YAAY,UAAU,EAAE,KAAK;AAC7B,SAAS,CAAC,CAAC;AACX,KAAK;AACL,CAAC;AACD,wCAAe,GAAG,eAAe,CAAC;AAClC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117969099,
+      "end": 1756117969099,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117969099,
+      "end": 1756117969100,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117969100,
+      "end": 1756117969100,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117969100,
+      "end": 1756117969100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117969100,
+      "end": 1756117969100,
+      "order": "normal"
+    }
+  ]
+}

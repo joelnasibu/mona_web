@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/util/color/transformSRGB.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Utilities\r\nimport { clamp } from \"../helpers.mjs\"; // Types\r\n// For converting XYZ to sRGB\r\nconst srgbForwardMatrix = [[3.2406, -1.5372, -0.4986], [-0.9689, 1.8758, 0.0415], [0.0557, -0.2040, 1.0570]];\r\n\r\n// Forward gamma adjust\r\nconst srgbForwardTransform = C => C <= 0.0031308 ? C * 12.92 : 1.055 * C ** (1 / 2.4) - 0.055;\r\n\r\n// For converting sRGB to XYZ\r\nconst srgbReverseMatrix = [[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]];\r\n\r\n// Reverse gamma adjust\r\nconst srgbReverseTransform = C => C <= 0.04045 ? C / 12.92 : ((C + 0.055) / 1.055) ** 2.4;\r\nexport function fromXYZ(xyz) {\r\n  const rgb = Array(3);\r\n  const transform = srgbForwardTransform;\r\n  const matrix = srgbForwardMatrix;\r\n\r\n  // Matrix transform, then gamma adjustment\r\n  for (let i = 0; i < 3; ++i) {\r\n    // Rescale back to [0, 255]\r\n    rgb[i] = Math.round(clamp(transform(matrix[i][0] * xyz[0] + matrix[i][1] * xyz[1] + matrix[i][2] * xyz[2])) * 255);\r\n  }\r\n  return {\r\n    r: rgb[0],\r\n    g: rgb[1],\r\n    b: rgb[2]\r\n  };\r\n}\r\nexport function toXYZ(_ref) {\r\n  let {\r\n    r,\r\n    g,\r\n    b\r\n  } = _ref;\r\n  const xyz = [0, 0, 0];\r\n  const transform = srgbReverseTransform;\r\n  const matrix = srgbReverseMatrix;\r\n\r\n  // Rescale from [0, 255] to [0, 1] then adjust sRGB gamma to linear RGB\r\n  r = transform(r / 255);\r\n  g = transform(g / 255);\r\n  b = transform(b / 255);\r\n\r\n  // Matrix color space transform\r\n  for (let i = 0; i < 3; ++i) {\r\n    xyz[i] = matrix[i][0] * r + matrix[i][1] * g + matrix[i][2] * b;\r\n  }\r\n  return xyz;\r\n}\r\n//# sourceMappingURL=transformSRGB.mjs.map",
+      "start": 1756118029818,
+      "end": 1756118030448,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118030448,
+      "end": 1756118030448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118030448,
+      "end": 1756118030448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118030448,
+      "end": 1756118030448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118030448,
+      "end": 1756118030448,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118030448,
+      "end": 1756118030449,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118030449,
+      "end": 1756118030449,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118030451,
+      "end": 1756118030451,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118030451,
+      "end": 1756118030451,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118030451,
+      "end": 1756118030451,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118030451,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118030452,
+      "end": 1756118030452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118030452,
+      "end": 1756118030453,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118030453,
+      "end": 1756118030453,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118030453,
+      "end": 1756118030453,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118030453,
+      "end": 1756118030453,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118030453,
+      "end": 1756118030453,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118030453,
+      "end": 1756118030455,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118030456,
+      "end": 1756118030457,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118030457,
+      "end": 1756118030457,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118030457,
+      "end": 1756118030457,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118030457,
+      "end": 1756118030457,
+      "order": "normal"
+    }
+  ]
+}

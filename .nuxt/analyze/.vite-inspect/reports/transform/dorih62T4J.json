@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/lv/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function buildLocalizeTokenFn(schema) {\r\n  return (count, options) => {\r\n    if (count === 1) {\r\n      if (options?.addSuffix) {\r\n        return schema.one[0].replace(\"{{time}}\", schema.one[2]);\r\n      } else {\r\n        return schema.one[0].replace(\"{{time}}\", schema.one[1]);\r\n      }\r\n    } else {\r\n      const rem = count % 10 === 1 && count % 100 !== 11;\r\n      if (options?.addSuffix) {\r\n        return schema.other[0]\r\n          .replace(\"{{time}}\", rem ? schema.other[3] : schema.other[4])\r\n          .replace(\"{{count}}\", String(count));\r\n      } else {\r\n        return schema.other[0]\r\n          .replace(\"{{time}}\", rem ? schema.other[1] : schema.other[2])\r\n          .replace(\"{{count}}\", String(count));\r\n      }\r\n    }\r\n  };\r\n}\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: buildLocalizeTokenFn({\r\n    one: [\"mazāk par {{time}}\", \"sekundi\", \"sekundi\"],\r\n    other: [\r\n      \"mazāk nekā {{count}} {{time}}\",\r\n      \"sekunde\",\r\n      \"sekundes\",\r\n      \"sekundes\",\r\n      \"sekundēm\",\r\n    ],\r\n  }),\r\n\r\n  xSeconds: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"sekunde\", \"sekundes\"],\r\n    other: [\r\n      \"{{count}} {{time}}\",\r\n      \"sekunde\",\r\n      \"sekundes\",\r\n      \"sekundes\",\r\n      \"sekundēm\",\r\n    ],\r\n  }),\r\n\r\n  halfAMinute: (_count, options) => {\r\n    if (options?.addSuffix) {\r\n      return \"pusminūtes\";\r\n    } else {\r\n      return \"pusminūte\";\r\n    }\r\n  },\r\n\r\n  lessThanXMinutes: buildLocalizeTokenFn({\r\n    one: [\"mazāk par {{time}}\", \"minūti\", \"minūti\"],\r\n    other: [\r\n      \"mazāk nekā {{count}} {{time}}\",\r\n      \"minūte\",\r\n      \"minūtes\",\r\n      \"minūtes\",\r\n      \"minūtēm\",\r\n    ],\r\n  }),\r\n\r\n  xMinutes: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"minūte\", \"minūtes\"],\r\n    other: [\"{{count}} {{time}}\", \"minūte\", \"minūtes\", \"minūtes\", \"minūtēm\"],\r\n  }),\r\n\r\n  aboutXHours: buildLocalizeTokenFn({\r\n    one: [\"apmēram 1 {{time}}\", \"stunda\", \"stundas\"],\r\n    other: [\r\n      \"apmēram {{count}} {{time}}\",\r\n      \"stunda\",\r\n      \"stundas\",\r\n      \"stundas\",\r\n      \"stundām\",\r\n    ],\r\n  }),\r\n\r\n  xHours: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"stunda\", \"stundas\"],\r\n    other: [\"{{count}} {{time}}\", \"stunda\", \"stundas\", \"stundas\", \"stundām\"],\r\n  }),\r\n\r\n  xDays: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"diena\", \"dienas\"],\r\n    other: [\"{{count}} {{time}}\", \"diena\", \"dienas\", \"dienas\", \"dienām\"],\r\n  }),\r\n\r\n  aboutXWeeks: buildLocalizeTokenFn({\r\n    one: [\"apmēram 1 {{time}}\", \"nedēļa\", \"nedēļas\"],\r\n    other: [\r\n      \"apmēram {{count}} {{time}}\",\r\n      \"nedēļa\",\r\n      \"nedēļu\",\r\n      \"nedēļas\",\r\n      \"nedēļām\",\r\n    ],\r\n  }),\r\n\r\n  xWeeks: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"nedēļa\", \"nedēļas\"],\r\n    other: [\r\n      \"{{count}} {{time}}\", // TODO\r\n      \"nedēļa\",\r\n      \"nedēļu\",\r\n      \"nedēļas\",\r\n      \"nedēļām\",\r\n    ],\r\n  }),\r\n\r\n  aboutXMonths: buildLocalizeTokenFn({\r\n    one: [\"apmēram 1 {{time}}\", \"mēnesis\", \"mēneša\"],\r\n    other: [\r\n      \"apmēram {{count}} {{time}}\",\r\n      \"mēnesis\",\r\n      \"mēneši\",\r\n      \"mēneša\",\r\n      \"mēnešiem\",\r\n    ],\r\n  }),\r\n\r\n  xMonths: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"mēnesis\", \"mēneša\"],\r\n    other: [\"{{count}} {{time}}\", \"mēnesis\", \"mēneši\", \"mēneša\", \"mēnešiem\"],\r\n  }),\r\n\r\n  aboutXYears: buildLocalizeTokenFn({\r\n    one: [\"apmēram 1 {{time}}\", \"gads\", \"gada\"],\r\n    other: [\"apmēram {{count}} {{time}}\", \"gads\", \"gadi\", \"gada\", \"gadiem\"],\r\n  }),\r\n\r\n  xYears: buildLocalizeTokenFn({\r\n    one: [\"1 {{time}}\", \"gads\", \"gada\"],\r\n    other: [\"{{count}} {{time}}\", \"gads\", \"gadi\", \"gada\", \"gadiem\"],\r\n  }),\r\n\r\n  overXYears: buildLocalizeTokenFn({\r\n    one: [\"ilgāk par 1 {{time}}\", \"gadu\", \"gadu\"],\r\n    other: [\"vairāk nekā {{count}} {{time}}\", \"gads\", \"gadi\", \"gada\", \"gadiem\"],\r\n  }),\r\n\r\n  almostXYears: buildLocalizeTokenFn({\r\n    one: [\"gandrīz 1 {{time}}\", \"gads\", \"gada\"],\r\n    other: [\"vairāk nekā {{count}} {{time}}\", \"gads\", \"gadi\", \"gada\", \"gadiem\"],\r\n  }),\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const result = formatDistanceLocale[token](count, options);\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return \"pēc \" + result;\r\n    } else {\r\n      return \"pirms \" + result;\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756117966351,
+      "end": 1756117966437,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117966437,
+      "end": 1756117966437,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117966437,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117966438,
+      "end": 1756117966438,
+      "order": "normal"
+    }
+  ]
+}

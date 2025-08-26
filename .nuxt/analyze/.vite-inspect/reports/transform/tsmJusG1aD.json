@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonth.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, createTextVNode as _createTextVNode } from \"vue\";\r\n// Styles\r\nimport \"./VDatePickerMonth.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VDefaultsProvider } from \"../VDefaultsProvider/index.mjs\"; // Composables\r\nimport { makeCalendarProps, useCalendar } from \"../../composables/calendar.mjs\";\r\nimport { useDate } from \"../../composables/date/date.mjs\"; // Utilities\r\nimport { computed, ref, shallowRef } from 'vue';\r\nimport { genericComponent, propsFactory } from \"../../util/index.mjs\"; // Types\r\nexport const makeVDatePickerMonthProps = propsFactory({\r\n  color: String,\r\n  hideWeekdays: Boolean,\r\n  multiple: [Boolean, Number, String],\r\n  showWeek: Boolean,\r\n  ...makeCalendarProps()\r\n}, 'VDatePickerMonth');\r\nexport const VDatePickerMonth = genericComponent()({\r\n  name: 'VDatePickerMonth',\r\n  props: makeVDatePickerMonthProps(),\r\n  emits: {\r\n    'update:modelValue': date => true,\r\n    'update:month': date => true,\r\n    'update:year': date => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      emit,\r\n      slots\r\n    } = _ref;\r\n    const daysRef = ref();\r\n    const {\r\n      daysInMonth,\r\n      model,\r\n      weekNumbers\r\n    } = useCalendar(props);\r\n    const adapter = useDate();\r\n    const rangeStart = shallowRef();\r\n    const rangeStop = shallowRef();\r\n    const atMax = computed(() => {\r\n      const max = ['number', 'string'].includes(typeof props.multiple) ? Number(props.multiple) : Infinity;\r\n      return model.value.length >= max;\r\n    });\r\n    function onRangeClick(value) {\r\n      const _value = adapter.startOfDay(value);\r\n      if (!rangeStart.value) {\r\n        rangeStart.value = _value;\r\n        model.value = [rangeStart.value];\r\n      } else if (!rangeStop.value) {\r\n        if (adapter.isSameDay(value, rangeStart.value)) {\r\n          rangeStart.value = undefined;\r\n          model.value = [];\r\n          return;\r\n        } else if (adapter.isBefore(value, rangeStart.value)) {\r\n          rangeStop.value = rangeStart.value;\r\n          rangeStart.value = _value;\r\n        } else {\r\n          rangeStop.value = _value;\r\n        }\r\n        const diff = adapter.getDiff(rangeStop.value, rangeStart.value);\r\n        const datesInRange = [rangeStart.value];\r\n        for (let i = 1; i < diff; i++) {\r\n          const nextDate = adapter.addDays(rangeStart.value, i);\r\n          datesInRange.push(nextDate);\r\n        }\r\n        datesInRange.push(rangeStop.value);\r\n        model.value = datesInRange;\r\n      } else {\r\n        rangeStart.value = value;\r\n        rangeStop.value = undefined;\r\n        model.value = [rangeStart.value];\r\n      }\r\n    }\r\n    function onMultipleClick(value) {\r\n      const index = model.value.findIndex(selection => adapter.isSameDay(selection, value));\r\n      if (index === -1) {\r\n        model.value = [...model.value, value];\r\n      } else {\r\n        const value = [...model.value];\r\n        value.splice(index, 1);\r\n        model.value = value;\r\n      }\r\n    }\r\n    function onClick(value) {\r\n      if (props.multiple === 'range') {\r\n        onRangeClick(value);\r\n      } else if (props.multiple) {\r\n        onMultipleClick(value);\r\n      } else {\r\n        model.value = [value];\r\n      }\r\n    }\r\n    return () => _createVNode(\"div\", {\r\n      \"class\": \"v-date-picker-month\"\r\n    }, [props.showWeek && _createVNode(\"div\", {\r\n      \"key\": \"weeks\",\r\n      \"class\": \"v-date-picker-month__weeks\"\r\n    }, [!props.hideWeekdays && _createVNode(\"div\", {\r\n      \"key\": \"hide-week-days\",\r\n      \"class\": \"v-date-picker-month__day\"\r\n    }, [_createTextVNode(\"\\xA0\")]), weekNumbers.value.map(week => _createVNode(\"div\", {\r\n      \"class\": ['v-date-picker-month__day', 'v-date-picker-month__day--adjacent']\r\n    }, [week]))]), _createVNode(\"div\", {\r\n      \"ref\": daysRef,\r\n      \"class\": \"v-date-picker-month__days\"\r\n    }, [!props.hideWeekdays && adapter.getWeekdays().map(weekDay => _createVNode(\"div\", {\r\n      \"class\": ['v-date-picker-month__day', 'v-date-picker-month__weekday']\r\n    }, [weekDay])), daysInMonth.value.map((item, i) => {\r\n      const slotProps = {\r\n        props: {\r\n          onClick: () => onClick(item.date)\r\n        },\r\n        item,\r\n        i\r\n      };\r\n      if (atMax.value && !item.isSelected) {\r\n        item.isDisabled = true;\r\n      }\r\n      return _createVNode(\"div\", {\r\n        \"class\": ['v-date-picker-month__day', {\r\n          'v-date-picker-month__day--adjacent': item.isAdjacent,\r\n          'v-date-picker-month__day--hide-adjacent': item.isHidden,\r\n          'v-date-picker-month__day--selected': item.isSelected,\r\n          'v-date-picker-month__day--week-end': item.isWeekEnd,\r\n          'v-date-picker-month__day--week-start': item.isWeekStart\r\n        }],\r\n        \"data-v-date\": !item.isDisabled ? item.isoDate : undefined\r\n      }, [(props.showAdjacentMonths || !item.isAdjacent) && _createVNode(VDefaultsProvider, {\r\n        \"defaults\": {\r\n          VBtn: {\r\n            color: (item.isSelected || item.isToday) && !item.isDisabled ? props.color : undefined,\r\n            disabled: item.isDisabled,\r\n            icon: true,\r\n            ripple: false,\r\n            text: item.localized,\r\n            variant: item.isDisabled ? 'text' : item.isToday && !item.isSelected ? 'outlined' : 'flat',\r\n            onClick: () => onClick(item.date)\r\n          }\r\n        }\r\n      }, {\r\n        default: () => [slots.day?.(slotProps) ?? _createVNode(VBtn, slotProps.props, null)]\r\n      })]);\r\n    })])]);\r\n  }\r\n});\r\n//# sourceMappingURL=VDatePickerMonth.mjs.map",
+      "start": 1756117967119,
+      "end": 1756117967381,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117967381,
+      "end": 1756117967381,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967381,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117967382,
+      "end": 1756117967382,
+      "order": "normal"
+    }
+  ]
+}

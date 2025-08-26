@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue?vue&type=style&index=0&scoped=e10bc672&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.activeText {\r\n  background-color: #49008015 !important;\r\n}\r\n\r\n#chatbox {\r\n  position: relative;\r\n  overflow: auto;\r\n}\r\n",
+      "start": 1756118027140,
+      "end": 1756118027140,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue"
+        ],
+        "names": [],
+        "mappings": ";AA6TA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AAChB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"w-100 h-100 d-flex flex-column justify-space-between\">\r\n    <div class=\"d-flex justify-center align-center \" v-if=\"loading\" :style=\"{ height: '70dvh' }\">\r\n      <v-progress-circular indeterminate color=\"primary\" :active=\"loading\"></v-progress-circular>\r\n    </div>\r\n    <div v-else class=\"d-flex h-100 flex-column \">\r\n      <div class=\" d-flex pa-2 ga-1 align-center\">\r\n\r\n        <v-btn icon=\"mdi-arrow-left\" title=\"Return\" @click=\"close\" variant=\"text\" size=\"small\" rounded=\"lg\"></v-btn>\r\n        <v-avatar class=\"bg-grey-lighten-2\" size=\"35\">\r\n          <v-img :src=\"receiver?.picture ?? chat?.product?.thumbnail\"></v-img>\r\n        </v-avatar>\r\n        <div class=\"text-caption d-flex flex-column text-capitalize\">\r\n          <div class=\"mt-n1 text-capitalize\">\r\n            <span>{{ chat.product.productName?.toLowerCase() }} ({{\r\n              currencyFormat(chat.product.price ?? 0)\r\n            }})\r\n            </span>\r\n          </div>\r\n          <span class=\"text-disabled text-capitalize\">{{ serverMessage }}</span>\r\n\r\n\r\n        </div>\r\n        <v-spacer></v-spacer>\r\n        <div class=\"\" title=\"More\">\r\n          <v-btn size=\"x-small\" variant=\"text\" rounded=\"lg\" icon=\"mdi-dots-vertical\"></v-btn>\r\n          <v-menu activator=\"parent\" location=\"start\">\r\n            <v-list dense class=\"pa-0 rounded-lg card-outlined\">\r\n              <v-list-item @click=\"showTimeStamp = !showTimeStamp\">\r\n                <span>{{ showTimeStamp ? \"Hide\" : \"Show\" }} time</span>\r\n              </v-list-item>\r\n              <v-list-item @click=\"clearChat()\">\r\n                <span>Delete</span>\r\n              </v-list-item>\r\n            </v-list>\r\n          </v-menu>\r\n        </div>\r\n      </div>\r\n\r\n      <div class=\"flex-grow-1 \">\r\n        <v-divider></v-divider>\r\n        <div id=\"chatbox\" class=\"w-100 px-3 d-flex flex-column ga-1 py-3   hide-scrollbar overflow-y-auto \"\r\n          :style=\"{ height: '50dvh' }\">\r\n          <p class=\"w-100 \" v-for=\"(msg, i) in chat.chats\" :key=\"i\">\r\n            <ChatMessage :msg=\"msg\" :showTime=\"showTimeStamp\" :loader=\"loader\" :fail=\"failToSend\" />\r\n          </p>\r\n\r\n          <div class=\"server d-flex  align-center\" v-if=\"isTyping\">\r\n            <v-img :src=\"icon\" width=\"35\" height=\"35\" />\r\n            <em class=\"mx-2\"> {{ getFullnames(receiver) }} typing ...</em>\r\n\r\n          </div>\r\n\r\n        </div>\r\n\r\n      </div>\r\n\r\n      <div class=\"\">\r\n        <v-divider class=\"mb-4\"></v-divider>\r\n        <div class=\"px-3 pb-3\">\r\n\r\n          <div class=\"ga-2 overflow-x-auto  hide-scrollbar\" :style=\"{ whiteSpace: 'nowrap' }\">\r\n            <v-card flat color=\"primary\" variant=\"outlined\"\r\n              class=\"py-1 px-2 text-caption rounded-lg mx-1 d-inline-block cursor-pointer overflow-y-auto border\"\r\n              :class=\"{ activeText: message === text }\" v-for=\"(text, i) in quickTexts\" :key=\"i\"\r\n              @click=\"message = text\">\r\n              <span>{{ text }}</span>\r\n            </v-card>\r\n          </div>\r\n          <div class=\"d-flex align-center ga-2\">\r\n            <v-textarea height=\"80px\" hide-details placeholder=\"Type your message...\" auto-grow rows=\"1\" max-rows=\"4\"\r\n              class=\"hide-scrollbar mt-2 rounded-lg\" autofocus v-model=\"message\" bg-color=\"white\"\r\n              @keypress.prevent.enter=\"handleSend\" @keydown=\"handleKeyDown\"></v-textarea>\r\n            <v-btn icon=\"mdi-send\" color=\"primary-dark\" size=\"x-small\" flat rounded=\"lg\" title=\"Send message\"\r\n              @click=\"handleSend\"></v-btn>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nimport icon from '~/assets/icons/typing.gif'\r\nimport { useAppStore } from \"~/store/app\";\r\nimport { useChatStore } from \"~/store/chat\";\r\n\r\nconst emits = defineEmits([\"closeChat\"]);\r\nconst { currencyFormat, getFullnames } = useHelpers();\r\n// const { $socket } = useNuxtApp();\r\nconst supabase = useSupabase()\r\nconst chatStore = useChatStore();\r\nconst { chat } = storeToRefs(chatStore);\r\nconst { currentUser, loading } = storeToRefs(useAppStore());\r\nconst channel = ref()\r\nconst usersOnline = ref([])\r\nconst quickTexts = [\r\n  \"Is it available?\",\r\n  \"What is the last price?\",\r\n  \"Do you do delivery?\",\r\n  \"What is the delivery time?\",\r\n  \"Do you deliver with free delivery?\",\r\n];\r\n\r\nconst message = ref(\"\");\r\nconst showTimeStamp = ref(false);\r\nconst failToSend = ref(null);\r\nconst loader = ref({\r\n  status: false,\r\n  msgId: null,\r\n})\r\nconst isTyping = ref(false)\r\n\r\nconst receiver = computed(() => {\r\n  return currentUser.value.userId === chat.value?.clientId\r\n    ? chat.value?.vendor\r\n    : chat.value?.client;\r\n});\r\n\r\nconst serverMessage = ref('');\r\n\r\nconst timer = ref('')\r\n\r\nconst typer = (data) => {\r\n  return chat.value.session == data?.session\r\n    && currentUser.value.userId == data?.user\r\n    ? false : true\r\n}\r\n\r\nconst checkUserOnline = (data) => {\r\n  if (chat.value.session == data?.session) {\r\n    const receiver = currentUser.value.userId == data?.response.clientId\r\n      ? { id: data?.response.vendorId, name: getFullnames(data?.response.vendor) }\r\n      : { id: data?.response.clientId, name: getFullnames(data?.response.client) }\r\n\r\n\r\n    const onlineUser = usersOnline.value.find(i => i.user == receiver.id)\r\n\r\n    serverMessage.value = onlineUser\r\n      ? receiver.name.toLowerCase() + ' is online'\r\n      : receiver.name.toLowerCase() + ' is offline'\r\n  }\r\n\r\n\r\n\r\n}\r\n\r\n\r\n\r\nconst initSocket = async (msg) => {\r\n\r\n  const index = msg.chats.length - 1\r\n  const sender = msg.chats[index].sender\r\n  if (chat.value.session == msg.session &&\r\n    currentUser.value.userId !== sender)\r\n    chat.value.chats = msg.chats\r\n\r\n\r\n\r\n\r\n\r\n  // serverMessage.value = getFullnames(receiver.value).toLowerCase() + ' is offline'\r\n  // if ($socket)\r\n  //   if (chat.value) {\r\n  //     $socket.on(\"join\", (data) => {\r\n  //       $socket.emit('joinRoom', data)\r\n  //       //user online\r\n  //       // pushUsers(data)\r\n  //       // checkUserOnline(data)\r\n  //     })\r\n  //   }\r\n\r\n  // $socket?.on('room_users', (data) => {\r\n  //   usersOnline.value = data.users\r\n  //   checkUserOnline(data.user)\r\n  // })\r\n\r\n  // $socket?.on(\"isTyping\", (data) => {\r\n  //   isTyping.value = typer(data)\r\n\r\n  // })\r\n\r\n  // $socket?.on('message', (msg) => {\r\n  //   if (msg.sender == 'server')\r\n  //     serverMessage.value = currentUser.value.userId !== msg.userId\r\n  //       ? msg.message : ''\r\n  //   else {\r\n  //     const index = msg.chats.length - 1\r\n  //     const sender = msg.chats[index].sender\r\n  //     if (chat.value.session == msg.session &&\r\n  //       currentUser.value.userId !== sender)\r\n  //       chat.value.chats = msg.chats\r\n  //   }\r\n\r\n  // })\r\n}\r\nconst leaveChat = () => {\r\n  channel.value.unsubscribe()\r\n\r\n  const index = usersOnline.value.findIndex(i => i.user == currentUser.value.userId)\r\n  if (index > -1) {\r\n    const offlineUser = usersOnline.value[index]\r\n    usersOnline.value.splice(index, 1)\r\n\r\n    // $socket.emit('leave', offlineUser)\r\n    // checkUserOnline(offlineUser)\r\n  }\r\n}\r\n\r\nconst handleScroll = () => {\r\n  var elt = document.getElementById('chatbox');\r\n  if (elt) {\r\n\r\n    elt.scrollTo({\r\n      top: elt.scrollHeight,\r\n      behavior: \"smooth\"\r\n    })\r\n    elt.scrollIntoView(false)\r\n  }\r\n\r\n};\r\n\r\n\r\n\r\nconst handleSend = async () => {\r\n  if (!message.value) return false;\r\n  clearTimeout(timer.value)\r\n  isTyping.value = false\r\n\r\n  const msgId = chat.value.chats.length + 1;\r\n  loader.value = {\r\n    status: true,\r\n    msgId,\r\n  };\r\n  chat.value.chats.push({\r\n    message: message.value,\r\n    id: msgId,\r\n    sender: currentUser.value.userId,\r\n    isRead: false,\r\n    createdAt: new Date(),\r\n  });\r\n\r\n  // $socket?.emit(\"chatMessage\", chat.value.chats)\r\n  message.value = \"\";\r\n\r\n\r\n  handleScroll()\r\n  let res = await chatStore.sendMessage(chat.value);\r\n\r\n\r\n\r\n  if (!res) failToSend.value = msgId;\r\n\r\n  loader.value = {\r\n    status: false,\r\n    msgId: null,\r\n  };\r\n\r\n};\r\n\r\nconst handleKeyDown = (event) => {\r\n\r\n  // $socket.emit('typing', {\r\n  //   user: currentUser.value.userId,\r\n  //   session: chat.value.session\r\n  // })\r\n\r\n  if (event.shiftKey && event.key === \"Enter\") {\r\n    message.value += \"\\n\"; // Adds a new line to the input.\r\n  }\r\n};\r\n\r\nconst clearChat = async () => {\r\n  chat.value.chats = []\r\n  await chatStore.clearChat(chat.value);\r\n}\r\n\r\nconst close = () => {\r\n  loader.value = {\r\n    status: false,\r\n    msgId: null,\r\n  };\r\n  failToSend.value = null;\r\n  message.value = null;\r\n  leaveChat()\r\n  emits(\"closeChat\");\r\n};\r\n\r\n\r\n\r\nonMounted(() => {\r\n\r\n  channel.value = supabase.channel(chat.value?.session).on('postgres_changes', { event: \"*\", schema: \"public\", table: \"chatRooms\" }, (payload) => {\r\n    initSocket(payload.new)\r\n\r\n  }).subscribe()\r\n\r\n  handleScroll()\r\n})\r\n\r\n\r\n\r\nwatch(isTyping, (val) => {\r\n  if (val)\r\n    timer.value = setTimeout(() => isTyping.value = false, 4000)\r\n})\r\n\r\nwatch(loading, (val) => {\r\n  handleScroll()\r\n  if (!val) {\r\n  }\r\n})\r\n\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.activeText {\r\n  background-color: #49008015 !important;\r\n}\r\n\r\n#chatbox {\r\n  position: relative;\r\n  overflow: auto;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027140,
+      "end": 1756118027140,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027140,
+      "end": 1756118027140,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027140,
+      "end": 1756118027140,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027140,
+      "end": 1756118027140,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118027140,
+      "end": 1756118027140,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".activeText{background-color:#49008015!important}#chatbox{overflow:auto;position:relative}",
+      "start": 1756118027140,
+      "end": 1756118027149,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue",
+        "mappings": "AACA,YACE,oCACF,CAEA,SAEE,aAAc,CADd,iBAEF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.activeText {\r\n  background-color: #49008015 !important;\r\n}\r\n\r\n#chatbox {\r\n  position: relative;\r\n  overflow: auto;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118027149,
+      "end": 1756118027149,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118027149,
+      "end": 1756118027149,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118027149,
+      "end": 1756118027149,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".activeText[data-v-e10bc672]{background-color:#49008015!important}#chatbox[data-v-e10bc672]{overflow:auto;position:relative}",
+      "start": 1756118027149,
+      "end": 1756118027151,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue",
+        "mappings": "AAAA,6BAAY,oCAAoC,CAAC,0BAAS,aAAa,CAAC,iBAAiB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/chat/discussion.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118027151,
+      "end": 1756118027151,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027151,
+      "end": 1756118027151,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027151,
+      "end": 1756118027151,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027151,
+      "end": 1756118027151,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027151,
+      "end": 1756118027151,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".activeText[data-v-e10bc672]{background-color:#49008015!important}#chatbox[data-v-e10bc672]{overflow:auto;position:relative}\"",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118027152,
+      "end": 1756118027152,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118027153,
+      "end": 1756118027153,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+.v-label.v-field-label,
+.v-label,
+.v-checkbox-btn .v-label,
+.v-switch .v-label {
+  font-size: 0.85rem;
+  letter-spacing: normal;
+}
+.v-field--focused .v-label.v-field-label,
+.v-field--active .v-label.v-field-label {
+  font-size: 0.75rem !important;
+}
+.v-field__field {
+  align-items: center !important;
+  font-size: 0.8rem !important;
+}
+.v-field__field:not(:has(textarea)) {
+  height: 34px !important;
+}
+.search .v-field__field {
+  height: 42px !important;
+}
+
+.v-selection-control__input .v-icon {
+  font-size: 1.1rem !important;
+  align-items: center !important;
+}
+.v-field__append-inner .v-icon--size-default,
+.v-field__prepend-inner .v-icon--size-default {
+  --v-icon-size-multiplier: 0.75;
+}
+.v-btn.v-btn--density-compact {
+  height: 30px !important;
+}
+.v-checkbox .v-selection-control {
+  --v-input-control-height: 10px !important;
+  flex: 0;
+}
+.v-checkbox .v-selection-control--density-compact {
+  --v-selection-control-size: 15px !important;
+}
+
+.v-text-field .v-messages__message {
+  margin-top: -6px !important;
+  font-size: 0.63rem;
+}
+.v-input:is(:not(.v-input--error)) .v-messages__message {
+  font-family: system-ui !important;
+  margin-top: -3px !important;
+}
+
+.v-btn-group--density-compact.v-btn-group {
+  height: 29px !important;
+}
+.v-table {
+  font-size: 0.75rem !important;
+}
+/* .v-data-table-progress {
+  background-color: hsla(240, 100%, 90%, 0.9);
+} */
+.v-data-table-progress .v-progress-linear__indeterminate {
+  background: inherit !important;
+}
+.v-card-progress {
+  background-color: hsla(20, 100%, 90%, 0.9);
+}
+.v-card-progress .v-progress-linear__indeterminate {
+  background: rgba(var(--v-theme-link));
+}
+.v-data-table-footer__pagination {
+  padding-block: 10px;
+}
+.v-table .v-field__field {
+  height: 25px !important;
+  align-items: center !important;
+  font-size: 0.7rem !important;
+}
+.v-table .v-data-table-header__content .v-icon--size-default {
+  font-size: 18px;
+  margin: auto 2px;
+  opacity: 0.5;
+}
+/* thead {
+    background-color: #fff;
+  } */
+thead * {
+  font-weight: bold;
+}
+th * {
+  color: initial;
+}
+tbody tr:nth-child(odd) {
+  background-color: hsl(205, 26%, 97%);
+}
+tbody tr:hover {
+  background-color: hsl(205, 26%, 90%);
+}
+td {
+  border: none !important;
+}
+
+.v-date-picker-month__days {
+  row-gap: 0px !important;
+  flex: 0 !important;
+}
+.v-date-picker-month__day {
+  height: 38px !important;
+  width: 38px !important;
+}
+.v-date-picker-month__weekday {
+  font-size: 0.8rem !important;
+  font-weight: bold;
+}
+.v-date-picker-month__day .v-btn {
+  --v-btn-height: 28px;
+  --v-btn-size: 0.8rem !important;
+  background: transparent;
+}
+.v-date-picker-month {
+  padding: 0 0 12px 0 !important;
+  min-width: 300px !important;
+  justify-content: center !important;
+}
+.v-date-picker-controls {
+  width: 300px !important;
+  padding-inline: 5px;
+}
+
+.v-overlay .v-list:not(.menu-list) {
+  -webkit-backdrop-filter: blur(15px);
+  backdrop-filter: blur(15px);
+  background-color: hsla(204, 33%, 97%, 0.65);
+  padding-block: 0;
+}
+.v-overlay .v-list:not(.menu-list) * {
+  font-size: 0.75rem;
+}
+.v-overlay .v-list:not(.menu-list) .v-list-item--density-default {
+  min-height: 40px;
+}
+.v-overlay .v-list:not(.menu-list) .v-list-item:is(.v-list-item--active) * {
+  color: rgba(var(--v-theme-secondary));
+}
+
+.v-breadcrumbs--density-compact {
+  padding: 5px !important;
+  padding-inline-start: 0 !important;
+}
+.v-breadcrumbs-item,
+.v-breadcrumbs-divider {
+  padding: 0 4px !important;
+}
+
+.v-icon {
+  transition: transform 0.3s linear;
+}
+
+/* .v-slider-thumb {
+  --v-slider-thumb-size: 15px !important;
+} */
+.v-slider-thumb__surface::after {
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.v-radio .v-label {
+  opacity: 1 !important;
+}
+
+.v-carousel__controls {
+  background-color: transparent !important;
+}
+.v-carousel__controls__item.v-btn--icon.v-btn--density-default {
+  --v-btn-height: 10px !important;
+}
+.v-carousel__controls__item {
+  margin: 0 5px !important;
+}

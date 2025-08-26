@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/te/_lib/match.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { buildMatchFn } from \"../../_lib/buildMatchFn.mjs\";\r\nimport { buildMatchPatternFn } from \"../../_lib/buildMatchPatternFn.mjs\";\r\n\r\nconst matchOrdinalNumberPattern = /^(\\d+)(వ)?/i;\r\nconst parseOrdinalNumberPattern = /\\d+/i;\r\n\r\nconst matchEraPatterns = {\r\n  narrow: /^(క్రీ\\.పూ\\.|క్రీ\\.శ\\.)/i,\r\n  abbreviated:\r\n    /^(క్రీ\\.?\\s?పూ\\.?|ప్ర\\.?\\s?శ\\.?\\s?పూ\\.?|క్రీ\\.?\\s?శ\\.?|సా\\.?\\s?శ\\.?)/i,\r\n  wide: /^(క్రీస్తు పూర్వం|ప్రస్తుత శకానికి పూర్వం|క్రీస్తు శకం|ప్రస్తుత శకం)/i,\r\n};\r\nconst parseEraPatterns = {\r\n  any: [/^(పూ|శ)/i, /^సా/i],\r\n};\r\n\r\nconst matchQuarterPatterns = {\r\n  narrow: /^[1234]/i,\r\n  abbreviated: /^త్రై[1234]/i,\r\n  wide: /^[1234](వ)? త్రైమాసికం/i,\r\n};\r\nconst parseQuarterPatterns = {\r\n  any: [/1/i, /2/i, /3/i, /4/i],\r\n};\r\n\r\nconst matchMonthPatterns = {\r\n  narrow: /^(జూ|జు|జ|ఫి|మా|ఏ|మే|ఆ|సె|అ|న|డి)/i,\r\n  abbreviated: /^(జన|ఫిబ్ర|మార్చి|ఏప్రి|మే|జూన్|జులై|ఆగ|సెప్|అక్టో|నవ|డిసె)/i,\r\n  wide: /^(జనవరి|ఫిబ్రవరి|మార్చి|ఏప్రిల్|మే|జూన్|జులై|ఆగస్టు|సెప్టెంబర్|అక్టోబర్|నవంబర్|డిసెంబర్)/i,\r\n};\r\nconst parseMonthPatterns = {\r\n  narrow: [\r\n    /^జ/i,\r\n    /^ఫి/i,\r\n    /^మా/i,\r\n    /^ఏ/i,\r\n    /^మే/i,\r\n    /^జూ/i,\r\n    /^జు/i,\r\n    /^ఆ/i,\r\n    /^సె/i,\r\n    /^అ/i,\r\n    /^న/i,\r\n    /^డి/i,\r\n  ],\r\n\r\n  any: [\r\n    /^జన/i,\r\n    /^ఫి/i,\r\n    /^మా/i,\r\n    /^ఏ/i,\r\n    /^మే/i,\r\n    /^జూన్/i,\r\n    /^జులై/i,\r\n    /^ఆగ/i,\r\n    /^సె/i,\r\n    /^అ/i,\r\n    /^న/i,\r\n    /^డి/i,\r\n  ],\r\n};\r\n\r\nconst matchDayPatterns = {\r\n  narrow: /^(ఆ|సో|మ|బు|గు|శు|శ)/i,\r\n  short: /^(ఆది|సోమ|మం|బుధ|గురు|శుక్ర|శని)/i,\r\n  abbreviated: /^(ఆది|సోమ|మం|బుధ|గురు|శుక్ర|శని)/i,\r\n  wide: /^(ఆదివారం|సోమవారం|మంగళవారం|బుధవారం|గురువారం|శుక్రవారం|శనివారం)/i,\r\n};\r\nconst parseDayPatterns = {\r\n  narrow: [/^ఆ/i, /^సో/i, /^మ/i, /^బు/i, /^గు/i, /^శు/i, /^శ/i],\r\n  any: [/^ఆది/i, /^సోమ/i, /^మం/i, /^బుధ/i, /^గురు/i, /^శుక్ర/i, /^శని/i],\r\n};\r\n\r\nconst matchDayPeriodPatterns = {\r\n  narrow:\r\n    /^(పూర్వాహ్నం|అపరాహ్నం|అర్ధరాత్రి|మిట్టమధ్యాహ్నం|ఉదయం|మధ్యాహ్నం|సాయంత్రం|రాత్రి)/i,\r\n  any: /^(పూర్వాహ్నం|అపరాహ్నం|అర్ధరాత్రి|మిట్టమధ్యాహ్నం|ఉదయం|మధ్యాహ్నం|సాయంత్రం|రాత్రి)/i,\r\n};\r\nconst parseDayPeriodPatterns = {\r\n  any: {\r\n    am: /^పూర్వాహ్నం/i,\r\n    pm: /^అపరాహ్నం/i,\r\n    midnight: /^అర్ధ/i,\r\n    noon: /^మిట్ట/i,\r\n    morning: /ఉదయం/i,\r\n    afternoon: /మధ్యాహ్నం/i,\r\n    evening: /సాయంత్రం/i,\r\n    night: /రాత్రి/i,\r\n  },\r\n};\r\n\r\nexport const match = {\r\n  ordinalNumber: buildMatchPatternFn({\r\n    matchPattern: matchOrdinalNumberPattern,\r\n    parsePattern: parseOrdinalNumberPattern,\r\n    valueCallback: (value) => parseInt(value, 10),\r\n  }),\r\n\r\n  era: buildMatchFn({\r\n    matchPatterns: matchEraPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseEraPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n\r\n  quarter: buildMatchFn({\r\n    matchPatterns: matchQuarterPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseQuarterPatterns,\r\n    defaultParseWidth: \"any\",\r\n    valueCallback: (index) => index + 1,\r\n  }),\r\n\r\n  month: buildMatchFn({\r\n    matchPatterns: matchMonthPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseMonthPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n\r\n  day: buildMatchFn({\r\n    matchPatterns: matchDayPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseDayPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n\r\n  dayPeriod: buildMatchFn({\r\n    matchPatterns: matchDayPeriodPatterns,\r\n    defaultMatchWidth: \"any\",\r\n    parsePatterns: parseDayPeriodPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n};\r\n",
+      "start": 1756117966788,
+      "end": 1756117966862,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117966862,
+      "end": 1756117966862,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117966862,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117966863,
+      "end": 1756117966863,
+      "order": "normal"
+    }
+  ]
+}

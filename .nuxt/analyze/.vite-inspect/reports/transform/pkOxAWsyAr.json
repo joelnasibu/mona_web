@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VBreadcrumbs/VBreadcrumbs.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, Fragment as _Fragment, resolveDirective as _resolveDirective, createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VBreadcrumbs.css\";\r\n\r\n// Components\r\nimport { VBreadcrumbsDivider } from \"./VBreadcrumbsDivider.mjs\";\r\nimport { VBreadcrumbsItem } from \"./VBreadcrumbsItem.mjs\";\r\nimport { VDefaultsProvider } from \"../VDefaultsProvider/index.mjs\";\r\nimport { VIcon } from \"../VIcon/index.mjs\"; // Composables\r\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeDensityProps, useDensity } from \"../../composables/density.mjs\";\r\nimport { IconValue } from \"../../composables/icons.mjs\";\r\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\"; // Utilities\r\nimport { computed, toRef } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVBreadcrumbsProps = propsFactory({\r\n  activeClass: String,\r\n  activeColor: String,\r\n  bgColor: String,\r\n  color: String,\r\n  disabled: Boolean,\r\n  divider: {\r\n    type: String,\r\n    default: '/'\r\n  },\r\n  icon: IconValue,\r\n  items: {\r\n    type: Array,\r\n    default: () => []\r\n  },\r\n  ...makeComponentProps(),\r\n  ...makeDensityProps(),\r\n  ...makeRoundedProps(),\r\n  ...makeTagProps({\r\n    tag: 'ul'\r\n  })\r\n}, 'VBreadcrumbs');\r\nexport const VBreadcrumbs = genericComponent()({\r\n  name: 'VBreadcrumbs',\r\n  props: makeVBreadcrumbsProps(),\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      backgroundColorClasses,\r\n      backgroundColorStyles\r\n    } = useBackgroundColor(toRef(props, 'bgColor'));\r\n    const {\r\n      densityClasses\r\n    } = useDensity(props);\r\n    const {\r\n      roundedClasses\r\n    } = useRounded(props);\r\n    provideDefaults({\r\n      VBreadcrumbsDivider: {\r\n        divider: toRef(props, 'divider')\r\n      },\r\n      VBreadcrumbsItem: {\r\n        activeClass: toRef(props, 'activeClass'),\r\n        activeColor: toRef(props, 'activeColor'),\r\n        color: toRef(props, 'color'),\r\n        disabled: toRef(props, 'disabled')\r\n      }\r\n    });\r\n    const items = computed(() => props.items.map(item => {\r\n      return typeof item === 'string' ? {\r\n        item: {\r\n          title: item\r\n        },\r\n        raw: item\r\n      } : {\r\n        item,\r\n        raw: item\r\n      };\r\n    }));\r\n    useRender(() => {\r\n      const hasPrepend = !!(slots.prepend || props.icon);\r\n      return _createVNode(props.tag, {\r\n        \"class\": ['v-breadcrumbs', backgroundColorClasses.value, densityClasses.value, roundedClasses.value, props.class],\r\n        \"style\": [backgroundColorStyles.value, props.style]\r\n      }, {\r\n        default: () => [hasPrepend && _createVNode(\"li\", {\r\n          \"key\": \"prepend\",\r\n          \"class\": \"v-breadcrumbs__prepend\"\r\n        }, [!slots.prepend ? _createVNode(VIcon, {\r\n          \"key\": \"prepend-icon\",\r\n          \"start\": true,\r\n          \"icon\": props.icon\r\n        }, null) : _createVNode(VDefaultsProvider, {\r\n          \"key\": \"prepend-defaults\",\r\n          \"disabled\": !props.icon,\r\n          \"defaults\": {\r\n            VIcon: {\r\n              icon: props.icon,\r\n              start: true\r\n            }\r\n          }\r\n        }, slots.prepend)]), items.value.map((_ref2, index, array) => {\r\n          let {\r\n            item,\r\n            raw\r\n          } = _ref2;\r\n          return _createVNode(_Fragment, null, [slots.item?.({\r\n            item,\r\n            index\r\n          }) ?? _createVNode(VBreadcrumbsItem, _mergeProps({\r\n            \"key\": index,\r\n            \"disabled\": index >= array.length - 1\r\n          }, typeof item === 'string' ? {\r\n            title: item\r\n          } : item), {\r\n            default: slots.title ? () => slots.title?.({\r\n              item,\r\n              index\r\n            }) : undefined\r\n          }), index < array.length - 1 && _createVNode(VBreadcrumbsDivider, null, {\r\n            default: slots.divider ? () => slots.divider?.({\r\n              item: raw,\r\n              index\r\n            }) : undefined\r\n          })]);\r\n        }), slots.default?.()]\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VBreadcrumbs.mjs.map",
+      "start": 1756117964266,
+      "end": 1756117964644,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117964644,
+      "end": 1756117964644,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117964644,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117964645,
+      "end": 1756117964645,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117964645,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117964646,
+      "end": 1756117964646,
+      "order": "normal"
+    }
+  ]
+}

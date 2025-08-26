@@ -1,0 +1,223 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/profile/index/security.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-container>\r\n    <v-row justify=\"center\">\r\n      <v-col cols=\"12\" sm=\"10\">\r\n        <div class=\"text-subtitle-1 pb-4\">\r\n          <b>Password settings</b>\r\n        </div>\r\n        <div>\r\n          <ChangePassword :dialog=\"false\" />\r\n        </div>\r\n        <div class=\"text-subtitle-1 pt-15 pb-2\">\r\n          <b>Account settings</b>\r\n        </div>\r\n        <v-btn\r\n          class=\"text-caption rounded-lg\"\r\n          variant=\"text\"\r\n          prepend-icon=\"mdi-delete-outline\"\r\n        >\r\n          <span>Deactivate my account</span>\r\n        </v-btn>\r\n      </v-col>\r\n    </v-row>\r\n  </v-container>\r\n</template>\r\n\r\n<script setup></script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117940249,
+      "end": 1756117940794,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117940794,
+      "end": 1756117940794,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_ChangePassword = _resolveComponent(\"ChangePassword\")\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n\n  return (_openBlock(), _createBlock(_component_v_container, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, { justify: \"center\" }, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"10\"\n          }, {\n            default: _withCtx(() => [\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-subtitle-1 pb-4\" }, [\n                _createElementVNode(\"b\", null, \"Password settings\")\n              ], -1)),\n              _createElementVNode(\"div\", null, [\n                _createVNode(_component_ChangePassword, { dialog: false })\n              ]),\n              _cache[2] || (_cache[2] = _createElementVNode(\"div\", { class: \"text-subtitle-1 pt-15 pb-2\" }, [\n                _createElementVNode(\"b\", null, \"Account settings\")\n              ], -1)),\n              _createVNode(_component_v_btn, {\n                class: \"text-caption rounded-lg\",\n                variant: \"text\",\n                \"prepend-icon\": \"mdi-delete-outline\"\n              }, {\n                default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                  _createElementVNode(\"span\", null, \"Deactivate my account\", -1)\n                ]))]),\n                _: 1\n              })\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1756117940794,
+      "end": 1756117940796,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117940796,
+      "end": 1756117940796,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117940796,
+      "end": 1756117940796,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117940796,
+      "end": 1756117940796,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117940796,
+      "end": 1756117940796,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_ChangePassword = _resolveComponent(\"ChangePassword\")\n                                                     \n                                                     \n                                                     \n                                                                 \n\n  return (_openBlock(), _createBlock(_component_v_container, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, { justify: \"center\" }, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"10\"\n          }, {\n            default: _withCtx(() => [\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-subtitle-1 pb-4\" }, [\n                _createElementVNode(\"b\", null, \"Password settings\")\n              ], -1)),\n              _createElementVNode(\"div\", null, [\n                _createVNode(_component_ChangePassword, { dialog: false })\n              ]),\n              _cache[2] || (_cache[2] = _createElementVNode(\"div\", { class: \"text-subtitle-1 pt-15 pb-2\" }, [\n                _createElementVNode(\"b\", null, \"Account settings\")\n              ], -1)),\n              _createVNode(_component_v_btn, {\n                class: \"text-caption rounded-lg\",\n                variant: \"text\",\n                \"prepend-icon\": \"mdi-delete-outline\"\n              }, {\n                default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                  _createElementVNode(\"span\", null, \"Deactivate my account\", -1)\n                ]))]),\n                _: 1\n              })\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756117940796,
+      "end": 1756117940796,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117940796,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117940797,
+      "end": 1756117940797,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117940797,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/change-password.vue\";\nconst _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_ChangePassword = __nuxt_component_0\n                                                     \n                                                     \n                                                     \n                                                                 \n\n  return (_openBlock(), _createBlock(_component_v_container, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, { justify: \"center\" }, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"10\"\n          }, {\n            default: _withCtx(() => [\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-subtitle-1 pb-4\" }, [\n                _createElementVNode(\"b\", null, \"Password settings\")\n              ], -1)),\n              _createElementVNode(\"div\", null, [\n                _createVNode(_component_ChangePassword, { dialog: false })\n              ]),\n              _cache[2] || (_cache[2] = _createElementVNode(\"div\", { class: \"text-subtitle-1 pt-15 pb-2\" }, [\n                _createElementVNode(\"b\", null, \"Account settings\")\n              ], -1)),\n              _createVNode(_component_v_btn, {\n                class: \"text-caption rounded-lg\",\n                variant: \"text\",\n                \"prepend-icon\": \"mdi-delete-outline\"\n              }, {\n                default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                  _createElementVNode(\"span\", null, \"Deactivate my account\", -1)\n                ]))]),\n                _: 1\n              })\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117940799,
+      "end": 1756117940799,
+      "order": "normal"
+    }
+  ]
+}

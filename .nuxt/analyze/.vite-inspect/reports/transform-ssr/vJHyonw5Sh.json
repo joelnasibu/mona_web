@@ -1,0 +1,284 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/jobs/[id].vue?vue&type=style&index=0&scoped=9fb3ac19&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n/*  */\r\n",
+      "start": 1756118025780,
+      "end": 1756118025780,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/jobs/[id].vue"
+        ],
+        "names": [],
+        "mappings": ";AAoYA,CAAC,GAAG,CAAC",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/jobs/[id].vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <ClientOnly>\r\n    <CoreMidScreenLayout>\r\n      <v-fade-transition>\r\n        <div class=\"alternative-header position-sticky bg-white pa-1 pt-4\" style=\"top: 0; z-index: 2\"\r\n          v-if=\"showAlternativeHeader\">\r\n          <v-container>\r\n            <v-row class=\"ma-auto card-outlined rounded-lg bg-white box-shadow-bottom\" align=\"center\">\r\n              <v-col cols=\"12\" sm=\"8\">\r\n                <div class=\"d-flex ga-4\">\r\n                  <div class=\"d-flex flex-column\">\r\n                    <div class=\"text-subtitle-1 text-md-h6 two-lines\">\r\n                      <b>{{ capitalizeFirstLetter(data.jobName) }}</b>\r\n                    </div>\r\n                    <div class=\"text-grey\">\r\n                      <div class=\"text-body-2 text-capitalize d-flex align-center ga-1\">\r\n                        <div class=\"d-flex align-center ga-2\">\r\n                          <v-avatar size=\"30\" :image=\"data.business.logo\"></v-avatar>\r\n                          <div class=\"text-decoration-underline text-primary\">\r\n                            <NuxtLink :to=\"{\r\n                              name: 'company-name-id',\r\n                              params: {\r\n                                id: data.businessId,\r\n                                name: String(data.business.businessName)\r\n                                  .toLowerCase()\r\n                                  .replaceAll(' ', '-'),\r\n                              },\r\n                              query: {\r\n                                type: 'jobs',\r\n                              },\r\n                            }\" @click.stop>{{\r\n                              String(data.business.businessName).toLowerCase()\r\n                            }}</NuxtLink>\r\n                          </div>\r\n                        </div>\r\n                        <v-icon icon=\"mdi-circle-small\" class=\"text-grey\"></v-icon>\r\n                        <div class=\"d-flex align-center ga-1\">\r\n                          <v-icon icon=\"mdi-map-marker-outline\" size=\"x-small\"></v-icon>\r\n                          <span>{{ String(data.location).toLowerCase() }}</span>\r\n                        </div>\r\n                        <v-icon icon=\"mdi-circle-small\" class=\"text-grey\"></v-icon>\r\n                        <div class=\"d-flex align-center ga-1\">\r\n                          <v-icon icon=\"mdi-clock-outline\" size=\"x-small\"></v-icon>\r\n                          <span>{{ String(data.jobtype).toLowerCase() }}</span>\r\n                        </div>\r\n                      </div>\r\n                    </div>\r\n                  </div>\r\n                </div>\r\n              </v-col>\r\n              <v-col cols=\"12\" sm=\"4\">\r\n                <v-card flat class=\"bg-transparent d-flex flex-column h-100 px-0 px-md-4\">\r\n                  <div class=\"d-flex align-center ga-2 justify-end\">\r\n                    <div class=\"w-100 mr-4\">\r\n                      <v-btn class=\"text-caption text-none mt-1\" rounded=\"lg\" color=\"primary-accent\" flat size=\"small\"\r\n                        :disabled=\"dateDifference(data.deadline) == 'Closed' || data.jobstatus == 'CLOSED'\"\r\n                        @click=\"checkUser\" block>\r\n                        <span>Apply</span>\r\n                      </v-btn>\r\n                    </div>\r\n                    <v-btn class=\"card-outlined rounded-lg\" :icon=\"`mdi-bookmark${data.isSaved ? '' : '-outline'}`\"\r\n                      color=\"primary-accent\" :title=\"data.isSaved ? 'Remove from saved' : 'Add to saved'\r\n                        \" :loading=\"loading\" variant=\"text\" size=\"30\" @click.stop=\"toggleWishlist\">\r\n                    </v-btn>\r\n                    <div class=\"\">\r\n                      <v-btn rounded=\"lg\" icon=\"mdi-share\" flat title=\"Share\" color=\"grey\" size=\"30\"\r\n                        id=\"shareJob\"></v-btn>\r\n                      <v-menu activator=\"#shareJob\">\r\n                        <v-card class=\"rounded-lg card-outlined pa-1 mt-1 bg-card elevation-2\">\r\n                          <CoreSocials :share=\"true\" />\r\n                        </v-card>\r\n                      </v-menu>\r\n                    </div>\r\n                    <v-btn rounded=\"lg\" icon=\"mdi-dots-horizontal\" flat title=\"Options\" color=\"grey\" size=\"30\"></v-btn>\r\n                  </div>\r\n                </v-card>\r\n              </v-col>\r\n            </v-row>\r\n          </v-container>\r\n        </div>\r\n      </v-fade-transition>\r\n      <v-container fluid class=\"px-0\">\r\n        <v-row>\r\n          <v-col cols=\"12\" class=\"pb-0\">\r\n            <CoreLinks :links=\"links\" />\r\n          </v-col>\r\n        </v-row>\r\n        <v-row>\r\n          <v-col cols=\"12\" sm=\"8\">\r\n            <!-- class=\"position-sticky\"\r\n            style=\"top: 0.2rem; z-index: 2\" -->\r\n            <div id=\"triggerSticky\" ref=\"trigger\">\r\n              <v-container>\r\n                <v-row class=\"ma-auto card-outlined rounded-lg bg-white\">\r\n                  <v-col cols=\"12\" sm=\"8\">\r\n                    <div class=\"d-flex ga-4\">\r\n                      <v-avatar size=\"100\" color=\"white\" :image=\"data.business.logo\" rounded=\"lg\"\r\n                        class=\"card-outlined pa-2\"></v-avatar>\r\n                      <div class=\"d-flex flex-column\">\r\n                        <div class=\"text-subtitle-1 text-md-h6 two-lines\">\r\n                          <b>{{ capitalizeFirstLetter(data.jobName) }}</b>\r\n                        </div>\r\n                        <div class=\"my-1\">\r\n                          <div class=\"text-body-2 text-decoration-underline text-capitalize\">\r\n                            <NuxtLink class=\"text-grey-darken-3\" :to=\"{\r\n                              name: 'company-name-id',\r\n                              params: {\r\n                                id: data.businessId,\r\n                                name: String(data.business.businessName)\r\n                                  .toLowerCase()\r\n                                  .replaceAll(' ', '-'),\r\n                              },\r\n                              query: {\r\n                                type: 'jobs',\r\n                              },\r\n                            }\" @click.stop>{{\r\n                              String(data.business.businessName).toLowerCase()\r\n                            }}</NuxtLink>\r\n                          </div>\r\n                          <div class=\"d-flex text-disabled text-caption align-center ga-1\">\r\n                            <div class=\"d-flex align-center\">\r\n                              <v-icon size=\"x-small\" icon=\"mdi-map-marker\" start></v-icon>\r\n                              <span>{{ data.location }}</span>\r\n                            </div>\r\n                          </div>\r\n                        </div>\r\n                        <v-btn class=\"text-caption text-none mt-1\" rounded=\"lg\" color=\"primary-accent\" flat size=\"small\"\r\n                          :disabled=\"dateDifference(data.deadline) == 'Closed' || data.jobstatus == 'CLOSED'\"\r\n                          @click=\"checkUser\" v-if=\"!isMobile\">\r\n                          <span>Apply</span>\r\n                        </v-btn>\r\n                      </div>\r\n                    </div>\r\n                  </v-col>\r\n                  <v-col cols=\"12\" sm=\"4\">\r\n                    <v-card flat class=\"bg-transparent d-flex flex-column h-100 px-0 px-md-4\">\r\n                      <div class=\"d-flex align-center ga-2 justify-end\">\r\n                        <div class=\"w-100 mr-4\" v-if=\"isMobile\">\r\n                          <v-btn class=\"text-caption text-none mt-1\" rounded=\"lg\" color=\"primary-accent\" flat\r\n                            :disabled=\"dateDifference(data.deadline) == 'Closed' || data.jobstatus == 'CLOSED'\"\r\n                            size=\"small\" @click=\"checkUser\" block>\r\n                            <span>Apply</span>\r\n                          </v-btn>\r\n                        </div>\r\n                        <v-btn class=\"card-outlined rounded-lg\" :icon=\"`mdi-bookmark${data.isSaved ? '' : '-outline'\r\n                          }`\" color=\"grey\" :title=\"data.isSaved ? 'Remove from saved' : 'Add to saved'\r\n                            \" :loading=\"loading\" size=\"30\" flat @click.stop=\"toggleWishlist\">\r\n                        </v-btn>\r\n                        <div class=\"\">\r\n                          <v-btn rounded=\"lg\" icon=\"mdi-share\" flat title=\"Share\" color=\"grey\" size=\"30\"\r\n                            id=\"shareJob\"></v-btn>\r\n                          <v-menu activator=\"#shareJob\">\r\n                            <v-card class=\"rounded-lg card-outlined pa-1 mt-1 bg-card elevation-2\">\r\n                              <CoreSocials :share=\"true\" />\r\n                            </v-card>\r\n                          </v-menu>\r\n                        </div>\r\n                        <!-- <v-btn\r\n                          rounded=\"lg\"\r\n                          icon=\"mdi-dots-horizontal\"\r\n                          flat\r\n                          title=\"Options\"\r\n                          color=\"grey\"\r\n                          size=\"30\"\r\n                        ></v-btn> -->\r\n                      </div>\r\n                      <div class=\"mt-4 mt-md-auto text-grey text-caption text-end\">\r\n                        <p v-if=\"data.jobstatus == 'CLOSED'\" class=\"text-link\">\r\n                          <v-icon size=\"x-small\" icon=\"mdi-briefcase-clock\" class=\"pr-1\"></v-icon>\r\n                          {{ data.jobstatus }}\r\n                        </p>\r\n                        <ClientJobsDaysRemaining :date=\"data.deadline\" v-else />\r\n                        <p>\r\n                          Posted:\r\n                          {{ dateFormat_Month(data.dateCreated) }}\r\n                        </p>\r\n                        <p>Closing: {{ dateFormat_Month(data.deadline) }}</p>\r\n                      </div>\r\n                    </v-card>\r\n                  </v-col>\r\n                </v-row>\r\n              </v-container>\r\n            </div>\r\n\r\n            <v-card flat class=\"bg-transparent rounded-lg\">\r\n              <v-container class=\"pa-0\" fluid>\r\n                <v-row class=\"ma-auto\">\r\n                  <v-col cols=\"12\">\r\n                    <div class=\"d-flex align-center ga-3\">\r\n                      <v-btn class=\"disabled-btn text-caption text-capitalize font-weight-light\" color=\"grey-lighten-4\"\r\n                        size=\"small\" flat rounded=\"lg\">\r\n                        <span class=\"text-primary\">{{\r\n                          String(data.jobtype).toLowerCase()\r\n                        }}</span>\r\n                      </v-btn>\r\n                      <v-btn class=\"disabled-btn text-caption text-capitalize font-weight-light\" color=\"grey-lighten-4\"\r\n                        size=\"small\" flat rounded=\"lg\">\r\n                        <span class=\"text-primary\">{{\r\n                          String(data.category.name).toLowerCase()\r\n                        }}</span>\r\n                      </v-btn>\r\n                      <v-btn class=\"disabled-btn text-caption text-capitalize font-weight-light\" color=\"grey-lighten-4\"\r\n                        size=\"small\" flat rounded=\"lg\">\r\n                        <span class=\"text-primary\">{{\r\n                          String(data.category.subcategory).toLowerCase()\r\n                        }}</span>\r\n                      </v-btn>\r\n                    </div>\r\n                  </v-col>\r\n                  <v-col cols=\"12\" class=\"pt-0\">\r\n                    <div class=\"text-body-2\">\r\n                      <b>Skills</b>\r\n                    </div>\r\n                    <v-list class=\"pa-0\" density=\"compact\" lines=\"false\">\r\n                      <v-list-item class=\"text-caption text-capitalize\" v-for=\"(skill, i) in data.skills\" :key=\"i\">\r\n                        <v-icon icon=\"mdi-chevron-right\" start></v-icon>\r\n                        <span>{{ skill }}</span>\r\n                      </v-list-item>\r\n                    </v-list>\r\n                  </v-col>\r\n                </v-row>\r\n                <v-row class=\"ma-auto card-outlined rounded-lg job-details\">\r\n                  <v-col cols=\"12\" sm=\"12\" class=\"pa-0\">\r\n                    <v-tabs v-model=\"tab\" bg-color=\"transparent\" color=\"link\">\r\n                      <v-tab class=\"text-caption text-capitalize\">Description</v-tab>\r\n                      <v-tab class=\"text-caption text-capitalize\">Requirements</v-tab>\r\n                      <v-tab class=\"text-caption text-capitalize\">Responsabilities</v-tab>\r\n                      <v-tab class=\"text-caption text-capitalize\">About the company</v-tab>\r\n                    </v-tabs>\r\n                    <v-window class=\"pa-2 pa-md-5 bg-transparent\" v-model=\"tab\">\r\n                      <v-window-item :value=\"0\">\r\n                        <div class=\"text-caption\">\r\n                          <p v-html=\"data.description\"></p>\r\n                        </div>\r\n                      </v-window-item>\r\n                      <v-window-item :value=\"1\">\r\n                        <v-list class=\"pa-0\" density=\"compact\" lines=\"false\">\r\n                          <v-list-item class=\"text-caption text-capitalize\"\r\n                            v-for=\"(requirement, i) in data.requirements\" :key=\"i\">\r\n                            <template v-slot:prepend>\r\n                              <v-icon icon=\"mdi-chevron-right\"></v-icon>\r\n                            </template>\r\n                            <span>{{ requirement }}</span>\r\n                          </v-list-item>\r\n                        </v-list>\r\n                      </v-window-item>\r\n                      <v-window-item :value=\"1\">\r\n                        <v-list class=\"pa-0\" density=\"compact\" lines=\"false\">\r\n                          <v-list-item class=\"text-caption text-capitalize\"\r\n                            v-for=\"(responsability, i) in data.responsibilities\" :key=\"i\">\r\n                            <template v-slot:prepend>\r\n                              <v-icon icon=\"mdi-chevron-right\"></v-icon>\r\n                            </template>\r\n                            <span>{{ responsability }}</span>\r\n                          </v-list-item>\r\n                        </v-list>\r\n                      </v-window-item>\r\n                      <v-window-item :value=\"1\">\r\n                        <div class=\"text-caption\">\r\n                          <p v-html=\"data.business.overview ?? data.business.summary\r\n                            \"></p>\r\n                        </div>\r\n                      </v-window-item>\r\n                    </v-window>\r\n                  </v-col>\r\n                </v-row>\r\n              </v-container>\r\n            </v-card>\r\n          </v-col>\r\n          <v-col cols=\"12\" sm=\"4\">\r\n            <div class=\"position-sticky\" :style=\"`top: calc(${appBarHeight}px + 3rem)`\">\r\n              <ClientJobsMatchingYourSkills />\r\n            </div>\r\n          </v-col>\r\n        </v-row>\r\n      </v-container>\r\n    </CoreMidScreenLayout>\r\n\r\n    <v-dialog v-model=\"apply\" persistent :fullscreen=\"isMobile\" :width=\"isMobile ? '100%' : 600\">\r\n      <v-card class=\"card-outlined\" :rounded=\"isMobile ? 0 : 'lg'\">\r\n        <v-card-title class=\"py-2 px-2 px-md-4 bg-card d-flex align-center text-subtitle-2\">\r\n          <b>Apply to {{ data.business.businessName }}</b>\r\n          <v-spacer></v-spacer>\r\n          <v-btn size=\"small\" variant=\"text\" icon=\"mdi-close\" rounded=\"lg\" @click=\"apply = false\" title=\"Close\"></v-btn>\r\n        </v-card-title>\r\n        <v-card-text>\r\n          <ClientJobsApply @close=\"apply = false\" :payload=\"data\" />\r\n        </v-card-text>\r\n      </v-card>\r\n    </v-dialog>\r\n  </ClientOnly>\r\n</template>\r\n\r\n<script setup>\r\nconst route = useRoute(),\r\n  id = route.params.id,\r\n  { dateFormat_Month, capitalizeFirstLetter, dateDifference } = useHelpers(),\r\n  { isMobile } = useDevice();\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst appStore = useAppStore(),\r\n  { error, loading, token, currentUser } = storeToRefs(appStore);\r\n\r\nimport { useSavedItemStore } from \"~/store/saved-items\";\r\nconst { saveItem, deleteSavedItem } = useSavedItemStore();\r\n\r\nimport { useJobStore } from \"~/store/jobs\";\r\nconst { getJob } = useJobStore(),\r\n  data = ref(await getJob(id));\r\n//\r\n\r\nconst tab = ref(0);\r\n\r\nconst apply = ref(false),\r\n  checkUser = () => {\r\n    if (token.value) apply.value = true;\r\n    else {\r\n      const routeRedirect = {\r\n        name: route.name,\r\n        params: route.params,\r\n      };\r\n      appStore.setRedirect(routeRedirect);\r\n      navigateTo({\r\n        name: \"auth\",\r\n      });\r\n    }\r\n  };\r\n\r\nconst trigger = ref(null),\r\n  showAlternativeHeader = ref(false),\r\n  triggerVisibility = () => {\r\n    const rect = trigger.value?.getBoundingClientRect();\r\n    showAlternativeHeader.value = rect?.top < Number(-155);\r\n  },\r\n  appBarHeight = ref(64);\r\nonMounted(() => {\r\n  appBarHeight.value = document.getElementById(\"appBar\")?.clientHeight;\r\n\r\n  window.addEventListener(\"scroll\", () => triggerVisibility());\r\n});\r\n\r\nconst links = [\r\n  { title: \"Home\", route: \"/jobs\" },\r\n  { title: String(data.value.jobName).toLowerCase() },\r\n];\r\n\r\nconst toggleWishlist = async () => {\r\n  if (appStore.isLoggeIn) {\r\n    data.value.isSaved\r\n      ? await deleteSavedItem(data.value.id)\r\n      : await saveItem({\r\n        userId: currentUser.value.userId,\r\n        itemId: data.value.id,\r\n        type: \"jobs\",\r\n      });\r\n\r\n    if (!error.value) data.value = await getJob(id);\r\n  } else {\r\n    const routeRedirect = {\r\n      name: \"shop-product-name-id\",\r\n      params: route.params,\r\n    };\r\n    appStore.setRedirect(routeRedirect);\r\n    navigateTo({\r\n      name: \"auth\",\r\n    });\r\n  }\r\n};\r\n\r\nuseSeoMeta({\r\n  title:\r\n    `${capitalizeFirstLetter(data.value.jobName)} | ${data.value.business.businessName\r\n    }` ?? \"Job details\",\r\n  description: data.value.description,\r\n  ogTitle:\r\n    `${capitalizeFirstLetter(data.value.jobName)} | ${data.value.business.businessName\r\n    }` ?? \"Job details\",\r\n  ogDescription: data.value.description,\r\n  ogImage: data.value.business.logo,\r\n  twitterTitle:\r\n    `${capitalizeFirstLetter(data.value.jobName)} | ${data.value.business.businessName\r\n    }` ?? \"Job details\",\r\n  twitterDescription: data.value.description,\r\n  twitterImage: data.value.business.logo,\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n/*  */\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118025782,
+      "end": 1756118025785,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118025782,
+      "end": 1756118025785,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118025786,
+      "end": 1756118025787,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118025786,
+      "end": 1756118025787,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118025787,
+      "end": 1756118025787,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "",
+      "start": 1756118025787,
+      "end": 1756118025796,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/jobs/[id].vue",
+        "mappings": "",
+        "names": [],
+        "sources": [],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118025796,
+      "end": 1756118025796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118025796,
+      "end": 1756118025797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118025797,
+      "end": 1756118025797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "",
+      "start": 1756118025798,
+      "end": 1756118025798,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/jobs/[id].vue",
+        "mappings": "",
+        "names": [],
+        "sources": [],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118025799,
+      "end": 1756118025799,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118025799,
+      "end": 1756118025799,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118025799,
+      "end": 1756118025799,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118025799,
+      "end": 1756118025799,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118025799,
+      "end": 1756118025800,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118025800,
+      "end": 1756118025800,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118025800,
+      "end": 1756118025800,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118025800,
+      "end": 1756118025801,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118025801,
+      "end": 1756118025807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118025807,
+      "end": 1756118025807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756118025807,
+      "end": 1756118025807,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118025808,
+      "end": 1756118025808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118025808,
+      "end": 1756118025808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118025808,
+      "end": 1756118025808,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118025808,
+      "end": 1756118025808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118025808,
+      "end": 1756118025809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118025809,
+      "end": 1756118025809,
+      "order": "normal"
+    }
+  ]
+}

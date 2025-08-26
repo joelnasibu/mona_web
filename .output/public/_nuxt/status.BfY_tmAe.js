@@ -1,0 +1,1 @@
+import{u as s,s as r,c as t,o as n}from"./entry.d7ew7f-K.js";const f={__name:"status",setup(a){const e=s(),{error:c,loading:l,token:p,currentUser:o,profileImage:u}=r(e);return console.log(o.value),(_,m)=>(n(),t("div",null,"Coming soon"))}};export{f as default};

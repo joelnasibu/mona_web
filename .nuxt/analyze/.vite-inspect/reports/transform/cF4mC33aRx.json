@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VAlert/VAlert.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, resolveDirective as _resolveDirective, createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VAlert.css\";\r\n\r\n// Components\r\nimport { VAlertTitle } from \"./VAlertTitle.mjs\";\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VDefaultsProvider } from \"../VDefaultsProvider/index.mjs\";\r\nimport { VIcon } from \"../VIcon/index.mjs\"; // Composables\r\nimport { useTextColor } from \"../../composables/color.mjs\";\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { makeDensityProps, useDensity } from \"../../composables/density.mjs\";\r\nimport { makeDimensionProps, useDimension } from \"../../composables/dimensions.mjs\";\r\nimport { makeElevationProps, useElevation } from \"../../composables/elevation.mjs\";\r\nimport { IconValue } from \"../../composables/icons.mjs\";\r\nimport { useLocale } from \"../../composables/locale.mjs\";\r\nimport { makeLocationProps, useLocation } from \"../../composables/location.mjs\";\r\nimport { makePositionProps, usePosition } from \"../../composables/position.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\";\r\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\";\r\nimport { makeThemeProps, provideTheme } from \"../../composables/theme.mjs\";\r\nimport { genOverlays, makeVariantProps, useVariant } from \"../../composables/variant.mjs\"; // Utilities\r\nimport { computed, toRef } from 'vue';\r\nimport { genericComponent, propsFactory } from \"../../util/index.mjs\"; // Types\r\nconst allowedTypes = ['success', 'info', 'warning', 'error'];\r\nexport const makeVAlertProps = propsFactory({\r\n  border: {\r\n    type: [Boolean, String],\r\n    validator: val => {\r\n      return typeof val === 'boolean' || ['top', 'end', 'bottom', 'start'].includes(val);\r\n    }\r\n  },\r\n  borderColor: String,\r\n  closable: Boolean,\r\n  closeIcon: {\r\n    type: IconValue,\r\n    default: '$close'\r\n  },\r\n  closeLabel: {\r\n    type: String,\r\n    default: '$vuetify.close'\r\n  },\r\n  icon: {\r\n    type: [Boolean, String, Function, Object],\r\n    default: null\r\n  },\r\n  modelValue: {\r\n    type: Boolean,\r\n    default: true\r\n  },\r\n  prominent: Boolean,\r\n  title: String,\r\n  text: String,\r\n  type: {\r\n    type: String,\r\n    validator: val => allowedTypes.includes(val)\r\n  },\r\n  ...makeComponentProps(),\r\n  ...makeDensityProps(),\r\n  ...makeDimensionProps(),\r\n  ...makeElevationProps(),\r\n  ...makeLocationProps(),\r\n  ...makePositionProps(),\r\n  ...makeRoundedProps(),\r\n  ...makeTagProps(),\r\n  ...makeThemeProps(),\r\n  ...makeVariantProps({\r\n    variant: 'flat'\r\n  })\r\n}, 'VAlert');\r\nexport const VAlert = genericComponent()({\r\n  name: 'VAlert',\r\n  props: makeVAlertProps(),\r\n  emits: {\r\n    'click:close': e => true,\r\n    'update:modelValue': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      emit,\r\n      slots\r\n    } = _ref;\r\n    const isActive = useProxiedModel(props, 'modelValue');\r\n    const icon = computed(() => {\r\n      if (props.icon === false) return undefined;\r\n      if (!props.type) return props.icon;\r\n      return props.icon ?? `$${props.type}`;\r\n    });\r\n    const variantProps = computed(() => ({\r\n      color: props.color ?? props.type,\r\n      variant: props.variant\r\n    }));\r\n    const {\r\n      themeClasses\r\n    } = provideTheme(props);\r\n    const {\r\n      colorClasses,\r\n      colorStyles,\r\n      variantClasses\r\n    } = useVariant(variantProps);\r\n    const {\r\n      densityClasses\r\n    } = useDensity(props);\r\n    const {\r\n      dimensionStyles\r\n    } = useDimension(props);\r\n    const {\r\n      elevationClasses\r\n    } = useElevation(props);\r\n    const {\r\n      locationStyles\r\n    } = useLocation(props);\r\n    const {\r\n      positionClasses\r\n    } = usePosition(props);\r\n    const {\r\n      roundedClasses\r\n    } = useRounded(props);\r\n    const {\r\n      textColorClasses,\r\n      textColorStyles\r\n    } = useTextColor(toRef(props, 'borderColor'));\r\n    const {\r\n      t\r\n    } = useLocale();\r\n    const closeProps = computed(() => ({\r\n      'aria-label': t(props.closeLabel),\r\n      onClick(e) {\r\n        isActive.value = false;\r\n        emit('click:close', e);\r\n      }\r\n    }));\r\n    return () => {\r\n      const hasPrepend = !!(slots.prepend || icon.value);\r\n      const hasTitle = !!(slots.title || props.title);\r\n      const hasClose = !!(slots.close || props.closable);\r\n      return isActive.value && _createVNode(props.tag, {\r\n        \"class\": ['v-alert', props.border && {\r\n          'v-alert--border': !!props.border,\r\n          [`v-alert--border-${props.border === true ? 'start' : props.border}`]: true\r\n        }, {\r\n          'v-alert--prominent': props.prominent\r\n        }, themeClasses.value, colorClasses.value, densityClasses.value, elevationClasses.value, positionClasses.value, roundedClasses.value, variantClasses.value, props.class],\r\n        \"style\": [colorStyles.value, dimensionStyles.value, locationStyles.value, props.style],\r\n        \"role\": \"alert\"\r\n      }, {\r\n        default: () => [genOverlays(false, 'v-alert'), props.border && _createVNode(\"div\", {\r\n          \"key\": \"border\",\r\n          \"class\": ['v-alert__border', textColorClasses.value],\r\n          \"style\": textColorStyles.value\r\n        }, null), hasPrepend && _createVNode(\"div\", {\r\n          \"key\": \"prepend\",\r\n          \"class\": \"v-alert__prepend\"\r\n        }, [!slots.prepend ? _createVNode(VIcon, {\r\n          \"key\": \"prepend-icon\",\r\n          \"density\": props.density,\r\n          \"icon\": icon.value,\r\n          \"size\": props.prominent ? 44 : 28\r\n        }, null) : _createVNode(VDefaultsProvider, {\r\n          \"key\": \"prepend-defaults\",\r\n          \"disabled\": !icon.value,\r\n          \"defaults\": {\r\n            VIcon: {\r\n              density: props.density,\r\n              icon: icon.value,\r\n              size: props.prominent ? 44 : 28\r\n            }\r\n          }\r\n        }, slots.prepend)]), _createVNode(\"div\", {\r\n          \"class\": \"v-alert__content\"\r\n        }, [hasTitle && _createVNode(VAlertTitle, {\r\n          \"key\": \"title\"\r\n        }, {\r\n          default: () => [slots.title?.() ?? props.title]\r\n        }), slots.text?.() ?? props.text, slots.default?.()]), slots.append && _createVNode(\"div\", {\r\n          \"key\": \"append\",\r\n          \"class\": \"v-alert__append\"\r\n        }, [slots.append()]), hasClose && _createVNode(\"div\", {\r\n          \"key\": \"close\",\r\n          \"class\": \"v-alert__close\"\r\n        }, [!slots.close ? _createVNode(VBtn, _mergeProps({\r\n          \"key\": \"close-btn\",\r\n          \"icon\": props.closeIcon,\r\n          \"size\": \"x-small\",\r\n          \"variant\": \"text\"\r\n        }, closeProps.value), null) : _createVNode(VDefaultsProvider, {\r\n          \"key\": \"close-defaults\",\r\n          \"defaults\": {\r\n            VBtn: {\r\n              icon: props.closeIcon,\r\n              size: 'x-small',\r\n              variant: 'text'\r\n            }\r\n          }\r\n        }, {\r\n          default: () => [slots.close?.({\r\n            props: closeProps.value\r\n          })]\r\n        })])]\r\n      });\r\n    };\r\n  }\r\n});\r\n//# sourceMappingURL=VAlert.mjs.map",
+      "start": 1756117958671,
+      "end": 1756117959267,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117959267,
+      "end": 1756117959267,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117959267,
+      "end": 1756117959267,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117959267,
+      "end": 1756117959267,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117959267,
+      "end": 1756117959267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117959268,
+      "end": 1756117959268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117959268,
+      "end": 1756117959268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117959268,
+      "end": 1756117959268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117959268,
+      "end": 1756117959268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117959268,
+      "end": 1756117959268,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117959268,
+      "end": 1756117959268,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117959276,
+      "end": 1756117959277,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117959277,
+      "end": 1756117959277,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117959278,
+      "end": 1756117959279,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117959282,
+      "end": 1756117959282,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117959282,
+      "end": 1756117959283,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117959283,
+      "end": 1756117959283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117959283,
+      "end": 1756117959283,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117959290,
+      "end": 1756117959291,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117959295,
+      "end": 1756117959296,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117959299,
+      "end": 1756117959299,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117959304,
+      "end": 1756117959304,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117959304,
+      "end": 1756117959304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117959305,
+      "end": 1756117959305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117959984,
+      "end": 1756117959984,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117959984,
+      "end": 1756117959984,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117959992,
+      "end": 1756117959992,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117959992,
+      "end": 1756117959992,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117959992,
+      "end": 1756117959992,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117959992,
+      "end": 1756117959992,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117959993,
+      "end": 1756117959993,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117959993,
+      "end": 1756117959993,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117959993,
+      "end": 1756117959993,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117959993,
+      "end": 1756117959993,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117959994,
+      "end": 1756117959994,
+      "order": "normal"
+    }
+  ]
+}

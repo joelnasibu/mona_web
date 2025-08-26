@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VTabs/VTabs.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\r\n// Styles\r\nimport \"./VTabs.css\";\r\n\r\n// Components\r\nimport { VTab } from \"./VTab.mjs\";\r\nimport { makeVSlideGroupProps, VSlideGroup } from \"../VSlideGroup/VSlideGroup.mjs\"; // Composables\r\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeDensityProps, useDensity } from \"../../composables/density.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\"; // Utilities\r\nimport { computed, toRef } from 'vue';\r\nimport { convertToUnit, genericComponent, isObject, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nimport { VTabsSymbol } from \"./shared.mjs\";\r\nfunction parseItems(items) {\r\n  if (!items) return [];\r\n  return items.map(item => {\r\n    if (!isObject(item)) return {\r\n      text: item,\r\n      value: item\r\n    };\r\n    return item;\r\n  });\r\n}\r\nexport const makeVTabsProps = propsFactory({\r\n  alignTabs: {\r\n    type: String,\r\n    default: 'start'\r\n  },\r\n  color: String,\r\n  fixedTabs: Boolean,\r\n  items: {\r\n    type: Array,\r\n    default: () => []\r\n  },\r\n  stacked: Boolean,\r\n  bgColor: String,\r\n  grow: Boolean,\r\n  height: {\r\n    type: [Number, String],\r\n    default: undefined\r\n  },\r\n  hideSlider: Boolean,\r\n  sliderColor: String,\r\n  ...makeVSlideGroupProps({\r\n    mandatory: 'force'\r\n  }),\r\n  ...makeDensityProps(),\r\n  ...makeTagProps()\r\n}, 'VTabs');\r\nexport const VTabs = genericComponent()({\r\n  name: 'VTabs',\r\n  props: makeVTabsProps(),\r\n  emits: {\r\n    'update:modelValue': v => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const model = useProxiedModel(props, 'modelValue');\r\n    const parsedItems = computed(() => parseItems(props.items));\r\n    const {\r\n      densityClasses\r\n    } = useDensity(props);\r\n    const {\r\n      backgroundColorClasses,\r\n      backgroundColorStyles\r\n    } = useBackgroundColor(toRef(props, 'bgColor'));\r\n    provideDefaults({\r\n      VTab: {\r\n        color: toRef(props, 'color'),\r\n        direction: toRef(props, 'direction'),\r\n        stacked: toRef(props, 'stacked'),\r\n        fixed: toRef(props, 'fixedTabs'),\r\n        sliderColor: toRef(props, 'sliderColor'),\r\n        hideSlider: toRef(props, 'hideSlider')\r\n      }\r\n    });\r\n    useRender(() => {\r\n      const slideGroupProps = VSlideGroup.filterProps(props);\r\n      return _createVNode(VSlideGroup, _mergeProps(slideGroupProps, {\r\n        \"modelValue\": model.value,\r\n        \"onUpdate:modelValue\": $event => model.value = $event,\r\n        \"class\": ['v-tabs', `v-tabs--${props.direction}`, `v-tabs--align-tabs-${props.alignTabs}`, {\r\n          'v-tabs--fixed-tabs': props.fixedTabs,\r\n          'v-tabs--grow': props.grow,\r\n          'v-tabs--stacked': props.stacked\r\n        }, densityClasses.value, backgroundColorClasses.value, props.class],\r\n        \"style\": [{\r\n          '--v-tabs-height': convertToUnit(props.height)\r\n        }, backgroundColorStyles.value, props.style],\r\n        \"role\": \"tablist\",\r\n        \"symbol\": VTabsSymbol\r\n      }), {\r\n        default: () => [slots.default ? slots.default() : parsedItems.value.map(item => _createVNode(VTab, _mergeProps(item, {\r\n          \"key\": item.text\r\n        }), null))]\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VTabs.mjs.map",
+      "start": 1756117959108,
+      "end": 1756117960377,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117960377,
+      "end": 1756117960377,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117960377,
+      "end": 1756117960377,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117960377,
+      "end": 1756117960377,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117960377,
+      "end": 1756117960377,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117960377,
+      "end": 1756117960377,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117960378,
+      "end": 1756117960378,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117960378,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117960379,
+      "end": 1756117960379,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117960379,
+      "end": 1756117960380,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117960380,
+      "end": 1756117960380,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117960380,
+      "end": 1756117960380,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117960380,
+      "end": 1756117960380,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117960380,
+      "end": 1756117960380,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117960380,
+      "end": 1756117960380,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117960380,
+      "end": 1756117960380,
+      "order": "normal"
+    }
+  ]
+}

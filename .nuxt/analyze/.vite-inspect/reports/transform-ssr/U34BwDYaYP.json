@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VCheckbox/VCheckbox.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps, resolveDirective as _resolveDirective } from \"vue\";\r\n// Styles\r\nimport \"./VCheckbox.css\";\r\n\r\n// Components\r\nimport { makeVCheckboxBtnProps, VCheckboxBtn } from \"./VCheckboxBtn.mjs\";\r\nimport { makeVInputProps, VInput } from \"../VInput/VInput.mjs\"; // Composables\r\nimport { useFocus } from \"../../composables/focus.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { computed } from 'vue';\r\nimport { filterInputAttrs, genericComponent, getUid, omit, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVCheckboxProps = propsFactory({\r\n  ...makeVInputProps(),\r\n  ...omit(makeVCheckboxBtnProps(), ['inline'])\r\n}, 'VCheckbox');\r\nexport const VCheckbox = genericComponent()({\r\n  name: 'VCheckbox',\r\n  inheritAttrs: false,\r\n  props: makeVCheckboxProps(),\r\n  emits: {\r\n    'update:modelValue': value => true,\r\n    'update:focused': focused => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      attrs,\r\n      slots\r\n    } = _ref;\r\n    const model = useProxiedModel(props, 'modelValue');\r\n    const {\r\n      isFocused,\r\n      focus,\r\n      blur\r\n    } = useFocus(props);\r\n    const uid = getUid();\r\n    const id = computed(() => props.id || `checkbox-${uid}`);\r\n    useRender(() => {\r\n      const [rootAttrs, controlAttrs] = filterInputAttrs(attrs);\r\n      const inputProps = VInput.filterProps(props);\r\n      const checkboxProps = VCheckboxBtn.filterProps(props);\r\n      return _createVNode(VInput, _mergeProps({\r\n        \"class\": ['v-checkbox', props.class]\r\n      }, rootAttrs, inputProps, {\r\n        \"modelValue\": model.value,\r\n        \"onUpdate:modelValue\": $event => model.value = $event,\r\n        \"id\": id.value,\r\n        \"focused\": isFocused.value,\r\n        \"style\": props.style\r\n      }), {\r\n        ...slots,\r\n        default: _ref2 => {\r\n          let {\r\n            id,\r\n            messagesId,\r\n            isDisabled,\r\n            isReadonly\r\n          } = _ref2;\r\n          return _createVNode(VCheckboxBtn, _mergeProps(checkboxProps, {\r\n            \"id\": id.value,\r\n            \"aria-describedby\": messagesId.value,\r\n            \"disabled\": isDisabled.value,\r\n            \"readonly\": isReadonly.value\r\n          }, controlAttrs, {\r\n            \"modelValue\": model.value,\r\n            \"onUpdate:modelValue\": $event => model.value = $event,\r\n            \"onFocus\": focus,\r\n            \"onBlur\": blur\r\n          }), slots);\r\n        }\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VCheckbox.mjs.map",
+      "start": 1756118032135,
+      "end": 1756118032655,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118032655,
+      "end": 1756118032655,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118032655,
+      "end": 1756118032655,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118032655,
+      "end": 1756118032656,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118032655,
+      "end": 1756118032656,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118032656,
+      "end": 1756118032656,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118032656,
+      "end": 1756118032656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118032656,
+      "end": 1756118032656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118032656,
+      "end": 1756118032656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118032656,
+      "end": 1756118032656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118032656,
+      "end": 1756118032656,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118032657,
+      "end": 1756118032657,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118032658,
+      "end": 1756118032658,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118032658,
+      "end": 1756118032662,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118032662,
+      "end": 1756118032662,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118032662,
+      "end": 1756118032662,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118032662,
+      "end": 1756118032662,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118032662,
+      "end": 1756118032662,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118032662,
+      "end": 1756118032662,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118032662,
+      "end": 1756118032663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118032663,
+      "end": 1756118032663,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118032664,
+      "end": 1756118032664,
+      "order": "normal"
+    }
+  ]
+}

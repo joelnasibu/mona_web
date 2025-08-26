@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/composables/icons.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\r\n// Icons\r\nimport { aliases, mdi } from \"../iconsets/mdi.mjs\"; // Utilities\r\nimport { computed, inject, unref } from 'vue';\r\nimport { defineComponent, genericComponent, mergeDeep, propsFactory } from \"../util/index.mjs\"; // Types\r\nexport const IconValue = [String, Function, Object, Array];\r\nexport const IconSymbol = Symbol.for('vuetify:icons');\r\nexport const makeIconProps = propsFactory({\r\n  icon: {\r\n    type: IconValue\r\n  },\r\n  // Could not remove this and use makeTagProps, types complained because it is not required\r\n  tag: {\r\n    type: String,\r\n    required: true\r\n  }\r\n}, 'icon');\r\nexport const VComponentIcon = genericComponent()({\r\n  name: 'VComponentIcon',\r\n  props: makeIconProps(),\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    return () => {\r\n      const Icon = props.icon;\r\n      return _createVNode(props.tag, null, {\r\n        default: () => [props.icon ? _createVNode(Icon, null, null) : slots.default?.()]\r\n      });\r\n    };\r\n  }\r\n});\r\nexport const VSvgIcon = defineComponent({\r\n  name: 'VSvgIcon',\r\n  inheritAttrs: false,\r\n  props: makeIconProps(),\r\n  setup(props, _ref2) {\r\n    let {\r\n      attrs\r\n    } = _ref2;\r\n    return () => {\r\n      return _createVNode(props.tag, _mergeProps(attrs, {\r\n        \"style\": null\r\n      }), {\r\n        default: () => [_createVNode(\"svg\", {\r\n          \"class\": \"v-icon__svg\",\r\n          \"xmlns\": \"http://www.w3.org/2000/svg\",\r\n          \"viewBox\": \"0 0 24 24\",\r\n          \"role\": \"img\",\r\n          \"aria-hidden\": \"true\"\r\n        }, [Array.isArray(props.icon) ? props.icon.map(path => Array.isArray(path) ? _createVNode(\"path\", {\r\n          \"d\": path[0],\r\n          \"fill-opacity\": path[1]\r\n        }, null) : _createVNode(\"path\", {\r\n          \"d\": path\r\n        }, null)) : _createVNode(\"path\", {\r\n          \"d\": props.icon\r\n        }, null)])]\r\n      });\r\n    };\r\n  }\r\n});\r\nexport const VLigatureIcon = defineComponent({\r\n  name: 'VLigatureIcon',\r\n  props: makeIconProps(),\r\n  setup(props) {\r\n    return () => {\r\n      return _createVNode(props.tag, null, {\r\n        default: () => [props.icon]\r\n      });\r\n    };\r\n  }\r\n});\r\nexport const VClassIcon = defineComponent({\r\n  name: 'VClassIcon',\r\n  props: makeIconProps(),\r\n  setup(props) {\r\n    return () => {\r\n      return _createVNode(props.tag, {\r\n        \"class\": props.icon\r\n      }, null);\r\n    };\r\n  }\r\n});\r\nexport const defaultSets = {\r\n  svg: {\r\n    component: VSvgIcon\r\n  },\r\n  class: {\r\n    component: VClassIcon\r\n  }\r\n};\r\n\r\n// Composables\r\nexport function createIcons(options) {\r\n  return mergeDeep({\r\n    defaultSet: 'mdi',\r\n    sets: {\r\n      ...defaultSets,\r\n      mdi\r\n    },\r\n    aliases: {\r\n      ...aliases,\r\n      /* eslint-disable max-len */\r\n      vuetify: ['M8.2241 14.2009L12 21L22 3H14.4459L8.2241 14.2009Z', ['M7.26303 12.4733L7.00113 12L2 3H12.5261C12.5261 3 12.5261 3 12.5261 3L7.26303 12.4733Z', 0.6]],\r\n      'vuetify-outline': 'svg:M7.26 12.47 12.53 3H2L7.26 12.47ZM14.45 3 8.22 14.2 12 21 22 3H14.45ZM18.6 5 12 16.88 10.51 14.2 15.62 5ZM7.26 8.35 5.4 5H9.13L7.26 8.35Z'\r\n      /* eslint-enable max-len */\r\n    }\r\n  }, options);\r\n}\r\nexport const useIcon = props => {\r\n  const icons = inject(IconSymbol);\r\n  if (!icons) throw new Error('Missing Vuetify Icons provide!');\r\n  const iconData = computed(() => {\r\n    const iconAlias = unref(props);\r\n    if (!iconAlias) return {\r\n      component: VComponentIcon\r\n    };\r\n    let icon = iconAlias;\r\n    if (typeof icon === 'string') {\r\n      icon = icon.trim();\r\n      if (icon.startsWith('$')) {\r\n        icon = icons.aliases?.[icon.slice(1)];\r\n      }\r\n    }\r\n    if (!icon) throw new Error(`Could not find aliased icon \"${iconAlias}\"`);\r\n    if (Array.isArray(icon)) {\r\n      return {\r\n        component: VSvgIcon,\r\n        icon\r\n      };\r\n    } else if (typeof icon !== 'string') {\r\n      return {\r\n        component: VComponentIcon,\r\n        icon\r\n      };\r\n    }\r\n    const iconSetName = Object.keys(icons.sets).find(setName => typeof icon === 'string' && icon.startsWith(`${setName}:`));\r\n    const iconName = iconSetName ? icon.slice(iconSetName.length + 1) : icon;\r\n    const iconSet = icons.sets[iconSetName ?? icons.defaultSet];\r\n    return {\r\n      component: iconSet.component,\r\n      icon: iconName\r\n    };\r\n  });\r\n  return {\r\n    iconData\r\n  };\r\n};\r\n//# sourceMappingURL=icons.mjs.map",
+      "start": 1756118022590,
+      "end": 1756118023607,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118023608,
+      "end": 1756118023608,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118023608,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118023613,
+      "end": 1756118023613,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118023613,
+      "end": 1756118023614,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118023613,
+      "end": 1756118023614,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118023614,
+      "end": 1756118023614,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118023614,
+      "end": 1756118023614,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118023614,
+      "end": 1756118023614,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118023614,
+      "end": 1756118023614,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118023614,
+      "end": 1756118023615,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118023614,
+      "end": 1756118023615,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118023615,
+      "end": 1756118023615,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118023615,
+      "end": 1756118023615,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118023615,
+      "end": 1756118023615,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118023615,
+      "end": 1756118023615,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118023615,
+      "end": 1756118023615,
+      "order": "normal"
+    }
+  ]
+}

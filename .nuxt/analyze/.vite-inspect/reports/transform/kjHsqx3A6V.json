@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/fi/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function futureSeconds(text) {\r\n  return text.replace(/sekuntia?/, \"sekunnin\");\r\n}\r\n\r\nfunction futureMinutes(text) {\r\n  return text.replace(/minuuttia?/, \"minuutin\");\r\n}\r\n\r\nfunction futureHours(text) {\r\n  return text.replace(/tuntia?/, \"tunnin\");\r\n}\r\n\r\nfunction futureDays(text) {\r\n  return text.replace(/päivää?/, \"päivän\");\r\n}\r\n\r\nfunction futureWeeks(text) {\r\n  return text.replace(/(viikko|viikkoa)/, \"viikon\");\r\n}\r\n\r\nfunction futureMonths(text) {\r\n  return text.replace(/(kuukausi|kuukautta)/, \"kuukauden\");\r\n}\r\n\r\nfunction futureYears(text) {\r\n  return text.replace(/(vuosi|vuotta)/, \"vuoden\");\r\n}\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: \"alle sekunti\",\r\n    other: \"alle {{count}} sekuntia\",\r\n    futureTense: futureSeconds,\r\n  },\r\n\r\n  xSeconds: {\r\n    one: \"sekunti\",\r\n    other: \"{{count}} sekuntia\",\r\n    futureTense: futureSeconds,\r\n  },\r\n\r\n  halfAMinute: {\r\n    one: \"puoli minuuttia\",\r\n    other: \"puoli minuuttia\",\r\n    futureTense: (_text) => \"puolen minuutin\",\r\n  },\r\n\r\n  lessThanXMinutes: {\r\n    one: \"alle minuutti\",\r\n    other: \"alle {{count}} minuuttia\",\r\n    futureTense: futureMinutes,\r\n  },\r\n\r\n  xMinutes: {\r\n    one: \"minuutti\",\r\n    other: \"{{count}} minuuttia\",\r\n    futureTense: futureMinutes,\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: \"noin tunti\",\r\n    other: \"noin {{count}} tuntia\",\r\n    futureTense: futureHours,\r\n  },\r\n\r\n  xHours: {\r\n    one: \"tunti\",\r\n    other: \"{{count}} tuntia\",\r\n    futureTense: futureHours,\r\n  },\r\n\r\n  xDays: {\r\n    one: \"päivä\",\r\n    other: \"{{count}} päivää\",\r\n    futureTense: futureDays,\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: \"noin viikko\",\r\n    other: \"noin {{count}} viikkoa\",\r\n    futureTense: futureWeeks,\r\n  },\r\n\r\n  xWeeks: {\r\n    one: \"viikko\",\r\n    other: \"{{count}} viikkoa\",\r\n    futureTense: futureWeeks,\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: \"noin kuukausi\",\r\n    other: \"noin {{count}} kuukautta\",\r\n    futureTense: futureMonths,\r\n  },\r\n\r\n  xMonths: {\r\n    one: \"kuukausi\",\r\n    other: \"{{count}} kuukautta\",\r\n    futureTense: futureMonths,\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: \"noin vuosi\",\r\n    other: \"noin {{count}} vuotta\",\r\n    futureTense: futureYears,\r\n  },\r\n\r\n  xYears: {\r\n    one: \"vuosi\",\r\n    other: \"{{count}} vuotta\",\r\n    futureTense: futureYears,\r\n  },\r\n\r\n  overXYears: {\r\n    one: \"yli vuosi\",\r\n    other: \"yli {{count}} vuotta\",\r\n    futureTense: futureYears,\r\n  },\r\n\r\n  almostXYears: {\r\n    one: \"lähes vuosi\",\r\n    other: \"lähes {{count}} vuotta\",\r\n    futureTense: futureYears,\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const tokenValue = formatDistanceLocale[token];\r\n  const result =\r\n    count === 1\r\n      ? tokenValue.one\r\n      : tokenValue.other.replace(\"{{count}}\", String(count));\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return tokenValue.futureTense(result) + \" kuluttua\";\r\n    } else {\r\n      return result + \" sitten\";\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756117965855,
+      "end": 1756117965920,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117965920,
+      "end": 1756117965920,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117965920,
+      "end": 1756117965921,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117965921,
+      "end": 1756117965921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117965921,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117965922,
+      "end": 1756117965922,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117965922,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117965923,
+      "end": 1756117965923,
+      "order": "normal"
+    }
+  ]
+}

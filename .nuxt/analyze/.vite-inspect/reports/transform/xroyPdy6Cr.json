@@ -1,0 +1,224 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/assets/css/main.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/* ? BLOCK DESCRIPTION==> css reset */\r\n@layer reset {\r\n  *,\r\n  *::before,\r\n  *::after {\r\n    box-sizing: border-box;\r\n    scrollbar-width: thin;\r\n    scroll-behavior: smooth;\r\n    font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',\r\n      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',\r\n      sans-serif;\r\n  }\r\n  * {\r\n    scroll-margin-block: 64px !important;\r\n  }\r\n\r\n  ::-webkit-scrollbar {\r\n    width: 7px;\r\n  }\r\n\r\n  ::-webkit-scrollbar-thumb {\r\n    background: rgba(var(--v-theme-border));\r\n    border-radius: 5px;\r\n    margin: 0px auto;\r\n  }\r\n  ::-webkit-scrollbar-thumb:hover {\r\n    background: #aaa;\r\n  }\r\n  ::-webkit-scrollbar-track {\r\n    background: transparent !important;\r\n  }\r\n\r\n  body {\r\n    margin: unset;\r\n  }\r\n\r\n  button,\r\n  input,\r\n  textarea,\r\n  select {\r\n    font: inherit;\r\n  }\r\n\r\n  img,\r\n  picture,\r\n  svg,\r\n  canvas {\r\n    display: block;\r\n    max-inline-size: 100%;\r\n    block-size: auto;\r\n  }\r\n\r\n  ::selection {\r\n    background: rgba(var(--v-theme-primary-dark));\r\n    color: #fff;\r\n  }\r\n  input[type='search']::-webkit-search-cancel-button {\r\n    -webkit-appearance: none;\r\n    height: 14px;\r\n    width: 14px;\r\n    display: block;\r\n    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);\r\n    background-repeat: no-repeat;\r\n    background-size: 14px;\r\n    cursor: pointer;\r\n  }\r\n  input[type='checkbox'],\r\n  input[type='radio'],\r\n  input[type='range'] {\r\n    accent-color: rgba(var(--v-theme-primary)) !important;\r\n  }\r\n\r\n  @media (prefers-reduced-motion: reduce) {\r\n    *,\r\n    *::before,\r\n    *::after {\r\n      animation-duration: 0.01ms !important;\r\n      animation-iteration-count: 1 !important;\r\n      transition-duration: 0.01ms !important;\r\n      scroll-behavior: auto !important;\r\n    }\r\n  }\r\n}\r\n\r\n/* ? BLOCK DECRIPTION==> general classes */\r\n.system-bg {\r\n  background: url('~/assets/images/bg/white.png') !important;\r\n  background-position: center !important;\r\n  background-size: contain !important;\r\n  background-color: rgba(var(--v-theme-background)) !important;\r\n}\r\n.light-link {\r\n  text-decoration: none;\r\n  color: currentColor;\r\n  cursor: pointer;\r\n  opacity: 0.7;\r\n}\r\n.light-link:hover {\r\n  opacity: 1;\r\n}\r\n.card-outlined {\r\n  border: 1px solid rgba(var(--v-theme-border)) !important;\r\n}\r\n.menu-list {\r\n  -webkit-backdrop-filter: blur(25px) !important;\r\n  backdrop-filter: blur(25px) !important;\r\n  background-color: hsla(204, 33%, 100%, 0.65) !important;\r\n}\r\n.product-sm-card {\r\n  width: clamp(280px, 30%, 280px) !important;\r\n  height: 120px;\r\n}\r\n.hide-scrollbar {\r\n  -ms-overflow-style: none !important;\r\n  scrollbar-width: none !important;\r\n}\r\n.hide-scrollbar::-webkit-scrollbar {\r\n  display: none !important;\r\n}\r\n.prod-title {\r\n  word-wrap: break-word;\r\n}\r\n.prod-image-fit {\r\n  object-fit: cover;\r\n  height: 100%;\r\n  aspect-ratio: 1/1;\r\n}\r\n\r\n.skeleton {\r\n  background-color: #eee !important;\r\n  position: relative;\r\n  overflow: hidden;\r\n  border-radius: 3px;\r\n}\r\n.skeleton::after {\r\n  content: '';\r\n  position: absolute;\r\n  inset: 0;\r\n  z-index: 5;\r\n  width: 100%;\r\n  height: 100%;\r\n  animation: 2s skeleton-pulse linear 1s infinite;\r\n  background: linear-gradient(90deg, transparent, #ddd, transparent);\r\n  transform: translateX(-100%);\r\n  display: block;\r\n}\r\n\r\n@keyframes skeleton-pulse {\r\n  0% {\r\n    transform: translateX(-100%);\r\n  }\r\n  50% {\r\n    transform: translateX(100%);\r\n  }\r\n  100% {\r\n    transform: translateX(100%);\r\n  }\r\n}\r\n\r\n.break-word {\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: -webkit-box;\r\n  -webkit-line-clamp: 1;\r\n  -webkit-box-orient: vertical;\r\n}\r\n.one-line,\r\n.two-lines,\r\n.three-lines,\r\n.four-lines,\r\n.five-lines {\r\n  overflow: hidden;\r\n  text-overflow: ellipsis;\r\n  display: -webkit-box;\r\n  -webkit-box-orient: vertical;\r\n}\r\n.one-line {\r\n  -webkit-line-clamp: 1 !important;\r\n}\r\n.two-lines {\r\n  -webkit-line-clamp: 2 !important;\r\n}\r\n.three-lines {\r\n  -webkit-line-clamp: 3 !important;\r\n}\r\n.four-lines {\r\n  -webkit-line-clamp: 4 !important;\r\n}\r\n.five-lines {\r\n  -webkit-line-clamp: 5 !important;\r\n}\r\n.horizontal-scroller-card {\r\n  display: inline-block;\r\n}\r\n.horizontal-scroller-card:first-child {\r\n  margin-left: 0 !important;\r\n}\r\n.horizontal-scroller-card:last-child {\r\n  margin-right: 0 !important;\r\n}\r\n.transform {\r\n  /* transition: transform 0.5s linear; */\r\n  transform: rotate(90deg) !important;\r\n}\r\n.transform-180deg {\r\n  transition: transform 0.3s linear;\r\n  transform: rotate(180deg) !important;\r\n}\r\na {\r\n  color: rgba(var(--v-theme-primary-accent));\r\n}\r\n.primary-tag {\r\n  background-color: #ede7feca;\r\n}\r\n.card-white {\r\n  background-color: #f9f9fa !important;\r\n}\r\n.card-link {\r\n  background-color: #ffe3e3 !important;\r\n}\r\n.card-secondary {\r\n  background-color: #e4ffe3 !important;\r\n}\r\n.card-primary {\r\n  background-color: #e7dcff !important;\r\n  color: rgba(var(--v-theme-primary-accent)) !important;\r\n}\r\n.card-border {\r\n  background-color: #eaeaea !important;\r\n  color: #333 !important;\r\n}\r\n.text-caption-1 {\r\n  font-size: 0.65rem;\r\n}\r\n.text-caption-2 {\r\n  font-size: 0.7rem;\r\n}\r\n.disabled-btn {\r\n  pointer-events: none !important;\r\n}\r\n.checkout .mdi-ticket-outline {\r\n  transform: rotate(120deg);\r\n}\r\n.job-details .v-slide-group__content {\r\n  border-bottom: 1.5px solid rgba(var(--v-theme-border));\r\n}\r\n.overlay {\r\n  background-color: rgba(0, 0, 0, 0.65) !important;\r\n}\r\n.details-row > span:first-child {\r\n  width: 15ch !important;\r\n  position: relative;\r\n}\r\n.details-row span::after {\r\n  content: ':';\r\n}\r\n.preview-header {\r\n  background-color: rgba(var(--v-theme-off-white-1));\r\n}\r\n.product-card {\r\n  transition: all 0.5s ease-in-out;\r\n  overflow: hidden;\r\n}\r\n.product-card .v-img {\r\n  transition: all 0.5s ease-in-out;\r\n}\r\n.product-card:hover .v-img {\r\n  /* transition: all 0.5s ease-in-out; */\r\n  transform: scale(1.16);\r\n}\r\n.user-avatar {\r\n  outline: 1px solid rgba(var(--v-theme-primary-accent));\r\n  outline-offset: 3px;\r\n  border-radius: 5px;\r\n}\r\n.ad-placeholder .v-img {\r\n  filter: grayscale(1) contrast(1.5) brightness(1);\r\n  opacity: 0.1;\r\n}\r\n.advertisement {\r\n  background-color: #eee !important;\r\n  padding: 10px !important;\r\n  position: relative;\r\n}\r\n.advertisement::after {\r\n  content: 'Advertisement';\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  padding: 5px;\r\n  opacity: 0.15;\r\n  font-weight: 600;\r\n}\r\n.box-shadow-bottom {\r\n  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1) !important;\r\n}\r\n\r\n/* ? tinymce  */\r\n.tox-statusbar__branding {\r\n  display: none !important;\r\n}\r\n/* .tox .tox-button:not(:disabled) {\r\n  border-color: rgba(var(--v-theme-primary)) !important;\r\n  background-color: rgba(var(--v-theme-primary)) !important;\r\n  font-family: inherit !important;\r\n  color: #fff !important;\r\n}\r\n.tox .tox-button:hover:not(:disabled) {\r\n  border-color: rgba(var(--v-theme-main)) !important;\r\n  background-color: rgba(var(--v-theme-main)) !important;\r\n  font-family: inherit !important;\r\n  color: #fff !important;\r\n} */\r\n\r\n/* ? apexcharts */\r\n\r\n.apexcharts-toolbar .apexcharts-zoomin-icon,\r\n.apexcharts-toolbar .apexcharts-zoom-icon,\r\n.apexcharts-toolbar .apexcharts-zoomout-icon,\r\n.apexcharts-toolbar .apexcharts-pan-icon,\r\n.apexcharts-toolbar .apexcharts-reset-icon {\r\n  display: none !important;\r\n}\r\n\r\n.message {\r\n  border-radius: 10px 5px 10px 5px;\r\n  width: max-content;\r\n  max-width: 300px;\r\n  padding: 3px 12px;\r\n}\r\n.message.send {\r\n  background-color: #8e6ee8;\r\n  color: white;\r\n}\r\n.message.receive {\r\n  background-color: #ede7feca;\r\n}\r\n\r\n.server {\r\n  position: relative;\r\n  align-items: start;\r\n  max-width: max-content;\r\n  align-content: start;\r\n  background-color: #ffffff;\r\n  color: #a49d9d;\r\n  font-style: italic;\r\n  font-size: 10px;\r\n}\r\n",
+      "start": 1756117934621,
+      "end": 1756117935230,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117935230,
+      "end": 1756117935230,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117935230,
+      "end": 1756117935230,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117935230,
+      "end": 1756117935230,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "@layer reset{*,:after,:before{box-sizing:border-box;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Open Sans,Helvetica Neue,sans-serif;scroll-behavior:smooth;scrollbar-width:thin}*{scroll-margin-block:64px!important}::-webkit-scrollbar{width:7px}::-webkit-scrollbar-thumb{background:rgba(var(--v-theme-border));border-radius:5px;margin:0 auto}::-webkit-scrollbar-thumb:hover{background:#aaa}::-webkit-scrollbar-track{background:transparent!important}body{margin:unset}button,input,select,textarea{font:inherit}canvas,img,picture,svg{block-size:auto;display:block;max-inline-size:100%}::-moz-selection{background:rgba(var(--v-theme-primary-dark));color:#fff}::selection{background:rgba(var(--v-theme-primary-dark));color:#fff}input[type=search]::-webkit-search-cancel-button{-webkit-appearance:none;background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAn0lEQVR42u3UMQrDMBBEUZ9WfQqDmm22EaTyjRMHAlM5K+Y7lb0wnUZPIKHlnutOa+25Z4D++MRBX98MD1V/trSppLKHqj9TTBWKcoUqffbUcbBBEhTjBOV4ja4l4OIAZThEOV6jHO8ARXD+gPPvKMABinGOrnu6gTNUawrcQKNCAQ7QeTxORzle3+sDfjJpPCqhJh7GixZq4rHcc9l5A9qZ+WeBhgEuAAAAAElFTkSuQmCC);background-repeat:no-repeat;background-size:14px;cursor:pointer;display:block;height:14px;width:14px}input[type=checkbox],input[type=radio],input[type=range]{accent-color:rgba(var(--v-theme-primary))!important}@media (prefers-reduced-motion:reduce){*,:after,:before{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}}.system-bg{background:url(__VITE_ASSET__2aBjRqb2__)!important;background-color:rgba(var(--v-theme-background))!important;background-position:50%!important;background-size:contain!important}.light-link{color:currentColor;cursor:pointer;opacity:.7;text-decoration:none}.light-link:hover{opacity:1}.card-outlined{border:1px solid rgba(var(--v-theme-border))!important}.menu-list{-webkit-backdrop-filter:blur(25px)!important;backdrop-filter:blur(25px)!important;background-color:hsla(0,0%,100%,.65)!important}.product-sm-card{height:120px;width:clamp(280px,30%,280px)!important}.hide-scrollbar{-ms-overflow-style:none!important;scrollbar-width:none!important}.hide-scrollbar::-webkit-scrollbar{display:none!important}.prod-title{word-wrap:break-word}.prod-image-fit{aspect-ratio:1/1;height:100%;-o-object-fit:cover;object-fit:cover}.skeleton{background-color:#eee!important;border-radius:3px;overflow:hidden;position:relative}.skeleton:after{animation:skeleton-pulse 2s linear 1s infinite;background:linear-gradient(90deg,transparent,#ddd,transparent);content:\"\";display:block;height:100%;inset:0;position:absolute;transform:translateX(-100%);width:100%;z-index:5}@keyframes skeleton-pulse{0%{transform:translateX(-100%)}50%{transform:translateX(100%)}to{transform:translateX(100%)}}.break-word{-webkit-line-clamp:1}.break-word,.five-lines,.four-lines,.one-line,.three-lines,.two-lines{display:-webkit-box;overflow:hidden;text-overflow:ellipsis;-webkit-box-orient:vertical}.one-line{-webkit-line-clamp:1!important}.two-lines{-webkit-line-clamp:2!important}.three-lines{-webkit-line-clamp:3!important}.four-lines{-webkit-line-clamp:4!important}.five-lines{-webkit-line-clamp:5!important}.horizontal-scroller-card{display:inline-block}.horizontal-scroller-card:first-child{margin-left:0!important}.horizontal-scroller-card:last-child{margin-right:0!important}.transform{transform:rotate(90deg)!important}.transform-180deg{transform:rotate(180deg)!important;transition:transform .3s linear}a{color:rgba(var(--v-theme-primary-accent))}.primary-tag{background-color:#ede7feca}.card-white{background-color:#f9f9fa!important}.card-link{background-color:#ffe3e3!important}.card-secondary{background-color:#e4ffe3!important}.card-primary{background-color:#e7dcff!important;color:rgba(var(--v-theme-primary-accent))!important}.card-border{background-color:#eaeaea!important;color:#333!important}.text-caption-1{font-size:.65rem}.text-caption-2{font-size:.7rem}.disabled-btn{pointer-events:none!important}.checkout .mdi-ticket-outline{transform:rotate(120deg)}.job-details .v-slide-group__content{border-bottom:1.5px solid rgba(var(--v-theme-border))}.overlay{background-color:rgba(0,0,0,.65)!important}.details-row>span:first-child{position:relative;width:15ch!important}.details-row span:after{content:\":\"}.preview-header{background-color:rgba(var(--v-theme-off-white-1))}.product-card{overflow:hidden}.product-card,.product-card .v-img{transition:all .5s ease-in-out}.product-card:hover .v-img{transform:scale(1.16)}.user-avatar{border-radius:5px;outline:1px solid rgba(var(--v-theme-primary-accent));outline-offset:3px}.ad-placeholder .v-img{filter:grayscale(1) contrast(1.5) brightness(1);opacity:.1}.advertisement{background-color:#eee!important;padding:10px!important;position:relative}.advertisement:after{content:\"Advertisement\";font-weight:600;opacity:.15;padding:5px;position:absolute;right:0;top:0}.box-shadow-bottom{box-shadow:0 2px 4px rgba(0,0,0,.1)!important}.apexcharts-toolbar .apexcharts-pan-icon,.apexcharts-toolbar .apexcharts-reset-icon,.apexcharts-toolbar .apexcharts-zoom-icon,.apexcharts-toolbar .apexcharts-zoomin-icon,.apexcharts-toolbar .apexcharts-zoomout-icon,.tox-statusbar__branding{display:none!important}.message{border-radius:10px 5px 10px 5px;max-width:300px;padding:3px 12px;width:-moz-max-content;width:max-content}.message.send{background-color:#8e6ee8;color:#fff}.message.receive{background-color:#ede7feca}.server{align-content:start;align-items:start;background-color:#fff;color:#a49d9d;font-size:10px;font-style:italic;max-width:-moz-max-content;max-width:max-content;position:relative}",
+      "start": 1756117935230,
+      "end": 1756117936186,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117936186,
+      "end": 1756117936186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117936187,
+      "end": 1756117936187,
+      "order": "normal"
+    }
+  ]
+}

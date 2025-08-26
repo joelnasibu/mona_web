@@ -1,0 +1,223 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/landing/faq.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div>\r\n    <LandingTitle title=\"Découvrez Smartsell\" />\r\n    <div class=\"py-5 text-body-2\">\r\n      <CoreMidScreenLayout :lg=\"8\" :xl=\"7\">\r\n        <v-expansion-panels class=\"rounded-lg overflow-hidden\" eager>\r\n          <v-expansion-panel v-for=\"({ q, a }, i) in faq\" elevation=\"0\">\r\n            <v-expansion-panel-title>\r\n              <div class=\"text-body-2\" v-html=\"q\"></div>\r\n            </v-expansion-panel-title>\r\n            <v-expansion-panel-text>\r\n              <div class=\"text-subtitle-2\" style=\"font-weight: 520\">\r\n                <span>{{ a }}</span>\r\n              </div>\r\n            </v-expansion-panel-text>\r\n          </v-expansion-panel>\r\n        </v-expansion-panels>\r\n      </CoreMidScreenLayout>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst faq = [\r\n  {\r\n    q: \"<span>Pourquoi <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell est créé dans le but de lutter contre le chômage et ouvrir un réseau qui facilitera le commerce en ligne, rapprocher le Client aux Boutiquiers et vice-versa, faciliter le marqueting des produits etc.\",\r\n  },\r\n  {\r\n    q: \"<span>Qu'est-ce que <b>CEMADEF</b>?</span>\",\r\n    a: \"Le CEMADEF est un centre multidisciplinaire d'appui pour le développement dela femme et famille, créé sous l'initiative de Mme Fanny Ukety. Le CEMADEF vise à apporter sa contribution à l'amélioration des conditions de vie des familles démunies dans la province de l'Ituri, par l'autonomisation socio-économique des femmes.\",\r\n  },\r\n  {\r\n    q: \"<span>Quel est l'objectif principal du projet <b>SMARTSELL</b> dans la ville de Bunia?</span>\",\r\n    a: \"Notre objectif principal est de renforcer les capacités et l'appui à l'entrepreneuriat des jeunes dans la ville de Bunia.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels services propose <b>SMARTSELL</b>?</span>\",\r\n    a: \"Notre plateforme propose deux modules principaux : un module de e-commerce pour acheter et vendre des produits en ligne, et un module de recherche d'emploi pour trouver des opportunités professionnelles et postuler à des offres d'emploi.\",\r\n  },\r\n  {\r\n    q: \"Puis-je utiliser le même compte pour les deux modules?\",\r\n    a: \"Oui, un seul compte utilisateur vous permet d'accéder aux deux modules de la plateforme.\",\r\n  },\r\n  {\r\n    q: \"Y a-t-il des frais pour utiliser la plateforme?\",\r\n    a: \"L'inscription et l'utilisation de base de la plateforme sont gratuites. Cependant, certaines fonctionnalités avancées ou services premium peuvent nécessiter des frais supplémentaires.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels sont les avantages d'utiliser <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell offre une interface conviviale, une sécurité renforcée pour les transactions, une large gamme de produits, et des outils puissants pour la recherche d'emploi. De plus, elle propose des fonctionnalités avancées pour les utilisateurs professionnels et les entreprises.\",\r\n  },\r\n];\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117947974,
+      "end": 1756117948507,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117948507,
+      "end": 1756117948507,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, withCtx as _withCtx, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = { class: \"py-5 text-body-2\" }\nconst _hoisted_2 = [\"innerHTML\"]\nconst _hoisted_3 = {\n  class: \"text-subtitle-2\",\n  style: {\"font-weight\":\"520\"}\n}\n\n\nconst _sfc_main = {\n  __name: 'faq',\n  setup(__props) {\n\r\nconst faq = [\r\n  {\r\n    q: \"<span>Pourquoi <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell est créé dans le but de lutter contre le chômage et ouvrir un réseau qui facilitera le commerce en ligne, rapprocher le Client aux Boutiquiers et vice-versa, faciliter le marqueting des produits etc.\",\r\n  },\r\n  {\r\n    q: \"<span>Qu'est-ce que <b>CEMADEF</b>?</span>\",\r\n    a: \"Le CEMADEF est un centre multidisciplinaire d'appui pour le développement dela femme et famille, créé sous l'initiative de Mme Fanny Ukety. Le CEMADEF vise à apporter sa contribution à l'amélioration des conditions de vie des familles démunies dans la province de l'Ituri, par l'autonomisation socio-économique des femmes.\",\r\n  },\r\n  {\r\n    q: \"<span>Quel est l'objectif principal du projet <b>SMARTSELL</b> dans la ville de Bunia?</span>\",\r\n    a: \"Notre objectif principal est de renforcer les capacités et l'appui à l'entrepreneuriat des jeunes dans la ville de Bunia.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels services propose <b>SMARTSELL</b>?</span>\",\r\n    a: \"Notre plateforme propose deux modules principaux : un module de e-commerce pour acheter et vendre des produits en ligne, et un module de recherche d'emploi pour trouver des opportunités professionnelles et postuler à des offres d'emploi.\",\r\n  },\r\n  {\r\n    q: \"Puis-je utiliser le même compte pour les deux modules?\",\r\n    a: \"Oui, un seul compte utilisateur vous permet d'accéder aux deux modules de la plateforme.\",\r\n  },\r\n  {\r\n    q: \"Y a-t-il des frais pour utiliser la plateforme?\",\r\n    a: \"L'inscription et l'utilisation de base de la plateforme sont gratuites. Cependant, certaines fonctionnalités avancées ou services premium peuvent nécessiter des frais supplémentaires.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels sont les avantages d'utiliser <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell offre une interface conviviale, une sécurité renforcée pour les transactions, une large gamme de produits, et des outils puissants pour la recherche d'emploi. De plus, elle propose des fonctionnalités avancées pour les utilisateurs professionnels et les entreprises.\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_LandingTitle = _resolveComponent(\"LandingTitle\")\n  const _component_v_expansion_panel_title = _resolveComponent(\"v-expansion-panel-title\")\n  const _component_v_expansion_panel_text = _resolveComponent(\"v-expansion-panel-text\")\n  const _component_v_expansion_panel = _resolveComponent(\"v-expansion-panel\")\n  const _component_v_expansion_panels = _resolveComponent(\"v-expansion-panels\")\n  const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\")\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_LandingTitle, { title: \"Découvrez Smartsell\" }),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createVNode(_component_CoreMidScreenLayout, {\n        lg: 8,\n        xl: 7\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_expansion_panels, {\n            class: \"rounded-lg overflow-hidden\",\n            eager: \"\"\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(), _createElementBlock(_Fragment, null, _renderList(faq, ({ q, a }, i) => {\n                return _createVNode(_component_v_expansion_panel, { elevation: \"0\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_expansion_panel_title, null, {\n                      default: _withCtx(() => [\n                        _createElementVNode(\"div\", {\n                          class: \"text-body-2\",\n                          innerHTML: q\n                        }, null, 8, _hoisted_2)\n                      ]),\n                      _: 2\n                    }, 1024),\n                    _createVNode(_component_v_expansion_panel_text, null, {\n                      default: _withCtx(() => [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createElementVNode(\"span\", null, _toDisplayString(a), 1)\n                        ])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 2\n                }, 1024)\n              }), 64))\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117948507,
+      "end": 1756117948512,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, withCtx as _withCtx, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = { class: \"py-5 text-body-2\" }\nconst _hoisted_2 = [\"innerHTML\"]\nconst _hoisted_3 = {\n  class: \"text-subtitle-2\",\n  style: {\"font-weight\":\"520\"}\n}\n\n\nconst _sfc_main = {\n  __name: 'faq',\n  setup(__props) {\n\r\nconst faq = [\r\n  {\r\n    q: \"<span>Pourquoi <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell est créé dans le but de lutter contre le chômage et ouvrir un réseau qui facilitera le commerce en ligne, rapprocher le Client aux Boutiquiers et vice-versa, faciliter le marqueting des produits etc.\",\r\n  },\r\n  {\r\n    q: \"<span>Qu'est-ce que <b>CEMADEF</b>?</span>\",\r\n    a: \"Le CEMADEF est un centre multidisciplinaire d'appui pour le développement dela femme et famille, créé sous l'initiative de Mme Fanny Ukety. Le CEMADEF vise à apporter sa contribution à l'amélioration des conditions de vie des familles démunies dans la province de l'Ituri, par l'autonomisation socio-économique des femmes.\",\r\n  },\r\n  {\r\n    q: \"<span>Quel est l'objectif principal du projet <b>SMARTSELL</b> dans la ville de Bunia?</span>\",\r\n    a: \"Notre objectif principal est de renforcer les capacités et l'appui à l'entrepreneuriat des jeunes dans la ville de Bunia.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels services propose <b>SMARTSELL</b>?</span>\",\r\n    a: \"Notre plateforme propose deux modules principaux : un module de e-commerce pour acheter et vendre des produits en ligne, et un module de recherche d'emploi pour trouver des opportunités professionnelles et postuler à des offres d'emploi.\",\r\n  },\r\n  {\r\n    q: \"Puis-je utiliser le même compte pour les deux modules?\",\r\n    a: \"Oui, un seul compte utilisateur vous permet d'accéder aux deux modules de la plateforme.\",\r\n  },\r\n  {\r\n    q: \"Y a-t-il des frais pour utiliser la plateforme?\",\r\n    a: \"L'inscription et l'utilisation de base de la plateforme sont gratuites. Cependant, certaines fonctionnalités avancées ou services premium peuvent nécessiter des frais supplémentaires.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels sont les avantages d'utiliser <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell offre une interface conviviale, une sécurité renforcée pour les transactions, une large gamme de produits, et des outils puissants pour la recherche d'emploi. De plus, elle propose des fonctionnalités avancées pour les utilisateurs professionnels et les entreprises.\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_LandingTitle = _resolveComponent(\"LandingTitle\")\n                                                                                         \n                                                                                       \n                                                                             \n                                                                               \n  const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\")\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_LandingTitle, { title: \"Découvrez Smartsell\" }),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createVNode(_component_CoreMidScreenLayout, {\n        lg: 8,\n        xl: 7\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_expansion_panels, {\n            class: \"rounded-lg overflow-hidden\",\n            eager: \"\"\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(), _createElementBlock(_Fragment, null, _renderList(faq, ({ q, a }, i) => {\n                return _createVNode(_component_v_expansion_panel, { elevation: \"0\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_expansion_panel_title, null, {\n                      default: _withCtx(() => [\n                        _createElementVNode(\"div\", {\n                          class: \"text-body-2\",\n                          innerHTML: q\n                        }, null, 8, _hoisted_2)\n                      ]),\n                      _: 2\n                    }, 1024),\n                    _createVNode(_component_v_expansion_panel_text, null, {\n                      default: _withCtx(() => [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createElementVNode(\"span\", null, _toDisplayString(a), 1)\n                        ])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 2\n                }, 1024)\n              }), 64))\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VExpansionPanelTitle as _component_v_expansion_panel_title, VExpansionPanelText as _component_v_expansion_panel_text, VExpansionPanel as _component_v_expansion_panel, VExpansionPanels as _component_v_expansion_panels } from \"vuetify/lib/components/VExpansionPanel/index.mjs\"\n\n",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117948513,
+      "end": 1756117948513,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117948513,
+      "end": 1756117948514,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117948514,
+      "end": 1756117948514,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117948514,
+      "end": 1756117948514,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117948514,
+      "end": 1756117948516,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117948516,
+      "end": 1756117948517,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117948517,
+      "end": 1756117948517,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117948517,
+      "end": 1756117948517,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117948517,
+      "end": 1756117948517,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/landing/title.vue\";\nimport { default as __nuxt_component_1 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/core/mid-screen-layout.vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, withCtx as _withCtx, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = { class: \"py-5 text-body-2\" }\nconst _hoisted_2 = [\"innerHTML\"]\nconst _hoisted_3 = {\n  class: \"text-subtitle-2\",\n  style: {\"font-weight\":\"520\"}\n}\n\n\nconst _sfc_main = {\n  __name: 'faq',\n  setup(__props) {\n\r\nconst faq = [\r\n  {\r\n    q: \"<span>Pourquoi <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell est créé dans le but de lutter contre le chômage et ouvrir un réseau qui facilitera le commerce en ligne, rapprocher le Client aux Boutiquiers et vice-versa, faciliter le marqueting des produits etc.\",\r\n  },\r\n  {\r\n    q: \"<span>Qu'est-ce que <b>CEMADEF</b>?</span>\",\r\n    a: \"Le CEMADEF est un centre multidisciplinaire d'appui pour le développement dela femme et famille, créé sous l'initiative de Mme Fanny Ukety. Le CEMADEF vise à apporter sa contribution à l'amélioration des conditions de vie des familles démunies dans la province de l'Ituri, par l'autonomisation socio-économique des femmes.\",\r\n  },\r\n  {\r\n    q: \"<span>Quel est l'objectif principal du projet <b>SMARTSELL</b> dans la ville de Bunia?</span>\",\r\n    a: \"Notre objectif principal est de renforcer les capacités et l'appui à l'entrepreneuriat des jeunes dans la ville de Bunia.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels services propose <b>SMARTSELL</b>?</span>\",\r\n    a: \"Notre plateforme propose deux modules principaux : un module de e-commerce pour acheter et vendre des produits en ligne, et un module de recherche d'emploi pour trouver des opportunités professionnelles et postuler à des offres d'emploi.\",\r\n  },\r\n  {\r\n    q: \"Puis-je utiliser le même compte pour les deux modules?\",\r\n    a: \"Oui, un seul compte utilisateur vous permet d'accéder aux deux modules de la plateforme.\",\r\n  },\r\n  {\r\n    q: \"Y a-t-il des frais pour utiliser la plateforme?\",\r\n    a: \"L'inscription et l'utilisation de base de la plateforme sont gratuites. Cependant, certaines fonctionnalités avancées ou services premium peuvent nécessiter des frais supplémentaires.\",\r\n  },\r\n  {\r\n    q: \"<span>Quels sont les avantages d'utiliser <b>SMARTSELL</b>?</span>\",\r\n    a: \"Smartsell offre une interface conviviale, une sécurité renforcée pour les transactions, une large gamme de produits, et des outils puissants pour la recherche d'emploi. De plus, elle propose des fonctionnalités avancées pour les utilisateurs professionnels et les entreprises.\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_LandingTitle = __nuxt_component_0\n                                                                                         \n                                                                                       \n                                                                             \n                                                                               \n  const _component_CoreMidScreenLayout = __nuxt_component_1\n\n  return (_openBlock(), _createElementBlock(\"div\", null, [\n    _createVNode(_component_LandingTitle, { title: \"Découvrez Smartsell\" }),\n    _createElementVNode(\"div\", _hoisted_1, [\n      _createVNode(_component_CoreMidScreenLayout, {\n        lg: 8,\n        xl: 7\n      }, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_expansion_panels, {\n            class: \"rounded-lg overflow-hidden\",\n            eager: \"\"\n          }, {\n            default: _withCtx(() => [\n              (_openBlock(), _createElementBlock(_Fragment, null, _renderList(faq, ({ q, a }, i) => {\n                return _createVNode(_component_v_expansion_panel, { elevation: \"0\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_expansion_panel_title, null, {\n                      default: _withCtx(() => [\n                        _createElementVNode(\"div\", {\n                          class: \"text-body-2\",\n                          innerHTML: q\n                        }, null, 8, _hoisted_2)\n                      ]),\n                      _: 2\n                    }, 1024),\n                    _createVNode(_component_v_expansion_panel_text, null, {\n                      default: _withCtx(() => [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createElementVNode(\"span\", null, _toDisplayString(a), 1)\n                        ])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 2\n                }, 1024)\n              }), 64))\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VExpansionPanelTitle as _component_v_expansion_panel_title, VExpansionPanelText as _component_v_expansion_panel_text, VExpansionPanel as _component_v_expansion_panel, VExpansionPanels as _component_v_expansion_panels } from \"vuetify/lib/components/VExpansionPanel/index.mjs\"\n\n",
+      "start": 1756117948517,
+      "end": 1756117948517,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117948517,
+      "end": 1756117948518,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117948518,
+      "end": 1756117948518,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117948518,
+      "end": 1756117948518,
+      "order": "normal"
+    }
+  ]
+}

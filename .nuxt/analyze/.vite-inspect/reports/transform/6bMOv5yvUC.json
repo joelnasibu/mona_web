@@ -1,0 +1,223 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/core/links.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"text-caption cursor-text\">\r\n    <v-breadcrumbs :items=\"links\" density=\"compact\">\r\n      <template v-slot:divider>\r\n        <v-icon icon=\"mdi-chevron-right\" color=\"grey-darken-2\"></v-icon>\r\n      </template>\r\n      <template v-slot:title=\"{ item }\">\r\n        <NuxtLink class=\"text-capitalize\" :to=\"item.route\">\r\n          <span>{{ item.title }}</span>\r\n        </NuxtLink>\r\n      </template>\r\n    </v-breadcrumbs>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  links: Array,\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\na {\r\n  color: currentColor;\r\n}\r\na:hover {\r\n  text-decoration: underline;\r\n}\r\n</style>\r\n",
+      "start": 1756117948033,
+      "end": 1756117948488,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117948488,
+      "end": 1756117948488,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117948488,
+      "end": 1756117948488,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117948489,
+      "end": 1756117948489,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117948489,
+      "end": 1756117948489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117948489,
+      "end": 1756117948489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117948489,
+      "end": 1756117948489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117948489,
+      "end": 1756117948489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"text-caption cursor-text\" }\n\n\nconst _sfc_main = {\n  __name: 'links',\n  props: {\r\n  links: Array,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_icon = _resolveComponent(\"v-icon\")\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")\n  const _component_v_breadcrumbs = _resolveComponent(\"v-breadcrumbs\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_v_breadcrumbs, {\n      items: __props.links,\n      density: \"compact\"\n    }, {\n      divider: _withCtx(() => [\n        _createVNode(_component_v_icon, {\n          icon: \"mdi-chevron-right\",\n          color: \"grey-darken-2\"\n        })\n      ]),\n      title: _withCtx(({ item }) => [\n        _createVNode(_component_NuxtLink, {\n          class: \"text-capitalize\",\n          to: item.route\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"span\", null, _toDisplayString(item.title), 1)\n          ]),\n          _: 2\n        }, 1032, [\"to\"])\n      ]),\n      _: 1\n    }, 8, [\"items\"])\n  ]))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/core/links.vue?vue&type=style&index=0&scoped=a0896580&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-a0896580\"]])",
+      "start": 1756117948489,
+      "end": 1756117948491,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117948491,
+      "end": 1756117948491,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"text-caption cursor-text\" }\n\n\nconst _sfc_main = {\n  __name: 'links',\n  props: {\r\n  links: Array,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _cache) => {\n                                                       \n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")\n                                                                     \n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_v_breadcrumbs, {\n      items: __props.links,\n      density: \"compact\"\n    }, {\n      divider: _withCtx(() => [\n        _createVNode(_component_v_icon, {\n          icon: \"mdi-chevron-right\",\n          color: \"grey-darken-2\"\n        })\n      ]),\n      title: _withCtx(({ item }) => [\n        _createVNode(_component_NuxtLink, {\n          class: \"text-capitalize\",\n          to: item.route\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"span\", null, _toDisplayString(item.title), 1)\n          ]),\n          _: 2\n        }, 1032, [\"to\"])\n      ]),\n      _: 1\n    }, 8, [\"items\"])\n  ]))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/core/links.vue?vue&type=style&index=0&scoped=a0896580&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-a0896580\"]])\n\n/* Vuetify */\nimport { VBreadcrumbs as _component_v_breadcrumbs } from \"vuetify/lib/components/VBreadcrumbs/index.mjs\"\nimport { VIcon as _component_v_icon } from \"vuetify/lib/components/VIcon/index.mjs\"\n\n",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117948492,
+      "end": 1756117948492,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117948492,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117948494,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117948494,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117948494,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117948494,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"text-caption cursor-text\" }\n\n\nconst _sfc_main = {\n  __name: 'links',\n  props: {\r\n  links: Array,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _cache) => {\n                                                       \n  const _component_NuxtLink = __nuxt_component_0\n                                                                     \n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_v_breadcrumbs, {\n      items: __props.links,\n      density: \"compact\"\n    }, {\n      divider: _withCtx(() => [\n        _createVNode(_component_v_icon, {\n          icon: \"mdi-chevron-right\",\n          color: \"grey-darken-2\"\n        })\n      ]),\n      title: _withCtx(({ item }) => [\n        _createVNode(_component_NuxtLink, {\n          class: \"text-capitalize\",\n          to: item.route\n        }, {\n          default: _withCtx(() => [\n            _createElementVNode(\"span\", null, _toDisplayString(item.title), 1)\n          ]),\n          _: 2\n        }, 1032, [\"to\"])\n      ]),\n      _: 1\n    }, 8, [\"items\"])\n  ]))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/core/links.vue?vue&type=style&index=0&scoped=a0896580&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-a0896580\"]])\n\n/* Vuetify */\nimport { VBreadcrumbs as _component_v_breadcrumbs } from \"vuetify/lib/components/VBreadcrumbs/index.mjs\"\nimport { VIcon as _component_v_icon } from \"vuetify/lib/components/VIcon/index.mjs\"\n\n",
+      "start": 1756117948494,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117948494,
+      "end": 1756117948494,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117948494,
+      "end": 1756117948495,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117948495,
+      "end": 1756117948495,
+      "order": "normal"
+    }
+  ]
+}

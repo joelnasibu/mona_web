@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/auth-js/dist/module/lib/locks.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { supportsLocalStorage } from './helpers';\r\n/**\r\n * @experimental\r\n */\r\nexport const internals = {\r\n    /**\r\n     * @experimental\r\n     */\r\n    debug: !!(globalThis &&\r\n        supportsLocalStorage() &&\r\n        globalThis.localStorage &&\r\n        globalThis.localStorage.getItem('supabase.gotrue-js.locks.debug') === 'true'),\r\n};\r\n/**\r\n * An error thrown when a lock cannot be acquired after some amount of time.\r\n *\r\n * Use the {@link #isAcquireTimeout} property instead of checking with `instanceof`.\r\n */\r\nexport class LockAcquireTimeoutError extends Error {\r\n    constructor(message) {\r\n        super(message);\r\n        this.isAcquireTimeout = true;\r\n    }\r\n}\r\nexport class NavigatorLockAcquireTimeoutError extends LockAcquireTimeoutError {\r\n}\r\nexport class ProcessLockAcquireTimeoutError extends LockAcquireTimeoutError {\r\n}\r\n/**\r\n * Implements a global exclusive lock using the Navigator LockManager API. It\r\n * is available on all browsers released after 2022-03-15 with Safari being the\r\n * last one to release support. If the API is not available, this function will\r\n * throw. Make sure you check availablility before configuring {@link\r\n * GoTrueClient}.\r\n *\r\n * You can turn on debugging by setting the `supabase.gotrue-js.locks.debug`\r\n * local storage item to `true`.\r\n *\r\n * Internals:\r\n *\r\n * Since the LockManager API does not preserve stack traces for the async\r\n * function passed in the `request` method, a trick is used where acquiring the\r\n * lock releases a previously started promise to run the operation in the `fn`\r\n * function. The lock waits for that promise to finish (with or without error),\r\n * while the function will finally wait for the result anyway.\r\n *\r\n * @param name Name of the lock to be acquired.\r\n * @param acquireTimeout If negative, no timeout. If 0 an error is thrown if\r\n *                       the lock can't be acquired without waiting. If positive, the lock acquire\r\n *                       will time out after so many milliseconds. An error is\r\n *                       a timeout if it has `isAcquireTimeout` set to true.\r\n * @param fn The operation to run once the lock is acquired.\r\n */\r\nexport async function navigatorLock(name, acquireTimeout, fn) {\r\n    if (internals.debug) {\r\n        console.log('@supabase/gotrue-js: navigatorLock: acquire lock', name, acquireTimeout);\r\n    }\r\n    const abortController = new globalThis.AbortController();\r\n    if (acquireTimeout > 0) {\r\n        setTimeout(() => {\r\n            abortController.abort();\r\n            if (internals.debug) {\r\n                console.log('@supabase/gotrue-js: navigatorLock acquire timed out', name);\r\n            }\r\n        }, acquireTimeout);\r\n    }\r\n    // MDN article: https://developer.mozilla.org/en-US/docs/Web/API/LockManager/request\r\n    // Wrapping navigator.locks.request() with a plain Promise is done as some\r\n    // libraries like zone.js patch the Promise object to track the execution\r\n    // context. However, it appears that most browsers use an internal promise\r\n    // implementation when using the navigator.locks.request() API causing them\r\n    // to lose context and emit confusing log messages or break certain features.\r\n    // This wrapping is believed to help zone.js track the execution context\r\n    // better.\r\n    return await Promise.resolve().then(() => globalThis.navigator.locks.request(name, acquireTimeout === 0\r\n        ? {\r\n            mode: 'exclusive',\r\n            ifAvailable: true,\r\n        }\r\n        : {\r\n            mode: 'exclusive',\r\n            signal: abortController.signal,\r\n        }, async (lock) => {\r\n        if (lock) {\r\n            if (internals.debug) {\r\n                console.log('@supabase/gotrue-js: navigatorLock: acquired', name, lock.name);\r\n            }\r\n            try {\r\n                return await fn();\r\n            }\r\n            finally {\r\n                if (internals.debug) {\r\n                    console.log('@supabase/gotrue-js: navigatorLock: released', name, lock.name);\r\n                }\r\n            }\r\n        }\r\n        else {\r\n            if (acquireTimeout === 0) {\r\n                if (internals.debug) {\r\n                    console.log('@supabase/gotrue-js: navigatorLock: not immediately available', name);\r\n                }\r\n                throw new NavigatorLockAcquireTimeoutError(`Acquiring an exclusive Navigator LockManager lock \"${name}\" immediately failed`);\r\n            }\r\n            else {\r\n                if (internals.debug) {\r\n                    try {\r\n                        const result = await globalThis.navigator.locks.query();\r\n                        console.log('@supabase/gotrue-js: Navigator LockManager state', JSON.stringify(result, null, '  '));\r\n                    }\r\n                    catch (e) {\r\n                        console.warn('@supabase/gotrue-js: Error when querying Navigator LockManager state', e);\r\n                    }\r\n                }\r\n                // Browser is not following the Navigator LockManager spec, it\r\n                // returned a null lock when we didn't use ifAvailable. So we can\r\n                // pretend the lock is acquired in the name of backward compatibility\r\n                // and user experience and just run the function.\r\n                console.warn('@supabase/gotrue-js: Navigator LockManager returned a null lock when using #request without ifAvailable set to true, it appears this browser is not following the LockManager spec https://developer.mozilla.org/en-US/docs/Web/API/LockManager/request');\r\n                return await fn();\r\n            }\r\n        }\r\n    }));\r\n}\r\nconst PROCESS_LOCKS = {};\r\n/**\r\n * Implements a global exclusive lock that works only in the current process.\r\n * Useful for environments like React Native or other non-browser\r\n * single-process (i.e. no concept of \"tabs\") environments.\r\n *\r\n * Use {@link #navigatorLock} in browser environments.\r\n *\r\n * @param name Name of the lock to be acquired.\r\n * @param acquireTimeout If negative, no timeout. If 0 an error is thrown if\r\n *                       the lock can't be acquired without waiting. If positive, the lock acquire\r\n *                       will time out after so many milliseconds. An error is\r\n *                       a timeout if it has `isAcquireTimeout` set to true.\r\n * @param fn The operation to run once the lock is acquired.\r\n */\r\nexport async function processLock(name, acquireTimeout, fn) {\r\n    var _a;\r\n    const previousOperation = (_a = PROCESS_LOCKS[name]) !== null && _a !== void 0 ? _a : Promise.resolve();\r\n    const currentOperation = Promise.race([\r\n        previousOperation.catch(() => {\r\n            // ignore error of previous operation that we're waiting to finish\r\n            return null;\r\n        }),\r\n        acquireTimeout >= 0\r\n            ? new Promise((_, reject) => {\r\n                setTimeout(() => {\r\n                    reject(new ProcessLockAcquireTimeoutError(`Acquring process lock with name \"${name}\" timed out`));\r\n                }, acquireTimeout);\r\n            })\r\n            : null,\r\n    ].filter((x) => x))\r\n        .catch((e) => {\r\n        if (e && e.isAcquireTimeout) {\r\n            throw e;\r\n        }\r\n        return null;\r\n    })\r\n        .then(async () => {\r\n        // previous operations finished and we didn't get a race on the acquire\r\n        // timeout, so the current operation can finally start\r\n        return await fn();\r\n    });\r\n    PROCESS_LOCKS[name] = currentOperation.catch(async (e) => {\r\n        if (e && e.isAcquireTimeout) {\r\n            // if the current operation timed out, it doesn't mean that the previous\r\n            // operation finished, so we need contnue waiting for it to finish\r\n            await previousOperation;\r\n            return null;\r\n        }\r\n        throw e;\r\n    });\r\n    // finally wait for the current operation to finish successfully, with an\r\n    // error or with an acquire timeout error\r\n    return await currentOperation;\r\n}\r\n//# sourceMappingURL=locks.js.map",
+      "start": 1756117968106,
+      "end": 1756117968266,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968266,
+      "end": 1756117968266,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968266,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968267,
+      "end": 1756117968267,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117968267,
+      "end": 1756117968268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117968268,
+      "end": 1756117968268,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117968268,
+      "end": 1756117968269,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117968269,
+      "end": 1756117968269,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117968269,
+      "end": 1756117968269,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117968269,
+      "end": 1756117968269,
+      "order": "normal"
+    }
+  ]
+}

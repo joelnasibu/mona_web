@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/tr/_lib/match.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { buildMatchFn } from \"../../_lib/buildMatchFn.mjs\";\r\nimport { buildMatchPatternFn } from \"../../_lib/buildMatchPatternFn.mjs\";\r\n\r\nconst matchOrdinalNumberPattern = /^(\\d+)(\\.)?/i;\r\nconst parseOrdinalNumberPattern = /\\d+/i;\r\n\r\nconst matchEraPatterns = {\r\n  narrow: /^(mö|ms)/i,\r\n  abbreviated: /^(mö|ms)/i,\r\n  wide: /^(milattan önce|milattan sonra)/i,\r\n};\r\nconst parseEraPatterns = {\r\n  any: [/(^mö|^milattan önce)/i, /(^ms|^milattan sonra)/i],\r\n};\r\n\r\nconst matchQuarterPatterns = {\r\n  narrow: /^[1234]/i,\r\n  abbreviated: /^[1234]ç/i,\r\n  wide: /^((i|İ)lk|(i|İ)kinci|üçüncü|son) çeyrek/i,\r\n};\r\nconst parseQuarterPatterns = {\r\n  any: [/1/i, /2/i, /3/i, /4/i],\r\n  abbreviated: [/1ç/i, /2ç/i, /3ç/i, /4ç/i],\r\n  wide: [\r\n    /^(i|İ)lk çeyrek/i,\r\n    /(i|İ)kinci çeyrek/i,\r\n    /üçüncü çeyrek/i,\r\n    /son çeyrek/i,\r\n  ],\r\n};\r\n\r\nconst matchMonthPatterns = {\r\n  narrow: /^[oşmnhtaek]/i,\r\n  abbreviated: /^(oca|şub|mar|nis|may|haz|tem|ağu|eyl|eki|kas|ara)/i,\r\n  wide: /^(ocak|şubat|mart|nisan|mayıs|haziran|temmuz|ağustos|eylül|ekim|kasım|aralık)/i,\r\n};\r\nconst parseMonthPatterns = {\r\n  narrow: [\r\n    /^o/i,\r\n    /^ş/i,\r\n    /^m/i,\r\n    /^n/i,\r\n    /^m/i,\r\n    /^h/i,\r\n    /^t/i,\r\n    /^a/i,\r\n    /^e/i,\r\n    /^e/i,\r\n    /^k/i,\r\n    /^a/i,\r\n  ],\r\n\r\n  any: [\r\n    /^o/i,\r\n    /^ş/i,\r\n    /^mar/i,\r\n    /^n/i,\r\n    /^may/i,\r\n    /^h/i,\r\n    /^t/i,\r\n    /^ağ/i,\r\n    /^ey/i,\r\n    /^ek/i,\r\n    /^k/i,\r\n    /^ar/i,\r\n  ],\r\n};\r\n\r\nconst matchDayPatterns = {\r\n  narrow: /^[psçc]/i,\r\n  short: /^(pz|pt|sa|ça|pe|cu|ct)/i,\r\n  abbreviated: /^(paz|pzt|sal|çar|per|cum|cts)/i,\r\n  wide: /^(pazar(?!tesi)|pazartesi|salı|çarşamba|perşembe|cuma(?!rtesi)|cumartesi)/i,\r\n};\r\nconst parseDayPatterns = {\r\n  narrow: [/^p/i, /^p/i, /^s/i, /^ç/i, /^p/i, /^c/i, /^c/i],\r\n  any: [/^pz/i, /^pt/i, /^sa/i, /^ça/i, /^pe/i, /^cu/i, /^ct/i],\r\n  wide: [\r\n    /^pazar(?!tesi)/i,\r\n    /^pazartesi/i,\r\n    /^salı/i,\r\n    /^çarşamba/i,\r\n    /^perşembe/i,\r\n    /^cuma(?!rtesi)/i,\r\n    /^cumartesi/i,\r\n  ],\r\n};\r\n\r\nconst matchDayPeriodPatterns = {\r\n  narrow: /^(öö|ös|gy|ö|sa|ös|ak|ge)/i,\r\n  any: /^(ö\\.?\\s?[ös]\\.?|öğleden sonra|gece yarısı|öğle|(sabah|öğ|akşam|gece)(leyin))/i,\r\n};\r\nconst parseDayPeriodPatterns = {\r\n  any: {\r\n    am: /^ö\\.?ö\\.?/i,\r\n    pm: /^ö\\.?s\\.?/i,\r\n    midnight: /^(gy|gece yarısı)/i,\r\n    noon: /^öğ/i,\r\n    morning: /^sa/i,\r\n    afternoon: /^öğleden sonra/i,\r\n    evening: /^ak/i,\r\n    night: /^ge/i,\r\n  },\r\n};\r\n\r\nexport const match = {\r\n  ordinalNumber: buildMatchPatternFn({\r\n    matchPattern: matchOrdinalNumberPattern,\r\n    parsePattern: parseOrdinalNumberPattern,\r\n    valueCallback: function (value) {\r\n      return parseInt(value, 10);\r\n    },\r\n  }),\r\n\r\n  era: buildMatchFn({\r\n    matchPatterns: matchEraPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseEraPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n\r\n  quarter: buildMatchFn({\r\n    matchPatterns: matchQuarterPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseQuarterPatterns,\r\n    defaultParseWidth: \"any\",\r\n    valueCallback: (index) => index + 1,\r\n  }),\r\n\r\n  month: buildMatchFn({\r\n    matchPatterns: matchMonthPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseMonthPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n\r\n  day: buildMatchFn({\r\n    matchPatterns: matchDayPatterns,\r\n    defaultMatchWidth: \"wide\",\r\n    parsePatterns: parseDayPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n\r\n  dayPeriod: buildMatchFn({\r\n    matchPatterns: matchDayPeriodPatterns,\r\n    defaultMatchWidth: \"any\",\r\n    parsePatterns: parseDayPeriodPatterns,\r\n    defaultParseWidth: \"any\",\r\n  }),\r\n};\r\n",
+      "start": 1756117966854,
+      "end": 1756117966921,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117966921,
+      "end": 1756117966921,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117966922,
+      "end": 1756117966922,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117966922,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117966923,
+      "end": 1756117966923,
+      "order": "normal"
+    }
+  ]
+}

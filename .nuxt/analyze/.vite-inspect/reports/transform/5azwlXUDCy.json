@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/address-details.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-container class=\"pa-0\" fluid>\r\n    <v-row>\r\n      <v-col cols=\"12\" sm=\"6\">\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Country</span>\r\n          <b>{{ payload.address.country }}</b>\r\n        </div>\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Province</span>\r\n          <b>{{ payload.address.province }}</b>\r\n        </div>\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Town</span>\r\n          <b>{{ payload.address.town }}</b>\r\n        </div>\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Commune</span>\r\n          <b>{{ payload.address.commune }}</b>\r\n        </div>\r\n      </v-col>\r\n      <v-col cols=\"12\" sm=\"6\">\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Quartier</span>\r\n          <b>{{ payload.address.quartier }}</b>\r\n        </div>\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Avenue</span>\r\n          <b>{{ payload.address.avenue }}</b>\r\n        </div>\r\n        <div class=\"d-flex ga-2 preview-row\">\r\n          <span>Number</span>\r\n          <b>{{ payload.address.no }}</b>\r\n        </div>\r\n      </v-col>\r\n    </v-row>\r\n  </v-container>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  payload: Object,\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117957771,
+      "end": 1756117958328,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117958328,
+      "end": 1756117958328,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_2 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_3 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_4 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_5 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_6 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_7 = { class: \"d-flex ga-2 preview-row\" }\n\n\nconst _sfc_main = {\n  __name: 'address-details',\n  props: {\r\n  payload: Object,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    class: \"pa-0\",\n    fluid: \"\"\n  }, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, null, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"6\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_1, [\n                _cache[0] || (_cache[0] = _createElementVNode(\"span\", null, \"Country\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.country), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_2, [\n                _cache[1] || (_cache[1] = _createElementVNode(\"span\", null, \"Province\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.province), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_3, [\n                _cache[2] || (_cache[2] = _createElementVNode(\"span\", null, \"Town\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.town), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_4, [\n                _cache[3] || (_cache[3] = _createElementVNode(\"span\", null, \"Commune\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.commune), 1)\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"6\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_5, [\n                _cache[4] || (_cache[4] = _createElementVNode(\"span\", null, \"Quartier\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.quartier), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_6, [\n                _cache[5] || (_cache[5] = _createElementVNode(\"span\", null, \"Avenue\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.avenue), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_7, [\n                _cache[6] || (_cache[6] = _createElementVNode(\"span\", null, \"Number\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.no), 1)\n              ])\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117958328,
+      "end": 1756117958335,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117958335,
+      "end": 1756117958335,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117958335,
+      "end": 1756117958336,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117958336,
+      "end": 1756117958336,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117958336,
+      "end": 1756117958336,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_2 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_3 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_4 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_5 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_6 = { class: \"d-flex ga-2 preview-row\" }\nconst _hoisted_7 = { class: \"d-flex ga-2 preview-row\" }\n\n\nconst _sfc_main = {\n  __name: 'address-details',\n  props: {\r\n  payload: Object,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _cache) => {\n                                                     \n                                                     \n                                                                 \n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    class: \"pa-0\",\n    fluid: \"\"\n  }, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, null, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"6\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_1, [\n                _cache[0] || (_cache[0] = _createElementVNode(\"span\", null, \"Country\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.country), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_2, [\n                _cache[1] || (_cache[1] = _createElementVNode(\"span\", null, \"Province\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.province), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_3, [\n                _cache[2] || (_cache[2] = _createElementVNode(\"span\", null, \"Town\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.town), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_4, [\n                _cache[3] || (_cache[3] = _createElementVNode(\"span\", null, \"Commune\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.commune), 1)\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            sm: \"6\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_5, [\n                _cache[4] || (_cache[4] = _createElementVNode(\"span\", null, \"Quartier\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.quartier), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_6, [\n                _cache[5] || (_cache[5] = _createElementVNode(\"span\", null, \"Avenue\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.avenue), 1)\n              ]),\n              _createElementVNode(\"div\", _hoisted_7, [\n                _cache[6] || (_cache[6] = _createElementVNode(\"span\", null, \"Number\", -1)),\n                _createElementVNode(\"b\", null, _toDisplayString(__props.payload.address.no), 1)\n              ])\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756117958336,
+      "end": 1756117958336,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117958336,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117958337,
+      "end": 1756117958337,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117958337,
+      "end": 1756117958340,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117958340,
+      "end": 1756117958340,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117958340,
+      "end": 1756117958341,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117958341,
+      "end": 1756117958341,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117958341,
+      "end": 1756117958341,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117958341,
+      "end": 1756117958341,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117958341,
+      "end": 1756117958341,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117958341,
+      "end": 1756117958341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117958341,
+      "end": 1756117958341,
+      "order": "normal"
+    }
+  ]
+}
