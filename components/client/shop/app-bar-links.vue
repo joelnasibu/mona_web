@@ -1,23 +1,32 @@
 <template>
-  <CoreMidScreenLayout class="py-2 card-white">
+  <CoreMidScreenLayout class="py-2 bg-primary-dark">
     <div class="d-flex align-center ga-4 text-caption px-2">
-
       <div class="" v-if="!isMobile">
-        <v-icon start icon="mdi-menu" color="primary-accent" title="View all categories" size="x-large"
-          style="cursor:pointer;" @click="toggleStatus"></v-icon>
+        <v-icon
+          start
+          icon="mdi-menu"
+          title="View all categories"
+          size="x-large"
+          style="cursor: pointer"
+          @click="toggleStatus"
+        ></v-icon>
       </div>
-      <div class="d-flex justify-space-between w-100  text-caption">
-        <NuxtLink class="link-cat" v-for="{
-          category,
-          id,
-        } in categoriesWithSubcategories.slice(0, isMobile || smAndDown ? 5 : 10)" :key="id" :to="{
-          name: 'shop-name',
-          params: { name: sanitizeTitleForRoute(category) },
-        }">
+      <div class="d-flex justify-space-between w-100 text-caption">
+        <NuxtLink
+          class="link-cat text-white"
+          v-for="{ category, id } in categoriesWithSubcategories.slice(
+            0,
+            isMobile || smAndDown ? 5 : 10
+          )"
+          :key="id"
+          :to="{
+            name: 'shop-name',
+            params: { name: sanitizeTitleForRoute(category) },
+          }"
+        >
           <span>{{ capitalizeFirstLetter(category) }}</span>
         </NuxtLink>
       </div>
-
     </div>
     <ClientAppBarCategories />
   </CoreMidScreenLayout>
@@ -26,7 +35,7 @@
 <script setup>
 const { isMobile } = useDevice(),
   { sanitizeTitleForRoute, capitalizeFirstLetter } = useHelpers();
-const { smAndDown } = useDisplay()
+const { smAndDown } = useDisplay();
 
 import { useSubcategoryStore } from "~/store/subcategories";
 const { getSubcategories } = useSubcategoryStore(),
@@ -51,7 +60,6 @@ const { toggleStatus, getCategoriesByType } = useCategoryStore(),
     return Array.from(catMap.values());
   });
 
-
 const drawer = ref(false);
 
 const cardWidth = computed(() => {
@@ -59,9 +67,4 @@ const cardWidth = computed(() => {
 });
 </script>
 
-<style lang="css" scoped>
-.link-cat {
-  color: rgba(var(--v-theme-primary-accent));
-  font-weight: 600;
-}
-</style>
+<style lang="css" scoped></style>

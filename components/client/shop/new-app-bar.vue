@@ -6,14 +6,14 @@
     <v-app-bar
       absolute
       class="card-white"
-      :height="smallSize ? 110 : 64"
+      :height="smallSize ? 60 : 64"
       flat
       id="appBar"
     >
       <CoreMidScreenLayout class="px-1 px-md-1">
         <div class="d-flex align-center">
           <NuxtLink to="/shop">
-            <v-img src="/full.png" width="135"></v-img>
+            <v-img src="/full.png" width="100"></v-img>
           </NuxtLink>
           <v-container class="pa-0" fluid>
             <v-row class="ma-auto" align="center" justify="start">

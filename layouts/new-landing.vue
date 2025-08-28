@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <ClientShopNewAppBar />
+    <div class=""></div>
     <v-main>
       <NuxtPage />
     </v-main>
