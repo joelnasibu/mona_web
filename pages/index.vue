@@ -1,5 +1,12 @@
 <template>
-  <div></div>
+  <div>
+    <hero />
+    <market-card/>
+    <tips-guide />
+    <vendor-signup />
+    <trails />
+    
+  </div>
 </template>
 
 <script setup>

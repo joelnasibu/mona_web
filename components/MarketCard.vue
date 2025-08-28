@@ -1,5 +1,12 @@
 <template>
-  <section class="market-grid-section mt-16 px-6">
+  <section 
+  class="market-grid-section mt-16 px-6"
+   :style="{
+         backgroundImage: `url(${bgImage})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }"
+    >
     <div class="market-grid">
       <a
         v-for="(market, index) in markets"
@@ -20,6 +27,7 @@
 </template>
 
 <script setup>
+import bgImage from '@/assets/images/bg/white.png'
 const markets = [
   { name: 'Adams Market', description: 'Fresh produce', link: '#' },
   { name: 'Gikomba Market', description: 'Second-hand goods', link: '#' },

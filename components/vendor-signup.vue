@@ -94,7 +94,7 @@
               color="primary"
               size="large"
               elevation="4"
-              class="rounded-xl px-12 py-4 text-lg font-semibold"
+              class="rounded-xl px-12 py-4 text-lg font-semibold d-flex justify-center"
               type="submit"
             >
               Sign Up
