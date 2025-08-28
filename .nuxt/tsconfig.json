@@ -110,7 +110,6 @@
   ],
   "exclude": [
     "../node_modules",
-    "../../../node_modules",
     "../node_modules/nuxt/node_modules",
     "../node_modules/@nuxtjs/google-fonts/runtime/server",
     "../node_modules/@pinia/nuxt/runtime/server",
