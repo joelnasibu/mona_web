@@ -1,29 +1,28 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from "vue";
 
-const mapContainer = ref(null)
+const mapContainer = ref(null);
 
 onMounted(async () => {
-  const L = (await import('leaflet')).default
-  await import('leaflet/dist/leaflet.css')
-  await import('leaflet.markercluster')
-  await import('leaflet.markercluster/dist/MarkerCluster.css')
-  await import('leaflet.markercluster/dist/MarkerCluster.Default.css')
+  const L = (await import("leaflet")).default;
+  await import("leaflet/dist/leaflet.css");
+  await import("leaflet.markercluster");
+  await import("leaflet.markercluster/dist/MarkerCluster.css");
+  await import("leaflet.markercluster/dist/MarkerCluster.Default.css");
 
   const markets = [
-    { name: 'Adams Market',coords: [-1.30263, 36.7798] },
-    { name: 'Gikomba Market', coords: [-1.2863, 36.8415] },
-    { name: 'Toi Market', coords: [-1.2990, 36.7900] },
-    { name: 'City Market', coords: [-1.2833, 36.8170] },
-    { name: 'Kariokor Market', coords: [-1.28123, 36.83797] },
-    { name: 'Maasai Market', coords: [-1.2820, 36.8140] },
-    { name: 'Village Market', coords: [-1.2040, 36.8690] },
-    { name: 'Nairobi Farmers Market', coords: [-1.2082228, 36.8326568] }
-
-  ]
+    { name: "Adams Market", coords: [-1.30263, 36.7798] },
+    { name: "Gikomba Market", coords: [-1.2863, 36.8415] },
+    { name: "Toi Market", coords: [-1.299, 36.79] },
+    { name: "City Market", coords: [-1.2833, 36.817] },
+    { name: "Kariokor Market", coords: [-1.28123, 36.83797] },
+    { name: "Maasai Market", coords: [-1.282, 36.814] },
+    { name: "Village Market", coords: [-1.204, 36.869] },
+    { name: "Nairobi Farmers Market", coords: [-1.2082228, 36.8326568] },
+  ];
 
   if (mapContainer.value._leaflet_id) {
-    mapContainer.value._leaflet_id = null
+    mapContainer.value._leaflet_id = null;
   }
 
   const marketIcon = L.divIcon({
@@ -38,31 +37,31 @@ onMounted(async () => {
     `,
     iconSize: [40, 40],
     iconAnchor: [20, 40],
-    popupAnchor: [0, -35]
-  })
+    popupAnchor: [0, -35],
+  });
 
-  const map = L.map(mapContainer.value).setView([-1.286389, 36.817223], 13)
+  const map = L.map(mapContainer.value).setView([-1.286389, 36.817223], 13);
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map)
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors",
+  }).addTo(map);
 
   const markers = L.markerClusterGroup({
     maxClusterRadius: 50,
     showCoverageOnHover: false,
     spiderfyOnEveryZoom: true,
-    animate: false
-  })
+    animate: false,
+  });
 
-  markets.forEach(market => {
-    const marker = L.marker(market.coords, { icon: marketIcon })
-    marker.bindPopup(`<strong>${market.name}</strong>`)
-    markers.addLayer(marker)
-  })
+  markets.forEach((market) => {
+    const marker = L.marker(market.coords, { icon: marketIcon });
+    marker.bindPopup(`<strong>${market.name}</strong>`);
+    markers.addLayer(marker);
+  });
 
-  map.addLayer(markers)
-  window.addEventListener('resize', () => map.invalidateSize())
-})
+  map.addLayer(markers);
+  window.addEventListener("resize", () => map.invalidateSize());
+});
 </script>
 
 <template>
@@ -102,8 +101,17 @@ onMounted(async () => {
 }
 
 @keyframes pulse {
-  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.7; }
-  70% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
-  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.7;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
 }
 </style>
