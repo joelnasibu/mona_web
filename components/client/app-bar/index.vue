@@ -6,7 +6,7 @@
     <v-app-bar
       absolute
       class="card-white"
-      :height="smallSize ? 110 : 60"
+      :height="smAndDown ? 110 : 60"
       flat
       id="appBar"
     >
@@ -26,7 +26,7 @@
               </v-col>
 
               <v-col xs="8" sm="8" md="4" lg="4">
-                <div class="d-flex align-center justify-end ga-4 ga-md-0">
+                <div class="d-flex align-center justify-end ga-4">
                   <ClientAppBarAccount class="mx-2 mx-md-0" />
                   <!-- <div class="d-flex align-center" v-if="!isMobile">
                     <div class="d-flex align-center text-caption px-3 ga-5">

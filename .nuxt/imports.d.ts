@@ -39,4 +39,5 @@ export { useAlgoliaSearch } from '../node_modules/@nuxtjs/algolia/dist/runtime/c
 export { useAsyncAlgoliaSearch } from '../node_modules/@nuxtjs/algolia/dist/runtime/composables/useAsyncAlgoliaSearch';
 export { defineStore, acceptHMRUpdate, usePinia, storeToRefs } from '../node_modules/@pinia/nuxt/dist/runtime/composables';
 export { persistedState } from '../node_modules/@pinia-plugin-persistedstate/nuxt/dist/runtime/storages';
+export { useNuxtDevTools } from '../node_modules/@nuxt/devtools/dist/runtime/use-nuxt-devtools';
 export { definePageMeta } from '../node_modules/nuxt/dist/pages/runtime/composables';

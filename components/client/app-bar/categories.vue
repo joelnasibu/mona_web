@@ -56,6 +56,7 @@ const smallSize = computed(() => {
   return isMobile || smAndDown;
 });
 
+import { useDisplay } from "vuetify";
 import { useCategoryStore } from "~/store/categories";
 const { toggleStatus } = useCategoryStore();
 const { categories: list, openCategoryDrawer } = storeToRefs(
