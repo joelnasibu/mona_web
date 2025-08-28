@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VCarousel/VCarousel.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps, Fragment as _Fragment } from \"vue\";\r\n// Styles\r\nimport \"./VCarousel.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VDefaultsProvider } from \"../VDefaultsProvider/index.mjs\";\r\nimport { VProgressLinear } from \"../VProgressLinear/index.mjs\";\r\nimport { makeVWindowProps, VWindow } from \"../VWindow/VWindow.mjs\"; // Composables\r\nimport { IconValue } from \"../../composables/icons.mjs\";\r\nimport { useLocale } from \"../../composables/locale.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { onMounted, ref, watch } from 'vue';\r\nimport { convertToUnit, genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVCarouselProps = propsFactory({\r\n  color: String,\r\n  cycle: Boolean,\r\n  delimiterIcon: {\r\n    type: IconValue,\r\n    default: '$delimiter'\r\n  },\r\n  height: {\r\n    type: [Number, String],\r\n    default: 500\r\n  },\r\n  hideDelimiters: Boolean,\r\n  hideDelimiterBackground: Boolean,\r\n  interval: {\r\n    type: [Number, String],\r\n    default: 6000,\r\n    validator: value => Number(value) > 0\r\n  },\r\n  progress: [Boolean, String],\r\n  verticalDelimiters: [Boolean, String],\r\n  ...makeVWindowProps({\r\n    continuous: true,\r\n    mandatory: 'force',\r\n    showArrows: true\r\n  })\r\n}, 'VCarousel');\r\nexport const VCarousel = genericComponent()({\r\n  name: 'VCarousel',\r\n  props: makeVCarouselProps(),\r\n  emits: {\r\n    'update:modelValue': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const model = useProxiedModel(props, 'modelValue');\r\n    const {\r\n      t\r\n    } = useLocale();\r\n    const windowRef = ref();\r\n    let slideTimeout = -1;\r\n    watch(model, restartTimeout);\r\n    watch(() => props.interval, restartTimeout);\r\n    watch(() => props.cycle, val => {\r\n      if (val) restartTimeout();else window.clearTimeout(slideTimeout);\r\n    });\r\n    onMounted(startTimeout);\r\n    function startTimeout() {\r\n      if (!props.cycle || !windowRef.value) return;\r\n      slideTimeout = window.setTimeout(windowRef.value.group.next, +props.interval > 0 ? +props.interval : 6000);\r\n    }\r\n    function restartTimeout() {\r\n      window.clearTimeout(slideTimeout);\r\n      window.requestAnimationFrame(startTimeout);\r\n    }\r\n    useRender(() => {\r\n      const windowProps = VWindow.filterProps(props);\r\n      return _createVNode(VWindow, _mergeProps({\r\n        \"ref\": windowRef\r\n      }, windowProps, {\r\n        \"modelValue\": model.value,\r\n        \"onUpdate:modelValue\": $event => model.value = $event,\r\n        \"class\": ['v-carousel', {\r\n          'v-carousel--hide-delimiter-background': props.hideDelimiterBackground,\r\n          'v-carousel--vertical-delimiters': props.verticalDelimiters\r\n        }, props.class],\r\n        \"style\": [{\r\n          height: convertToUnit(props.height)\r\n        }, props.style]\r\n      }), {\r\n        default: slots.default,\r\n        additional: _ref2 => {\r\n          let {\r\n            group\r\n          } = _ref2;\r\n          return _createVNode(_Fragment, null, [!props.hideDelimiters && _createVNode(\"div\", {\r\n            \"class\": \"v-carousel__controls\",\r\n            \"style\": {\r\n              left: props.verticalDelimiters === 'left' && props.verticalDelimiters ? 0 : 'auto',\r\n              right: props.verticalDelimiters === 'right' ? 0 : 'auto'\r\n            }\r\n          }, [group.items.value.length > 0 && _createVNode(VDefaultsProvider, {\r\n            \"defaults\": {\r\n              VBtn: {\r\n                color: props.color,\r\n                icon: props.delimiterIcon,\r\n                size: 'x-small',\r\n                variant: 'text'\r\n              }\r\n            },\r\n            \"scoped\": true\r\n          }, {\r\n            default: () => [group.items.value.map((item, index) => {\r\n              const props = {\r\n                id: `carousel-item-${item.id}`,\r\n                'aria-label': t('$vuetify.carousel.ariaLabel.delimiter', index + 1, group.items.value.length),\r\n                class: ['v-carousel__controls__item', group.isSelected(item.id) && 'v-btn--active'],\r\n                onClick: () => group.select(item.id, true)\r\n              };\r\n              return slots.item ? slots.item({\r\n                props,\r\n                item\r\n              }) : _createVNode(VBtn, _mergeProps(item, props), null);\r\n            })]\r\n          })]), props.progress && _createVNode(VProgressLinear, {\r\n            \"class\": \"v-carousel__progress\",\r\n            \"color\": typeof props.progress === 'string' ? props.progress : undefined,\r\n            \"modelValue\": (group.getItemIndex(model.value) + 1) / group.items.value.length * 100\r\n          }, null)]);\r\n        },\r\n        prev: slots.prev,\r\n        next: slots.next\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VCarousel.mjs.map",
+      "start": 1756117958694,
+      "end": 1756117960021,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117960021,
+      "end": 1756117960021,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117960021,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117960022,
+      "end": 1756117960022,
+      "order": "normal"
+    }
+  ]
+}

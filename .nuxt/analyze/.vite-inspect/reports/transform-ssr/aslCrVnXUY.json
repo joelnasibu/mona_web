@@ -1,0 +1,269 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled) > .v-btn__overlay {\r\n  opacity: calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled):hover > .v-btn__overlay {\r\n  opacity: calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled):focus-visible > .v-btn__overlay {\r\n  opacity: calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier));\r\n}\r\n@supports not selector(:focus-visible) {\r\n  .v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled):focus > .v-btn__overlay {\r\n    opacity: calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier));\r\n  }\r\n}",
+      "start": 1756118033576,
+      "end": 1756118033966,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118033966,
+      "end": 1756118033966,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118033966,
+      "end": 1756118033966,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118033966,
+      "end": 1756118033966,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118033966,
+      "end": 1756118033966,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118033966,
+      "end": 1756118033966,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled)>.v-btn__overlay{opacity:calc(var(--v-activated-opacity)*var(--v-theme-overlay-multiplier))}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):hover>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity))*var(--v-theme-overlay-multiplier))}.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):focus-visible>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity))*var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-btn-toggle>.v-btn.v-btn--active:not(.v-btn--disabled):focus>.v-btn__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity))*var(--v-theme-overlay-multiplier))}}",
+      "start": 1756118033966,
+      "end": 1756118033980,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.css",
+        "mappings": "AAAA,yEACE,0EACF,CACA,+EACE,qGACF,CACA,uFACE,qGACF,CACA,uCACE,+EACE,qGACF,CACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VBtnToggle/VBtnToggle.css"
+        ],
+        "sourcesContent": [
+          ".v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled) > .v-btn__overlay {\r\n  opacity: calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled):hover > .v-btn__overlay {\r\n  opacity: calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled):focus-visible > .v-btn__overlay {\r\n  opacity: calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier));\r\n}\r\n@supports not selector(:focus-visible) {\r\n  .v-btn-toggle > .v-btn.v-btn--active:not(.v-btn--disabled):focus > .v-btn__overlay {\r\n    opacity: calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier));\r\n  }\r\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118033980,
+      "end": 1756118033980,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118033980,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118033980,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118033981,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118033981,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118033981,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118033981,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118033981,
+      "end": 1756118033981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756118033981,
+      "end": 1756118033981,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118033981,
+      "end": 1756118033982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118033982,
+      "end": 1756118033982,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118033982,
+      "end": 1756118033983,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118033983,
+      "end": 1756118033983,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118033983,
+      "end": 1756118033983,
+      "order": "normal"
+    }
+  ]
+}

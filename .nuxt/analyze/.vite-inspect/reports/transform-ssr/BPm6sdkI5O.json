@@ -1,0 +1,269 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VIcon/VIcon.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-icon {\r\n  --v-icon-size-multiplier: 1;\r\n  align-items: center;\r\n  display: inline-flex;\r\n  font-feature-settings: \"liga\";\r\n  height: 1em;\r\n  justify-content: center;\r\n  letter-spacing: normal;\r\n  line-height: 1;\r\n  position: relative;\r\n  text-indent: 0;\r\n  text-align: center;\r\n  user-select: none;\r\n  vertical-align: middle;\r\n  width: 1em;\r\n  min-width: 1em;\r\n}\r\n.v-icon--clickable {\r\n  cursor: pointer;\r\n}\r\n.v-icon--size-x-small {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1em);\r\n}\r\n.v-icon--size-small {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1.25em);\r\n}\r\n.v-icon--size-default {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1.5em);\r\n}\r\n.v-icon--size-large {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1.75em);\r\n}\r\n.v-icon--size-x-large {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 2em);\r\n}\r\n\r\n.v-icon__svg {\r\n  fill: currentColor;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.v-icon--start {\r\n  margin-inline-end: 8px;\r\n}\r\n\r\n.v-icon--end {\r\n  margin-inline-start: 8px;\r\n}",
+      "start": 1756117993478,
+      "end": 1756117997439,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117997439,
+      "end": 1756117997439,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117997439,
+      "end": 1756117997439,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117997439,
+      "end": 1756117997439,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117997439,
+      "end": 1756117997439,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117997439,
+      "end": 1756117997439,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-icon{--v-icon-size-multiplier:1;align-items:center;display:inline-flex;font-feature-settings:\"liga\";height:1em;justify-content:center;letter-spacing:normal;line-height:1;min-width:1em;position:relative;text-align:center;text-indent:0;-webkit-user-select:none;-moz-user-select:none;user-select:none;vertical-align:middle;width:1em}.v-icon--clickable{cursor:pointer}.v-icon--size-x-small{font-size:calc(var(--v-icon-size-multiplier)*1em)}.v-icon--size-small{font-size:calc(var(--v-icon-size-multiplier)*1.25em)}.v-icon--size-default{font-size:calc(var(--v-icon-size-multiplier)*1.5em)}.v-icon--size-large{font-size:calc(var(--v-icon-size-multiplier)*1.75em)}.v-icon--size-x-large{font-size:calc(var(--v-icon-size-multiplier)*2em)}.v-icon__svg{fill:currentColor;height:100%;width:100%}.v-icon--start{margin-inline-end:8px}.v-icon--end{margin-inline-start:8px}",
+      "start": 1756117997439,
+      "end": 1756117997451,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VIcon/VIcon.css",
+        "mappings": "AAAA,QACE,0BAA2B,CAC3B,kBAAmB,CACnB,mBAAoB,CACpB,4BAA6B,CAC7B,UAAW,CACX,sBAAuB,CACvB,qBAAsB,CACtB,aAAc,CAOd,aAAc,CANd,iBAAkB,CAElB,iBAAkB,CADlB,aAAc,CAEd,wBAAiB,CAAjB,qBAAiB,CAAjB,gBAAiB,CACjB,qBAAsB,CACtB,SAEF,CACA,mBACE,cACF,CACA,sBACE,iDACF,CACA,oBACE,oDACF,CACA,sBACE,mDACF,CACA,oBACE,oDACF,CACA,sBACE,iDACF,CAEA,aACE,iBAAkB,CAElB,WAAY,CADZ,UAEF,CAEA,eACE,qBACF,CAEA,aACE,uBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VIcon/VIcon.css"
+        ],
+        "sourcesContent": [
+          ".v-icon {\r\n  --v-icon-size-multiplier: 1;\r\n  align-items: center;\r\n  display: inline-flex;\r\n  font-feature-settings: \"liga\";\r\n  height: 1em;\r\n  justify-content: center;\r\n  letter-spacing: normal;\r\n  line-height: 1;\r\n  position: relative;\r\n  text-indent: 0;\r\n  text-align: center;\r\n  user-select: none;\r\n  vertical-align: middle;\r\n  width: 1em;\r\n  min-width: 1em;\r\n}\r\n.v-icon--clickable {\r\n  cursor: pointer;\r\n}\r\n.v-icon--size-x-small {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1em);\r\n}\r\n.v-icon--size-small {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1.25em);\r\n}\r\n.v-icon--size-default {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1.5em);\r\n}\r\n.v-icon--size-large {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 1.75em);\r\n}\r\n.v-icon--size-x-large {\r\n  font-size: calc(var(--v-icon-size-multiplier) * 2em);\r\n}\r\n\r\n.v-icon__svg {\r\n  fill: currentColor;\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.v-icon--start {\r\n  margin-inline-end: 8px;\r\n}\r\n\r\n.v-icon--end {\r\n  margin-inline-start: 8px;\r\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117997451,
+      "end": 1756117997451,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".v-icon{--v-icon-size-multiplier:1;align-items:center;display:inline-flex;font-feature-settings:\\\"liga\\\";height:1em;justify-content:center;letter-spacing:normal;line-height:1;min-width:1em;position:relative;text-align:center;text-indent:0;-webkit-user-select:none;-moz-user-select:none;user-select:none;vertical-align:middle;width:1em}.v-icon--clickable{cursor:pointer}.v-icon--size-x-small{font-size:calc(var(--v-icon-size-multiplier)*1em)}.v-icon--size-small{font-size:calc(var(--v-icon-size-multiplier)*1.25em)}.v-icon--size-default{font-size:calc(var(--v-icon-size-multiplier)*1.5em)}.v-icon--size-large{font-size:calc(var(--v-icon-size-multiplier)*1.75em)}.v-icon--size-x-large{font-size:calc(var(--v-icon-size-multiplier)*2em)}.v-icon__svg{fill:currentColor;height:100%;width:100%}.v-icon--start{margin-inline-end:8px}.v-icon--end{margin-inline-start:8px}\"",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117997452,
+      "end": 1756117997452,
+      "order": "normal"
+    }
+  ]
+}

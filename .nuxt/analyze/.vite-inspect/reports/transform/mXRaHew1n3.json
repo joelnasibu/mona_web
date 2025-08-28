@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/client/cart/empty.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-row class=\"ma-auto\">\r\n    <v-col>\r\n      <div class=\"pa-2 pa-md-5 d-flex flex-column rounded-lg\">\r\n        <div class=\"py-5 text-center\">\r\n          <v-img src=\"/icons/empty-cart.png\" width=\"80\" class=\"ma-auto\"></v-img>\r\n          <div class=\"text-h6 py-5\">\r\n            <b>Your cart is empty!</b>\r\n          </div>\r\n          <div class=\"text-body-2 mx-auto\" style=\"max-width: 40ch\">\r\n            <span\r\n              >You have no items in your shopping cart. Let's go buy\r\n              something!</span\r\n            >\r\n          </div>\r\n          <v-btn\r\n            class=\"text-none text-subtitle-2 mt-7 rounded-lg\"\r\n            color=\"primary-accent\"\r\n            flat\r\n            prepend-icon=\"mdi-cart-outline\"\r\n            :to=\"{ name: 'shop' }\"\r\n          >\r\n            <span>Shop now</span>\r\n          </v-btn>\r\n        </div>\r\n      </div>\r\n    </v-col>\r\n  </v-row>\r\n</template>\r\n\r\n<script setup></script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117952918,
+      "end": 1756117953506,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117953506,
+      "end": 1756117953506,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\nimport _imports_0 from '/icons/empty-cart.png'\n\n\nconst _hoisted_1 = { class: \"pa-2 pa-md-5 d-flex flex-column rounded-lg\" }\nconst _hoisted_2 = { class: \"py-5 text-center\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_v_img = _resolveComponent(\"v-img\")\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n\n  return (_openBlock(), _createBlock(_component_v_row, { class: \"ma-auto\" }, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_col, null, {\n        default: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _createElementVNode(\"div\", _hoisted_2, [\n              _createVNode(_component_v_img, {\n                src: _imports_0,\n                width: \"80\",\n                class: \"ma-auto\"\n              }),\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-h6 py-5\" }, [\n                _createElementVNode(\"b\", null, \"Your cart is empty!\")\n              ], -1)),\n              _cache[2] || (_cache[2] = _createElementVNode(\"div\", {\n                class: \"text-body-2 mx-auto\",\n                style: {\"max-width\":\"40ch\"}\n              }, [\n                _createElementVNode(\"span\", null, \"You have no items in your shopping cart. Let's go buy something!\")\n              ], -1)),\n              _createVNode(_component_v_btn, {\n                class: \"text-none text-subtitle-2 mt-7 rounded-lg\",\n                color: \"primary-accent\",\n                flat: \"\",\n                \"prepend-icon\": \"mdi-cart-outline\",\n                to: { name: 'shop' }\n              }, {\n                default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                  _createElementVNode(\"span\", null, \"Shop now\", -1)\n                ]))]),\n                _: 1\n              })\n            ])\n          ])\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1756117953506,
+      "end": 1756117953510,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117953510,
+      "end": 1756117953510,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117953510,
+      "end": 1756117953510,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117953510,
+      "end": 1756117953510,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117953510,
+      "end": 1756117953510,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\nimport _imports_0 from '/icons/empty-cart.png'\n\n\nconst _hoisted_1 = { class: \"pa-2 pa-md-5 d-flex flex-column rounded-lg\" }\nconst _hoisted_2 = { class: \"py-5 text-center\" }\n\nfunction _sfc_render(_ctx, _cache) {\n                                                     \n                                                     \n                                                     \n                                                     \n\n  return (_openBlock(), _createBlock(_component_v_row, { class: \"ma-auto\" }, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_col, null, {\n        default: _withCtx(() => [\n          _createElementVNode(\"div\", _hoisted_1, [\n            _createElementVNode(\"div\", _hoisted_2, [\n              _createVNode(_component_v_img, {\n                src: _imports_0,\n                width: \"80\",\n                class: \"ma-auto\"\n              }),\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-h6 py-5\" }, [\n                _createElementVNode(\"b\", null, \"Your cart is empty!\")\n              ], -1)),\n              _cache[2] || (_cache[2] = _createElementVNode(\"div\", {\n                class: \"text-body-2 mx-auto\",\n                style: {\"max-width\":\"40ch\"}\n              }, [\n                _createElementVNode(\"span\", null, \"You have no items in your shopping cart. Let's go buy something!\")\n              ], -1)),\n              _createVNode(_component_v_btn, {\n                class: \"text-none text-subtitle-2 mt-7 rounded-lg\",\n                color: \"primary-accent\",\n                flat: \"\",\n                \"prepend-icon\": \"mdi-cart-outline\",\n                to: { name: 'shop' }\n              }, {\n                default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                  _createElementVNode(\"span\", null, \"Shop now\", -1)\n                ]))]),\n                _: 1\n              })\n            ])\n          ])\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VCol as _component_v_col, VRow as _component_v_row } from \"vuetify/lib/components/VGrid/index.mjs\"\nimport { VImg as _component_v_img } from \"vuetify/lib/components/VImg/index.mjs\"\n\n",
+      "start": 1756117953510,
+      "end": 1756117953510,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117953510,
+      "end": 1756117953510,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117953511,
+      "end": 1756117953511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117953511,
+      "end": 1756117953513,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117953513,
+      "end": 1756117953513,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117953513,
+      "end": 1756117953513,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117953513,
+      "end": 1756117953513,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117953513,
+      "end": 1756117953513,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117953513,
+      "end": 1756117953514,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117953514,
+      "end": 1756117953514,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117953514,
+      "end": 1756117953514,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117953514,
+      "end": 1756117953514,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,254 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/util/getScrollParent.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export function getScrollParent(el) {\r\n  let includeHidden = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;\r\n  while (el) {\r\n    if (includeHidden ? isPotentiallyScrollable(el) : hasScrollbar(el)) return el;\r\n    el = el.parentElement;\r\n  }\r\n  return document.scrollingElement;\r\n}\r\nexport function getScrollParents(el, stopAt) {\r\n  const elements = [];\r\n  if (stopAt && el && !stopAt.contains(el)) return elements;\r\n  while (el) {\r\n    if (hasScrollbar(el)) elements.push(el);\r\n    if (el === stopAt) break;\r\n    el = el.parentElement;\r\n  }\r\n  return elements;\r\n}\r\nexport function hasScrollbar(el) {\r\n  if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;\r\n  const style = window.getComputedStyle(el);\r\n  return style.overflowY === 'scroll' || style.overflowY === 'auto' && el.scrollHeight > el.clientHeight;\r\n}\r\nfunction isPotentiallyScrollable(el) {\r\n  if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;\r\n  const style = window.getComputedStyle(el);\r\n  return ['scroll', 'auto'].includes(style.overflowY);\r\n}\r\n//# sourceMappingURL=getScrollParent.mjs.map",
+      "start": 1756118026912,
+      "end": 1756118027096,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027096,
+      "end": 1756118027096,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027096,
+      "end": 1756118027096,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027096,
+      "end": 1756118027097,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027096,
+      "end": 1756118027097,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118027097,
+      "end": 1756118027097,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "export function getScrollParent(el) {\n  let includeHidden = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : false;\n  while (el) {\n    if (includeHidden ? isPotentiallyScrollable(el) : hasScrollbar(el))\n      return el;\n    el = el.parentElement;\n  }\n  return (void 0).scrollingElement;\n}\nexport function getScrollParents(el, stopAt) {\n  const elements = [];\n  if (stopAt && el && !stopAt.contains(el))\n    return elements;\n  while (el) {\n    if (hasScrollbar(el))\n      elements.push(el);\n    if (el === stopAt)\n      break;\n    el = el.parentElement;\n  }\n  return elements;\n}\nexport function hasScrollbar(el) {\n  if (!el || el.nodeType !== Node.ELEMENT_NODE)\n    return false;\n  const style = (void 0).getComputedStyle(el);\n  return style.overflowY === \"scroll\" || style.overflowY === \"auto\" && el.scrollHeight > el.clientHeight;\n}\nfunction isPotentiallyScrollable(el) {\n  if (!el || el.nodeType !== Node.ELEMENT_NODE)\n    return false;\n  const style = (void 0).getComputedStyle(el);\n  return [\"scroll\", \"auto\"].includes(style.overflowY);\n}\n",
+      "start": 1756118027097,
+      "end": 1756118027185,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/util/getScrollParent.mjs\"],\n  \"sourcesContent\": [\"export function getScrollParent(el) {\\r\\n  let includeHidden = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;\\r\\n  while (el) {\\r\\n    if (includeHidden ? isPotentiallyScrollable(el) : hasScrollbar(el)) return el;\\r\\n    el = el.parentElement;\\r\\n  }\\r\\n  return document.scrollingElement;\\r\\n}\\r\\nexport function getScrollParents(el, stopAt) {\\r\\n  const elements = [];\\r\\n  if (stopAt && el && !stopAt.contains(el)) return elements;\\r\\n  while (el) {\\r\\n    if (hasScrollbar(el)) elements.push(el);\\r\\n    if (el === stopAt) break;\\r\\n    el = el.parentElement;\\r\\n  }\\r\\n  return elements;\\r\\n}\\r\\nexport function hasScrollbar(el) {\\r\\n  if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;\\r\\n  const style = window.getComputedStyle(el);\\r\\n  return style.overflowY === 'scroll' || style.overflowY === 'auto' && el.scrollHeight > el.clientHeight;\\r\\n}\\r\\nfunction isPotentiallyScrollable(el) {\\r\\n  if (!el || el.nodeType !== Node.ELEMENT_NODE) return false;\\r\\n  const style = window.getComputedStyle(el);\\r\\n  return ['scroll', 'auto'].includes(style.overflowY);\\r\\n}\\r\\n//# sourceMappingURL=getScrollParent.mjs.map\"],\n  \"mappings\": \"AAAO,gBAAS,gBAAgB,IAAI;AAClC,MAAI,gBAAgB,UAAU,SAAS,KAAK,UAAU,CAAC,MAAM,SAAY,UAAU,CAAC,IAAI;AACxF,SAAO,IAAI;AACT,QAAI,gBAAgB,wBAAwB,EAAE,IAAI,aAAa,EAAE;AAAG,aAAO;AAC3E,SAAK,GAAG;AAAA,EACV;AACA,SAAO,SAAS;AAClB;AACO,gBAAS,iBAAiB,IAAI,QAAQ;AAC3C,QAAM,WAAW,CAAC;AAClB,MAAI,UAAU,MAAM,CAAC,OAAO,SAAS,EAAE;AAAG,WAAO;AACjD,SAAO,IAAI;AACT,QAAI,aAAa,EAAE;AAAG,eAAS,KAAK,EAAE;AACtC,QAAI,OAAO;AAAQ;AACnB,SAAK,GAAG;AAAA,EACV;AACA,SAAO;AACT;AACO,gBAAS,aAAa,IAAI;AAC/B,MAAI,CAAC,MAAM,GAAG,aAAa,KAAK;AAAc,WAAO;AACrD,QAAM,QAAQ,SAAO,iBAAiB,EAAE;AACxC,SAAO,MAAM,cAAc,YAAY,MAAM,cAAc,UAAU,GAAG,eAAe,GAAG;AAC5F;AACA,SAAS,wBAAwB,IAAI;AACnC,MAAI,CAAC,MAAM,GAAG,aAAa,KAAK;AAAc,WAAO;AACrD,QAAM,QAAQ,SAAO,iBAAiB,EAAE;AACxC,SAAO,CAAC,UAAU,MAAM,EAAE,SAAS,MAAM,SAAS;AACpD;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118027186,
+      "end": 1756118027186,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027186,
+      "end": 1756118027187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027186,
+      "end": 1756118027187,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027187,
+      "end": 1756118027188,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027187,
+      "end": 1756118027189,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027189,
+      "end": 1756118027190,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027189,
+      "end": 1756118027190,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027190,
+      "end": 1756118027191,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027190,
+      "end": 1756118027191,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118027191,
+      "end": 1756118027191,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118027191,
+      "end": 1756118027191,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118027191,
+      "end": 1756118027192,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118027192,
+      "end": 1756118027192,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118027192,
+      "end": 1756118027192,
+      "order": "normal"
+    }
+  ]
+}

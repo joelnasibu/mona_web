@@ -1,0 +1,231 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/pages/shop.vue?macro=true",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <ClientOnly>\r\n    <div class=\"\">\r\n      <v-divider></v-divider>\r\n      <ClientShopAppBarLinks />\r\n      <div>\r\n        <NuxtPage />\r\n      </div>\r\n    </div>\r\n  </ClientOnly>\r\n</template>\r\n\r\n<script setup></script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756117938966,
+      "end": 1756117939483,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117939483,
+      "end": 1756117939483,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117939483,
+      "end": 1756117939483,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117939483,
+      "end": 1756117939483,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117939483,
+      "end": 1756117939483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117939483,
+      "end": 1756117939483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117939483,
+      "end": 1756117939484,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117939484,
+      "end": 1756117939484,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"\" }\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_v_divider = _resolveComponent(\"v-divider\")\n  const _component_ClientShopAppBarLinks = _resolveComponent(\"ClientShopAppBarLinks\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n\n  return (_openBlock(), _createBlock(_component_ClientOnly, null, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createVNode(_component_v_divider),\n        _createVNode(_component_ClientShopAppBarLinks),\n        _createElementVNode(\"div\", null, [\n          _createVNode(_component_NuxtPage)\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1756117939484,
+      "end": 1756117939486,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "const _sfc_main = {}\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"\" }\n\nfunction _sfc_render(_ctx, _cache) {\n                                                             \n  const _component_ClientShopAppBarLinks = _resolveComponent(\"ClientShopAppBarLinks\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n\n  return (_openBlock(), _createBlock(_component_ClientOnly, null, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", _hoisted_1, [\n        _createVNode(_component_v_divider),\n        _createVNode(_component_ClientShopAppBarLinks),\n        _createElementVNode(\"div\", null, [\n          _createVNode(_component_NuxtPage)\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])\n\n/* Vuetify */\nimport { VDivider as _component_v_divider } from \"vuetify/lib/components/VDivider/index.mjs\"\n\n",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117939486,
+      "end": 1756117939486,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117939486,
+      "end": 1756117939487,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117939487,
+      "end": 1756117939488,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117939488,
+      "end": 1756117939488,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "result": "\nconst __nuxt_page_meta = null\nexport default __nuxt_page_meta\n",
+      "start": 1756117939488,
+      "end": 1756117939489,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": "AAAA;AAAA;AAAA;"
+      }
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117939489,
+      "end": 1756117939489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117939489,
+      "end": 1756117939489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117939489,
+      "end": 1756117939489,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117939489,
+      "end": 1756117939489,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117939489,
+      "end": 1756117939489,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117939489,
+      "end": 1756117939489,
+      "order": "normal"
+    }
+  ]
+}

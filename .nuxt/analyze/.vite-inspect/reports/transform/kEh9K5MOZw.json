@@ -1,0 +1,227 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/composables/useHttp.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { useAppStore } from '~/store/app'\r\n\r\nconst opts = {\r\n  baseURL: import.meta.env.VITE_API_URL,\r\n  async onRequest ({ request, options, error }) {\r\n    const app = useAppStore()\r\n    // Add your specific data here\r\n    options.headers = {\r\n      Authorization: `Bearer ${app.token}`,\r\n      user: app.currentUser?.userId\r\n    }\r\n\r\n    if (error) {\r\n      // console.log(error)\r\n      console.log('error fetch:', error)\r\n    }\r\n  },\r\n  onRequestError ({ error }) {\r\n    console.log(error)\r\n  },\r\n  async onResponseError (error) {\r\n    useHelpers().errorHandler(error, false)\r\n  }\r\n}\r\n\r\nexport default () => $fetch.create(opts)\r\n// globalThis.$fetch =\r\n\r\n//  = $fetch.create(opts))\r\n",
+      "start": 1756117957495,
+      "end": 1756117957752,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117957752,
+      "end": 1756117957752,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117957753,
+      "end": 1756117957753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { useAppStore } from \"~/store/app\";\nconst opts = {\n  baseURL: \"https://agp-api.acces-global.com/api/v1\",\n  async onRequest({ request, options, error }) {\n    const app = useAppStore();\n    options.headers = {\n      Authorization: `Bearer ${app.token}`,\n      user: app.currentUser?.userId\n    };\n    if (error) {\n      console.log(\"error fetch:\", error);\n    }\n  },\n  onRequestError({ error }) {\n    console.log(error);\n  },\n  async onResponseError(error) {\n    useHelpers().errorHandler(error, false);\n  }\n};\nexport default () => $fetch.create(opts);\n",
+      "start": 1756117957753,
+      "end": 1756117957826,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117957826,
+      "end": 1756117957826,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useHelpers } from 'C:/Users/ADMIN/Documents/GitHub/smartsell/composables/useHelpers.js';\nimport { useAppStore } from \"~/store/app\";\nconst opts = {\n  baseURL: \"https://agp-api.acces-global.com/api/v1\",\n  async onRequest({ request, options, error }) {\n    const app = useAppStore();\n    options.headers = {\n      Authorization: `Bearer ${app.token}`,\n      user: app.currentUser?.userId\n    };\n    if (error) {\n      console.log(\"error fetch:\", error);\n    }\n  },\n  onRequestError({ error }) {\n    console.log(error);\n  },\n  async onResponseError(error) {\n    useHelpers().errorHandler(error, false);\n  }\n};\nexport default () => $fetch.create(opts);\n",
+      "start": 1756117957826,
+      "end": 1756117957827,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3C,CAAC,CAAC;AACF,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117957827,
+      "end": 1756117957827,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117957827,
+      "end": 1756117957828,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117957828,
+      "end": 1756117957828,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117957828,
+      "end": 1756117957828,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117957828,
+      "end": 1756117957828,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117957828,
+      "end": 1756117957828,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117957828,
+      "end": 1756117957828,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117957828,
+      "end": 1756117957828,
+      "order": "normal"
+    }
+  ]
+}

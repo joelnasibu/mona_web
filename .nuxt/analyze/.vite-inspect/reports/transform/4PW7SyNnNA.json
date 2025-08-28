@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/setISODay.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { addDays } from \"./addDays.mjs\";\r\nimport { getISODay } from \"./getISODay.mjs\";\r\nimport { toDate } from \"./toDate.mjs\";\r\n\r\n/**\r\n * @name setISODay\r\n * @category Weekday Helpers\r\n * @summary Set the day of the ISO week to the given date.\r\n *\r\n * @description\r\n * Set the day of the ISO week to the given date.\r\n * ISO week starts with Monday.\r\n * 7 is the index of Sunday, 1 is the index of Monday etc.\r\n *\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to be changed\r\n * @param day - The day of the ISO week of the new date\r\n *\r\n * @returns The new date with the day of the ISO week set\r\n *\r\n * @example\r\n * // Set Sunday to 1 September 2014:\r\n * const result = setISODay(new Date(2014, 8, 1), 7)\r\n * //=> Sun Sep 07 2014 00:00:00\r\n */\r\nexport function setISODay(date, day) {\r\n  const _date = toDate(date);\r\n  const currentDay = getISODay(_date);\r\n  const diff = day - currentDay;\r\n  return addDays(_date, diff);\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default setISODay;\r\n",
+      "start": 1756117962618,
+      "end": 1756117962707,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117962707,
+      "end": 1756117962707,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117962707,
+      "end": 1756117962708,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117962708,
+      "end": 1756117962708,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117962708,
+      "end": 1756117962708,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117962708,
+      "end": 1756117962708,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117962708,
+      "end": 1756117962708,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/version.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.version = void 0;\r\nexports.version = '0.0.0-automated';\r\n//# sourceMappingURL=version.js.map",
+      "start": 1756117968984,
+      "end": 1756117969070,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117969070,
+      "end": 1756117969070,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as version } from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/version.js?commonjs-exports\";\n\n\"use strict\";\r\nObject.defineProperty(version, \"__esModule\", { value: true });\r\nvar version_1 = version.version = void 0;\r\nversion_1 = version.version = '0.0.0-automated';\r\n//# sourceMappingURL=version.js.map\n\nexport { version as __moduleExports, version_1 as version, version as default };",
+      "start": 1756117969070,
+      "end": 1756117969072,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,YAAY,CAAC;AACb,MAAM,CAAC,cAAc,CAAC,OAAO,EAAE,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;AAC9D,+BAAe,GAAG,KAAK,CAAC,CAAC;AACzB,2BAAe,GAAG,iBAAiB,CAAC;AACpC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117969072,
+      "end": 1756117969072,
+      "order": "normal"
+    }
+  ]
+}

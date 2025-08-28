@@ -1,0 +1,269 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-date-picker-years {\r\n  height: 320px;\r\n  overflow-y: scroll;\r\n}\r\n\r\n.v-date-picker-years__content {\r\n  display: grid;\r\n  flex: 1 1;\r\n  justify-content: space-around;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  gap: 8px 24px;\r\n  padding-inline: 36px;\r\n}\r\n.v-date-picker-years__content .v-btn {\r\n  padding-inline: 8px;\r\n}",
+      "start": 1756118036266,
+      "end": 1756118036616,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118036616,
+      "end": 1756118036616,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118036616,
+      "end": 1756118036616,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118036616,
+      "end": 1756118036616,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118036616,
+      "end": 1756118036616,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118036616,
+      "end": 1756118036616,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-date-picker-years{height:320px;overflow-y:scroll}.v-date-picker-years__content{display:grid;flex:1 1;gap:8px 24px;grid-template-columns:repeat(3,1fr);justify-content:space-around;padding-inline:36px}.v-date-picker-years__content .v-btn{padding-inline:8px}",
+      "start": 1756118036616,
+      "end": 1756118036624,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.css",
+        "mappings": "AAAA,qBACE,YAAa,CACb,iBACF,CAEA,8BACE,YAAa,CACb,QAAS,CAGT,YAAa,CADb,mCAAqC,CADrC,4BAA6B,CAG7B,mBACF,CACA,qCACE,kBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VDatePicker/VDatePickerYears.css"
+        ],
+        "sourcesContent": [
+          ".v-date-picker-years {\r\n  height: 320px;\r\n  overflow-y: scroll;\r\n}\r\n\r\n.v-date-picker-years__content {\r\n  display: grid;\r\n  flex: 1 1;\r\n  justify-content: space-around;\r\n  grid-template-columns: repeat(3, 1fr);\r\n  gap: 8px 24px;\r\n  padding-inline: 36px;\r\n}\r\n.v-date-picker-years__content .v-btn {\r\n  padding-inline: 8px;\r\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118036624,
+      "end": 1756118036624,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118036629,
+      "end": 1756118036629,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118036630,
+      "end": 1756118036630,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118036630,
+      "end": 1756118036630,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118036632,
+      "end": 1756118036632,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118036633,
+      "end": 1756118036633,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118036633,
+      "end": 1756118036633,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118036633,
+      "end": 1756118036633,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118036633,
+      "end": 1756118036633,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118036633,
+      "end": 1756118036633,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118036633,
+      "end": 1756118036633,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118036633,
+      "end": 1756118036634,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".v-date-picker-years{height:320px;overflow-y:scroll}.v-date-picker-years__content{display:grid;flex:1 1;gap:8px 24px;grid-template-columns:repeat(3,1fr);justify-content:space-around;padding-inline:36px}.v-date-picker-years__content .v-btn{padding-inline:8px}\"",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118036635,
+      "end": 1756118036635,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118036636,
+      "end": 1756118036636,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118036636,
+      "end": 1756118036636,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118036636,
+      "end": 1756118036636,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118036636,
+      "end": 1756118036636,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118036636,
+      "end": 1756118036637,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118036636,
+      "end": 1756118036637,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118036637,
+      "end": 1756118036637,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118036637,
+      "end": 1756118036637,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118036638,
+      "end": 1756118036638,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118036638,
+      "end": 1756118036638,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118036638,
+      "end": 1756118036638,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118036638,
+      "end": 1756118036638,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118036638,
+      "end": 1756118036639,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118036639,
+      "end": 1756118036639,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118036639,
+      "end": 1756118036639,
+      "order": "normal"
+    }
+  ]
+}

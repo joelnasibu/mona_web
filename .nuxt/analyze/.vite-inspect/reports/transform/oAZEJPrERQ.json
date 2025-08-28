@@ -1,0 +1,218 @@
+{
+  "resolvedId": "virtual:nuxt:C:/Users/ADMIN/Documents/GitHub/smartsell/.nuxt/layouts.mjs",
+  "transforms": [
+    {
+      "name": "virtual",
+      "result": "export default {\n  admin: () => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue\").then(m => m.default || m),\n  default: () => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/default.vue\").then(m => m.default || m),\n  jobs: () => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/jobs.vue\").then(m => m.default || m),\n  landing: () => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/landing.vue\").then(m => m.default || m),\n  profile: () => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/profile.vue\").then(m => m.default || m)\n}",
+      "start": 1756117935977,
+      "end": 1756117935977,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117935978,
+      "end": 1756117935978,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117935978,
+      "end": 1756117935978,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117935978,
+      "end": 1756117935979,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117935979,
+      "end": 1756117935979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117935979,
+      "end": 1756117935979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117935979,
+      "end": 1756117935979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117935979,
+      "end": 1756117935979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117935979,
+      "end": 1756117935979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117935979,
+      "end": 1756117935979,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117935980,
+      "end": 1756117935980,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117935981,
+      "end": 1756117935981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117935983,
+      "end": 1756117935983,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117935984,
+      "end": 1756117935984,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117935984,
+      "end": 1756117935984,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117935984,
+      "end": 1756117935985,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117935985,
+      "end": 1756117935985,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117935985,
+      "end": 1756117935985,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117935985,
+      "end": 1756117935987,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117935987,
+      "end": 1756117935988,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117935988,
+      "end": 1756117935988,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117935988,
+      "end": 1756117935988,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117935988,
+      "end": 1756117935988,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117935988,
+      "end": 1756117935988,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117935988,
+      "end": 1756117935988,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "result": "import { __vitePreload } from \"\u0000vite/preload-helper.js\";export default {\n  admin: () => __vitePreload(() => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/admin.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  default: () => __vitePreload(() => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/default.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  jobs: () => __vitePreload(() => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/jobs.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  landing: () => __vitePreload(() => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/landing.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m),\n  profile: () => __vitePreload(() => import(\"C:/Users/ADMIN/Documents/GitHub/smartsell/layouts/profile.vue\"),__VITE_IS_MODERN__?\"__VITE_PRELOAD__\":void 0,import.meta.url).then(m => m.default || m)\n}",
+      "start": 1756117935988,
+      "end": 1756117935989,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117935989,
+      "end": 1756117935989,
+      "order": "normal"
+    }
+  ]
+}

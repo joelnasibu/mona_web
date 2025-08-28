@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VAppBar/VAppBar.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps, resolveDirective as _resolveDirective } from \"vue\";\r\n// Styles\r\nimport \"./VAppBar.css\";\r\n\r\n// Components\r\nimport { makeVToolbarProps, VToolbar } from \"../VToolbar/VToolbar.mjs\"; // Composables\r\nimport { makeLayoutItemProps, useLayoutItem } from \"../../composables/layout.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\";\r\nimport { makeScrollProps, useScroll } from \"../../composables/scroll.mjs\";\r\nimport { useSsrBoot } from \"../../composables/ssrBoot.mjs\";\r\nimport { useToggleScope } from \"../../composables/toggleScope.mjs\"; // Utilities\r\nimport { computed, ref, shallowRef, toRef, watchEffect } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVAppBarProps = propsFactory({\r\n  scrollBehavior: String,\r\n  modelValue: {\r\n    type: Boolean,\r\n    default: true\r\n  },\r\n  location: {\r\n    type: String,\r\n    default: 'top',\r\n    validator: value => ['top', 'bottom'].includes(value)\r\n  },\r\n  ...makeVToolbarProps(),\r\n  ...makeLayoutItemProps(),\r\n  ...makeScrollProps(),\r\n  height: {\r\n    type: [Number, String],\r\n    default: 64\r\n  }\r\n}, 'VAppBar');\r\nexport const VAppBar = genericComponent()({\r\n  name: 'VAppBar',\r\n  props: makeVAppBarProps(),\r\n  emits: {\r\n    'update:modelValue': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const vToolbarRef = ref();\r\n    const isActive = useProxiedModel(props, 'modelValue');\r\n    const scrollBehavior = computed(() => {\r\n      const behavior = new Set(props.scrollBehavior?.split(' ') ?? []);\r\n      return {\r\n        hide: behavior.has('hide'),\r\n        // fullyHide: behavior.has('fully-hide'),\r\n        inverted: behavior.has('inverted'),\r\n        collapse: behavior.has('collapse'),\r\n        elevate: behavior.has('elevate'),\r\n        fadeImage: behavior.has('fade-image')\r\n        // shrink: behavior.has('shrink'),\r\n      };\r\n    });\r\n    const canScroll = computed(() => {\r\n      const behavior = scrollBehavior.value;\r\n      return behavior.hide ||\r\n      // behavior.fullyHide ||\r\n      behavior.inverted || behavior.collapse || behavior.elevate || behavior.fadeImage ||\r\n      // behavior.shrink ||\r\n      !isActive.value;\r\n    });\r\n    const {\r\n      currentScroll,\r\n      scrollThreshold,\r\n      isScrollingUp,\r\n      scrollRatio\r\n    } = useScroll(props, {\r\n      canScroll\r\n    });\r\n    const isCollapsed = computed(() => props.collapse || scrollBehavior.value.collapse && (scrollBehavior.value.inverted ? scrollRatio.value > 0 : scrollRatio.value === 0));\r\n    const isFlat = computed(() => props.flat || scrollBehavior.value.elevate && (scrollBehavior.value.inverted ? currentScroll.value > 0 : currentScroll.value === 0));\r\n    const opacity = computed(() => scrollBehavior.value.fadeImage ? scrollBehavior.value.inverted ? 1 - scrollRatio.value : scrollRatio.value : undefined);\r\n    const height = computed(() => {\r\n      if (scrollBehavior.value.hide && scrollBehavior.value.inverted) return 0;\r\n      const height = vToolbarRef.value?.contentHeight ?? 0;\r\n      const extensionHeight = vToolbarRef.value?.extensionHeight ?? 0;\r\n      return height + extensionHeight;\r\n    });\r\n    useToggleScope(computed(() => !!props.scrollBehavior), () => {\r\n      watchEffect(() => {\r\n        if (scrollBehavior.value.hide) {\r\n          if (scrollBehavior.value.inverted) {\r\n            isActive.value = currentScroll.value > scrollThreshold.value;\r\n          } else {\r\n            isActive.value = isScrollingUp.value || currentScroll.value < scrollThreshold.value;\r\n          }\r\n        } else {\r\n          isActive.value = true;\r\n        }\r\n      });\r\n    });\r\n    const {\r\n      ssrBootStyles\r\n    } = useSsrBoot();\r\n    const {\r\n      layoutItemStyles\r\n    } = useLayoutItem({\r\n      id: props.name,\r\n      order: computed(() => parseInt(props.order, 10)),\r\n      position: toRef(props, 'location'),\r\n      layoutSize: height,\r\n      elementSize: shallowRef(undefined),\r\n      active: isActive,\r\n      absolute: toRef(props, 'absolute')\r\n    });\r\n    useRender(() => {\r\n      const toolbarProps = VToolbar.filterProps(props);\r\n      return _createVNode(VToolbar, _mergeProps({\r\n        \"ref\": vToolbarRef,\r\n        \"class\": ['v-app-bar', {\r\n          'v-app-bar--bottom': props.location === 'bottom'\r\n        }, props.class],\r\n        \"style\": [{\r\n          ...layoutItemStyles.value,\r\n          '--v-toolbar-image-opacity': opacity.value,\r\n          height: undefined,\r\n          ...ssrBootStyles.value\r\n        }, props.style]\r\n      }, toolbarProps, {\r\n        \"collapse\": isCollapsed.value,\r\n        \"flat\": isFlat.value\r\n      }), slots);\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VAppBar.mjs.map",
+      "start": 1756117964724,
+      "end": 1756117964935,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117964935,
+      "end": 1756117964935,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117964935,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117964936,
+      "end": 1756117964936,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117964936,
+      "end": 1756117964937,
+      "order": "normal"
+    }
+  ]
+}

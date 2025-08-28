@@ -1,0 +1,284 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/middleware/admin.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { useAppStore } from \"~/store/app\"\r\n\r\nexport default defineNuxtRouteMiddleware((to: any, from: any) => {\r\n    const appStore = useAppStore()\r\n    // const localePath = useLocalePath();\r\n\r\n\r\n    if (process.client) {\r\n        if (to?.name !== from?.name)\r\n            appStore.setAdminRedirect({\r\n                name: from.name,\r\n                params: from.params,\r\n            })\r\n        if (!appStore.isAdmin)\r\n            return navigateTo({ name: 'auth' })\r\n    }\r\n\r\n\r\n})\r\n",
+      "start": 1756117999916,
+      "end": 1756118002151,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118002151,
+      "end": 1756118002151,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118002151,
+      "end": 1756118002151,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118002151,
+      "end": 1756118002151,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118002151,
+      "end": 1756118002151,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118002151,
+      "end": 1756118002151,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118002151,
+      "end": 1756118002151,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const appStore = useAppStore();\n  if (process.client) {\n    if (to?.name !== from?.name)\n      appStore.setAdminRedirect({\n        name: from.name,\n        params: from.params\n      });\n    if (!appStore.isAdmin)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756118002151,
+      "end": 1756118002412,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/middleware/admin.ts"
+        ],
+        "sourcesContent": [
+          "import { useAppStore } from \"~/store/app\"\r\n\r\nexport default defineNuxtRouteMiddleware((to: any, from: any) => {\r\n    const appStore = useAppStore()\r\n    // const localePath = useLocalePath();\r\n\r\n\r\n    if (process.client) {\r\n        if (to?.name !== from?.name)\r\n            appStore.setAdminRedirect({\r\n                name: from.name,\r\n                params: from.params,\r\n            })\r\n        if (!appStore.isAdmin)\r\n            return navigateTo({ name: 'auth' })\r\n    }\r\n\r\n\r\n})\r\n"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB;AAE5B,eAAe,0BAA0B,CAAC,IAAS,SAAc;AAC7D,QAAM,WAAW,YAAY;AAI7B,MAAI,QAAQ,QAAQ;AAChB,QAAI,IAAI,SAAS,MAAM;AACnB,eAAS,iBAAiB;AAAA,QACtB,MAAM,KAAK;AAAA,QACX,QAAQ,KAAK;AAAA,MACjB,CAAC;AACL,QAAI,CAAC,SAAS;AACV,aAAO,WAAW,EAAE,MAAM,OAAO,CAAC;AAAA,EAC1C;AAGJ,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118002412,
+      "end": 1756118002412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118002413,
+      "end": 1756118002413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118002413,
+      "end": 1756118002413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118002413,
+      "end": 1756118002413,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118002414,
+      "end": 1756118002415,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118002414,
+      "end": 1756118002415,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118002415,
+      "end": 1756118002415,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118002415,
+      "end": 1756118002415,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118002415,
+      "end": 1756118002415,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118002415,
+      "end": 1756118002415,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118002415,
+      "end": 1756118002416,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118002417,
+      "end": 1756118002418,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const appStore = useAppStore();\n  if (false) {\n    if (to?.name !== from?.name)\n      appStore.setAdminRedirect({\n        name: from.name,\n        params: from.params\n      });\n    if (!appStore.isAdmin)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756118002419,
+      "end": 1756118003586,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"C:/Users/ADMIN/Documents/GitHub/smartsell/middleware/admin.ts\"],\n  \"sourcesContent\": [\"import { useAppStore } from \\\"~/store/app\\\";\\nexport default defineNuxtRouteMiddleware((to, from) => {\\n  const appStore = useAppStore();\\n  if (process.client) {\\n    if (to?.name !== from?.name)\\n      appStore.setAdminRedirect({\\n        name: from.name,\\n        params: from.params\\n      });\\n    if (!appStore.isAdmin)\\n      return navigateTo({ name: \\\"auth\\\" });\\n  }\\n});\\n\"],\n  \"mappings\": \"AAAA,SAAS,mBAAmB;AAC5B,eAAe,0BAA0B,CAAC,IAAI,SAAS;AACrD,QAAM,WAAW,YAAY;AAC7B,MAAI,OAAgB;AAClB,QAAI,IAAI,SAAS,MAAM;AACrB,eAAS,iBAAiB;AAAA,QACxB,MAAM,KAAK;AAAA,QACX,QAAQ,KAAK;AAAA,MACf,CAAC;AACH,QAAI,CAAC,SAAS;AACZ,aAAO,WAAW,EAAE,MAAM,OAAO,CAAC;AAAA,EACtC;AACF,CAAC;\",\n  \"names\": []\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118003586,
+      "end": 1756118003586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118003586,
+      "end": 1756118003586,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118003587,
+      "end": 1756118003587,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { defineNuxtRouteMiddleware, navigateTo } from '#app/composables/router';\nimport { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const appStore = useAppStore();\n  if (false) {\n    if (to?.name !== from?.name)\n      appStore.setAdminRedirect({\n        name: from.name,\n        params: from.params\n      });\n    if (!appStore.isAdmin)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756118003587,
+      "end": 1756118003589,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACR,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC;AACF,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { defineNuxtRouteMiddleware, navigateTo } from '#app/composables/router';\nimport { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const appStore = useAppStore();\n  if (false) {\n    if (to?.name !== from?.name)\n      appStore.setAdminRedirect({\n        name: from.name,\n        params: from.params\n      });\n    if (!appStore.isAdmin)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756118003587,
+      "end": 1756118003589,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACR,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC;AACF,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118003591,
+      "end": 1756118003591,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118003591,
+      "end": 1756118003591,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118003591,
+      "end": 1756118003591,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118003591,
+      "end": 1756118003591,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118003591,
+      "end": 1756118003591,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118003591,
+      "end": 1756118003591,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118003592,
+      "end": 1756118003592,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118003592,
+      "end": 1756118003592,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118003594,
+      "end": 1756118003594,
+      "order": "normal"
+    }
+  ]
+}

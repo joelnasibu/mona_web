@@ -1,0 +1,1 @@
+import{cu as i,u as s,p as t}from"./entry.d7ew7f-K.js";const d=i((e,a)=>{const n=s();if((e==null?void 0:e.name)!==(a==null?void 0:a.name)&&n.setAdminRedirect({name:a.name,params:a.params}),!n.isAdmin)return t({name:"auth"})});export{d as default};

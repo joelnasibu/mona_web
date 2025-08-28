@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/storage-js/dist/module/packages/StorageBucketApi.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {\r\n    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }\r\n    return new (P || (P = Promise))(function (resolve, reject) {\r\n        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }\r\n        function rejected(value) { try { step(generator[\"throw\"](value)); } catch (e) { reject(e); } }\r\n        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }\r\n        step((generator = generator.apply(thisArg, _arguments || [])).next());\r\n    });\r\n};\r\nimport { DEFAULT_HEADERS } from '../lib/constants';\r\nimport { isStorageError } from '../lib/errors';\r\nimport { get, post, put, remove } from '../lib/fetch';\r\nimport { resolveFetch } from '../lib/helpers';\r\nexport default class StorageBucketApi {\r\n    constructor(url, headers = {}, fetch) {\r\n        this.url = url;\r\n        this.headers = Object.assign(Object.assign({}, DEFAULT_HEADERS), headers);\r\n        this.fetch = resolveFetch(fetch);\r\n    }\r\n    /**\r\n     * Retrieves the details of all Storage buckets within an existing project.\r\n     */\r\n    listBuckets() {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            try {\r\n                const data = yield get(this.fetch, `${this.url}/bucket`, { headers: this.headers });\r\n                return { data, error: null };\r\n            }\r\n            catch (error) {\r\n                if (isStorageError(error)) {\r\n                    return { data: null, error };\r\n                }\r\n                throw error;\r\n            }\r\n        });\r\n    }\r\n    /**\r\n     * Retrieves the details of an existing Storage bucket.\r\n     *\r\n     * @param id The unique identifier of the bucket you would like to retrieve.\r\n     */\r\n    getBucket(id) {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            try {\r\n                const data = yield get(this.fetch, `${this.url}/bucket/${id}`, { headers: this.headers });\r\n                return { data, error: null };\r\n            }\r\n            catch (error) {\r\n                if (isStorageError(error)) {\r\n                    return { data: null, error };\r\n                }\r\n                throw error;\r\n            }\r\n        });\r\n    }\r\n    /**\r\n     * Creates a new Storage bucket\r\n     *\r\n     * @param id A unique identifier for the bucket you are creating.\r\n     * @param options.public The visibility of the bucket. Public buckets don't require an authorization token to download objects, but still require a valid token for all other operations. By default, buckets are private.\r\n     * @param options.fileSizeLimit specifies the max file size in bytes that can be uploaded to this bucket.\r\n     * The global file size limit takes precedence over this value.\r\n     * The default value is null, which doesn't set a per bucket file size limit.\r\n     * @param options.allowedMimeTypes specifies the allowed mime types that this bucket can accept during upload.\r\n     * The default value is null, which allows files with all mime types to be uploaded.\r\n     * Each mime type specified can be a wildcard, e.g. image/*, or a specific mime type, e.g. image/png.\r\n     * @returns newly created bucket id\r\n     */\r\n    createBucket(id, options = {\r\n        public: false,\r\n    }) {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            try {\r\n                const data = yield post(this.fetch, `${this.url}/bucket`, {\r\n                    id,\r\n                    name: id,\r\n                    public: options.public,\r\n                    file_size_limit: options.fileSizeLimit,\r\n                    allowed_mime_types: options.allowedMimeTypes,\r\n                }, { headers: this.headers });\r\n                return { data, error: null };\r\n            }\r\n            catch (error) {\r\n                if (isStorageError(error)) {\r\n                    return { data: null, error };\r\n                }\r\n                throw error;\r\n            }\r\n        });\r\n    }\r\n    /**\r\n     * Updates a Storage bucket\r\n     *\r\n     * @param id A unique identifier for the bucket you are updating.\r\n     * @param options.public The visibility of the bucket. Public buckets don't require an authorization token to download objects, but still require a valid token for all other operations.\r\n     * @param options.fileSizeLimit specifies the max file size in bytes that can be uploaded to this bucket.\r\n     * The global file size limit takes precedence over this value.\r\n     * The default value is null, which doesn't set a per bucket file size limit.\r\n     * @param options.allowedMimeTypes specifies the allowed mime types that this bucket can accept during upload.\r\n     * The default value is null, which allows files with all mime types to be uploaded.\r\n     * Each mime type specified can be a wildcard, e.g. image/*, or a specific mime type, e.g. image/png.\r\n     */\r\n    updateBucket(id, options) {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            try {\r\n                const data = yield put(this.fetch, `${this.url}/bucket/${id}`, {\r\n                    id,\r\n                    name: id,\r\n                    public: options.public,\r\n                    file_size_limit: options.fileSizeLimit,\r\n                    allowed_mime_types: options.allowedMimeTypes,\r\n                }, { headers: this.headers });\r\n                return { data, error: null };\r\n            }\r\n            catch (error) {\r\n                if (isStorageError(error)) {\r\n                    return { data: null, error };\r\n                }\r\n                throw error;\r\n            }\r\n        });\r\n    }\r\n    /**\r\n     * Removes all objects inside a single bucket.\r\n     *\r\n     * @param id The unique identifier of the bucket you would like to empty.\r\n     */\r\n    emptyBucket(id) {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            try {\r\n                const data = yield post(this.fetch, `${this.url}/bucket/${id}/empty`, {}, { headers: this.headers });\r\n                return { data, error: null };\r\n            }\r\n            catch (error) {\r\n                if (isStorageError(error)) {\r\n                    return { data: null, error };\r\n                }\r\n                throw error;\r\n            }\r\n        });\r\n    }\r\n    /**\r\n     * Deletes an existing bucket. A bucket can't be deleted with existing objects inside it.\r\n     * You must first `empty()` the bucket.\r\n     *\r\n     * @param id The unique identifier of the bucket you would like to delete.\r\n     */\r\n    deleteBucket(id) {\r\n        return __awaiter(this, void 0, void 0, function* () {\r\n            try {\r\n                const data = yield remove(this.fetch, `${this.url}/bucket/${id}`, {}, { headers: this.headers });\r\n                return { data, error: null };\r\n            }\r\n            catch (error) {\r\n                if (isStorageError(error)) {\r\n                    return { data: null, error };\r\n                }\r\n                throw error;\r\n            }\r\n        });\r\n    }\r\n}\r\n//# sourceMappingURL=StorageBucketApi.js.map",
+      "start": 1756117968802,
+      "end": 1756117969010,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117969010,
+      "end": 1756117969010,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117969010,
+      "end": 1756117969012,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117969012,
+      "end": 1756117969012,
+      "order": "normal"
+    }
+  ]
+}

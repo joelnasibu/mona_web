@@ -1,0 +1,224 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VTabs/VTabs.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-tabs {\r\n  display: flex;\r\n  height: var(--v-tabs-height);\r\n}\r\n.v-tabs--density-default {\r\n  --v-tabs-height: 48px;\r\n}\r\n.v-tabs--density-default.v-tabs--stacked {\r\n  --v-tabs-height: 72px;\r\n}\r\n\r\n.v-tabs--density-comfortable {\r\n  --v-tabs-height: 44px;\r\n}\r\n.v-tabs--density-comfortable.v-tabs--stacked {\r\n  --v-tabs-height: 68px;\r\n}\r\n\r\n.v-tabs--density-compact {\r\n  --v-tabs-height: 36px;\r\n}\r\n.v-tabs--density-compact.v-tabs--stacked {\r\n  --v-tabs-height: 60px;\r\n}\r\n\r\n.v-tabs.v-slide-group--vertical {\r\n  height: auto;\r\n  flex: none;\r\n  --v-tabs-height: 48px;\r\n}\r\n\r\n.v-tabs--align-tabs-title:not(.v-slide-group--has-affixes) .v-tab:first-child {\r\n  margin-inline-start: 42px;\r\n}\r\n\r\n.v-tabs--fixed-tabs .v-slide-group__content > *:last-child,\r\n.v-tabs--align-tabs-center .v-slide-group__content > *:last-child {\r\n  margin-inline-end: auto;\r\n}\r\n.v-tabs--fixed-tabs .v-slide-group__content > *:first-child,\r\n.v-tabs--align-tabs-center .v-slide-group__content > *:first-child {\r\n  margin-inline-start: auto;\r\n}\r\n\r\n.v-tabs--grow {\r\n  flex-grow: 1;\r\n}\r\n.v-tabs--grow .v-tab {\r\n  flex: 1 0 auto;\r\n  max-width: none;\r\n}\r\n\r\n.v-tabs--align-tabs-end .v-tab:first-child {\r\n  margin-inline-start: auto;\r\n}\r\n.v-tabs--align-tabs-end .v-tab:last-child {\r\n  margin-inline-end: 0;\r\n}\r\n\r\n@media (max-width: 1279.98px) {\r\n  .v-tabs.v-slide-group--is-overflowing.v-slide-group--horizontal:not(.v-slide-group--has-affixes) .v-tab:first-child {\r\n    margin-inline-start: 52px;\r\n  }\r\n  .v-tabs.v-slide-group--is-overflowing.v-slide-group--horizontal:not(.v-slide-group--has-affixes) .v-tab:last-child {\r\n    margin-inline-end: 52px;\r\n  }\r\n}",
+      "start": 1756117964228,
+      "end": 1756117964627,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117964627,
+      "end": 1756117964627,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117964627,
+      "end": 1756117964627,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117964627,
+      "end": 1756117964627,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-tabs{display:flex;height:var(--v-tabs-height)}.v-tabs--density-default{--v-tabs-height:48px}.v-tabs--density-default.v-tabs--stacked{--v-tabs-height:72px}.v-tabs--density-comfortable{--v-tabs-height:44px}.v-tabs--density-comfortable.v-tabs--stacked{--v-tabs-height:68px}.v-tabs--density-compact{--v-tabs-height:36px}.v-tabs--density-compact.v-tabs--stacked{--v-tabs-height:60px}.v-tabs.v-slide-group--vertical{flex:none;height:auto;--v-tabs-height:48px}.v-tabs--align-tabs-title:not(.v-slide-group--has-affixes) .v-tab:first-child{margin-inline-start:42px}.v-tabs--align-tabs-center .v-slide-group__content>:last-child,.v-tabs--fixed-tabs .v-slide-group__content>:last-child{margin-inline-end:auto}.v-tabs--align-tabs-center .v-slide-group__content>:first-child,.v-tabs--fixed-tabs .v-slide-group__content>:first-child{margin-inline-start:auto}.v-tabs--grow{flex-grow:1}.v-tabs--grow .v-tab{flex:1 0 auto;max-width:none}.v-tabs--align-tabs-end .v-tab:first-child{margin-inline-start:auto}.v-tabs--align-tabs-end .v-tab:last-child{margin-inline-end:0}@media (max-width:1279.98px){.v-tabs.v-slide-group--is-overflowing.v-slide-group--horizontal:not(.v-slide-group--has-affixes) .v-tab:first-child{margin-inline-start:52px}.v-tabs.v-slide-group--is-overflowing.v-slide-group--horizontal:not(.v-slide-group--has-affixes) .v-tab:last-child{margin-inline-end:52px}}",
+      "start": 1756117964627,
+      "end": 1756117964640,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117964640,
+      "end": 1756117964640,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117964640,
+      "end": 1756117964640,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117964640,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117964641,
+      "end": 1756117964641,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117964641,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117964642,
+      "end": 1756117964642,
+      "order": "normal"
+    }
+  ]
+}

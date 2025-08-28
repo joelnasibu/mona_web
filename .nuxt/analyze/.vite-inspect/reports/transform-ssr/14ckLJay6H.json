@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VDataTable/VDataTableVirtual.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps, resolveDirective as _resolveDirective } from \"vue\";\r\n// Components\r\nimport { makeDataTableProps } from \"./VDataTable.mjs\";\r\nimport { VDataTableHeaders } from \"./VDataTableHeaders.mjs\";\r\nimport { VDataTableRow } from \"./VDataTableRow.mjs\";\r\nimport { VDataTableRows } from \"./VDataTableRows.mjs\";\r\nimport { VTable } from \"../VTable/index.mjs\";\r\nimport { VVirtualScrollItem } from \"../VVirtualScroll/VVirtualScrollItem.mjs\"; // Composables\r\nimport { provideExpanded } from \"./composables/expand.mjs\";\r\nimport { createGroupBy, makeDataTableGroupProps, provideGroupBy, useGroupedItems } from \"./composables/group.mjs\";\r\nimport { createHeaders } from \"./composables/headers.mjs\";\r\nimport { useDataTableItems } from \"./composables/items.mjs\";\r\nimport { useOptions } from \"./composables/options.mjs\";\r\nimport { provideSelection } from \"./composables/select.mjs\";\r\nimport { createSort, provideSort, useSortedItems } from \"./composables/sort.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeFilterProps, useFilter } from \"../../composables/filter.mjs\";\r\nimport { makeVirtualProps, useVirtual } from \"../../composables/virtual.mjs\"; // Utilities\r\nimport { computed, shallowRef, toRef } from 'vue';\r\nimport { convertToUnit, genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVDataTableVirtualProps = propsFactory({\r\n  ...makeDataTableProps(),\r\n  ...makeDataTableGroupProps(),\r\n  ...makeVirtualProps(),\r\n  ...makeFilterProps()\r\n}, 'VDataTableVirtual');\r\nexport const VDataTableVirtual = genericComponent()({\r\n  name: 'VDataTableVirtual',\r\n  props: makeVDataTableVirtualProps(),\r\n  emits: {\r\n    'update:modelValue': value => true,\r\n    'update:sortBy': value => true,\r\n    'update:options': value => true,\r\n    'update:groupBy': value => true,\r\n    'update:expanded': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      attrs,\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      groupBy\r\n    } = createGroupBy(props);\r\n    const {\r\n      sortBy,\r\n      multiSort,\r\n      mustSort\r\n    } = createSort(props);\r\n    const {\r\n      columns,\r\n      headers,\r\n      filterFunctions,\r\n      sortFunctions,\r\n      sortRawFunctions\r\n    } = createHeaders(props, {\r\n      groupBy,\r\n      showSelect: toRef(props, 'showSelect'),\r\n      showExpand: toRef(props, 'showExpand')\r\n    });\r\n    const {\r\n      items\r\n    } = useDataTableItems(props, columns);\r\n    const search = toRef(props, 'search');\r\n    const {\r\n      filteredItems\r\n    } = useFilter(props, items, search, {\r\n      transform: item => item.columns,\r\n      customKeyFilter: filterFunctions\r\n    });\r\n    const {\r\n      toggleSort\r\n    } = provideSort({\r\n      sortBy,\r\n      multiSort,\r\n      mustSort\r\n    });\r\n    const {\r\n      sortByWithGroups,\r\n      opened,\r\n      extractRows,\r\n      isGroupOpen,\r\n      toggleGroup\r\n    } = provideGroupBy({\r\n      groupBy,\r\n      sortBy\r\n    });\r\n    const {\r\n      sortedItems\r\n    } = useSortedItems(props, filteredItems, sortByWithGroups, sortFunctions, sortRawFunctions);\r\n    const {\r\n      flatItems\r\n    } = useGroupedItems(sortedItems, groupBy, opened);\r\n    const allItems = computed(() => extractRows(flatItems.value));\r\n    const {\r\n      isSelected,\r\n      select,\r\n      selectAll,\r\n      toggleSelect,\r\n      someSelected,\r\n      allSelected\r\n    } = provideSelection(props, {\r\n      allItems,\r\n      currentPage: allItems\r\n    });\r\n    const {\r\n      isExpanded,\r\n      toggleExpand\r\n    } = provideExpanded(props);\r\n    const {\r\n      containerRef,\r\n      markerRef,\r\n      paddingTop,\r\n      paddingBottom,\r\n      computedItems,\r\n      handleItemResize,\r\n      handleScroll,\r\n      handleScrollend\r\n    } = useVirtual(props, flatItems);\r\n    const displayItems = computed(() => computedItems.value.map(item => item.raw));\r\n    useOptions({\r\n      sortBy,\r\n      page: shallowRef(1),\r\n      itemsPerPage: shallowRef(-1),\r\n      groupBy,\r\n      search\r\n    });\r\n    provideDefaults({\r\n      VDataTableRows: {\r\n        hideNoData: toRef(props, 'hideNoData'),\r\n        noDataText: toRef(props, 'noDataText'),\r\n        loading: toRef(props, 'loading'),\r\n        loadingText: toRef(props, 'loadingText')\r\n      }\r\n    });\r\n    const slotProps = computed(() => ({\r\n      sortBy: sortBy.value,\r\n      toggleSort,\r\n      someSelected: someSelected.value,\r\n      allSelected: allSelected.value,\r\n      isSelected,\r\n      select,\r\n      selectAll,\r\n      toggleSelect,\r\n      isExpanded,\r\n      toggleExpand,\r\n      isGroupOpen,\r\n      toggleGroup,\r\n      items: allItems.value.map(item => item.raw),\r\n      internalItems: allItems.value,\r\n      groupedItems: flatItems.value,\r\n      columns: columns.value,\r\n      headers: headers.value\r\n    }));\r\n    useRender(() => {\r\n      const dataTableHeadersProps = VDataTableHeaders.filterProps(props);\r\n      const dataTableRowsProps = VDataTableRows.filterProps(props);\r\n      const tableProps = VTable.filterProps(props);\r\n      return _createVNode(VTable, _mergeProps({\r\n        \"class\": ['v-data-table', {\r\n          'v-data-table--loading': props.loading\r\n        }, props.class],\r\n        \"style\": props.style\r\n      }, tableProps), {\r\n        top: () => slots.top?.(slotProps.value),\r\n        wrapper: () => _createVNode(\"div\", {\r\n          \"ref\": containerRef,\r\n          \"onScrollPassive\": handleScroll,\r\n          \"onScrollend\": handleScrollend,\r\n          \"class\": \"v-table__wrapper\",\r\n          \"style\": {\r\n            height: convertToUnit(props.height)\r\n          }\r\n        }, [_createVNode(\"table\", null, [slots.colgroup?.(slotProps.value), _createVNode(\"thead\", null, [_createVNode(VDataTableHeaders, _mergeProps(dataTableHeadersProps, {\r\n          \"sticky\": props.fixedHeader\r\n        }), slots)]), _createVNode(\"tbody\", null, [_createVNode(\"tr\", {\r\n          \"ref\": markerRef,\r\n          \"style\": {\r\n            height: convertToUnit(paddingTop.value),\r\n            border: 0\r\n          }\r\n        }, [_createVNode(\"td\", {\r\n          \"colspan\": columns.value.length,\r\n          \"style\": {\r\n            height: 0,\r\n            border: 0\r\n          }\r\n        }, null)]), slots['body.prepend']?.(slotProps.value), _createVNode(VDataTableRows, _mergeProps(attrs, dataTableRowsProps, {\r\n          \"items\": displayItems.value\r\n        }), {\r\n          ...slots,\r\n          item: itemSlotProps => _createVNode(VVirtualScrollItem, {\r\n            \"key\": itemSlotProps.internalItem.index,\r\n            \"renderless\": true,\r\n            \"onUpdate:height\": height => handleItemResize(itemSlotProps.internalItem.index, height)\r\n          }, {\r\n            default: _ref2 => {\r\n              let {\r\n                itemRef\r\n              } = _ref2;\r\n              return slots.item?.({\r\n                ...itemSlotProps,\r\n                itemRef\r\n              }) ?? _createVNode(VDataTableRow, _mergeProps(itemSlotProps.props, {\r\n                \"ref\": itemRef,\r\n                \"key\": itemSlotProps.internalItem.index,\r\n                \"index\": itemSlotProps.internalItem.index\r\n              }), slots);\r\n            }\r\n          })\r\n        }), slots['body.append']?.(slotProps.value), _createVNode(\"tr\", {\r\n          \"style\": {\r\n            height: convertToUnit(paddingBottom.value),\r\n            border: 0\r\n          }\r\n        }, [_createVNode(\"td\", {\r\n          \"colspan\": columns.value.length,\r\n          \"style\": {\r\n            height: 0,\r\n            border: 0\r\n          }\r\n        }, null)])])])]),\r\n        bottom: () => slots.bottom?.(slotProps.value)\r\n      });\r\n    });\r\n  }\r\n});\r\n//# sourceMappingURL=VDataTableVirtual.mjs.map",
+      "start": 1756118027114,
+      "end": 1756118027333,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118027333,
+      "end": 1756118027333,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027333,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118027334,
+      "end": 1756118027334,
+      "order": "normal"
+    }
+  ]
+}

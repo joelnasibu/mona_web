@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerSwatches.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VColorPickerSwatches.css\";\r\n\r\n// Components\r\nimport { VIcon } from \"../VIcon/index.mjs\"; // Composables\r\nimport { makeComponentProps } from \"../../composables/component.mjs\"; // Utilities\r\nimport { convertToUnit, deepEqual, defineComponent, getContrast, parseColor, propsFactory, RGBtoCSS, RGBtoHSV, useRender } from \"../../util/index.mjs\";\r\nimport colors from \"../../util/colors.mjs\"; // Types\r\nexport const makeVColorPickerSwatchesProps = propsFactory({\r\n  swatches: {\r\n    type: Array,\r\n    default: () => parseDefaultColors(colors)\r\n  },\r\n  disabled: Boolean,\r\n  color: Object,\r\n  maxHeight: [Number, String],\r\n  ...makeComponentProps()\r\n}, 'VColorPickerSwatches');\r\nfunction parseDefaultColors(colors) {\r\n  return Object.keys(colors).map(key => {\r\n    const color = colors[key];\r\n    return color.base ? [color.base, color.darken4, color.darken3, color.darken2, color.darken1, color.lighten1, color.lighten2, color.lighten3, color.lighten4, color.lighten5] : [color.black, color.white, color.transparent];\r\n  });\r\n}\r\nexport const VColorPickerSwatches = defineComponent({\r\n  name: 'VColorPickerSwatches',\r\n  props: makeVColorPickerSwatchesProps(),\r\n  emits: {\r\n    'update:color': color => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      emit\r\n    } = _ref;\r\n    useRender(() => _createVNode(\"div\", {\r\n      \"class\": ['v-color-picker-swatches', props.class],\r\n      \"style\": [{\r\n        maxHeight: convertToUnit(props.maxHeight)\r\n      }, props.style]\r\n    }, [_createVNode(\"div\", null, [props.swatches.map(swatch => _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-swatches__swatch\"\r\n    }, [swatch.map(color => {\r\n      const rgba = parseColor(color);\r\n      const hsva = RGBtoHSV(rgba);\r\n      const background = RGBtoCSS(rgba);\r\n      return _createVNode(\"div\", {\r\n        \"class\": \"v-color-picker-swatches__color\",\r\n        \"onClick\": () => hsva && emit('update:color', hsva)\r\n      }, [_createVNode(\"div\", {\r\n        \"style\": {\r\n          background\r\n        }\r\n      }, [props.color && deepEqual(props.color, hsva) ? _createVNode(VIcon, {\r\n        \"size\": \"x-small\",\r\n        \"icon\": \"$success\",\r\n        \"color\": getContrast(color, '#FFFFFF') > 2 ? 'white' : 'black'\r\n      }, null) : undefined])]);\r\n    })]))])]));\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VColorPickerSwatches.mjs.map",
+      "start": 1756117968242,
+      "end": 1756117968477,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968477,
+      "end": 1756117968477,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968477,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117968478,
+      "end": 1756117968478,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/app.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <CoreSnackbar :payload=\"snackbar\" />\r\n  <NuxtLoadingIndicator :height=\"4\" :throttle=\"0\" color=\"#9767fe\" />\r\n  <NuxtLayout>\r\n    <NuxtPage />\r\n  </NuxtLayout>\r\n</template>\r\n\r\n<script setup>\r\nimport { useAppStore } from \"./store/app\";\r\nconst { snackbar } = storeToRefs(useAppStore());\r\n</script>\r\n",
+      "start": 1756117936203,
+      "end": 1756117937221,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117937222,
+      "end": 1756117937222,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport { useAppStore } from \"./store/app\";\r\n\nconst _sfc_main = {\n  __name: 'app',\n  setup(__props) {\n\r\nconst { snackbar } = storeToRefs(useAppStore());\r\n\nreturn (_ctx, _cache) => {\n  const _component_CoreSnackbar = _resolveComponent(\"CoreSnackbar\")\n  const _component_NuxtLoadingIndicator = _resolveComponent(\"NuxtLoadingIndicator\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_CoreSnackbar, { payload: _unref(snackbar) }, null, 8, [\"payload\"]),\n    _createVNode(_component_NuxtLoadingIndicator, {\n      height: 4,\n      throttle: 0,\n      color: \"#9767fe\"\n    }),\n    _createVNode(_component_NuxtLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_NuxtPage)\n      ]),\n      _: 1\n    })\n  ], 64))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117937222,
+      "end": 1756117937229,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117937229,
+      "end": 1756117937230,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117937230,
+      "end": 1756117937230,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117937230,
+      "end": 1756117937230,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117937230,
+      "end": 1756117937230,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport { useAppStore } from \"./store/app\";\r\n\nconst _sfc_main = {\n  __name: 'app',\n  setup(__props) {\n\r\nconst { snackbar } = storeToRefs(useAppStore());\r\n\nreturn (_ctx, _cache) => {\n  const _component_CoreSnackbar = _resolveComponent(\"CoreSnackbar\")\n  const _component_NuxtLoadingIndicator = _resolveComponent(\"NuxtLoadingIndicator\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_CoreSnackbar, { payload: _unref(snackbar) }, null, 8, [\"payload\"]),\n    _createVNode(_component_NuxtLoadingIndicator, {\n      height: 4,\n      throttle: 0,\n      color: \"#9767fe\"\n    }),\n    _createVNode(_component_NuxtLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_NuxtPage)\n      ]),\n      _: 1\n    })\n  ], 64))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117937230,
+      "end": 1756117937230,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117937231,
+      "end": 1756117937231,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { storeToRefs } from 'C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@pinia/nuxt/dist/runtime/composables';\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport { useAppStore } from \"./store/app\";\r\n\nconst _sfc_main = {\n  __name: 'app',\n  setup(__props) {\n\r\nconst { snackbar } = storeToRefs(useAppStore());\r\n\nreturn (_ctx, _cache) => {\n  const _component_CoreSnackbar = _resolveComponent(\"CoreSnackbar\")\n  const _component_NuxtLoadingIndicator = _resolveComponent(\"NuxtLoadingIndicator\")\n  const _component_NuxtPage = _resolveComponent(\"NuxtPage\")\n  const _component_NuxtLayout = _resolveComponent(\"NuxtLayout\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_CoreSnackbar, { payload: _unref(snackbar) }, null, 8, [\"payload\"]),\n    _createVNode(_component_NuxtLoadingIndicator, {\n      height: 4,\n      throttle: 0,\n      color: \"#9767fe\"\n    }),\n    _createVNode(_component_NuxtLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_NuxtPage)\n      ]),\n      _: 1\n    })\n  ], 64))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117937232,
+      "end": 1756117937235,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAExN,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAE1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEhD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAE9D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9F,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACR,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACR;AACA;;AAEA;;;;AAIA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117937235,
+      "end": 1756117937235,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117937235,
+      "end": 1756117937235,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117937235,
+      "end": 1756117937235,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117937235,
+      "end": 1756117937235,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/components/core/snackbar.vue\";\nimport { default as __nuxt_component_1 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt/dist/app/components/nuxt-loading-indicator\";\nimport { default as __nuxt_component_2 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt/dist/pages/runtime/page\";\nimport { default as __nuxt_component_3 } from \"C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/nuxt/dist/app/components/nuxt-layout\";\nimport { storeToRefs } from 'C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@pinia/nuxt/dist/runtime/composables';\nimport { unref as _unref, resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nimport { useAppStore } from \"./store/app\";\r\n\nconst _sfc_main = {\n  __name: 'app',\n  setup(__props) {\n\r\nconst { snackbar } = storeToRefs(useAppStore());\r\n\nreturn (_ctx, _cache) => {\n  const _component_CoreSnackbar = __nuxt_component_0\n  const _component_NuxtLoadingIndicator = __nuxt_component_1\n  const _component_NuxtPage = __nuxt_component_2\n  const _component_NuxtLayout = __nuxt_component_3\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_CoreSnackbar, { payload: _unref(snackbar) }, null, 8, [\"payload\"]),\n    _createVNode(_component_NuxtLoadingIndicator, {\n      height: 4,\n      throttle: 0,\n      color: \"#9767fe\"\n    }),\n    _createVNode(_component_NuxtLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_NuxtPage)\n      ]),\n      _: 1\n    })\n  ], 64))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756117937235,
+      "end": 1756117937237,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117937237,
+      "end": 1756117937237,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117937237,
+      "end": 1756117937237,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117937237,
+      "end": 1756117937237,
+      "order": "normal"
+    }
+  ]
+}

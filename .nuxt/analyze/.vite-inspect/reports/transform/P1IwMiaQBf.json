@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/composables/form.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Composables\r\nimport { useProxiedModel } from \"./proxiedModel.mjs\"; // Utilities\r\nimport { computed, inject, provide, ref, shallowRef, toRef, watch } from 'vue';\r\nimport { consoleWarn, propsFactory } from \"../util/index.mjs\"; // Types\r\nexport const FormKey = Symbol.for('vuetify:form');\r\nexport const makeFormProps = propsFactory({\r\n  disabled: Boolean,\r\n  fastFail: Boolean,\r\n  readonly: Boolean,\r\n  modelValue: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  validateOn: {\r\n    type: String,\r\n    default: 'input'\r\n  }\r\n}, 'form');\r\nexport function createForm(props) {\r\n  const model = useProxiedModel(props, 'modelValue');\r\n  const isDisabled = computed(() => props.disabled);\r\n  const isReadonly = computed(() => props.readonly);\r\n  const isValidating = shallowRef(false);\r\n  const items = ref([]);\r\n  const errors = ref([]);\r\n  async function validate() {\r\n    const results = [];\r\n    let valid = true;\r\n    errors.value = [];\r\n    isValidating.value = true;\r\n    for (const item of items.value) {\r\n      const itemErrorMessages = await item.validate();\r\n      if (itemErrorMessages.length > 0) {\r\n        valid = false;\r\n        results.push({\r\n          id: item.id,\r\n          errorMessages: itemErrorMessages\r\n        });\r\n      }\r\n      if (!valid && props.fastFail) break;\r\n    }\r\n    errors.value = results;\r\n    isValidating.value = false;\r\n    return {\r\n      valid,\r\n      errors: errors.value\r\n    };\r\n  }\r\n  function reset() {\r\n    items.value.forEach(item => item.reset());\r\n  }\r\n  function resetValidation() {\r\n    items.value.forEach(item => item.resetValidation());\r\n  }\r\n  watch(items, () => {\r\n    let valid = 0;\r\n    let invalid = 0;\r\n    const results = [];\r\n    for (const item of items.value) {\r\n      if (item.isValid === false) {\r\n        invalid++;\r\n        results.push({\r\n          id: item.id,\r\n          errorMessages: item.errorMessages\r\n        });\r\n      } else if (item.isValid === true) valid++;\r\n    }\r\n    errors.value = results;\r\n    model.value = invalid > 0 ? false : valid === items.value.length ? true : null;\r\n  }, {\r\n    deep: true\r\n  });\r\n  provide(FormKey, {\r\n    register: _ref => {\r\n      let {\r\n        id,\r\n        validate,\r\n        reset,\r\n        resetValidation\r\n      } = _ref;\r\n      if (items.value.some(item => item.id === id)) {\r\n        consoleWarn(`Duplicate input name \"${id}\"`);\r\n      }\r\n      items.value.push({\r\n        id,\r\n        validate,\r\n        reset,\r\n        resetValidation,\r\n        isValid: null,\r\n        errorMessages: []\r\n      });\r\n    },\r\n    unregister: id => {\r\n      items.value = items.value.filter(item => {\r\n        return item.id !== id;\r\n      });\r\n    },\r\n    update: (id, isValid, errorMessages) => {\r\n      const found = items.value.find(item => item.id === id);\r\n      if (!found) return;\r\n      found.isValid = isValid;\r\n      found.errorMessages = errorMessages;\r\n    },\r\n    isDisabled,\r\n    isReadonly,\r\n    isValidating,\r\n    isValid: model,\r\n    items,\r\n    validateOn: toRef(props, 'validateOn')\r\n  });\r\n  return {\r\n    errors,\r\n    isDisabled,\r\n    isReadonly,\r\n    isValidating,\r\n    isValid: model,\r\n    items,\r\n    validate,\r\n    reset,\r\n    resetValidation\r\n  };\r\n}\r\nexport function useForm() {\r\n  return inject(FormKey, null);\r\n}\r\n//# sourceMappingURL=form.mjs.map",
+      "start": 1756117963556,
+      "end": 1756117963871,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117963871,
+      "end": 1756117963871,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117963871,
+      "end": 1756117963871,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117963871,
+      "end": 1756117963871,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117963871,
+      "end": 1756117963871,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117963871,
+      "end": 1756117963871,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117963872,
+      "end": 1756117963872,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117963872,
+      "end": 1756117963872,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117963872,
+      "end": 1756117963872,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117963872,
+      "end": 1756117963872,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117963872,
+      "end": 1756117963872,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117963872,
+      "end": 1756117963872,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117963872,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117963873,
+      "end": 1756117963873,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117963873,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117963874,
+      "end": 1756117963874,
+      "order": "normal"
+    }
+  ]
+}

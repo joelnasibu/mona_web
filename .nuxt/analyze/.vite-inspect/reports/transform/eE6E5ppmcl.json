@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/lt/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const translations = {\r\n  xseconds_other: \"sekundė_sekundžių_sekundes\",\r\n  xminutes_one: \"minutė_minutės_minutę\",\r\n  xminutes_other: \"minutės_minučių_minutes\",\r\n  xhours_one: \"valanda_valandos_valandą\",\r\n  xhours_other: \"valandos_valandų_valandas\",\r\n  xdays_one: \"diena_dienos_dieną\",\r\n  xdays_other: \"dienos_dienų_dienas\",\r\n  xweeks_one: \"savaitė_savaitės_savaitę\",\r\n  xweeks_other: \"savaitės_savaičių_savaites\",\r\n  xmonths_one: \"mėnuo_mėnesio_mėnesį\",\r\n  xmonths_other: \"mėnesiai_mėnesių_mėnesius\",\r\n  xyears_one: \"metai_metų_metus\",\r\n  xyears_other: \"metai_metų_metus\",\r\n  about: \"apie\",\r\n  over: \"daugiau nei\",\r\n  almost: \"beveik\",\r\n  lessthan: \"mažiau nei\",\r\n};\r\n\r\nconst translateSeconds = (_number, addSuffix, _key, isFuture) => {\r\n  if (!addSuffix) {\r\n    return \"kelios sekundės\";\r\n  } else {\r\n    return isFuture ? \"kelių sekundžių\" : \"kelias sekundes\";\r\n  }\r\n};\r\n\r\nconst translateSingular = (_number, addSuffix, key, isFuture) => {\r\n  return !addSuffix ? forms(key)[0] : isFuture ? forms(key)[1] : forms(key)[2];\r\n};\r\n\r\nconst translate = (number, addSuffix, key, isFuture) => {\r\n  const result = number + \" \";\r\n  if (number === 1) {\r\n    return result + translateSingular(number, addSuffix, key, isFuture);\r\n  } else if (!addSuffix) {\r\n    return result + (special(number) ? forms(key)[1] : forms(key)[0]);\r\n  } else {\r\n    if (isFuture) {\r\n      return result + forms(key)[1];\r\n    } else {\r\n      return result + (special(number) ? forms(key)[1] : forms(key)[2]);\r\n    }\r\n  }\r\n};\r\n\r\nfunction special(number) {\r\n  return number % 10 === 0 || (number > 10 && number < 20);\r\n}\r\n\r\nfunction forms(key) {\r\n  return translations[key].split(\"_\");\r\n}\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: translateSeconds,\r\n    other: translate,\r\n  },\r\n\r\n  xSeconds: {\r\n    one: translateSeconds,\r\n    other: translate,\r\n  },\r\n\r\n  halfAMinute: \"pusė minutės\",\r\n\r\n  lessThanXMinutes: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  xMinutes: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  xHours: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  xDays: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  xWeeks: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  xMonths: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  xYears: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  overXYears: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n\r\n  almostXYears: {\r\n    one: translateSingular,\r\n    other: translate,\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const adverb = token.match(/about|over|almost|lessthan/i);\r\n  const unit = adverb ? token.replace(adverb[0], \"\") : token;\r\n\r\n  const isFuture = options?.comparison !== undefined && options.comparison > 0;\r\n\r\n  let result;\r\n\r\n  const tokenValue = formatDistanceLocale[token];\r\n  if (typeof tokenValue === \"string\") {\r\n    result = tokenValue;\r\n  } else if (count === 1) {\r\n    result = tokenValue.one(\r\n      count,\r\n      options?.addSuffix === true,\r\n      unit.toLowerCase() + \"_one\",\r\n      isFuture,\r\n    );\r\n  } else {\r\n    result = tokenValue.other(\r\n      count,\r\n      options?.addSuffix === true,\r\n      unit.toLowerCase() + \"_other\",\r\n      isFuture,\r\n    );\r\n  }\r\n\r\n  if (adverb) {\r\n    const key = adverb[0].toLowerCase();\r\n    result = translations[key] + \" \" + result;\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return \"po \" + result;\r\n    } else {\r\n      return \"prieš \" + result;\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756117966307,
+      "end": 1756117966393,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117966393,
+      "end": 1756117966393,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117966393,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117966394,
+      "end": 1756117966394,
+      "order": "normal"
+    }
+  ]
+}

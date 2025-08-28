@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/zh-CN/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: \"不到 1 秒\",\r\n    other: \"不到 {{count}} 秒\",\r\n  },\r\n\r\n  xSeconds: {\r\n    one: \"1 秒\",\r\n    other: \"{{count}} 秒\",\r\n  },\r\n\r\n  halfAMinute: \"半分钟\",\r\n\r\n  lessThanXMinutes: {\r\n    one: \"不到 1 分钟\",\r\n    other: \"不到 {{count}} 分钟\",\r\n  },\r\n\r\n  xMinutes: {\r\n    one: \"1 分钟\",\r\n    other: \"{{count}} 分钟\",\r\n  },\r\n\r\n  xHours: {\r\n    one: \"1 小时\",\r\n    other: \"{{count}} 小时\",\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: \"大约 1 小时\",\r\n    other: \"大约 {{count}} 小时\",\r\n  },\r\n\r\n  xDays: {\r\n    one: \"1 天\",\r\n    other: \"{{count}} 天\",\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: \"大约 1 个星期\",\r\n    other: \"大约 {{count}} 个星期\",\r\n  },\r\n\r\n  xWeeks: {\r\n    one: \"1 个星期\",\r\n    other: \"{{count}} 个星期\",\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: \"大约 1 个月\",\r\n    other: \"大约 {{count}} 个月\",\r\n  },\r\n\r\n  xMonths: {\r\n    one: \"1 个月\",\r\n    other: \"{{count}} 个月\",\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: \"大约 1 年\",\r\n    other: \"大约 {{count}} 年\",\r\n  },\r\n\r\n  xYears: {\r\n    one: \"1 年\",\r\n    other: \"{{count}} 年\",\r\n  },\r\n\r\n  overXYears: {\r\n    one: \"超过 1 年\",\r\n    other: \"超过 {{count}} 年\",\r\n  },\r\n\r\n  almostXYears: {\r\n    one: \"将近 1 年\",\r\n    other: \"将近 {{count}} 年\",\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  let result;\r\n\r\n  const tokenValue = formatDistanceLocale[token];\r\n  if (typeof tokenValue === \"string\") {\r\n    result = tokenValue;\r\n  } else if (count === 1) {\r\n    result = tokenValue.one;\r\n  } else {\r\n    result = tokenValue.other.replace(\"{{count}}\", String(count));\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return result + \"内\";\r\n    } else {\r\n      return result + \"前\";\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756117966978,
+      "end": 1756117967053,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117967053,
+      "end": 1756117967053,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117967053,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117967054,
+      "end": 1756117967054,
+      "order": "normal"
+    }
+  ]
+}

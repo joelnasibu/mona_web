@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VColorPicker/VColorPickerPreview.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VColorPickerPreview.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VSlider } from \"../VSlider/index.mjs\"; // Composables\r\nimport { makeComponentProps } from \"../../composables/component.mjs\"; // Utilities\r\nimport { onUnmounted } from 'vue';\r\nimport { nullColor } from \"./util/index.mjs\";\r\nimport { defineComponent, HexToHSV, HSVtoCSS, propsFactory, SUPPORTS_EYE_DROPPER, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVColorPickerPreviewProps = propsFactory({\r\n  color: {\r\n    type: Object\r\n  },\r\n  disabled: Boolean,\r\n  hideAlpha: Boolean,\r\n  ...makeComponentProps()\r\n}, 'VColorPickerPreview');\r\nexport const VColorPickerPreview = defineComponent({\r\n  name: 'VColorPickerPreview',\r\n  props: makeVColorPickerPreviewProps(),\r\n  emits: {\r\n    'update:color': color => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      emit\r\n    } = _ref;\r\n    const abortController = new AbortController();\r\n    onUnmounted(() => abortController.abort());\r\n    async function openEyeDropper() {\r\n      if (!SUPPORTS_EYE_DROPPER) return;\r\n      const eyeDropper = new window.EyeDropper();\r\n      try {\r\n        const result = await eyeDropper.open({\r\n          signal: abortController.signal\r\n        });\r\n        const colorHexValue = HexToHSV(result.sRGBHex);\r\n        emit('update:color', {\r\n          ...(props.color ?? nullColor),\r\n          ...colorHexValue\r\n        });\r\n      } catch (e) {}\r\n    }\r\n    useRender(() => _createVNode(\"div\", {\r\n      \"class\": ['v-color-picker-preview', {\r\n        'v-color-picker-preview--hide-alpha': props.hideAlpha\r\n      }, props.class],\r\n      \"style\": props.style\r\n    }, [SUPPORTS_EYE_DROPPER && _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-preview__eye-dropper\",\r\n      \"key\": \"eyeDropper\"\r\n    }, [_createVNode(VBtn, {\r\n      \"onClick\": openEyeDropper,\r\n      \"icon\": \"$eyeDropper\",\r\n      \"variant\": \"plain\",\r\n      \"density\": \"comfortable\"\r\n    }, null)]), _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-preview__dot\"\r\n    }, [_createVNode(\"div\", {\r\n      \"style\": {\r\n        background: HSVtoCSS(props.color ?? nullColor)\r\n      }\r\n    }, null)]), _createVNode(\"div\", {\r\n      \"class\": \"v-color-picker-preview__sliders\"\r\n    }, [_createVNode(VSlider, {\r\n      \"class\": \"v-color-picker-preview__track v-color-picker-preview__hue\",\r\n      \"modelValue\": props.color?.h,\r\n      \"onUpdate:modelValue\": h => emit('update:color', {\r\n        ...(props.color ?? nullColor),\r\n        h\r\n      }),\r\n      \"step\": 0,\r\n      \"min\": 0,\r\n      \"max\": 360,\r\n      \"disabled\": props.disabled,\r\n      \"thumbSize\": 14,\r\n      \"trackSize\": 8,\r\n      \"trackFillColor\": \"white\",\r\n      \"hideDetails\": true\r\n    }, null), !props.hideAlpha && _createVNode(VSlider, {\r\n      \"class\": \"v-color-picker-preview__track v-color-picker-preview__alpha\",\r\n      \"modelValue\": props.color?.a ?? 1,\r\n      \"onUpdate:modelValue\": a => emit('update:color', {\r\n        ...(props.color ?? nullColor),\r\n        a\r\n      }),\r\n      \"step\": 1 / 256,\r\n      \"min\": 0,\r\n      \"max\": 1,\r\n      \"disabled\": props.disabled,\r\n      \"thumbSize\": 14,\r\n      \"trackSize\": 8,\r\n      \"trackFillColor\": \"white\",\r\n      \"hideDetails\": true\r\n    }, null)])]));\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VColorPickerPreview.mjs.map",
+      "start": 1756117968228,
+      "end": 1756117968440,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968440,
+      "end": 1756117968440,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968440,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117968441,
+      "end": 1756117968441,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117968441,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117968448,
+      "end": 1756117968448,
+      "order": "normal"
+    }
+  ]
+}

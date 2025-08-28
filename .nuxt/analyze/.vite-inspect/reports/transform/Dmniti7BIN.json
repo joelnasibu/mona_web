@@ -1,0 +1,225 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/constants.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\nexports.DEFAULT_HEADERS = void 0;\r\nconst version_1 = require(\"./version\");\r\nexports.DEFAULT_HEADERS = { 'X-Client-Info': `postgrest-js/${version_1.version}` };\r\n//# sourceMappingURL=constants.js.map",
+      "start": 1756117968783,
+      "end": 1756117968981,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968981,
+      "end": 1756117968981,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968981,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968982,
+      "end": 1756117968982,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as constants } from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/constants.js?commonjs-exports\";\nimport require$$0 from \"\\u0000C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@supabase/postgrest-js/dist/cjs/version.js?commonjs-proxy\";\n\n\"use strict\";\r\nObject.defineProperty(constants, \"__esModule\", { value: true });\r\nvar DEFAULT_HEADERS = constants.DEFAULT_HEADERS = void 0;\r\nconst version_1 = require$$0;\r\nDEFAULT_HEADERS = constants.DEFAULT_HEADERS = { 'X-Client-Info': `postgrest-js/${version_1.version}` };\r\n//# sourceMappingURL=constants.js.map\n\nexport { constants as __moduleExports, DEFAULT_HEADERS, constants as default };",
+      "start": 1756117968982,
+      "end": 1756117969087,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;;AAAA,YAAY,CAAC;AACb,MAAM,CAAC,cAAc,CAAC,SAAO,EAAE,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;AAC9D,+CAAuB,GAAG,KAAK,CAAC,CAAC;AACjC,MAAM,SAAS,GAAG,UAAoB,CAAC;AACvC,2CAAuB,GAAG,EAAE,eAAe,EAAE,CAAC,aAAa,EAAE,SAAS,CAAC,OAAO,CAAC,CAAC,EAAE,CAAC;AACnF"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117969087,
+      "end": 1756117969087,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117969087,
+      "end": 1756117969087,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117969087,
+      "end": 1756117969087,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117969087,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117969088,
+      "end": 1756117969088,
+      "order": "normal"
+    }
+  ]
+}

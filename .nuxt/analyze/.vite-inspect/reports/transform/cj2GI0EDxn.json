@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/composables/forwardRefs.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Types\r\n\r\nconst Refs = Symbol('Forwarded refs');\r\n\r\n/** Omit properties starting with P */\r\n\r\nfunction getDescriptor(obj, key) {\r\n  let currentObj = obj;\r\n  while (currentObj) {\r\n    const descriptor = Reflect.getOwnPropertyDescriptor(currentObj, key);\r\n    if (descriptor) return descriptor;\r\n    currentObj = Object.getPrototypeOf(currentObj);\r\n  }\r\n  return undefined;\r\n}\r\nexport function forwardRefs(target) {\r\n  for (var _len = arguments.length, refs = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {\r\n    refs[_key - 1] = arguments[_key];\r\n  }\r\n  target[Refs] = refs;\r\n  return new Proxy(target, {\r\n    get(target, key) {\r\n      if (Reflect.has(target, key)) {\r\n        return Reflect.get(target, key);\r\n      }\r\n\r\n      // Skip internal properties\r\n      if (typeof key === 'symbol' || key.startsWith('$') || key.startsWith('__')) return;\r\n      for (const ref of refs) {\r\n        if (ref.value && Reflect.has(ref.value, key)) {\r\n          const val = Reflect.get(ref.value, key);\r\n          return typeof val === 'function' ? val.bind(ref.value) : val;\r\n        }\r\n      }\r\n    },\r\n    has(target, key) {\r\n      if (Reflect.has(target, key)) {\r\n        return true;\r\n      }\r\n\r\n      // Skip internal properties\r\n      if (typeof key === 'symbol' || key.startsWith('$') || key.startsWith('__')) return false;\r\n      for (const ref of refs) {\r\n        if (ref.value && Reflect.has(ref.value, key)) {\r\n          return true;\r\n        }\r\n      }\r\n      return false;\r\n    },\r\n    set(target, key, value) {\r\n      if (Reflect.has(target, key)) {\r\n        return Reflect.set(target, key, value);\r\n      }\r\n\r\n      // Skip internal properties\r\n      if (typeof key === 'symbol' || key.startsWith('$') || key.startsWith('__')) return false;\r\n      for (const ref of refs) {\r\n        if (ref.value && Reflect.has(ref.value, key)) {\r\n          return Reflect.set(ref.value, key, value);\r\n        }\r\n      }\r\n      return false;\r\n    },\r\n    getOwnPropertyDescriptor(target, key) {\r\n      const descriptor = Reflect.getOwnPropertyDescriptor(target, key);\r\n      if (descriptor) return descriptor;\r\n\r\n      // Skip internal properties\r\n      if (typeof key === 'symbol' || key.startsWith('$') || key.startsWith('__')) return;\r\n\r\n      // Check each ref's own properties\r\n      for (const ref of refs) {\r\n        if (!ref.value) continue;\r\n        const descriptor = getDescriptor(ref.value, key) ?? ('_' in ref.value ? getDescriptor(ref.value._?.setupState, key) : undefined);\r\n        if (descriptor) return descriptor;\r\n      }\r\n\r\n      // Recursive search up each ref's prototype\r\n      for (const ref of refs) {\r\n        const childRefs = ref.value && ref.value[Refs];\r\n        if (!childRefs) continue;\r\n        const queue = childRefs.slice();\r\n        while (queue.length) {\r\n          const ref = queue.shift();\r\n          const descriptor = getDescriptor(ref.value, key);\r\n          if (descriptor) return descriptor;\r\n          const childRefs = ref.value && ref.value[Refs];\r\n          if (childRefs) queue.push(...childRefs);\r\n        }\r\n      }\r\n      return undefined;\r\n    }\r\n  });\r\n}\r\n//# sourceMappingURL=forwardRefs.mjs.map",
+      "start": 1756117963494,
+      "end": 1756117963666,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117963666,
+      "end": 1756117963666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117963666,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117963667,
+      "end": 1756117963667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117963667,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117963668,
+      "end": 1756117963668,
+      "order": "normal"
+    }
+  ]
+}

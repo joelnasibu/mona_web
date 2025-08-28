@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/date-fns/locale/sl/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function isPluralType(val) {\r\n  return val.one !== undefined;\r\n}\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    present: {\r\n      one: \"manj kot {{count}} sekunda\",\r\n      two: \"manj kot {{count}} sekundi\",\r\n      few: \"manj kot {{count}} sekunde\",\r\n      other: \"manj kot {{count}} sekund\",\r\n    },\r\n    past: {\r\n      one: \"manj kot {{count}} sekundo\",\r\n      two: \"manj kot {{count}} sekundama\",\r\n      few: \"manj kot {{count}} sekundami\",\r\n      other: \"manj kot {{count}} sekundami\",\r\n    },\r\n    future: {\r\n      one: \"manj kot {{count}} sekundo\",\r\n      two: \"manj kot {{count}} sekundi\",\r\n      few: \"manj kot {{count}} sekunde\",\r\n      other: \"manj kot {{count}} sekund\",\r\n    },\r\n  },\r\n\r\n  xSeconds: {\r\n    present: {\r\n      one: \"{{count}} sekunda\",\r\n      two: \"{{count}} sekundi\",\r\n      few: \"{{count}} sekunde\",\r\n      other: \"{{count}} sekund\",\r\n    },\r\n    past: {\r\n      one: \"{{count}} sekundo\",\r\n      two: \"{{count}} sekundama\",\r\n      few: \"{{count}} sekundami\",\r\n      other: \"{{count}} sekundami\",\r\n    },\r\n    future: {\r\n      one: \"{{count}} sekundo\",\r\n      two: \"{{count}} sekundi\",\r\n      few: \"{{count}} sekunde\",\r\n      other: \"{{count}} sekund\",\r\n    },\r\n  },\r\n\r\n  halfAMinute: \"pol minute\",\r\n\r\n  lessThanXMinutes: {\r\n    present: {\r\n      one: \"manj kot {{count}} minuta\",\r\n      two: \"manj kot {{count}} minuti\",\r\n      few: \"manj kot {{count}} minute\",\r\n      other: \"manj kot {{count}} minut\",\r\n    },\r\n    past: {\r\n      one: \"manj kot {{count}} minuto\",\r\n      two: \"manj kot {{count}} minutama\",\r\n      few: \"manj kot {{count}} minutami\",\r\n      other: \"manj kot {{count}} minutami\",\r\n    },\r\n    future: {\r\n      one: \"manj kot {{count}} minuto\",\r\n      two: \"manj kot {{count}} minuti\",\r\n      few: \"manj kot {{count}} minute\",\r\n      other: \"manj kot {{count}} minut\",\r\n    },\r\n  },\r\n\r\n  xMinutes: {\r\n    present: {\r\n      one: \"{{count}} minuta\",\r\n      two: \"{{count}} minuti\",\r\n      few: \"{{count}} minute\",\r\n      other: \"{{count}} minut\",\r\n    },\r\n    past: {\r\n      one: \"{{count}} minuto\",\r\n      two: \"{{count}} minutama\",\r\n      few: \"{{count}} minutami\",\r\n      other: \"{{count}} minutami\",\r\n    },\r\n    future: {\r\n      one: \"{{count}} minuto\",\r\n      two: \"{{count}} minuti\",\r\n      few: \"{{count}} minute\",\r\n      other: \"{{count}} minut\",\r\n    },\r\n  },\r\n\r\n  aboutXHours: {\r\n    present: {\r\n      one: \"približno {{count}} ura\",\r\n      two: \"približno {{count}} uri\",\r\n      few: \"približno {{count}} ure\",\r\n      other: \"približno {{count}} ur\",\r\n    },\r\n    past: {\r\n      one: \"približno {{count}} uro\",\r\n      two: \"približno {{count}} urama\",\r\n      few: \"približno {{count}} urami\",\r\n      other: \"približno {{count}} urami\",\r\n    },\r\n    future: {\r\n      one: \"približno {{count}} uro\",\r\n      two: \"približno {{count}} uri\",\r\n      few: \"približno {{count}} ure\",\r\n      other: \"približno {{count}} ur\",\r\n    },\r\n  },\r\n\r\n  xHours: {\r\n    present: {\r\n      one: \"{{count}} ura\",\r\n      two: \"{{count}} uri\",\r\n      few: \"{{count}} ure\",\r\n      other: \"{{count}} ur\",\r\n    },\r\n    past: {\r\n      one: \"{{count}} uro\",\r\n      two: \"{{count}} urama\",\r\n      few: \"{{count}} urami\",\r\n      other: \"{{count}} urami\",\r\n    },\r\n    future: {\r\n      one: \"{{count}} uro\",\r\n      two: \"{{count}} uri\",\r\n      few: \"{{count}} ure\",\r\n      other: \"{{count}} ur\",\r\n    },\r\n  },\r\n\r\n  xDays: {\r\n    present: {\r\n      one: \"{{count}} dan\",\r\n      two: \"{{count}} dni\",\r\n      few: \"{{count}} dni\",\r\n      other: \"{{count}} dni\",\r\n    },\r\n    past: {\r\n      one: \"{{count}} dnem\",\r\n      two: \"{{count}} dnevoma\",\r\n      few: \"{{count}} dnevi\",\r\n      other: \"{{count}} dnevi\",\r\n    },\r\n    future: {\r\n      one: \"{{count}} dan\",\r\n      two: \"{{count}} dni\",\r\n      few: \"{{count}} dni\",\r\n      other: \"{{count}} dni\",\r\n    },\r\n  },\r\n\r\n  // no tenses for weeks?\r\n  aboutXWeeks: {\r\n    one: \"približno {{count}} teden\",\r\n    two: \"približno {{count}} tedna\",\r\n    few: \"približno {{count}} tedne\",\r\n    other: \"približno {{count}} tednov\",\r\n  },\r\n\r\n  // no tenses for weeks?\r\n  xWeeks: {\r\n    one: \"{{count}} teden\",\r\n    two: \"{{count}} tedna\",\r\n    few: \"{{count}} tedne\",\r\n    other: \"{{count}} tednov\",\r\n  },\r\n\r\n  aboutXMonths: {\r\n    present: {\r\n      one: \"približno {{count}} mesec\",\r\n      two: \"približno {{count}} meseca\",\r\n      few: \"približno {{count}} mesece\",\r\n      other: \"približno {{count}} mesecev\",\r\n    },\r\n    past: {\r\n      one: \"približno {{count}} mesecem\",\r\n      two: \"približno {{count}} mesecema\",\r\n      few: \"približno {{count}} meseci\",\r\n      other: \"približno {{count}} meseci\",\r\n    },\r\n    future: {\r\n      one: \"približno {{count}} mesec\",\r\n      two: \"približno {{count}} meseca\",\r\n      few: \"približno {{count}} mesece\",\r\n      other: \"približno {{count}} mesecev\",\r\n    },\r\n  },\r\n\r\n  xMonths: {\r\n    present: {\r\n      one: \"{{count}} mesec\",\r\n      two: \"{{count}} meseca\",\r\n      few: \"{{count}} meseci\",\r\n      other: \"{{count}} mesecev\",\r\n    },\r\n    past: {\r\n      one: \"{{count}} mesecem\",\r\n      two: \"{{count}} mesecema\",\r\n      few: \"{{count}} meseci\",\r\n      other: \"{{count}} meseci\",\r\n    },\r\n    future: {\r\n      one: \"{{count}} mesec\",\r\n      two: \"{{count}} meseca\",\r\n      few: \"{{count}} mesece\",\r\n      other: \"{{count}} mesecev\",\r\n    },\r\n  },\r\n\r\n  aboutXYears: {\r\n    present: {\r\n      one: \"približno {{count}} leto\",\r\n      two: \"približno {{count}} leti\",\r\n      few: \"približno {{count}} leta\",\r\n      other: \"približno {{count}} let\",\r\n    },\r\n    past: {\r\n      one: \"približno {{count}} letom\",\r\n      two: \"približno {{count}} letoma\",\r\n      few: \"približno {{count}} leti\",\r\n      other: \"približno {{count}} leti\",\r\n    },\r\n    future: {\r\n      one: \"približno {{count}} leto\",\r\n      two: \"približno {{count}} leti\",\r\n      few: \"približno {{count}} leta\",\r\n      other: \"približno {{count}} let\",\r\n    },\r\n  },\r\n\r\n  xYears: {\r\n    present: {\r\n      one: \"{{count}} leto\",\r\n      two: \"{{count}} leti\",\r\n      few: \"{{count}} leta\",\r\n      other: \"{{count}} let\",\r\n    },\r\n    past: {\r\n      one: \"{{count}} letom\",\r\n      two: \"{{count}} letoma\",\r\n      few: \"{{count}} leti\",\r\n      other: \"{{count}} leti\",\r\n    },\r\n    future: {\r\n      one: \"{{count}} leto\",\r\n      two: \"{{count}} leti\",\r\n      few: \"{{count}} leta\",\r\n      other: \"{{count}} let\",\r\n    },\r\n  },\r\n\r\n  overXYears: {\r\n    present: {\r\n      one: \"več kot {{count}} leto\",\r\n      two: \"več kot {{count}} leti\",\r\n      few: \"več kot {{count}} leta\",\r\n      other: \"več kot {{count}} let\",\r\n    },\r\n    past: {\r\n      one: \"več kot {{count}} letom\",\r\n      two: \"več kot {{count}} letoma\",\r\n      few: \"več kot {{count}} leti\",\r\n      other: \"več kot {{count}} leti\",\r\n    },\r\n    future: {\r\n      one: \"več kot {{count}} leto\",\r\n      two: \"več kot {{count}} leti\",\r\n      few: \"več kot {{count}} leta\",\r\n      other: \"več kot {{count}} let\",\r\n    },\r\n  },\r\n\r\n  almostXYears: {\r\n    present: {\r\n      one: \"skoraj {{count}} leto\",\r\n      two: \"skoraj {{count}} leti\",\r\n      few: \"skoraj {{count}} leta\",\r\n      other: \"skoraj {{count}} let\",\r\n    },\r\n    past: {\r\n      one: \"skoraj {{count}} letom\",\r\n      two: \"skoraj {{count}} letoma\",\r\n      few: \"skoraj {{count}} leti\",\r\n      other: \"skoraj {{count}} leti\",\r\n    },\r\n    future: {\r\n      one: \"skoraj {{count}} leto\",\r\n      two: \"skoraj {{count}} leti\",\r\n      few: \"skoraj {{count}} leta\",\r\n      other: \"skoraj {{count}} let\",\r\n    },\r\n  },\r\n};\r\n\r\nfunction getFormFromCount(count) {\r\n  switch (count % 100) {\r\n    case 1:\r\n      return \"one\";\r\n    case 2:\r\n      return \"two\";\r\n    case 3:\r\n    case 4:\r\n      return \"few\";\r\n    default:\r\n      return \"other\";\r\n  }\r\n}\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  let result = \"\";\r\n  let tense = \"present\";\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      tense = \"future\";\r\n      result = \"čez \";\r\n    } else {\r\n      tense = \"past\";\r\n      result = \"pred \";\r\n    }\r\n  }\r\n\r\n  const tokenValue = formatDistanceLocale[token];\r\n\r\n  if (typeof tokenValue === \"string\") {\r\n    result += tokenValue;\r\n  } else {\r\n    const form = getFormFromCount(count);\r\n    if (isPluralType(tokenValue)) {\r\n      result += tokenValue[form].replace(\"{{count}}\", String(count));\r\n    } else {\r\n      result += tokenValue[tense][form].replace(\"{{count}}\", String(count));\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756117966667,
+      "end": 1756117966747,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117966747,
+      "end": 1756117966747,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117966747,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117966748,
+      "end": 1756117966748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117966748,
+      "end": 1756117966749,
+      "order": "normal"
+    }
+  ]
+}

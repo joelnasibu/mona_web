@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue?vue&type=style&index=0&scoped=39cf1478&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n",
+      "start": 1756118027444,
+      "end": 1756118027444,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue"
+        ],
+        "names": [],
+        "mappings": ";AAgEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACf;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <v-menu :activator=\"activator\" :close-on-content-click=\"false\" v-model=\"menu\">\r\n    <v-list class=\"pa-0 position-relative card-outlined rounded-lg ma-1\" max-height=\"250\" density=\"compact\"\r\n      lines=\"false\">\r\n      <div class=\"position-sticky bg-white text-caption\" v-if=\"list.length > 6\" style=\"top: 0; z-index: 1\">\r\n        <input type=\"search\" :placeholder=\"`Filter (${list.length}) items...`\" class=\"px-3 w-100 filter-input bg-card\"\r\n          autofocus v-model=\"search\" />\r\n        <v-divider></v-divider>\r\n      </div>\r\n      <div class=\"text-caption\" v-for=\"(item, i) in filteredList\" :key=\"i\">\r\n        <!-- emitting the activator because of job filters on jobs page(website) to retrieve the index -->\r\n        <v-list-item @click=\"setItem(item)\" :active=\"multiple ? listValue.includes(item) : listValue === item\"\r\n          color=\"secondary\">\r\n          <template v-slot:prepend>\r\n            <div v-if=\"multiple\" class=\"mr-3\">\r\n              <v-checkbox hide-details density=\"compact\" color=\"secondary\" v-model=\"checkboxValue\"\r\n                :value=\"item\"></v-checkbox>\r\n            </div>\r\n          </template>\r\n          <span>{{ item }}</span>\r\n        </v-list-item>\r\n        <v-divider></v-divider>\r\n      </div>\r\n      <div class=\"py-2 text-caption text-center\" v-if=\"filteredList.length === 0\">\r\n        <span>No data</span>\r\n      </div>\r\n    </v-list>\r\n  </v-menu>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  list: Array,\r\n  listValue: [String, Number, Array],\r\n  activator: String,\r\n  multiple: Boolean,\r\n});\r\nconst emits = defineEmits([\"setItem\"]);\r\n\r\nconst checkboxValue = computed({\r\n  get() {\r\n    return props.listValue;\r\n  },\r\n  set() {\r\n    emits(\"setItem\");\r\n  },\r\n});\r\n\r\nconst menu = ref(false);\r\nconst search = ref(\"\");\r\nconst filteredList = computed(() => {\r\n  return props.list.filter((val) => {\r\n    return val.toLowerCase().includes(search.value.toLowerCase());\r\n  });\r\n});\r\n\r\nconst setItem = (item) => {\r\n  emits(\"setItem\", item, props.activator);\r\n  if (!props.multiple) menu.value = false;\r\n  search.value = \"\"\r\n};\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027444,
+      "end": 1756118027444,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756118027444,
+      "end": 1756118027444,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027445,
+      "end": 1756118027445,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756118027445,
+      "end": 1756118027445,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756118027445,
+      "end": 1756118027445,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".filter-input:focus{border:none;outline:none}.filter-input{padding-block:8.5px}",
+      "start": 1756118027445,
+      "end": 1756118027453,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue",
+        "mappings": "AACA,oBACE,WAAY,CACZ,YACF,CAEA,cACE,mBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756118027454,
+      "end": 1756118027454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756118027454,
+      "end": 1756118027454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756118027454,
+      "end": 1756118027454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".filter-input[data-v-39cf1478]:focus{border:none;outline:none}.filter-input[data-v-39cf1478]{padding-block:8.5px}",
+      "start": 1756118027454,
+      "end": 1756118027456,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue",
+        "mappings": "AAAA,qCAAoB,WAAW,CAAC,YAAY,CAAC,+BAAc,mBAAmB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/components/admin/core/select.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756118027456,
+      "end": 1756118027456,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027456,
+      "end": 1756118027456,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027456,
+      "end": 1756118027456,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027456,
+      "end": 1756118027456,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756118027456,
+      "end": 1756118027456,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756118027456,
+      "end": 1756118027456,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756118027457,
+      "end": 1756118027457,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756118027457,
+      "end": 1756118027457,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756118027457,
+      "end": 1756118027460,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756118027460,
+      "end": 1756118027460,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756118027460,
+      "end": 1756118027460,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756118027460,
+      "end": 1756118027460,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756118027460,
+      "end": 1756118027460,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756118027460,
+      "end": 1756118027460,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756118027460,
+      "end": 1756118027461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756118027461,
+      "end": 1756118027461,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756118027461,
+      "end": 1756118027462,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756118027462,
+      "end": 1756118027462,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756118027462,
+      "end": 1756118027462,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756118027462,
+      "end": 1756118027462,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756118027462,
+      "end": 1756118027462,
+      "order": "normal"
+    }
+  ]
+}

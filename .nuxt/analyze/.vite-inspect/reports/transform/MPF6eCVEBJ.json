@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/composables/touch.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Utilities\r\nimport { CircularBuffer } from \"../util/index.mjs\";\r\nconst HORIZON = 100; // ms\r\nconst HISTORY = 20; // number of samples to keep\r\n\r\n/** @see https://android.googlesource.com/platform/frameworks/native/+/master/libs/input/VelocityTracker.cpp */\r\nfunction kineticEnergyToVelocity(work) {\r\n  const sqrt2 = 1.41421356237;\r\n  return (work < 0 ? -1.0 : 1.0) * Math.sqrt(Math.abs(work)) * sqrt2;\r\n}\r\n\r\n/**\r\n * Returns pointer velocity in px/s\r\n */\r\nexport function calculateImpulseVelocity(samples) {\r\n  // The input should be in reversed time order (most recent sample at index i=0)\r\n  if (samples.length < 2) {\r\n    // if 0 or 1 points, velocity is zero\r\n    return 0;\r\n  }\r\n  // if (samples[1].t > samples[0].t) {\r\n  //   // Algorithm will still work, but not perfectly\r\n  //   consoleWarn('Samples provided to calculateImpulseVelocity in the wrong order')\r\n  // }\r\n  if (samples.length === 2) {\r\n    // if 2 points, basic linear calculation\r\n    if (samples[1].t === samples[0].t) {\r\n      // consoleWarn(`Events have identical time stamps t=${samples[0].t}, setting velocity = 0`)\r\n      return 0;\r\n    }\r\n    return (samples[1].d - samples[0].d) / (samples[1].t - samples[0].t);\r\n  }\r\n  // Guaranteed to have at least 3 points here\r\n  // start with the oldest sample and go forward in time\r\n  let work = 0;\r\n  for (let i = samples.length - 1; i > 0; i--) {\r\n    if (samples[i].t === samples[i - 1].t) {\r\n      // consoleWarn(`Events have identical time stamps t=${samples[i].t}, skipping sample`)\r\n      continue;\r\n    }\r\n    const vprev = kineticEnergyToVelocity(work); // v[i-1]\r\n    const vcurr = (samples[i].d - samples[i - 1].d) / (samples[i].t - samples[i - 1].t); // v[i]\r\n    work += (vcurr - vprev) * Math.abs(vcurr);\r\n    if (i === samples.length - 1) {\r\n      work *= 0.5;\r\n    }\r\n  }\r\n  return kineticEnergyToVelocity(work) * 1000;\r\n}\r\nexport function useVelocity() {\r\n  const touches = {};\r\n  function addMovement(e) {\r\n    Array.from(e.changedTouches).forEach(touch => {\r\n      const samples = touches[touch.identifier] ?? (touches[touch.identifier] = new CircularBuffer(HISTORY));\r\n      samples.push([e.timeStamp, touch]);\r\n    });\r\n  }\r\n  function endTouch(e) {\r\n    Array.from(e.changedTouches).forEach(touch => {\r\n      delete touches[touch.identifier];\r\n    });\r\n  }\r\n  function getVelocity(id) {\r\n    const samples = touches[id]?.values().reverse();\r\n    if (!samples) {\r\n      throw new Error(`No samples for touch id ${id}`);\r\n    }\r\n    const newest = samples[0];\r\n    const x = [];\r\n    const y = [];\r\n    for (const val of samples) {\r\n      if (newest[0] - val[0] > HORIZON) break;\r\n      x.push({\r\n        t: val[0],\r\n        d: val[1].clientX\r\n      });\r\n      y.push({\r\n        t: val[0],\r\n        d: val[1].clientY\r\n      });\r\n    }\r\n    return {\r\n      x: calculateImpulseVelocity(x),\r\n      y: calculateImpulseVelocity(y),\r\n      get direction() {\r\n        const {\r\n          x,\r\n          y\r\n        } = this;\r\n        const [absX, absY] = [Math.abs(x), Math.abs(y)];\r\n        return absX > absY && x >= 0 ? 'right' : absX > absY && x <= 0 ? 'left' : absY > absX && y >= 0 ? 'down' : absY > absX && y <= 0 ? 'up' : oops();\r\n      }\r\n    };\r\n  }\r\n  return {\r\n    addMovement,\r\n    endTouch,\r\n    getVelocity\r\n  };\r\n}\r\nfunction oops() {\r\n  throw new Error();\r\n}\r\n//# sourceMappingURL=touch.mjs.map",
+      "start": 1756117968742,
+      "end": 1756117968869,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117968869,
+      "end": 1756117968869,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117968869,
+      "end": 1756117968870,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117968870,
+      "end": 1756117968870,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117968870,
+      "end": 1756117968871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117968871,
+      "end": 1756117968871,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117968871,
+      "end": 1756117968871,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117968871,
+      "end": 1756117968871,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117968871,
+      "end": 1756117968871,
+      "order": "normal"
+    }
+  ]
+}

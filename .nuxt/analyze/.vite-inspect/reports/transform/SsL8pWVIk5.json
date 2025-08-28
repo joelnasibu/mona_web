@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/@iconify/vue/dist/offline.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { h, defineComponent } from 'vue';\r\n\r\nconst defaultIconDimensions = Object.freeze(\r\n  {\r\n    left: 0,\r\n    top: 0,\r\n    width: 16,\r\n    height: 16\r\n  }\r\n);\r\nconst defaultIconTransformations = Object.freeze({\r\n  rotate: 0,\r\n  vFlip: false,\r\n  hFlip: false\r\n});\r\nconst defaultIconProps = Object.freeze({\r\n  ...defaultIconDimensions,\r\n  ...defaultIconTransformations\r\n});\r\nconst defaultExtendedIconProps = Object.freeze({\r\n  ...defaultIconProps,\r\n  body: \"\",\r\n  hidden: false\r\n});\r\n\r\nfunction mergeIconTransformations(obj1, obj2) {\r\n  const result = {};\r\n  if (!obj1.hFlip !== !obj2.hFlip) {\r\n    result.hFlip = true;\r\n  }\r\n  if (!obj1.vFlip !== !obj2.vFlip) {\r\n    result.vFlip = true;\r\n  }\r\n  const rotate = ((obj1.rotate || 0) + (obj2.rotate || 0)) % 4;\r\n  if (rotate) {\r\n    result.rotate = rotate;\r\n  }\r\n  return result;\r\n}\r\n\r\nfunction mergeIconData(parent, child) {\r\n  const result = mergeIconTransformations(parent, child);\r\n  for (const key in defaultExtendedIconProps) {\r\n    if (key in defaultIconTransformations) {\r\n      if (key in parent && !(key in result)) {\r\n        result[key] = defaultIconTransformations[key];\r\n      }\r\n    } else if (key in child) {\r\n      result[key] = child[key];\r\n    } else if (key in parent) {\r\n      result[key] = parent[key];\r\n    }\r\n  }\r\n  return result;\r\n}\r\n\r\nfunction getIconsTree(data, names) {\r\n  const icons = data.icons;\r\n  const aliases = data.aliases || /* @__PURE__ */ Object.create(null);\r\n  const resolved = /* @__PURE__ */ Object.create(null);\r\n  function resolve(name) {\r\n    if (icons[name]) {\r\n      return resolved[name] = [];\r\n    }\r\n    if (!(name in resolved)) {\r\n      resolved[name] = null;\r\n      const parent = aliases[name] && aliases[name].parent;\r\n      const value = parent && resolve(parent);\r\n      if (value) {\r\n        resolved[name] = [parent].concat(value);\r\n      }\r\n    }\r\n    return resolved[name];\r\n  }\r\n  (names || Object.keys(icons).concat(Object.keys(aliases))).forEach(resolve);\r\n  return resolved;\r\n}\r\n\r\nfunction internalGetIconData(data, name, tree) {\r\n  const icons = data.icons;\r\n  const aliases = data.aliases || /* @__PURE__ */ Object.create(null);\r\n  let currentProps = {};\r\n  function parse(name2) {\r\n    currentProps = mergeIconData(\r\n      icons[name2] || aliases[name2],\r\n      currentProps\r\n    );\r\n  }\r\n  parse(name);\r\n  tree.forEach(parse);\r\n  return mergeIconData(data, currentProps);\r\n}\r\n\r\nfunction parseIconSet(data, callback) {\r\n  const names = [];\r\n  if (typeof data !== \"object\" || typeof data.icons !== \"object\") {\r\n    return names;\r\n  }\r\n  if (data.not_found instanceof Array) {\r\n    data.not_found.forEach((name) => {\r\n      callback(name, null);\r\n      names.push(name);\r\n    });\r\n  }\r\n  const tree = getIconsTree(data);\r\n  for (const name in tree) {\r\n    const item = tree[name];\r\n    if (item) {\r\n      callback(name, internalGetIconData(data, name, item));\r\n      names.push(name);\r\n    }\r\n  }\r\n  return names;\r\n}\r\n\r\nconst matchIconName = /^[a-z0-9]+(-[a-z0-9]+)*$/;\r\n\r\nconst optionalPropertyDefaults = {\r\n  provider: \"\",\r\n  aliases: {},\r\n  not_found: {},\r\n  ...defaultIconDimensions\r\n};\r\nfunction checkOptionalProps(item, defaults) {\r\n  for (const prop in defaults) {\r\n    if (prop in item && typeof item[prop] !== typeof defaults[prop]) {\r\n      return false;\r\n    }\r\n  }\r\n  return true;\r\n}\r\nfunction quicklyValidateIconSet(obj) {\r\n  if (typeof obj !== \"object\" || obj === null) {\r\n    return null;\r\n  }\r\n  const data = obj;\r\n  if (typeof data.prefix !== \"string\" || !obj.icons || typeof obj.icons !== \"object\") {\r\n    return null;\r\n  }\r\n  if (!checkOptionalProps(obj, optionalPropertyDefaults)) {\r\n    return null;\r\n  }\r\n  const icons = data.icons;\r\n  for (const name in icons) {\r\n    const icon = icons[name];\r\n    if (!name.match(matchIconName) || typeof icon.body !== \"string\" || !checkOptionalProps(\r\n      icon,\r\n      defaultExtendedIconProps\r\n    )) {\r\n      return null;\r\n    }\r\n  }\r\n  const aliases = data.aliases || /* @__PURE__ */ Object.create(null);\r\n  for (const name in aliases) {\r\n    const icon = aliases[name];\r\n    const parent = icon.parent;\r\n    if (!name.match(matchIconName) || typeof parent !== \"string\" || !icons[parent] && !aliases[parent] || !checkOptionalProps(\r\n      icon,\r\n      defaultExtendedIconProps\r\n    )) {\r\n      return null;\r\n    }\r\n  }\r\n  return data;\r\n}\r\n\r\nconst defaultIconSizeCustomisations = Object.freeze({\r\n  width: null,\r\n  height: null\r\n});\r\nconst defaultIconCustomisations = Object.freeze({\r\n  // Dimensions\r\n  ...defaultIconSizeCustomisations,\r\n  // Transformations\r\n  ...defaultIconTransformations\r\n});\r\n\r\nfunction mergeCustomisations(defaults, item) {\r\n  const result = {\r\n    ...defaults\r\n  };\r\n  for (const key in item) {\r\n    const value = item[key];\r\n    const valueType = typeof value;\r\n    if (key in defaultIconSizeCustomisations) {\r\n      if (value === null || value && (valueType === \"string\" || valueType === \"number\")) {\r\n        result[key] = value;\r\n      }\r\n    } else if (valueType === typeof result[key]) {\r\n      result[key] = key === \"rotate\" ? value % 4 : value;\r\n    }\r\n  }\r\n  return result;\r\n}\r\n\r\nconst separator = /[\\s,]+/;\r\nfunction flipFromString(custom, flip) {\r\n  flip.split(separator).forEach((str) => {\r\n    const value = str.trim();\r\n    switch (value) {\r\n      case \"horizontal\":\r\n        custom.hFlip = true;\r\n        break;\r\n      case \"vertical\":\r\n        custom.vFlip = true;\r\n        break;\r\n    }\r\n  });\r\n}\r\n\r\nfunction rotateFromString(value, defaultValue = 0) {\r\n  const units = value.replace(/^-?[0-9.]*/, \"\");\r\n  function cleanup(value2) {\r\n    while (value2 < 0) {\r\n      value2 += 4;\r\n    }\r\n    return value2 % 4;\r\n  }\r\n  if (units === \"\") {\r\n    const num = parseInt(value);\r\n    return isNaN(num) ? 0 : cleanup(num);\r\n  } else if (units !== value) {\r\n    let split = 0;\r\n    switch (units) {\r\n      case \"%\":\r\n        split = 25;\r\n        break;\r\n      case \"deg\":\r\n        split = 90;\r\n    }\r\n    if (split) {\r\n      let num = parseFloat(value.slice(0, value.length - units.length));\r\n      if (isNaN(num)) {\r\n        return 0;\r\n      }\r\n      num = num / split;\r\n      return num % 1 === 0 ? cleanup(num) : 0;\r\n    }\r\n  }\r\n  return defaultValue;\r\n}\r\n\r\nconst unitsSplit = /(-?[0-9.]*[0-9]+[0-9.]*)/g;\r\nconst unitsTest = /^-?[0-9.]*[0-9]+[0-9.]*$/g;\r\nfunction calculateSize(size, ratio, precision) {\r\n  if (ratio === 1) {\r\n    return size;\r\n  }\r\n  precision = precision || 100;\r\n  if (typeof size === \"number\") {\r\n    return Math.ceil(size * ratio * precision) / precision;\r\n  }\r\n  if (typeof size !== \"string\") {\r\n    return size;\r\n  }\r\n  const oldParts = size.split(unitsSplit);\r\n  if (oldParts === null || !oldParts.length) {\r\n    return size;\r\n  }\r\n  const newParts = [];\r\n  let code = oldParts.shift();\r\n  let isNumber = unitsTest.test(code);\r\n  while (true) {\r\n    if (isNumber) {\r\n      const num = parseFloat(code);\r\n      if (isNaN(num)) {\r\n        newParts.push(code);\r\n      } else {\r\n        newParts.push(Math.ceil(num * ratio * precision) / precision);\r\n      }\r\n    } else {\r\n      newParts.push(code);\r\n    }\r\n    code = oldParts.shift();\r\n    if (code === void 0) {\r\n      return newParts.join(\"\");\r\n    }\r\n    isNumber = !isNumber;\r\n  }\r\n}\r\n\r\nconst isUnsetKeyword = (value) => value === \"unset\" || value === \"undefined\" || value === \"none\";\r\nfunction iconToSVG(icon, customisations) {\r\n  const fullIcon = {\r\n    ...defaultIconProps,\r\n    ...icon\r\n  };\r\n  const fullCustomisations = {\r\n    ...defaultIconCustomisations,\r\n    ...customisations\r\n  };\r\n  const box = {\r\n    left: fullIcon.left,\r\n    top: fullIcon.top,\r\n    width: fullIcon.width,\r\n    height: fullIcon.height\r\n  };\r\n  let body = fullIcon.body;\r\n  [fullIcon, fullCustomisations].forEach((props) => {\r\n    const transformations = [];\r\n    const hFlip = props.hFlip;\r\n    const vFlip = props.vFlip;\r\n    let rotation = props.rotate;\r\n    if (hFlip) {\r\n      if (vFlip) {\r\n        rotation += 2;\r\n      } else {\r\n        transformations.push(\r\n          \"translate(\" + (box.width + box.left).toString() + \" \" + (0 - box.top).toString() + \")\"\r\n        );\r\n        transformations.push(\"scale(-1 1)\");\r\n        box.top = box.left = 0;\r\n      }\r\n    } else if (vFlip) {\r\n      transformations.push(\r\n        \"translate(\" + (0 - box.left).toString() + \" \" + (box.height + box.top).toString() + \")\"\r\n      );\r\n      transformations.push(\"scale(1 -1)\");\r\n      box.top = box.left = 0;\r\n    }\r\n    let tempValue;\r\n    if (rotation < 0) {\r\n      rotation -= Math.floor(rotation / 4) * 4;\r\n    }\r\n    rotation = rotation % 4;\r\n    switch (rotation) {\r\n      case 1:\r\n        tempValue = box.height / 2 + box.top;\r\n        transformations.unshift(\r\n          \"rotate(90 \" + tempValue.toString() + \" \" + tempValue.toString() + \")\"\r\n        );\r\n        break;\r\n      case 2:\r\n        transformations.unshift(\r\n          \"rotate(180 \" + (box.width / 2 + box.left).toString() + \" \" + (box.height / 2 + box.top).toString() + \")\"\r\n        );\r\n        break;\r\n      case 3:\r\n        tempValue = box.width / 2 + box.left;\r\n        transformations.unshift(\r\n          \"rotate(-90 \" + tempValue.toString() + \" \" + tempValue.toString() + \")\"\r\n        );\r\n        break;\r\n    }\r\n    if (rotation % 2 === 1) {\r\n      if (box.left !== box.top) {\r\n        tempValue = box.left;\r\n        box.left = box.top;\r\n        box.top = tempValue;\r\n      }\r\n      if (box.width !== box.height) {\r\n        tempValue = box.width;\r\n        box.width = box.height;\r\n        box.height = tempValue;\r\n      }\r\n    }\r\n    if (transformations.length) {\r\n      body = '<g transform=\"' + transformations.join(\" \") + '\">' + body + \"</g>\";\r\n    }\r\n  });\r\n  const customisationsWidth = fullCustomisations.width;\r\n  const customisationsHeight = fullCustomisations.height;\r\n  const boxWidth = box.width;\r\n  const boxHeight = box.height;\r\n  let width;\r\n  let height;\r\n  if (customisationsWidth === null) {\r\n    height = customisationsHeight === null ? \"1em\" : customisationsHeight === \"auto\" ? boxHeight : customisationsHeight;\r\n    width = calculateSize(height, boxWidth / boxHeight);\r\n  } else {\r\n    width = customisationsWidth === \"auto\" ? boxWidth : customisationsWidth;\r\n    height = customisationsHeight === null ? calculateSize(width, boxHeight / boxWidth) : customisationsHeight === \"auto\" ? boxHeight : customisationsHeight;\r\n  }\r\n  const attributes = {};\r\n  const setAttr = (prop, value) => {\r\n    if (!isUnsetKeyword(value)) {\r\n      attributes[prop] = value.toString();\r\n    }\r\n  };\r\n  setAttr(\"width\", width);\r\n  setAttr(\"height\", height);\r\n  attributes.viewBox = box.left.toString() + \" \" + box.top.toString() + \" \" + boxWidth.toString() + \" \" + boxHeight.toString();\r\n  return {\r\n    attributes,\r\n    body\r\n  };\r\n}\r\n\r\nconst regex = /\\sid=\"(\\S+)\"/g;\r\nconst randomPrefix = \"IconifyId\" + Date.now().toString(16) + (Math.random() * 16777216 | 0).toString(16);\r\nlet counter = 0;\r\nfunction replaceIDs(body, prefix = randomPrefix) {\r\n  const ids = [];\r\n  let match;\r\n  while (match = regex.exec(body)) {\r\n    ids.push(match[1]);\r\n  }\r\n  if (!ids.length) {\r\n    return body;\r\n  }\r\n  const suffix = \"suffix\" + (Math.random() * 16777216 | Date.now()).toString(16);\r\n  ids.forEach((id) => {\r\n    const newID = typeof prefix === \"function\" ? prefix(id) : prefix + (counter++).toString();\r\n    const escapedID = id.replace(/[.*+?^${}()|[\\]\\\\]/g, \"\\\\$&\");\r\n    body = body.replace(\r\n      // Allowed characters before id: [#;\"]\r\n      // Allowed characters after id: [)\"], .[a-z]\r\n      new RegExp('([#;\"])(' + escapedID + ')([\")]|\\\\.[a-z])', \"g\"),\r\n      \"$1\" + newID + suffix + \"$3\"\r\n    );\r\n  });\r\n  body = body.replace(new RegExp(suffix, \"g\"), \"\");\r\n  return body;\r\n}\r\n\r\nfunction iconToHTML(body, attributes) {\r\n  let renderAttribsHTML = body.indexOf(\"xlink:\") === -1 ? \"\" : ' xmlns:xlink=\"http://www.w3.org/1999/xlink\"';\r\n  for (const attr in attributes) {\r\n    renderAttribsHTML += \" \" + attr + '=\"' + attributes[attr] + '\"';\r\n  }\r\n  return '<svg xmlns=\"http://www.w3.org/2000/svg\"' + renderAttribsHTML + \">\" + body + \"</svg>\";\r\n}\r\n\r\nfunction encodeSVGforURL(svg) {\r\n  return svg.replace(/\"/g, \"'\").replace(/%/g, \"%25\").replace(/#/g, \"%23\").replace(/</g, \"%3C\").replace(/>/g, \"%3E\").replace(/\\s+/g, \" \");\r\n}\r\nfunction svgToData(svg) {\r\n  return \"data:image/svg+xml,\" + encodeSVGforURL(svg);\r\n}\r\nfunction svgToURL(svg) {\r\n  return 'url(\"' + svgToData(svg) + '\")';\r\n}\r\n\r\nconst defaultExtendedIconCustomisations = {\r\n    ...defaultIconCustomisations,\r\n    inline: false,\r\n};\r\n\r\n/**\r\n * Default SVG attributes\r\n */\r\nconst svgDefaults = {\r\n    'xmlns': 'http://www.w3.org/2000/svg',\r\n    'xmlns:xlink': 'http://www.w3.org/1999/xlink',\r\n    'aria-hidden': true,\r\n    'role': 'img',\r\n};\r\n/**\r\n * Style modes\r\n */\r\nconst commonProps = {\r\n    display: 'inline-block',\r\n};\r\nconst monotoneProps = {\r\n    backgroundColor: 'currentColor',\r\n};\r\nconst coloredProps = {\r\n    backgroundColor: 'transparent',\r\n};\r\n// Dynamically add common props to variables above\r\nconst propsToAdd = {\r\n    Image: 'var(--svg)',\r\n    Repeat: 'no-repeat',\r\n    Size: '100% 100%',\r\n};\r\nconst propsToAddTo = {\r\n    webkitMask: monotoneProps,\r\n    mask: monotoneProps,\r\n    background: coloredProps,\r\n};\r\nfor (const prefix in propsToAddTo) {\r\n    const list = propsToAddTo[prefix];\r\n    for (const prop in propsToAdd) {\r\n        list[prefix + prop] = propsToAdd[prop];\r\n    }\r\n}\r\n/**\r\n * Aliases for customisations.\r\n * In Vue 'v-' properties are reserved, so v-flip must be renamed\r\n */\r\nconst customisationAliases = {};\r\n['horizontal', 'vertical'].forEach((prefix) => {\r\n    const attr = prefix.slice(0, 1) + 'Flip';\r\n    // vertical-flip\r\n    customisationAliases[prefix + '-flip'] = attr;\r\n    // v-flip\r\n    customisationAliases[prefix.slice(0, 1) + '-flip'] = attr;\r\n    // verticalFlip\r\n    customisationAliases[prefix + 'Flip'] = attr;\r\n});\r\n/**\r\n * Fix size: add 'px' to numbers\r\n */\r\nfunction fixSize(value) {\r\n    return value + (value.match(/^[-0-9.]+$/) ? 'px' : '');\r\n}\r\n/**\r\n * Render icon\r\n */\r\nconst render = (\r\n// Icon must be validated before calling this function\r\nicon, \r\n// Partial properties\r\nprops) => {\r\n    // Split properties\r\n    const customisations = mergeCustomisations(defaultExtendedIconCustomisations, props);\r\n    const componentProps = { ...svgDefaults };\r\n    // Check mode\r\n    const mode = props.mode || 'svg';\r\n    // Copy style\r\n    const style = {};\r\n    const propsStyle = props.style;\r\n    const customStyle = typeof propsStyle === 'object' && !(propsStyle instanceof Array)\r\n        ? propsStyle\r\n        : {};\r\n    // Get element properties\r\n    for (let key in props) {\r\n        const value = props[key];\r\n        if (value === void 0) {\r\n            continue;\r\n        }\r\n        switch (key) {\r\n            // Properties to ignore\r\n            case 'icon':\r\n            case 'style':\r\n            case 'onLoad':\r\n            case 'mode':\r\n                break;\r\n            // Boolean attributes\r\n            case 'inline':\r\n            case 'hFlip':\r\n            case 'vFlip':\r\n                customisations[key] =\r\n                    value === true || value === 'true' || value === 1;\r\n                break;\r\n            // Flip as string: 'horizontal,vertical'\r\n            case 'flip':\r\n                if (typeof value === 'string') {\r\n                    flipFromString(customisations, value);\r\n                }\r\n                break;\r\n            // Color: override style\r\n            case 'color':\r\n                style.color = value;\r\n                break;\r\n            // Rotation as string\r\n            case 'rotate':\r\n                if (typeof value === 'string') {\r\n                    customisations[key] = rotateFromString(value);\r\n                }\r\n                else if (typeof value === 'number') {\r\n                    customisations[key] = value;\r\n                }\r\n                break;\r\n            // Remove aria-hidden\r\n            case 'ariaHidden':\r\n            case 'aria-hidden':\r\n                // Vue transforms 'aria-hidden' property to 'ariaHidden'\r\n                if (value !== true && value !== 'true') {\r\n                    delete componentProps['aria-hidden'];\r\n                }\r\n                break;\r\n            default: {\r\n                const alias = customisationAliases[key];\r\n                if (alias) {\r\n                    // Aliases for boolean customisations\r\n                    if (value === true || value === 'true' || value === 1) {\r\n                        customisations[alias] = true;\r\n                    }\r\n                }\r\n                else if (defaultExtendedIconCustomisations[key] === void 0) {\r\n                    // Copy missing property if it does not exist in customisations\r\n                    componentProps[key] = value;\r\n                }\r\n            }\r\n        }\r\n    }\r\n    // Generate icon\r\n    const item = iconToSVG(icon, customisations);\r\n    const renderAttribs = item.attributes;\r\n    // Inline display\r\n    if (customisations.inline) {\r\n        style.verticalAlign = '-0.125em';\r\n    }\r\n    if (mode === 'svg') {\r\n        // Add style\r\n        componentProps.style = {\r\n            ...style,\r\n            ...customStyle,\r\n        };\r\n        // Add icon stuff\r\n        Object.assign(componentProps, renderAttribs);\r\n        // Counter for ids based on \"id\" property to render icons consistently on server and client\r\n        let localCounter = 0;\r\n        let id = props.id;\r\n        if (typeof id === 'string') {\r\n            // Convert '-' to '_' to avoid errors in animations\r\n            id = id.replace(/-/g, '_');\r\n        }\r\n        // Add innerHTML and style to props\r\n        componentProps['innerHTML'] = replaceIDs(item.body, id ? () => id + 'ID' + localCounter++ : 'iconifyVue');\r\n        // Render icon\r\n        return h('svg', componentProps);\r\n    }\r\n    // Render <span> with style\r\n    const { body, width, height } = icon;\r\n    const useMask = mode === 'mask' ||\r\n        (mode === 'bg' ? false : body.indexOf('currentColor') !== -1);\r\n    // Generate SVG\r\n    const html = iconToHTML(body, {\r\n        ...renderAttribs,\r\n        width: width + '',\r\n        height: height + '',\r\n    });\r\n    // Generate style\r\n    componentProps.style = {\r\n        ...style,\r\n        '--svg': svgToURL(html),\r\n        'width': fixSize(renderAttribs.width),\r\n        'height': fixSize(renderAttribs.height),\r\n        ...commonProps,\r\n        ...(useMask ? monotoneProps : coloredProps),\r\n        ...customStyle,\r\n    };\r\n    return h('span', componentProps);\r\n};\r\n\r\n/**\r\n * Storage for icons referred by name\r\n */\r\nconst storage = Object.create(null);\r\n/**\r\n * Add icon to storage, allowing to call it by name\r\n *\r\n * @param name\r\n * @param data\r\n */\r\nfunction addIcon(name, data) {\r\n    storage[name] = data;\r\n}\r\n/**\r\n * Add collection to storage, allowing to call icons by name\r\n *\r\n * @param data Icon set\r\n * @param prefix Optional prefix to add to icon names, true (default) if prefix from icon set should be used.\r\n */\r\nfunction addCollection(data, prefix) {\r\n    const iconPrefix = typeof prefix === 'string'\r\n        ? prefix\r\n        : prefix !== false && typeof data.prefix === 'string'\r\n            ? data.prefix + ':'\r\n            : '';\r\n    quicklyValidateIconSet(data) &&\r\n        parseIconSet(data, (name, icon) => {\r\n            if (icon) {\r\n                storage[iconPrefix + name] = icon;\r\n            }\r\n        });\r\n}\r\n/**\r\n * Component\r\n */\r\nconst Icon = defineComponent({\r\n    // Do not inherit other attributes: it is handled by render()\r\n    inheritAttrs: false,\r\n    // Render icon\r\n    render() {\r\n        const props = this.$attrs;\r\n        // Check icon\r\n        const propsIcon = props.icon;\r\n        const icon = typeof propsIcon === 'string'\r\n            ? storage[propsIcon]\r\n            : typeof propsIcon === 'object'\r\n                ? propsIcon\r\n                : null;\r\n        // Validate icon object\r\n        if (icon === null ||\r\n            typeof icon !== 'object' ||\r\n            typeof icon.body !== 'string') {\r\n            return this.$slots.default ? this.$slots.default() : null;\r\n        }\r\n        // Valid icon: render it\r\n        return render({\r\n            ...defaultIconProps,\r\n            ...icon,\r\n        }, props);\r\n    },\r\n});\r\n\r\nexport { Icon, addCollection, addIcon };\r\n",
+      "start": 1756117961275,
+      "end": 1756117961438,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117961438,
+      "end": 1756117961438,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117961438,
+      "end": 1756117961438,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117961438,
+      "end": 1756117961439,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117961439,
+      "end": 1756117961439,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117961439,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117961440,
+      "end": 1756117961440,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117961441,
+      "end": 1756117961441,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117961442,
+      "end": 1756117961442,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117961442,
+      "end": 1756117961442,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117961442,
+      "end": 1756117961442,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117961442,
+      "end": 1756117961442,
+      "order": "normal"
+    }
+  ]
+}

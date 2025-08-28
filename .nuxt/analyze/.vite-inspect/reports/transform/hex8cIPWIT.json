@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/node_modules/vuetify/lib/components/VNavigationDrawer/VNavigationDrawer.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode, Fragment as _Fragment } from \"vue\";\r\n// Styles\r\nimport \"./VNavigationDrawer.css\";\r\n\r\n// Composables\r\nimport { useSticky } from \"./sticky.mjs\";\r\nimport { useTouch } from \"./touch.mjs\";\r\nimport { useRtl } from \"../../composables/index.mjs\";\r\nimport { makeBorderProps, useBorder } from \"../../composables/border.mjs\";\r\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeDisplayProps, useDisplay } from \"../../composables/display.mjs\";\r\nimport { makeElevationProps, useElevation } from \"../../composables/elevation.mjs\";\r\nimport { makeLayoutItemProps, useLayoutItem } from \"../../composables/layout.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\";\r\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\r\nimport { useRouter } from \"../../composables/router.mjs\";\r\nimport { useScopeId } from \"../../composables/scopeId.mjs\";\r\nimport { useSsrBoot } from \"../../composables/ssrBoot.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\";\r\nimport { makeThemeProps, provideTheme } from \"../../composables/theme.mjs\";\r\nimport { useToggleScope } from \"../../composables/toggleScope.mjs\"; // Utilities\r\nimport { computed, nextTick, onBeforeMount, ref, shallowRef, toRef, Transition, watch } from 'vue';\r\nimport { genericComponent, propsFactory, toPhysical, useRender } from \"../../util/index.mjs\"; // Types\r\nconst locations = ['start', 'end', 'left', 'right', 'top', 'bottom'];\r\nexport const makeVNavigationDrawerProps = propsFactory({\r\n  color: String,\r\n  disableResizeWatcher: Boolean,\r\n  disableRouteWatcher: Boolean,\r\n  expandOnHover: Boolean,\r\n  floating: Boolean,\r\n  modelValue: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  permanent: Boolean,\r\n  rail: {\r\n    type: Boolean,\r\n    default: null\r\n  },\r\n  railWidth: {\r\n    type: [Number, String],\r\n    default: 56\r\n  },\r\n  scrim: {\r\n    type: [Boolean, String],\r\n    default: true\r\n  },\r\n  image: String,\r\n  temporary: Boolean,\r\n  touchless: Boolean,\r\n  width: {\r\n    type: [Number, String],\r\n    default: 256\r\n  },\r\n  location: {\r\n    type: String,\r\n    default: 'start',\r\n    validator: value => locations.includes(value)\r\n  },\r\n  sticky: Boolean,\r\n  ...makeBorderProps(),\r\n  ...makeComponentProps(),\r\n  ...makeDisplayProps(),\r\n  ...makeElevationProps(),\r\n  ...makeLayoutItemProps(),\r\n  ...makeRoundedProps(),\r\n  ...makeTagProps({\r\n    tag: 'nav'\r\n  }),\r\n  ...makeThemeProps()\r\n}, 'VNavigationDrawer');\r\nexport const VNavigationDrawer = genericComponent()({\r\n  name: 'VNavigationDrawer',\r\n  props: makeVNavigationDrawerProps(),\r\n  emits: {\r\n    'update:modelValue': val => true,\r\n    'update:rail': val => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      attrs,\r\n      emit,\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      isRtl\r\n    } = useRtl();\r\n    const {\r\n      themeClasses\r\n    } = provideTheme(props);\r\n    const {\r\n      borderClasses\r\n    } = useBorder(props);\r\n    const {\r\n      backgroundColorClasses,\r\n      backgroundColorStyles\r\n    } = useBackgroundColor(toRef(props, 'color'));\r\n    const {\r\n      elevationClasses\r\n    } = useElevation(props);\r\n    const {\r\n      displayClasses,\r\n      mobile\r\n    } = useDisplay(props);\r\n    const {\r\n      roundedClasses\r\n    } = useRounded(props);\r\n    const router = useRouter();\r\n    const isActive = useProxiedModel(props, 'modelValue', null, v => !!v);\r\n    const {\r\n      ssrBootStyles\r\n    } = useSsrBoot();\r\n    const {\r\n      scopeId\r\n    } = useScopeId();\r\n    const rootEl = ref();\r\n    const isHovering = shallowRef(false);\r\n    const width = computed(() => {\r\n      return props.rail && props.expandOnHover && isHovering.value ? Number(props.width) : Number(props.rail ? props.railWidth : props.width);\r\n    });\r\n    const location = computed(() => {\r\n      return toPhysical(props.location, isRtl.value);\r\n    });\r\n    const isTemporary = computed(() => !props.permanent && (mobile.value || props.temporary));\r\n    const isSticky = computed(() => props.sticky && !isTemporary.value && location.value !== 'bottom');\r\n    useToggleScope(() => props.expandOnHover && props.rail != null, () => {\r\n      watch(isHovering, val => emit('update:rail', !val));\r\n    });\r\n    useToggleScope(() => !props.disableResizeWatcher, () => {\r\n      watch(isTemporary, val => !props.permanent && nextTick(() => isActive.value = !val));\r\n    });\r\n    useToggleScope(() => !props.disableRouteWatcher && !!router, () => {\r\n      watch(router.currentRoute, () => isTemporary.value && (isActive.value = false));\r\n    });\r\n    watch(() => props.permanent, val => {\r\n      if (val) isActive.value = true;\r\n    });\r\n    onBeforeMount(() => {\r\n      if (props.modelValue != null || isTemporary.value) return;\r\n      isActive.value = props.permanent || !mobile.value;\r\n    });\r\n    const {\r\n      isDragging,\r\n      dragProgress,\r\n      dragStyles\r\n    } = useTouch({\r\n      isActive,\r\n      isTemporary,\r\n      width,\r\n      touchless: toRef(props, 'touchless'),\r\n      position: location\r\n    });\r\n    const layoutSize = computed(() => {\r\n      const size = isTemporary.value ? 0 : props.rail && props.expandOnHover ? Number(props.railWidth) : width.value;\r\n      return isDragging.value ? size * dragProgress.value : size;\r\n    });\r\n    const {\r\n      layoutItemStyles,\r\n      layoutItemScrimStyles\r\n    } = useLayoutItem({\r\n      id: props.name,\r\n      order: computed(() => parseInt(props.order, 10)),\r\n      position: location,\r\n      layoutSize,\r\n      elementSize: width,\r\n      active: computed(() => isActive.value || isDragging.value),\r\n      disableTransitions: computed(() => isDragging.value),\r\n      absolute: computed(() =>\r\n      // eslint-disable-next-line @typescript-eslint/no-use-before-define\r\n      props.absolute || isSticky.value && typeof isStuck.value !== 'string')\r\n    });\r\n    const {\r\n      isStuck,\r\n      stickyStyles\r\n    } = useSticky({\r\n      rootEl,\r\n      isSticky,\r\n      layoutItemStyles\r\n    });\r\n    const scrimColor = useBackgroundColor(computed(() => {\r\n      return typeof props.scrim === 'string' ? props.scrim : null;\r\n    }));\r\n    const scrimStyles = computed(() => ({\r\n      ...(isDragging.value ? {\r\n        opacity: dragProgress.value * 0.2,\r\n        transition: 'none'\r\n      } : undefined),\r\n      ...layoutItemScrimStyles.value\r\n    }));\r\n    provideDefaults({\r\n      VList: {\r\n        bgColor: 'transparent'\r\n      }\r\n    });\r\n    function onMouseenter() {\r\n      isHovering.value = true;\r\n    }\r\n    function onMouseleave() {\r\n      isHovering.value = false;\r\n    }\r\n    useRender(() => {\r\n      const hasImage = slots.image || props.image;\r\n      return _createVNode(_Fragment, null, [_createVNode(props.tag, _mergeProps({\r\n        \"ref\": rootEl,\r\n        \"onMouseenter\": onMouseenter,\r\n        \"onMouseleave\": onMouseleave,\r\n        \"class\": ['v-navigation-drawer', `v-navigation-drawer--${location.value}`, {\r\n          'v-navigation-drawer--expand-on-hover': props.expandOnHover,\r\n          'v-navigation-drawer--floating': props.floating,\r\n          'v-navigation-drawer--is-hovering': isHovering.value,\r\n          'v-navigation-drawer--rail': props.rail,\r\n          'v-navigation-drawer--temporary': isTemporary.value,\r\n          'v-navigation-drawer--active': isActive.value,\r\n          'v-navigation-drawer--sticky': isSticky.value\r\n        }, themeClasses.value, backgroundColorClasses.value, borderClasses.value, displayClasses.value, elevationClasses.value, roundedClasses.value, props.class],\r\n        \"style\": [backgroundColorStyles.value, layoutItemStyles.value, dragStyles.value, ssrBootStyles.value, stickyStyles.value, props.style]\r\n      }, scopeId, attrs), {\r\n        default: () => [hasImage && _createVNode(\"div\", {\r\n          \"key\": \"image\",\r\n          \"class\": \"v-navigation-drawer__img\"\r\n        }, [slots.image ? slots.image?.({\r\n          image: props.image\r\n        }) : _createVNode(\"img\", {\r\n          \"src\": props.image,\r\n          \"alt\": \"\"\r\n        }, null)]), slots.prepend && _createVNode(\"div\", {\r\n          \"class\": \"v-navigation-drawer__prepend\"\r\n        }, [slots.prepend?.()]), _createVNode(\"div\", {\r\n          \"class\": \"v-navigation-drawer__content\"\r\n        }, [slots.default?.()]), slots.append && _createVNode(\"div\", {\r\n          \"class\": \"v-navigation-drawer__append\"\r\n        }, [slots.append?.()])]\r\n      }), _createVNode(Transition, {\r\n        \"name\": \"fade-transition\"\r\n      }, {\r\n        default: () => [isTemporary.value && (isDragging.value || isActive.value) && !!props.scrim && _createVNode(\"div\", _mergeProps({\r\n          \"class\": ['v-navigation-drawer__scrim', scrimColor.backgroundColorClasses.value],\r\n          \"style\": [scrimStyles.value, scrimColor.backgroundColorStyles.value],\r\n          \"onClick\": () => isActive.value = false\r\n        }, scopeId), null)]\r\n      })]);\r\n    });\r\n    return {\r\n      isStuck\r\n    };\r\n  }\r\n});\r\n//# sourceMappingURL=VNavigationDrawer.mjs.map",
+      "start": 1756117967444,
+      "end": 1756117967702,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117967702,
+      "end": 1756117967702,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117967702,
+      "end": 1756117967702,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117967702,
+      "end": 1756117967702,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117967702,
+      "end": 1756117967702,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756117967702,
+      "end": 1756117967702,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756117967703,
+      "end": 1756117967703,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117967703,
+      "end": 1756117967704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117967704,
+      "end": 1756117967704,
+      "order": "normal"
+    }
+  ]
+}

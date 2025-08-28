@@ -1,0 +1,237 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/smartsell/plugins/vuetify.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// import this after install `@mdi/font` package\r\nimport '@mdi/font/css/materialdesignicons.css'\r\n\r\nimport 'vuetify/styles'\r\nimport { createVuetify } from 'vuetify'\r\nimport themes from '../themes'\r\n\r\nexport default defineNuxtPlugin((app) => {\r\n    const vuetify = createVuetify({\r\n        // ... your configuration\r\n        ssr: true,\r\n        theme: {\r\n            themes,\r\n        },\r\n        defaults: {\r\n            VTextField: {\r\n                variant: \"outlined\",\r\n                density: \"compact\",\r\n                color: \"primary-accent\",\r\n                bgColor: \"off-white-1\"\r\n            },\r\n            VCombobox: {\r\n                variant: \"outlined\",\r\n                density: \"compact\",\r\n                color: \"primary-accent\",\r\n                bgColor: \"off-white-1\"\r\n            },\r\n            VTextarea: {\r\n                variant: \"outlined\",\r\n                color: \"primary-accent\",\r\n                bgColor: \"off-white-1\"\r\n            },\r\n            VList: {\r\n                // class: 'menu-list',\r\n                density: 'compact'\r\n            },\r\n            VMenu: {\r\n                transition: 'slide-y-transition'\r\n            },\r\n            VContainer: {\r\n                class: 'pa-0',\r\n                fluid: true,\r\n            },\r\n            VRow: {\r\n                class: 'ma-auto'\r\n            },\r\n        },\r\n    })\r\n    app.vueApp.use(vuetify)\r\n})\r\n",
+      "start": 1756117934853,
+      "end": 1756117936026,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756117936026,
+      "end": 1756117936026,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756117936026,
+      "end": 1756117936026,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756117936026,
+      "end": 1756117936026,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756117936026,
+      "end": 1756117936026,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import \"@mdi/font/css/materialdesignicons.css\";\nimport \"vuetify/styles\";\nimport { createVuetify } from \"vuetify\";\nimport themes from \"../themes\";\nexport default defineNuxtPlugin((app) => {\n  const vuetify = createVuetify({\n    // ... your configuration\n    ssr: true,\n    theme: {\n      themes\n    },\n    defaults: {\n      VTextField: {\n        variant: \"outlined\",\n        density: \"compact\",\n        color: \"primary-accent\",\n        bgColor: \"off-white-1\"\n      },\n      VCombobox: {\n        variant: \"outlined\",\n        density: \"compact\",\n        color: \"primary-accent\",\n        bgColor: \"off-white-1\"\n      },\n      VTextarea: {\n        variant: \"outlined\",\n        color: \"primary-accent\",\n        bgColor: \"off-white-1\"\n      },\n      VList: {\n        // class: 'menu-list',\n        density: \"compact\"\n      },\n      VMenu: {\n        transition: \"slide-y-transition\"\n      },\n      VContainer: {\n        class: \"pa-0\",\n        fluid: true\n      },\n      VRow: {\n        class: \"ma-auto\"\n      }\n    }\n  });\n  app.vueApp.use(vuetify);\n});\n",
+      "start": 1756117936026,
+      "end": 1756117936420,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/smartsell/plugins/vuetify.ts"
+        ],
+        "sourcesContent": [
+          "// import this after install `@mdi/font` package\r\nimport '@mdi/font/css/materialdesignicons.css'\r\n\r\nimport 'vuetify/styles'\r\nimport { createVuetify } from 'vuetify'\r\nimport themes from '../themes'\r\n\r\nexport default defineNuxtPlugin((app) => {\r\n    const vuetify = createVuetify({\r\n        // ... your configuration\r\n        ssr: true,\r\n        theme: {\r\n            themes,\r\n        },\r\n        defaults: {\r\n            VTextField: {\r\n                variant: \"outlined\",\r\n                density: \"compact\",\r\n                color: \"primary-accent\",\r\n                bgColor: \"off-white-1\"\r\n            },\r\n            VCombobox: {\r\n                variant: \"outlined\",\r\n                density: \"compact\",\r\n                color: \"primary-accent\",\r\n                bgColor: \"off-white-1\"\r\n            },\r\n            VTextarea: {\r\n                variant: \"outlined\",\r\n                color: \"primary-accent\",\r\n                bgColor: \"off-white-1\"\r\n            },\r\n            VList: {\r\n                // class: 'menu-list',\r\n                density: 'compact'\r\n            },\r\n            VMenu: {\r\n                transition: 'slide-y-transition'\r\n            },\r\n            VContainer: {\r\n                class: 'pa-0',\r\n                fluid: true,\r\n            },\r\n            VRow: {\r\n                class: 'ma-auto'\r\n            },\r\n        },\r\n    })\r\n    app.vueApp.use(vuetify)\r\n})\r\n"
+        ],
+        "mappings": "AACA,OAAO;AAEP,OAAO;AACP,SAAS,qBAAqB;AAC9B,OAAO,YAAY;AAEnB,eAAe,iBAAiB,CAAC,QAAQ;AACrC,QAAM,UAAU,cAAc;AAAA;AAAA,IAE1B,KAAK;AAAA,IACL,OAAO;AAAA,MACH;AAAA,IACJ;AAAA,IACA,UAAU;AAAA,MACN,YAAY;AAAA,QACR,SAAS;AAAA,QACT,SAAS;AAAA,QACT,OAAO;AAAA,QACP,SAAS;AAAA,MACb;AAAA,MACA,WAAW;AAAA,QACP,SAAS;AAAA,QACT,SAAS;AAAA,QACT,OAAO;AAAA,QACP,SAAS;AAAA,MACb;AAAA,MACA,WAAW;AAAA,QACP,SAAS;AAAA,QACT,OAAO;AAAA,QACP,SAAS;AAAA,MACb;AAAA,MACA,OAAO;AAAA;AAAA,QAEH,SAAS;AAAA,MACb;AAAA,MACA,OAAO;AAAA,QACH,YAAY;AAAA,MAChB;AAAA,MACA,YAAY;AAAA,QACR,OAAO;AAAA,QACP,OAAO;AAAA,MACX;AAAA,MACA,MAAM;AAAA,QACF,OAAO;AAAA,MACX;AAAA,IACJ;AAAA,EACJ,CAAC;AACD,MAAI,OAAO,IAAI,OAAO;AAC1B,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1756117936420,
+      "end": 1756117936420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756117936420,
+      "end": 1756117936420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756117936420,
+      "end": 1756117936420,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756117936420,
+      "end": 1756117936420,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117936420,
+      "end": 1756117936420,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756117936420,
+      "end": 1756117936421,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756117936421,
+      "end": 1756117936421,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756117936422,
+      "end": 1756117936422,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756117936422,
+      "end": 1756117936422,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756117936422,
+      "end": 1756117936422,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756117936423,
+      "end": 1756117936423,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756117936424,
+      "end": 1756117936424,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756117936425,
+      "end": 1756117936425,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756117936425,
+      "end": 1756117936425,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { defineNuxtPlugin } from '#app/nuxt';\nimport \"@mdi/font/css/materialdesignicons.css\";\nimport \"vuetify/styles\";\nimport { createVuetify } from \"vuetify\";\nimport themes from \"../themes\";\nexport default defineNuxtPlugin((app) => {\n  const vuetify = createVuetify({\n    // ... your configuration\n    ssr: true,\n    theme: {\n      themes\n    },\n    defaults: {\n      VTextField: {\n        variant: \"outlined\",\n        density: \"compact\",\n        color: \"primary-accent\",\n        bgColor: \"off-white-1\"\n      },\n      VCombobox: {\n        variant: \"outlined\",\n        density: \"compact\",\n        color: \"primary-accent\",\n        bgColor: \"off-white-1\"\n      },\n      VTextarea: {\n        variant: \"outlined\",\n        color: \"primary-accent\",\n        bgColor: \"off-white-1\"\n      },\n      VList: {\n        // class: 'menu-list',\n        density: \"compact\"\n      },\n      VMenu: {\n        transition: \"slide-y-transition\"\n      },\n      VContainer: {\n        class: \"pa-0\",\n        fluid: true\n      },\n      VRow: {\n        class: \"ma-auto\"\n      }\n    }\n  });\n  app.vueApp.use(vuetify);\n});\n",
+      "start": 1756117936425,
+      "end": 1756117936427,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACX,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACX,CAAC,CAAC,CAAC,CAAC,CAAC;AACL,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756117936427,
+      "end": 1756117936428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756117936428,
+      "end": 1756117936428,
+      "order": "normal"
+    }
+  ]
+}
