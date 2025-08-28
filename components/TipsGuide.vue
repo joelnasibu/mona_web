@@ -19,23 +19,23 @@
             class="rounded-lg"
           >
             <v-expansion-panel
-              v-for="(tip, index) in tips"
+              v-for="(item, index) in tips"
               :key="index"
               class="rounded-lg"
               :elevation="0"
             >
               <v-expansion-panel-title class="">
                 <component
-                  :is="tip.icon"
+                  :is="item.icon"
                   class="text-secondary"
                   style="opacity: 0.7"
                   size="15"
                 />
-                <b class="font-medium text-body-2 ml-3">{{ tip.title }}</b>
+                <b class="font-medium text-body-2 ml-3">{{ item.title }}</b>
               </v-expansion-panel-title>
 
               <v-expansion-panel-text class="text-caption">
-                {{ tip.content }}
+                <span> {{ item.content }}</span>
               </v-expansion-panel-text>
             </v-expansion-panel>
           </v-expansion-panels>

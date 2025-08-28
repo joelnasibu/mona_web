@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="px-4 px-md-0">
     <core-mid-screen-layout>
       <section
         class="market-grid-section py-10"
