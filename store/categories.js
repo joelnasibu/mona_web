@@ -30,7 +30,7 @@ export const useCategoryStore = defineStore('categories', {
   actions: {
 
     toggleStatus() {
-      this.openCategoryDrawer = !this.openCategoryDrawer
+      this.openCategoryDrawer = true
     },
 
     async getCategories(enableLoader = false) {

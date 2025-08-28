@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <ClientShopNewAppBar />
+    <ClientAppBar />
     <div class=""></div>
     <v-main>
       <NuxtPage />

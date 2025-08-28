@@ -79,7 +79,8 @@
         <v-row justify="center" class="">
           <v-col cols="12" class="text-center pa-0">
             <p class="footer-bottom-text text-caption">
-              © 2025 Nairobi Markets. All rights reserved. Powered by
+              © 2025 Nairobi Markets. All rights reserved.<br />
+              Powered by
               <a
                 href="https://mijinitech.com"
                 target="_blank"

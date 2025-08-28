@@ -6,14 +6,14 @@
     <v-app-bar
       absolute
       class="card-white"
-      :height="smallSize ? 60 : 64"
+      :height="smallSize ? 110 : 60"
       flat
       id="appBar"
     >
       <CoreMidScreenLayout class="px-1 px-md-1">
         <div class="d-flex align-center">
           <NuxtLink to="/shop">
-            <v-img src="/full.png" width="100"></v-img>
+            <v-img src="/full.png" :width="smallSize ? 60 : 100"></v-img>
           </NuxtLink>
           <v-container class="pa-0" fluid>
             <v-row class="ma-auto" align="center" justify="start">
@@ -38,12 +38,12 @@
                     </div>
                   </div> -->
                   <!-- <v-spacer v-if="!isMobile"></v-spacer> -->
-                  <div class="" title="My shopping cart">
+                  <div class="mt-1" title="My shopping cart">
                     <v-badge :content="cart.length" color="primary-accent">
                       <Icon
                         name="solar:cart-large-2-linear"
                         class="mr-1 cursor-pointer text-primary-accent"
-                        size="1.6rem"
+                        :size="smallSize ? '1.5rem' : '1.2rem'"
                         @click="openCart"
                       />
                     </v-badge>
