@@ -11,14 +11,15 @@ onMounted(async () => {
   await import('leaflet.markercluster/dist/MarkerCluster.Default.css')
 
   const markets = [
-    { name: 'Adams Market', coords: [-1.2830, 36.8167] },
-    { name: 'Gikomba Market', coords: [-1.2763, 36.8486] },
+    { name: 'Adams Market',coords: [-1.30263, 36.7798] },
+    { name: 'Gikomba Market', coords: [-1.2863, 36.8415] },
     { name: 'Toi Market', coords: [-1.2990, 36.7900] },
     { name: 'City Market', coords: [-1.2833, 36.8170] },
-    { name: 'Kariokor Market', coords: [-1.2830, 36.8280] },
+    { name: 'Kariokor Market', coords: [-1.28123, 36.83797] },
     { name: 'Maasai Market', coords: [-1.2820, 36.8140] },
     { name: 'Village Market', coords: [-1.2040, 36.8690] },
-    { name: 'Nairobi Farmers Market', coords: [-1.2710, 36.8050] }
+    { name: 'Nairobi Farmers Market', coords: [-1.2082228, 36.8326568] }
+
   ]
 
   if (mapContainer.value._leaflet_id) {
