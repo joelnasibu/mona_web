@@ -1,7 +1,13 @@
 <template>
-  <div class="d-flex qty text-caption rounded overflow-hidden" style="width: fit-content">
-    <div class="px-2 font-weight-bold cursor-pointer btn-qty text-black" :class="{ 'py-1 px-3': !small }"
-      @click="qtyModifier(false)">
+  <div
+    class="d-flex qty text-caption rounded overflow-hidden"
+    style="width: fit-content"
+  >
+    <div
+      class="px-2 font-weight-bold cursor-pointer btn-qty text-black"
+      :class="{ 'py-1 px-3': !small }"
+      @click="qtyModifier(false)"
+    >
       -
     </div>
     <v-divider vertical></v-divider>
@@ -9,8 +15,11 @@
       {{ quantity }}
     </div>
     <v-divider vertical></v-divider>
-    <div class="px-2 font-weight-bold cursor-pointer btn-qty text-black" :class="{ 'py-1 px-3': !small }"
-      @click="qtyModifier(true)">
+    <div
+      class="px-2 font-weight-bold cursor-pointer btn-qty text-black"
+      :class="{ 'py-1 px-3': !small }"
+      @click="qtyModifier(true)"
+    >
       +
     </div>
   </div>
@@ -44,10 +53,10 @@ const qtyModifier = (increase) => {
 
 <style lang="css" scoped>
 .qty {
-  border: 1px solid #b95dff;
+  border: 1px solid rgba(var(--v-theme-primary));
 }
 
 .btn-qty {
-  background-color: #e4c1ff;
+  background-color: rgba(var(--v-theme-primary), 0.2);
 }
 </style>
