@@ -10,10 +10,10 @@
         }"
       >
         <div class="market-grid">
-          <a
+          <NuxtLink
             v-for="(market, index) in markets"
             :key="index"
-            :href="market.link"
+            :to="{ name: `shop` }"
             class="market-card group"
             :style="{ backgroundImage: `url('/Smartsell Logo.jpeg')` }"
           >
@@ -26,7 +26,7 @@
                 <span>{{ market.description }}</span>
               </div>
             </div>
-          </a>
+          </NuxtLink>
         </div>
       </section>
     </core-mid-screen-layout>
