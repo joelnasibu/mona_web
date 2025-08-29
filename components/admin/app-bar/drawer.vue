@@ -111,12 +111,12 @@ const menus = [
   //   icon: "mdi-list-status",
   //   access: [1, 2, 3],
   // },
-  {
-    title: "Business types",
-    link: "admin-business-types",
-    icon: "mdi-handshake-outline",
-    access: [1, 2],
-  },
+  // {
+  //   title: "Business types",
+  //   link: "admin-business-types",
+  //   icon: "mdi-handshake-outline",
+  //   access: [1, 2],
+  // },
   // {
   //   title: "Job types",
   //   link: "admin-job-types",
@@ -141,7 +141,7 @@ const menus = [
   //   icon: "mdi-alpha-i-box-outline",
   //   access: [1, 2],
   // },
-  { title: "Sizes", link: "admin-sizes", icon: "mdi-size-xs", access: [1, 2] },
+  // { title: "Sizes", link: "admin-sizes", icon: "mdi-size-xs", access: [1, 2] },
   // {
   //   title: "Skills",
   //   link: "admin-skills",
