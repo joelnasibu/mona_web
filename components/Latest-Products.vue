@@ -1,9 +1,9 @@
 <template>
-  <v-container fluid class="pa-6">
+  <v-container fluid class="pa-6 section-wrapper">
     <!-- Page Title -->
-    <div class="d-flex flex-column mb-6">
+    <div class="section-header mb-6">
       <h2 class="text-h5 font-weight-bold mb-2">Latest Products</h2>
-      <div class="bg-grey-lighten-2" style="height: 2px; width: 120px;"></div>
+      <div class="section-underline"></div>
     </div>
 
     <!-- Sections Row -->
@@ -16,10 +16,7 @@
         class="pa-2"
       >
         <!-- Section container with smoke background and fixed height -->
-        <v-container
-          fluid
-          class="pa-3 section-container"
-        >
+        <v-container fluid class="pa-3 section-container">
           <div class="text-h6 font-weight-bold mb-3">{{ section.title }}</div>
 
           <!-- Nested row with 3 images horizontally -->
@@ -36,18 +33,23 @@
                   height="80"
                   width="80"
                   cover
-                  class="rounded-lg mb-1 transition-ease-in-out cursor-pointer"
-                  :elevation="isHovering ? 6 : 0"
+                  class="rounded-lg mb-1 product-img"
+                  :class="{ 'hover-active': isHovering }"
                 ></v-img>
               </v-hover>
 
               <div class="text-center text-caption mb-1">$ {{ product.price }}</div>
 
-           
-              <div v-if="section.title === 'New Arrivals'" class="text-orange-darken-2 text-body-2">
-                Trending 
+              <div
+                v-if="section.title === 'New Arrivals'"
+                class="text-orange-darken-2 text-body-2"
+              >
+                Trending
               </div>
-              <div v-else-if="section.title === 'Top Ranking'" class="text-grey-darken-2 text-body-2">
+              <div
+                v-else-if="section.title === 'Top Ranking'"
+                class="text-grey-darken-2 text-body-2"
+              >
                 {{ product.unitsLeft }} left
               </div>
             </div>
@@ -55,7 +57,6 @@
         </v-container>
       </v-col>
     </v-row>
-
 
     <div class="mt-6 pl-4">
       <NuxtLink to="/products" class="text-orange-darken-2 font-weight-medium">
@@ -95,10 +96,17 @@ const sections = [
 </script>
 
 <style scoped>
+.section-wrapper {
+  max-width: 1200px;
+  margin: 0 auto 64px auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .section-container {
-  background-color: #f5f5f5; /* smoke background */
+  background-color: #f5f5f5;
   border-radius: 8px;
-  height: 180px; /* same height for all */
+  height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -106,21 +114,38 @@ const sections = [
 
 .nested-row {
   display: flex;
-  justify-content: space-between; /* evenly space images inside container */
+  justify-content: space-between;
 }
 
 .nested-product {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 6px; /* consistent small horizontal gap */
+  margin: 0 6px;
 }
 
-.mb-1 {
-  margin-bottom: 4px !important;
+.section-header {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 8px;
 }
 
-.transition-ease-in-out {
+.section-underline {
+  height: 2px;
+  width: 100%;
+  background-color: #e0e0e0;
+}
+
+/* Hover effect for product images */
+.product-img {
   transition: all 0.3s ease-in-out;
+}
+.product-img.hover-active {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
 }
 </style>

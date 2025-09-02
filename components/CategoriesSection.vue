@@ -1,125 +1,201 @@
 <template>
-  <v-container fluid class="pa-6">
-    <v-row>
+  <v-container fluid class="pa-6 main-wrapper">
+    <v-row dense>
       <!-- Grid 1 -->
-      <v-col cols="12" md="3">
-        <div class="d-flex flex-column" style="height: 340px;">
-          <div class="text-h6 mb-2">Deals and Promotions</div>
-          <v-hover v-slot="{ isHovering, props }">
-            <router-link to="/shop/grid1" class="flex-grow-1">
-              <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
-                cover
-                class="flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer"
-                v-bind="props"
-                :elevation="isHovering ? 6 : 0"
-              />
+      <v-col cols="12" md="3" class="pa-2">
+        <v-container fluid class="pa-3 section-container">
+          <div class="section-title">Deals and Promotions</div>
+          <div class="d-flex justify-center nested-row">
+            <router-link to="/shop/grid1" class="d-flex flex-column align-center nested-product">
+              <v-hover v-slot="{ isHovering, props }">
+                <div class="relative">
+                  <v-img
+                    v-bind="props"
+                    src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg"
+                    height="85"
+                    width="85"
+                    cover
+                    class="rounded-lg mb-2 product-img"
+                    :class="{ 'hover-active': isHovering }"
+                  />
+                  <div class="absolute inset-0 rounded-lg overlay" :class="{ 'overlay-active': isHovering }"></div>
+                </div>
+              </v-hover>
+              <div class="text-orange-darken-2 font-weight-bold hover-text">Shop now...</div>
             </router-link>
-          </v-hover>
-          <router-link
-            to="/shop/grid1"
-            class="mt-2 text-orange-darken-2 font-weight-bold cursor-pointer"
-          >
-            shop now...
-          </router-link>
-        </div>
+          </div>
+        </v-container>
       </v-col>
 
-      <!-- Grid 2: Nested layout -->
-      <v-col cols="12" md="3">
-        <div class="d-flex flex-column" style="height: 340px;">
-          <div class="text-h6 mb-2">Shop Home & Office</div>
-          <v-row no-gutters class=" w-100">
-            <!--  top image -->
-            <v-col cols="12" class="pa-0">
-              <v-hover v-slot="{ isHovering, props }">
-                <router-link to="/shop/grid2/top" class="w-100 d-block">
-                  <v-img
-                    src=""
-                    cover
-                    class="rounded-lg transition-ease-in-out cursor-pointer"
-                    height="40"
-                    v-bind="props"
-                    :elevation="isHovering ? 6 : 0"
-                  />
-                  <div class="text-center mt-1 text-body-2 font-weight-medium">
-                     Top
+      <!-- Grid 2 -->
+      <v-col cols="12" md="3" class="pa-2">
+        <v-container fluid class="pa-3 section-container">
+          <div class="section-title">Shop Fashion & Lifestyle</div>
+          <div class="d-flex justify-center nested-row">
+            <div
+              v-for="(item, i) in fashionItems"
+              :key="'grid2-'+i"
+              class="d-flex flex-column align-center nested-product"
+            >
+              <router-link :to="`/shop/grid2/item${i+1}`">
+                <v-hover v-slot="{ isHovering, props }">
+                  <div class="relative">
+                    <v-img
+                      v-bind="props"
+                      :src="`https://picsum.photos/200/150?random=${30+i}`"
+                      height="65"
+                      width="65"
+                      cover
+                      class="rounded-lg mb-2 mt-4 product-img"
+                      :class="{ 'hover-active': isHovering }"
+                    />
+                    <div class="absolute inset-0 rounded-lg overlay" :class="{ 'overlay-active': isHovering }"></div>
                   </div>
-                </router-link>
-              </v-hover>
-            </v-col>
-
-            <!-- Three images -->
-            <v-col cols="4" v-for="n in 3" :key="'grid2-'+n" class="pa-1">
-              <v-hover v-slot="{ isHovering, props }">
-                <router-link :to="`/shop/grid2/small${n}`" class="d-block">
-                  <v-img
-                    :src="`https://picsum.photos/200/150?random=${30+n}`"
-                    cover
-                    class="rounded-lg transition-ease-in-out cursor-pointer"
-                    height="50"
-                    v-bind="props"
-                    :elevation="isHovering ? 6 : 0"
-                  />
-                  <div class="text-center mt-1 text-body-2">
-                    Small {{ n }}
-                  </div>
-                </router-link>
-              </v-hover>
-            </v-col>
-          </v-row>
-        </div>
+                </v-hover>
+              </router-link>
+              <div class="text-caption hover-text">{{ item }}</div>
+            </div>
+          </div>
+        </v-container>
       </v-col>
 
-      <!-- Grid 3: Nested 2x2 -->
-      <v-col cols="12" md="3">
-        <div class="d-flex flex-column" style="height: 340px;">
-          <div class="text-h6 mb-2">Electronics</div>
-          <v-row no-gutters class="flex-grow-1 pa-1">
-            <v-col cols="6" v-for="n in 4" :key="'grid3-'+n" class="pa-1">
-              <v-hover v-slot="{ isHovering, props }">
-                <router-link :to="`/shop/grid3/item${n}`" class="d-block">
-                  <v-img
-                    :src="`https://picsum.photos/200/150?random=${40+n}`"
-                    cover
-                    class="rounded-lg transition-ease-in-out cursor-pointer"
-                    height="40"
-                    v-bind="props"
-                    :elevation="isHovering ? 6 : 0"
-                  />
-                  <div class="text-center mt-1 text-body-2">
-                    Sub {{ n }}
+      <!-- Grid 3 -->
+      <v-col cols="12" md="3" class="pa-2">
+        <v-container fluid class="pa-3 section-container">
+          <div class="section-title">Handmade & Crafts</div>
+          <div class="d-flex justify-center nested-row">
+            <div
+              v-for="(sub, i) in handmadeSubs"
+              :key="'grid3-'+i"
+              class="d-flex flex-column align-center nested-product"
+            >
+              <router-link :to="`/shop/grid3/item${i+1}`">
+                <v-hover v-slot="{ isHovering, props }">
+                  <div class="relative">
+                    <v-img
+                      v-bind="props"
+                      :src="`https://picsum.photos/200/150?random=${40+i}`"
+                      height="65"
+                      width="65"
+                      cover
+                      class="rounded-lg mb-4 mt-4 product-img"
+                      :class="{ 'hover-active': isHovering }"
+                    />
+                    <div class="absolute inset-0 rounded-lg overlay" :class="{ 'overlay-active': isHovering }"></div>
                   </div>
-                </router-link>
-              </v-hover>
-            </v-col>
-          </v-row>
-        </div>
+                </v-hover>
+              </router-link>
+              <div class="text-caption hover-text">{{ sub }}</div>
+            </div>
+          </div>
+        </v-container>
       </v-col>
 
       <!-- Grid 4 -->
-      <v-col cols="12" md="3">
-        <div class="d-flex flex-column" style="height: 340px;">
-          <div class="text-h6 mb-2">Health & Personal Care</div>
-          <v-hover v-slot="{ isHovering, props }">
-            <router-link to="/shop/grid4" class="flex-grow-1">
-              <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
-                cover
-                class="flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer"
-                v-bind="props"
-                :elevation="isHovering ? 6 : 0"
-              />
+      <v-col cols="12" md="3" class="pa-2">
+        <v-container fluid class="pa-3 section-container">
+          <div class="section-title">Premium & Curated</div>
+          <div class="d-flex justify-center nested-row">
+            <router-link to="/shop/grid4" class="d-flex flex-column align-center nested-product">
+              <v-hover v-slot="{ isHovering, props }">
+                <div class="relative">
+                  <v-img
+                    v-bind="props"
+                    src="https://cdn.vuetifyjs.com/images/cards/forest.jpg"
+                    height="85"
+                    width="85"
+                    cover
+                    class="rounded-lg mb-2 product-img"
+                    :class="{ 'hover-active': isHovering }"
+                  />
+                  <div class="absolute inset-0 rounded-lg overlay" :class="{ 'overlay-active': isHovering }"></div>
+                </div>
+              </v-hover>
+              <div class="text-orange-darken-2 font-weight-bold hover-text">Shop now...</div>
             </router-link>
-          </v-hover>
-          <router-link
-            to="/shop/grid4"
-            class="mt-2 text-orange-darken-2 font-weight-bold cursor-pointer"
-          >
-            shop now...
-          </router-link>
-        </div>
+          </div>
+        </v-container>
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<script setup>
+const fashionItems = ["Clothing", "Shoes", "Accessories"];
+const handmadeSubs = ["Jewelry", "Home Decor", "Artwork"];
+</script>
+
+<style scoped>
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-container {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.nested-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nested-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 6px;
+  position: relative;
+}
+
+.product-img {
+  transition: all 0.3s ease-in-out;
+}
+.product-img.hover-active {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease-in-out;
+}
+.overlay-active {
+  background-color: rgba(0, 0, 0, 0.35);
+}
+
+.hover-text {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.hover-text:hover {
+  color: #ff7043;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 960px) {
+  .section-container {
+    height: auto;
+    padding: 16px;
+  }
+  .nested-row {
+    justify-content: center;
+  }
+  .nested-product {
+    margin-bottom: 12px;
+  }
+}
+</style>
