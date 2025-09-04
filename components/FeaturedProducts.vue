@@ -1,8 +1,5 @@
 <template>
-  <v-container
-    fluid
-    class="pa-6 section-wrapper"
-  >
+  <v-container fluid class="pa-6  section-wrapper">
     <div>
       <!-- Section Title -->
       <div class="section-header mb-8">
@@ -33,30 +30,40 @@
 
           <div class="d-flex justify-space-between align-center w-100">
             <div>
-              <div class="text-caption text-grey-darken-1">$ {{ product.price }}</div>
-              <div class="text-body-2 font-weight-medium">{{ product.name }}</div>
+              <!-- Price and Name in Orange -->
+              <div class="text-caption font-weight-bold orange--text">
+                $ {{ product.price }}
+              </div>
+              <div class="text-body-2 font-weight-medium orange--text">
+                {{ product.name }}
+              </div>
             </div>
 
+            <!-- Action Icons -->
             <div class="d-flex gap-2">
-              <Heart size="18" class="cursor-pointer text-grey-darken-2 hover:text-red-500" />
-              <ShoppingCart size="18" class="cursor-pointer text-grey-darken-2 hover:text-orange-darken-2" />
+              <Heart
+                size="20"
+                class="cursor-pointer orange--text"
+                @click="goToWishlist(product)"
+              />
+              <ShoppingCart
+                size="20"
+                class="cursor-pointer orange--text"
+                @click="goToCart(product)"
+              />
             </div>
           </div>
         </v-col>
       </v-row>
-
-      <!-- See More Link -->
-      <div class="mt-8 pl-4">
-        <NuxtLink to="/products" class="text-orange-darken-2 font-weight-medium">
-          see more..
-        </NuxtLink>
-      </div>
     </div>
   </v-container>
 </template>
 
 <script setup>
 import { Heart, ShoppingCart } from "lucide-vue-next";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 
 const products = [
   { name: "Thrift Wear", price: 10, img: "/images/categories/electronics.jpeg" },
@@ -65,6 +72,22 @@ const products = [
   { name: "Computers", price: 40, img: "/images/categories/computers.jpeg" },
   { name: "Art", price: 50, img: "/images/categories/art.jpeg" }
 ];
+
+// Save to wishlist
+const goToWishlist = (product) => {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  wishlist.push(product);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  router.push("/profile/wishlist");
+};
+
+// Save to cart
+const goToCart = (product) => {
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  cart.push(product);
+  localStorage.setItem("cart", JSON.stringify(cart));
+  router.push("/shop/cart");
+};
 </script>
 
 <style scoped>
@@ -72,15 +95,15 @@ const products = [
   gap: 8px;
 }
 
-/* wrapper adds breathing room between sections */
 .section-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 64px auto; /* spacing between containers */
-  padding-left: 16px;
+  max-width: 1200px;   
+  margin: 0 auto;      
+  padding-left: 16px; 
   padding-right: 16px;
+  margin-top: -30px; 
 }
 
-/* interactive effect for each grid item */
+
 .grid-card {
   background-color: #fff;
   border-radius: 12px;
@@ -107,5 +130,10 @@ const products = [
   height: 2px;
   width: 100%;
   background-color: #e0e0e0;
+}
+
+
+.orange--text {
+  color: #ff6600 !important;
 }
 </style>

@@ -1,5 +1,6 @@
 <template>
-  <v-container fluid class="pa-6 section-wrapper">
+<v-container fluid class="pa-6 section-wrapper">
+
     <!-- Page Title -->
     <div class="section-header mb-6">
       <h2 class="text-h5 font-weight-bold mb-2">Latest Products</h2>
@@ -15,11 +16,13 @@
         md="4"
         class="pa-2"
       >
-        <!-- Section container with smoke background and fixed height -->
+        <!-- Section container -->
         <v-container fluid class="pa-3 section-container">
-          <div class="text-h6 font-weight-bold mb-3">{{ section.title }}</div>
+          <div class="text-h6 font-weight-bold mb-3">
+            {{ section.title }}
+          </div>
 
-          <!-- Nested row with 3 images horizontally -->
+          <!-- Nested row with 3 products -->
           <div class="d-flex justify-center nested-row">
             <div
               v-for="(product, pIndex) in section.products"
@@ -35,11 +38,15 @@
                   cover
                   class="rounded-lg mb-1 product-img"
                   :class="{ 'hover-active': isHovering }"
-                ></v-img>
+                />
               </v-hover>
 
-              <div class="text-center text-caption mb-1">$ {{ product.price }}</div>
+              <!-- Orange Price -->
+              <div class="text-center text-caption mb-1 text-orange-darken-2">
+                $ {{ product.price }}
+              </div>
 
+              <!-- Conditional labels -->
               <div
                 v-if="section.title === 'New Arrivals'"
                 class="text-orange-darken-2 text-body-2"
@@ -58,11 +65,7 @@
       </v-col>
     </v-row>
 
-    <div class="mt-6 pl-4">
-      <NuxtLink to="/products" class="text-orange-darken-2 font-weight-medium">
-        see more..
-      </NuxtLink>
-    </div>
+   
   </v-container>
 </template>
 
@@ -96,11 +99,14 @@ const sections = [
 </script>
 
 <style scoped>
+
 .section-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 64px auto;
-  padding-left: 16px;
+  max-width: 1150px;   /* same centered width */
+  margin: 0 auto;      /* center horizontally */
+  padding-left: 16px;  /* same padding on both sides */
   padding-right: 16px;
+  margin-bottom: 2px; /* reduced bottom space */
+  margin-top: -30px;
 }
 
 .section-container {
@@ -110,6 +116,11 @@ const sections = [
   display: flex;
   flex-direction: column;
   justify-content: center;
+  transition: all 0.3s ease;
+}
+.section-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
 }
 
 .nested-row {
@@ -139,7 +150,7 @@ const sections = [
   background-color: #e0e0e0;
 }
 
-/* Hover effect for product images */
+/* Product image hover */
 .product-img {
   transition: all 0.3s ease-in-out;
 }

@@ -31,13 +31,26 @@
           <!-- Text + Icons below image -->
           <div class="d-flex justify-space-between align-center w-100">
             <div>
-              <div class="text-caption text-grey-darken-1">$ {{ product.price }}</div>
-              <div class="text-body-2 font-weight-medium">{{ product.name }}</div>
+              <!-- Orange price -->
+              <div class="text-caption font-weight-bold text-orange-darken-2">
+                $ {{ product.price }}
+              </div>
+              <!-- Orange name -->
+              <div class="text-body-2 font-weight-medium text-orange-darken-2">
+                {{ product.name }}
+              </div>
             </div>
 
+            <!-- Orange icons -->
             <div class="d-flex gap-2">
-              <Heart size="18" class="cursor-pointer text-grey-darken-2 hover:text-red-500" />
-              <ShoppingCart size="18" class="cursor-pointer text-grey-darken-2 hover:text-orange-darken-2" />
+              <Heart
+                size="18"
+                class="cursor-pointer text-orange-darken-2 hover:text-red-500"
+              />
+              <ShoppingCart
+                size="18"
+                class="cursor-pointer text-orange-darken-2 hover:text-black"
+              />
             </div>
           </div>
 
@@ -47,7 +60,7 @@
               v-for="n in 5"
               :key="n"
               small
-              :color="n <= product.rating ? 'yellow darken-3' : 'grey lighten-1'"
+              :color="n <= product.rating ? 'orange darken-2' : 'grey lighten-1'"
             >
               mdi-star
             </v-icon>
@@ -55,12 +68,6 @@
         </v-col>
       </v-row>
 
-      <!-- See More Link -->
-      <div class="mt-8 pl-4">
-        <NuxtLink to="/deals" class="text-orange-darken-2 font-weight-medium">
-          see more..
-        </NuxtLink>
-      </div>
     </div>
   </v-container>
 </template>
@@ -85,15 +92,14 @@ const products = [
   gap: 8px;
 }
 
-/* wrapper keeps container consistent */
 .section-wrapper {
   max-width: 1200px;
   margin: 0 auto 64px auto;
   padding-left: 16px;
   padding-right: 16px;
+  margin-top: -30px;
 }
 
-/* interactive card */
 .grid-card {
   background-color: #fff;
   border-radius: 12px;
@@ -107,7 +113,6 @@ const products = [
   background-color: #f9fafb;
 }
 
-/* section header styling */
 .section-header {
   max-width: 1100px;
   margin: 0 auto 32px auto;

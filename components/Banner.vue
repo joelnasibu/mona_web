@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-6 section-wrapper">
+  <v-container fluid class="pa-0">
     <v-carousel
       :show-arrows="false"
       hide-delimiters
@@ -15,7 +15,7 @@
           :src="banner"
           cover
           height="300"
-          class="rounded-lg"
+          class="banner-img"
         />
       </v-carousel-item>
     </v-carousel>
@@ -32,12 +32,8 @@ const banners = [
 </script>
 
 <style scoped>
-
-.section-wrapper {
-  max-width: 1200px;
-  margin: 0 auto 64px auto; 
-  padding-left: 16px;
-  padding-right: 16px;
+.banner-img {
+  border-radius: 0; 
 }
 
 .v-carousel-item {

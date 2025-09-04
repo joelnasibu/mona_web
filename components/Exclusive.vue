@@ -30,24 +30,23 @@
 
           <div class="d-flex justify-space-between align-center w-100">
             <div>
-              <div class="text-caption text-grey-darken-1">$ {{ product.price }}</div>
-              <div class="text-body-2 font-weight-medium">{{ product.name }}</div>
+              <!-- Price and Name in Orange -->
+              <div class="text-caption font-weight-bold orange--text">
+                $ {{ product.price }}
+              </div>
+              <div class="text-body-2 font-weight-medium orange--text">
+                {{ product.name }}
+              </div>
             </div>
 
+            <!-- Icons in Orange -->
             <div class="d-flex gap-2">
-              <Heart size="18" class="cursor-pointer text-grey-darken-2 hover:text-red-500" />
-              <ShoppingCart size="18" class="cursor-pointer text-grey-darken-2 hover:text-orange-darken-2" />
+              <Heart size="18" class="cursor-pointer orange--text" />
+              <ShoppingCart size="18" class="cursor-pointer orange--text" />
             </div>
           </div>
         </v-col>
       </v-row>
-
-      <!-- See More Link -->
-      <div class="mt-8 pl-4">
-        <NuxtLink to="/products" class="text-orange-darken-2 font-weight-medium">
-          see more..
-        </NuxtLink>
-      </div>
     </div>
   </v-container>
 </template>
@@ -78,6 +77,8 @@ const products = [
   margin: 0 auto 64px auto; /* spacing between containers */
   padding-left: 16px;
   padding-right: 16px;
+  margin-bottom: 0%;
+  margin-top: -30px;
 }
 
 /* interactive grid card (same as Featured Product) */
@@ -101,11 +102,17 @@ const products = [
   flex-direction: column;
   align-items: flex-start;
   padding: 0 8px;
+ 
 }
 
 .section-underline {
   height: 2px;
   width: 100%;
   background-color: #e0e0e0;
+}
+
+/* Orange theme */
+.orange--text {
+  color: #ff6600 !important;
 }
 </style>

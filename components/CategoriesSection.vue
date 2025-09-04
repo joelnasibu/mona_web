@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid class="pa-6 main-wrapper">
+  <v-container fluid class="pa-6 section-wrapper">
     <v-row dense>
       <!-- Grid 1 -->
       <v-col cols="12" md="3" class="pa-2">
@@ -53,7 +53,7 @@
                   </div>
                 </v-hover>
               </router-link>
-              <div class="text-caption hover-text">{{ item }}</div>
+              <div class="text-caption text-orange-darken-2 hover-text">{{ item }}</div>
             </div>
           </div>
         </v-container>
@@ -66,7 +66,7 @@
           <div class="d-flex justify-center nested-row">
             <div
               v-for="(sub, i) in handmadeSubs"
-              :key="'grid3-'+i"
+              :key="'grid2-'+i"
               class="d-flex flex-column align-center nested-product"
             >
               <router-link :to="`/shop/grid3/item${i+1}`">
@@ -85,7 +85,7 @@
                   </div>
                 </v-hover>
               </router-link>
-              <div class="text-caption hover-text">{{ sub }}</div>
+              <div class="text-caption  text-orange-darken-2 hover-text">{{ sub }}</div>
             </div>
           </div>
         </v-container>
@@ -121,15 +121,18 @@
 </template>
 
 <script setup>
-const fashionItems = ["Clothing", "Shoes", "Accessories"];
-const handmadeSubs = ["Jewelry", "Home Decor", "Artwork"];
+const fashionItems = ["Clothing", "Accessories"];
+const handmadeSubs = ["Jewelry", "Artwork"];
 </script>
 
 <style scoped>
-.main-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
+.section-wrapper {
+  max-width: 1150px;   /* same centered width */
+  margin: 0 auto;      /* center horizontally */
+ 
+  margin-bottom: 2px; /* reduced bottom space */
 }
+
 
 .section-container {
   background-color: #f5f5f5;
@@ -179,10 +182,11 @@ const handmadeSubs = ["Jewelry", "Home Decor", "Artwork"];
 }
 
 .hover-text {
+  
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .hover-text:hover {
-  color: #ff7043;
+  color: black;
   transform: translateY(-2px);
 }
 

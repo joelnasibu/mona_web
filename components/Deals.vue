@@ -31,24 +31,31 @@
           <!-- Text + Icons below image -->
           <div class="d-flex justify-space-between align-center w-100">
             <div>
-              <div class="text-caption text-grey-darken-1">$ {{ product.price }}</div>
-              <div class="text-body-2 font-weight-medium">{{ product.name }}</div>
+              <!-- Price in orange -->
+              <div class="text-caption font-weight-bold text-orange-darken-2">
+                $ {{ product.price }}
+              </div>
+              <!-- Name in orange -->
+              <div class="text-body-2 font-weight-medium text-orange-darken-2">
+                {{ product.name }}
+              </div>
             </div>
 
+            <!-- Icons in orange -->
             <div class="d-flex gap-2">
-              <Heart size="18" class="cursor-pointer text-grey-darken-2 hover:text-red-500" />
-              <ShoppingCart size="18" class="cursor-pointer text-grey-darken-2 hover:text-orange-darken-2" />
+              <Heart
+                size="18"
+                class="cursor-pointer text-orange-darken-2 hover:text-red-500"
+              />
+              <ShoppingCart
+                size="18"
+                class="cursor-pointer text-orange-darken-2 hover:text-black"
+              />
             </div>
           </div>
         </v-col>
       </v-row>
 
-      <!-- See More Link -->
-      <div class="mt-8 pl-4">
-        <NuxtLink to="/products" class="text-orange-darken-2 font-weight-medium">
-          see more..
-        </NuxtLink>
-      </div>
     </div>
   </v-container>
 </template>
@@ -70,15 +77,15 @@ const products = [
   gap: 8px;
 }
 
-/* wrapper ensures consistent container size across all sections */
 .section-wrapper {
   max-width: 1200px;
-  margin: 0 auto 64px auto; /* same bottom spacing as other sections */
+  margin: 0 auto 64px auto;
   padding-left: 16px;
   padding-right: 16px;
+  margin-top:35px;
+  margin-bottom: 0%;
 }
 
-/* interactive grid card */
 .grid-card {
   background-color: #fff;
   border-radius: 12px;

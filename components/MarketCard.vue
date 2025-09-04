@@ -1,25 +1,27 @@
-<template>
+<template> 
   <section 
-  class="market-grid-section mt-16 px-6"
-   :style="{
-         backgroundImage: `url(${bgImage})`,
+    class="market-grid-section mt-16 px-6"
+    :style="{
+      backgroundImage: `url(${bgImage})`,
       backgroundSize: 'cover',
       backgroundPosition: 'center',
     }"
-    >
+  >
     <div class="market-grid">
       <a
         v-for="(market, index) in markets"
         :key="index"
         :href="market.link"
         class="market-card group"
-        :style="{ backgroundImage: `url('/Smartsell Logo.jpeg')` }"
-
+        :style="{ backgroundImage: `url(${market.image})` }"
       >
         <div class="overlay"></div>
         <div class="content">
           <h3 class="market-name">{{ market.name }}</h3>
-          <p class="market-desc">{{ market.description }}</p>
+          <div class="market-desc flex items-center gap-2 text-orange-400">
+            <component :is="market.icon" class="w-4 h-4 text-white" />
+            <span>{{ market.description }}</span>
+          </div>
         </div>
       </a>
     </div>
@@ -28,15 +30,29 @@
 
 <script setup>
 import bgImage from '@/assets/images/bg/white.png'
+
+
+import Adams from '@/assets/images/markets/Adams_Market.png'
+import Gikomba from '@/assets/images/markets/Gikomba_Market.png'
+import Toi from '@/assets/images/markets/Toi_Market.png'
+import City from '@/assets/images/markets/City_Market.png'
+import Kariokor from '@/assets/images/markets/Kariokor_Market.png'
+import Maasai from '@/assets/images/markets/Maasai_Market.png'
+import Village from '@/assets/images/markets/Village_Market.png'
+import Farmers from '@/assets/images/markets/Farmers_Market.png'
+
+
+import { ShoppingBag, Shirt, Home, Flower2, HandPlatter, Gem, Store, Leaf } from 'lucide-vue-next'
+
 const markets = [
-  { name: 'Adams Market', description: 'Fresh produce', link: '#' },
-  { name: 'Gikomba Market', description: 'Second-hand goods', link: '#' },
-  { name: 'Toi Market', description: 'Local crafts', link: '#' },
-  { name: 'City Market', description: 'Tourist crafts', link: '#' },
-  { name: 'Kariokor Market', description: 'Traditional items', link: '#' },
-  { name: 'Maasai Market', description: 'Art & jewelry', link: '#' },
-  { name: 'Village Market', description: 'Modern shopping', link: '#' },
-  { name: 'Nairobi Farmers Market', description: 'Organic produce', link: '#' }
+  { name: 'Adams Market', description: 'Fresh produce', link: '#', image: Adams, icon: ShoppingBag },
+  { name: 'Gikomba Market', description: 'Fashion & Everyday Essentials', link: '#', image: Gikomba, icon: Shirt },
+  { name: 'Toi Market', description: 'Fresh Produce & Home Goods', link: '#', image: Toi, icon: Home },
+  { name: 'City Market', description: 'Flowers, Food & Lifestyle', link: '#', image: City, icon: Flower2 },
+  { name: 'Kariokor Market', description: 'Crafts & Handmade Goods ', link: '#', image: Kariokor, icon: HandPlatter },
+  { name: 'Maasai Market', description: 'Culture & Design', link: '#', image: Maasai, icon: Gem },
+  { name: 'Village Market', description: 'Premium Shopping & Crafts', link: '#', image: Village, icon: Store },
+  { name: 'Nairobi Farmers Market', description: 'Organic & Sustainable Living', link: '#', image: Farmers, icon: Leaf }
 ]
 </script>
 
@@ -84,7 +100,7 @@ const markets = [
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.2); 
   border-radius: 12px;
 }
 
@@ -102,5 +118,13 @@ const markets = [
 .market-desc {
   font-size: 0.9rem;
   line-height: 1.3;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fb923c
 }
+.market-desc svg {
+    stroke: #fb923c
+  }
+
 </style>
