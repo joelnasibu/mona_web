@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue?vue&type=style&index=0&scoped=f47a532e&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.v-carousel-item {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n",
+      "start": 1756474009049,
+      "end": 1756474009049,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue"
+        ],
+        "names": [],
+        "mappings": ";AAoCA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <v-container fluid class=\"pa-6\">\r\n\r\n    <v-carousel\r\n      :show-arrows=\"false\"\r\n      hide-delimiters\r\n      cycle\r\n      height=\"300\"\r\n      interval=\"3000\"\r\n    >\r\n      <v-carousel-item\r\n        v-for=\"(banner, index) in banners\"\r\n        :key=\"index\"\r\n      >\r\n        <v-img\r\n          :src=\"banner\"\r\n          cover\r\n          height=\"300\"\r\n          class=\"rounded-lg\"\r\n        ></v-img>\r\n      </v-carousel-item>\r\n    </v-carousel>\r\n  </v-container>\r\n</template>\r\n\r\n<script setup>\r\n\r\nconst banners = [\r\n  \"/images/banners/1.jpg\",\r\n  \"/images/banners/2.jpg\",\r\n  \"/images/banners/3.jpg\",\r\n  \"/images/banners/1.jpg\",\r\n];\r\n</script>\r\n\r\n<style scoped>\r\n.v-carousel-item {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474009050,
+      "end": 1756474009051,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474009050,
+      "end": 1756474009051,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474009052,
+      "end": 1756474009052,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474009052,
+      "end": 1756474009052,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474009053,
+      "end": 1756474009053,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-carousel-item{align-items:center;display:flex;justify-content:center}",
+      "start": 1756474009053,
+      "end": 1756474009061,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue",
+        "mappings": "AACA,iBAGE,kBAAmB,CAFnB,YAAa,CACb,sBAEF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.v-carousel-item {\r\n  display: flex;\r\n  justify-content: center;\r\n  align-items: center;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474009062,
+      "end": 1756474009062,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474009065,
+      "end": 1756474009065,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474009065,
+      "end": 1756474009065,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".v-carousel-item[data-v-f47a532e]{align-items:center;display:flex;justify-content:center}",
+      "start": 1756474009066,
+      "end": 1756474009067,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue",
+        "mappings": "AAAA,kCAAiB,kBAAkB,CAAC,YAAY,CAAC,sBAAsB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/Banner.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474009069,
+      "end": 1756474009069,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474009069,
+      "end": 1756474009070,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474009069,
+      "end": 1756474009070,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474009070,
+      "end": 1756474009070,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474009070,
+      "end": 1756474009070,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474009076,
+      "end": 1756474009076,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474009077,
+      "end": 1756474009077,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474009080,
+      "end": 1756474009080,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474009081,
+      "end": 1756474009081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474009081,
+      "end": 1756474009081,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".v-carousel-item[data-v-f47a532e]{align-items:center;display:flex;justify-content:center}\"",
+      "start": 1756474009082,
+      "end": 1756474009082,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474009083,
+      "end": 1756474009088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474009088,
+      "end": 1756474009088,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474009089,
+      "end": 1756474009089,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474009091,
+      "end": 1756474009091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474009091,
+      "end": 1756474009091,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474009093,
+      "end": 1756474009093,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474009093,
+      "end": 1756474009093,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474009093,
+      "end": 1756474009093,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474009100,
+      "end": 1756474009100,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474009100,
+      "end": 1756474009100,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474009101,
+      "end": 1756474009101,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474009101,
+      "end": 1756474009101,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474009103,
+      "end": 1756474009103,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474009103,
+      "end": 1756474009103,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474009104,
+      "end": 1756474009104,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474009104,
+      "end": 1756474009104,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474009104,
+      "end": 1756474009105,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474009105,
+      "end": 1756474009105,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474009105,
+      "end": 1756474009105,
+      "order": "normal"
+    }
+  ]
+}

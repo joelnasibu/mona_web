@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VExpansionPanel/VExpansionPanel.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\r\n// Components\r\nimport { VExpansionPanelSymbol } from \"./VExpansionPanels.mjs\";\r\nimport { VExpansionPanelText } from \"./VExpansionPanelText.mjs\";\r\nimport { makeVExpansionPanelTitleProps, VExpansionPanelTitle } from \"./VExpansionPanelTitle.mjs\"; // Composables\r\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeElevationProps, useElevation } from \"../../composables/elevation.mjs\";\r\nimport { makeGroupItemProps, useGroupItem } from \"../../composables/group.mjs\";\r\nimport { makeLazyProps } from \"../../composables/lazy.mjs\";\r\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\"; // Utilities\r\nimport { computed, provide, toRef } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\";\r\nexport const makeVExpansionPanelProps = propsFactory({\r\n  title: String,\r\n  text: String,\r\n  bgColor: String,\r\n  ...makeComponentProps(),\r\n  ...makeElevationProps(),\r\n  ...makeGroupItemProps(),\r\n  ...makeLazyProps(),\r\n  ...makeRoundedProps(),\r\n  ...makeTagProps(),\r\n  ...makeVExpansionPanelTitleProps()\r\n}, 'VExpansionPanel');\r\nexport const VExpansionPanel = genericComponent()({\r\n  name: 'VExpansionPanel',\r\n  props: makeVExpansionPanelProps(),\r\n  emits: {\r\n    'group:selected': val => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const groupItem = useGroupItem(props, VExpansionPanelSymbol);\r\n    const {\r\n      backgroundColorClasses,\r\n      backgroundColorStyles\r\n    } = useBackgroundColor(props, 'bgColor');\r\n    const {\r\n      elevationClasses\r\n    } = useElevation(props);\r\n    const {\r\n      roundedClasses\r\n    } = useRounded(props);\r\n    const isDisabled = computed(() => groupItem?.disabled.value || props.disabled);\r\n    const selectedIndices = computed(() => groupItem.group.items.value.reduce((arr, item, index) => {\r\n      if (groupItem.group.selected.value.includes(item.id)) arr.push(index);\r\n      return arr;\r\n    }, []));\r\n    const isBeforeSelected = computed(() => {\r\n      const index = groupItem.group.items.value.findIndex(item => item.id === groupItem.id);\r\n      return !groupItem.isSelected.value && selectedIndices.value.some(selectedIndex => selectedIndex - index === 1);\r\n    });\r\n    const isAfterSelected = computed(() => {\r\n      const index = groupItem.group.items.value.findIndex(item => item.id === groupItem.id);\r\n      return !groupItem.isSelected.value && selectedIndices.value.some(selectedIndex => selectedIndex - index === -1);\r\n    });\r\n    provide(VExpansionPanelSymbol, groupItem);\r\n    provideDefaults({\r\n      VExpansionPanelText: {\r\n        eager: toRef(props, 'eager')\r\n      },\r\n      VExpansionPanelTitle: {\r\n        readonly: toRef(props, 'readonly')\r\n      }\r\n    });\r\n    useRender(() => {\r\n      const hasText = !!(slots.text || props.text);\r\n      const hasTitle = !!(slots.title || props.title);\r\n      return _createVNode(props.tag, {\r\n        \"class\": ['v-expansion-panel', {\r\n          'v-expansion-panel--active': groupItem.isSelected.value,\r\n          'v-expansion-panel--before-active': isBeforeSelected.value,\r\n          'v-expansion-panel--after-active': isAfterSelected.value,\r\n          'v-expansion-panel--disabled': isDisabled.value\r\n        }, roundedClasses.value, backgroundColorClasses.value, props.class],\r\n        \"style\": [backgroundColorStyles.value, props.style]\r\n      }, {\r\n        default: () => [_createVNode(\"div\", {\r\n          \"class\": ['v-expansion-panel__shadow', ...elevationClasses.value]\r\n        }, null), hasTitle && _createVNode(VExpansionPanelTitle, {\r\n          \"key\": \"title\",\r\n          \"collapseIcon\": props.collapseIcon,\r\n          \"color\": props.color,\r\n          \"expandIcon\": props.expandIcon,\r\n          \"hideActions\": props.hideActions,\r\n          \"ripple\": props.ripple\r\n        }, {\r\n          default: () => [slots.title ? slots.title() : props.title]\r\n        }), hasText && _createVNode(VExpansionPanelText, {\r\n          \"key\": \"text\"\r\n        }, {\r\n          default: () => [slots.text ? slots.text() : props.text]\r\n        }), slots.default?.()]\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VExpansionPanel.mjs.map",
+      "start": 1756473943490,
+      "end": 1756473943696,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473943696,
+      "end": 1756473943696,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473943696,
+      "end": 1756473943697,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473943697,
+      "end": 1756473943697,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473943697,
+      "end": 1756473943697,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473943697,
+      "end": 1756473943697,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473943697,
+      "end": 1756473943697,
+      "order": "normal"
+    }
+  ]
+}

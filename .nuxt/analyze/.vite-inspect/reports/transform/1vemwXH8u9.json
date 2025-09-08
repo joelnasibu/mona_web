@@ -1,0 +1,225 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\", { value: true });\r\n/**\r\n * Error format\r\n *\r\n * {@link https://postgrest.org/en/stable/api.html?highlight=options#errors-and-http-status-codes}\r\n */\r\nclass PostgrestError extends Error {\r\n    constructor(context) {\r\n        super(context.message);\r\n        this.name = 'PostgrestError';\r\n        this.details = context.details;\r\n        this.hint = context.hint;\r\n        this.code = context.code;\r\n    }\r\n}\r\nexports.default = PostgrestError;\r\n//# sourceMappingURL=PostgrestError.js.map",
+      "start": 1756473949671,
+      "end": 1756473949756,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949756,
+      "end": 1756473949756,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949756,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949757,
+      "end": 1756473949757,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "result": "import * as commonjsHelpers from \"\u0000commonjsHelpers.js\";\nimport { __exports as PostgrestError_1 } from \"\\u0000C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@supabase/postgrest-js/dist/cjs/PostgrestError.js?commonjs-exports\";\n\n\"use strict\";\r\nObject.defineProperty(PostgrestError_1, \"__esModule\", { value: true });\r\n/**\r\n * Error format\r\n *\r\n * {@link https://postgrest.org/en/stable/api.html?highlight=options#errors-and-http-status-codes}\r\n */\r\nclass PostgrestError extends Error {\r\n    constructor(context) {\r\n        super(context.message);\r\n        this.name = 'PostgrestError';\r\n        this.details = context.details;\r\n        this.hint = context.hint;\r\n        this.code = context.code;\r\n    }\r\n}\r\nvar _default = PostgrestError_1.default = PostgrestError;\r\n//# sourceMappingURL=PostgrestError.js.map\n\nexport { PostgrestError_1 as __moduleExports, _default as default };",
+      "start": 1756473949757,
+      "end": 1756473949758,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;;AAAA,YAAY,CAAC;AACb,MAAM,CAAC,cAAc,CAAC,gBAAO,EAAE,YAAY,EAAE,EAAE,KAAK,EAAE,IAAI,EAAE,CAAC,CAAC;AAC9D;AACA;AACA;AACA;AACA;AACA,MAAM,cAAc,SAAS,KAAK,CAAC;AACnC,IAAI,WAAW,CAAC,OAAO,EAAE;AACzB,QAAQ,KAAK,CAAC,OAAO,CAAC,OAAO,CAAC,CAAC;AAC/B,QAAQ,IAAI,CAAC,IAAI,GAAG,gBAAgB,CAAC;AACrC,QAAQ,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC,OAAO,CAAC;AACvC,QAAQ,IAAI,CAAC,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC;AACjC,QAAQ,IAAI,CAAC,IAAI,GAAG,OAAO,CAAC,IAAI,CAAC;AACjC,KAAK;AACL,CAAC;AACD,uCAAe,GAAG,cAAc,CAAC;AACjC"
+      }
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949758,
+      "end": 1756473949758,
+      "order": "normal"
+    }
+  ]
+}

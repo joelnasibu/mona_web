@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/locale/adapters/vuetify.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Composables\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { ref, shallowRef, watch } from 'vue';\r\nimport { consoleError, consoleWarn, getObjectValueByPath } from \"../../util/index.mjs\"; // Locales\r\nimport en from \"../en.mjs\"; // Types\r\nconst LANG_PREFIX = '$vuetify.';\r\nconst replace = (str, params) => {\r\n  return str.replace(/\\{(\\d+)\\}/g, (match, index) => {\r\n    return String(params[+index]);\r\n  });\r\n};\r\nconst createTranslateFunction = (current, fallback, messages) => {\r\n  return function (key) {\r\n    for (var _len = arguments.length, params = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {\r\n      params[_key - 1] = arguments[_key];\r\n    }\r\n    if (!key.startsWith(LANG_PREFIX)) {\r\n      return replace(key, params);\r\n    }\r\n    const shortKey = key.replace(LANG_PREFIX, '');\r\n    const currentLocale = current.value && messages.value[current.value];\r\n    const fallbackLocale = fallback.value && messages.value[fallback.value];\r\n    let str = getObjectValueByPath(currentLocale, shortKey, null);\r\n    if (!str) {\r\n      consoleWarn(`Translation key \"${key}\" not found in \"${current.value}\", trying fallback locale`);\r\n      str = getObjectValueByPath(fallbackLocale, shortKey, null);\r\n    }\r\n    if (!str) {\r\n      consoleError(`Translation key \"${key}\" not found in fallback`);\r\n      str = key;\r\n    }\r\n    if (typeof str !== 'string') {\r\n      consoleError(`Translation key \"${key}\" has a non-string value`);\r\n      str = key;\r\n    }\r\n    return replace(str, params);\r\n  };\r\n};\r\nfunction createNumberFunction(current, fallback) {\r\n  return (value, options) => {\r\n    const numberFormat = new Intl.NumberFormat([current.value, fallback.value], options);\r\n    return numberFormat.format(value);\r\n  };\r\n}\r\nfunction useProvided(props, prop, provided) {\r\n  const internal = useProxiedModel(props, prop, props[prop] ?? provided.value);\r\n\r\n  // TODO: Remove when defaultValue works\r\n  internal.value = props[prop] ?? provided.value;\r\n  watch(provided, v => {\r\n    if (props[prop] == null) {\r\n      internal.value = provided.value;\r\n    }\r\n  });\r\n  return internal;\r\n}\r\nfunction createProvideFunction(state) {\r\n  return props => {\r\n    const current = useProvided(props, 'locale', state.current);\r\n    const fallback = useProvided(props, 'fallback', state.fallback);\r\n    const messages = useProvided(props, 'messages', state.messages);\r\n    return {\r\n      name: 'vuetify',\r\n      current,\r\n      fallback,\r\n      messages,\r\n      t: createTranslateFunction(current, fallback, messages),\r\n      n: createNumberFunction(current, fallback),\r\n      provide: createProvideFunction({\r\n        current,\r\n        fallback,\r\n        messages\r\n      })\r\n    };\r\n  };\r\n}\r\nexport function createVuetifyAdapter(options) {\r\n  const current = shallowRef(options?.locale ?? 'en');\r\n  const fallback = shallowRef(options?.fallback ?? 'en');\r\n  const messages = ref({\r\n    en,\r\n    ...options?.messages\r\n  });\r\n  return {\r\n    name: 'vuetify',\r\n    current,\r\n    fallback,\r\n    messages,\r\n    t: createTranslateFunction(current, fallback, messages),\r\n    n: createNumberFunction(current, fallback),\r\n    provide: createProvideFunction({\r\n      current,\r\n      fallback,\r\n      messages\r\n    })\r\n  };\r\n}\r\n//# sourceMappingURL=vuetify.mjs.map",
+      "start": 1756474005762,
+      "end": 1756474005913,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474005913,
+      "end": 1756474005913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474005914,
+      "end": 1756474005914,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474005914,
+      "end": 1756474005915,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474005915,
+      "end": 1756474005915,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474005915,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474005916,
+      "end": 1756474005916,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474005916,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474005916,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474005917,
+      "end": 1756474005917,
+      "order": "normal"
+    }
+  ]
+}

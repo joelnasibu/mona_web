@@ -1,1 +1,0 @@
-import{e,w as o,o as a,b as n,f as _}from"./entry.d7ew7f-K.js";import{V as r}from"./VContainer.XpSFghNE.js";/* empty css              */const f={__name:"admin",setup(c){return(s,m)=>{const t=_;return a(),e(r,null,{default:o(()=>[n(t)]),_:1})}}};export{f as default};

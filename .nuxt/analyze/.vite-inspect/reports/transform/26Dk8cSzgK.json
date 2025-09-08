@@ -1,0 +1,239 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/middleware/vendor-only.ts",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { useAppStore } from \"~/store/app\"\r\n\r\nexport default defineNuxtRouteMiddleware((to: any, from: any) => {\r\n    const { currentUser } = useAppStore()\r\n    // const localePath = useLocalePath();\r\n    if (process.client)\r\n        if (currentUser.accessLevel !== 3)\r\n            return navigateTo({ name: 'auth' })\r\n\r\n\r\n\r\n\r\n})\r\n",
+      "start": 1756473924392,
+      "end": 1756473925769,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473925769,
+      "end": 1756473925769,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473925769,
+      "end": 1756473925769,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473925769,
+      "end": 1756473925770,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473925770,
+      "end": 1756473925770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "result": "import { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const { currentUser } = useAppStore();\n  if (process.client) {\n    if (currentUser.accessLevel !== 3)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756473925770,
+      "end": 1756473926693,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/middleware/vendor-only.ts"
+        ],
+        "sourcesContent": [
+          "import { useAppStore } from \"~/store/app\"\r\n\r\nexport default defineNuxtRouteMiddleware((to: any, from: any) => {\r\n    const { currentUser } = useAppStore()\r\n    // const localePath = useLocalePath();\r\n    if (process.client)\r\n        if (currentUser.accessLevel !== 3)\r\n            return navigateTo({ name: 'auth' })\r\n\r\n\r\n\r\n\r\n})\r\n"
+        ],
+        "mappings": "AAAA,SAAS,mBAAmB;AAE5B,eAAe,0BAA0B,CAAC,IAAS,SAAc;AAC7D,QAAM,EAAE,YAAY,IAAI,YAAY;AAEpC,MAAI,QAAQ;AACR,QAAI,YAAY,gBAAgB;AAC5B,aAAO,WAAW,EAAE,MAAM,OAAO,CAAC;AAAA;AAK9C,CAAC;",
+        "names": []
+      }
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473926693,
+      "end": 1756473926693,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473926693,
+      "end": 1756473926694,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473926695,
+      "end": 1756473926695,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473926695,
+      "end": 1756473926695,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const { currentUser } = useAppStore();\n  if (true) {\n    if (currentUser.accessLevel !== 3)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756473926697,
+      "end": 1756473926913,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473926913,
+      "end": 1756473926913,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { defineNuxtRouteMiddleware, navigateTo } from '#app/composables/router';\nimport { useAppStore } from \"~/store/app\";\nexport default defineNuxtRouteMiddleware((to, from) => {\n  const { currentUser } = useAppStore();\n  if (true) {\n    if (currentUser.accessLevel !== 3)\n      return navigateTo({ name: \"auth\" });\n  }\n});\n",
+      "start": 1756473926913,
+      "end": 1756473926914,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC;AACF,CAAC,CAAC;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473926914,
+      "end": 1756473926914,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473926914,
+      "end": 1756473926914,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473926914,
+      "end": 1756473926914,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473926914,
+      "end": 1756473926914,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473926914,
+      "end": 1756473926914,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473926914,
+      "end": 1756473926915,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473926915,
+      "end": 1756473926915,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473926915,
+      "end": 1756473926916,
+      "order": "normal"
+    }
+  ]
+}

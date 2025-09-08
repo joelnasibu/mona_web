@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VDatePicker/VDatePickerHeader.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VDatePickerHeader.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VDefaultsProvider } from \"../VDefaultsProvider/index.mjs\"; // Composables\r\nimport { useBackgroundColor } from \"../../composables/color.mjs\";\r\nimport { MaybeTransition } from \"../../composables/transition.mjs\"; // Utilities\r\nimport { EventProp, genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVDatePickerHeaderProps = propsFactory({\r\n  appendIcon: String,\r\n  color: String,\r\n  header: String,\r\n  transition: String,\r\n  onClick: EventProp()\r\n}, 'VDatePickerHeader');\r\nexport const VDatePickerHeader = genericComponent()({\r\n  name: 'VDatePickerHeader',\r\n  props: makeVDatePickerHeaderProps(),\r\n  emits: {\r\n    click: () => true,\r\n    'click:append': () => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      emit,\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      backgroundColorClasses,\r\n      backgroundColorStyles\r\n    } = useBackgroundColor(props, 'color');\r\n    function onClick() {\r\n      emit('click');\r\n    }\r\n    function onClickAppend() {\r\n      emit('click:append');\r\n    }\r\n    useRender(() => {\r\n      const hasContent = !!(slots.default || props.header);\r\n      const hasAppend = !!(slots.append || props.appendIcon);\r\n      return _createVNode(\"div\", {\r\n        \"class\": ['v-date-picker-header', {\r\n          'v-date-picker-header--clickable': !!props.onClick\r\n        }, backgroundColorClasses.value],\r\n        \"style\": backgroundColorStyles.value,\r\n        \"onClick\": onClick\r\n      }, [slots.prepend && _createVNode(\"div\", {\r\n        \"key\": \"prepend\",\r\n        \"class\": \"v-date-picker-header__prepend\"\r\n      }, [slots.prepend()]), hasContent && _createVNode(MaybeTransition, {\r\n        \"key\": \"content\",\r\n        \"name\": props.transition\r\n      }, {\r\n        default: () => [_createVNode(\"div\", {\r\n          \"key\": props.header,\r\n          \"class\": \"v-date-picker-header__content\"\r\n        }, [slots.default?.() ?? props.header])]\r\n      }), hasAppend && _createVNode(\"div\", {\r\n        \"class\": \"v-date-picker-header__append\"\r\n      }, [!slots.append ? _createVNode(VBtn, {\r\n        \"key\": \"append-btn\",\r\n        \"icon\": props.appendIcon,\r\n        \"variant\": \"text\",\r\n        \"onClick\": onClickAppend\r\n      }, null) : _createVNode(VDefaultsProvider, {\r\n        \"key\": \"append-defaults\",\r\n        \"disabled\": !props.appendIcon,\r\n        \"defaults\": {\r\n          VBtn: {\r\n            icon: props.appendIcon,\r\n            variant: 'text'\r\n          }\r\n        }\r\n      }, {\r\n        default: () => [slots.append?.()]\r\n      })])]);\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VDatePickerHeader.mjs.map",
+      "start": 1756474011907,
+      "end": 1756474012239,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474012239,
+      "end": 1756474012239,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474012239,
+      "end": 1756474012239,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474012239,
+      "end": 1756474012239,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474012239,
+      "end": 1756474012239,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474012239,
+      "end": 1756474012240,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474012240,
+      "end": 1756474012240,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474012241,
+      "end": 1756474012241,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474012241,
+      "end": 1756474012241,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474012242,
+      "end": 1756474012242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474012242,
+      "end": 1756474012242,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474012242,
+      "end": 1756474012242,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474012242,
+      "end": 1756474012245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474012245,
+      "end": 1756474012245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474012245,
+      "end": 1756474012245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474012245,
+      "end": 1756474012245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474012245,
+      "end": 1756474012245,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474012245,
+      "end": 1756474012245,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474012245,
+      "end": 1756474012246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474012246,
+      "end": 1756474012246,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474012246,
+      "end": 1756474012246,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474012246,
+      "end": 1756474012246,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474012246,
+      "end": 1756474012246,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474012246,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474012246,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474012247,
+      "end": 1756474012247,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VDataTable/VDataTableGroupHeaderRow.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createTextVNode as _createTextVNode, createVNode as _createVNode } from \"vue\";\r\n// Components\r\nimport { VDataTableColumn } from \"./VDataTableColumn.mjs\";\r\nimport { VBtn } from \"../VBtn/index.mjs\";\r\nimport { VCheckboxBtn } from \"../VCheckbox/index.mjs\"; // Composables\r\nimport { useGroupBy } from \"./composables/group.mjs\";\r\nimport { useHeaders } from \"./composables/headers.mjs\";\r\nimport { useSelection } from \"./composables/select.mjs\"; // Utilities\r\nimport { computed } from 'vue';\r\nimport { genericComponent, propsFactory } from \"../../util/index.mjs\"; // Types\r\nexport const makeVDataTableGroupHeaderRowProps = propsFactory({\r\n  item: {\r\n    type: Object,\r\n    required: true\r\n  }\r\n}, 'VDataTableGroupHeaderRow');\r\nexport const VDataTableGroupHeaderRow = genericComponent()({\r\n  name: 'VDataTableGroupHeaderRow',\r\n  props: makeVDataTableGroupHeaderRowProps(),\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      isGroupOpen,\r\n      toggleGroup,\r\n      extractRows\r\n    } = useGroupBy();\r\n    const {\r\n      isSelected,\r\n      isSomeSelected,\r\n      select\r\n    } = useSelection();\r\n    const {\r\n      columns\r\n    } = useHeaders();\r\n    const rows = computed(() => {\r\n      return extractRows([props.item]);\r\n    });\r\n    return () => _createVNode(\"tr\", {\r\n      \"class\": \"v-data-table-group-header-row\",\r\n      \"style\": {\r\n        '--v-data-table-group-header-row-depth': props.item.depth\r\n      }\r\n    }, [columns.value.map(column => {\r\n      if (column.key === 'data-table-group') {\r\n        const icon = isGroupOpen(props.item) ? '$expand' : '$next';\r\n        const onClick = () => toggleGroup(props.item);\r\n        return slots['data-table-group']?.({\r\n          item: props.item,\r\n          count: rows.value.length,\r\n          props: {\r\n            icon,\r\n            onClick\r\n          }\r\n        }) ?? _createVNode(VDataTableColumn, {\r\n          \"class\": \"v-data-table-group-header-row__column\"\r\n        }, {\r\n          default: () => [_createVNode(VBtn, {\r\n            \"size\": \"small\",\r\n            \"variant\": \"text\",\r\n            \"icon\": icon,\r\n            \"onClick\": onClick\r\n          }, null), _createVNode(\"span\", null, [props.item.value]), _createVNode(\"span\", null, [_createTextVNode(\"(\"), rows.value.length, _createTextVNode(\")\")])]\r\n        });\r\n      }\r\n      if (column.key === 'data-table-select') {\r\n        const modelValue = isSelected(rows.value);\r\n        const indeterminate = isSomeSelected(rows.value) && !modelValue;\r\n        const selectGroup = v => select(rows.value, v);\r\n        return slots['data-table-select']?.({\r\n          props: {\r\n            modelValue,\r\n            indeterminate,\r\n            'onUpdate:modelValue': selectGroup\r\n          }\r\n        }) ?? _createVNode(\"td\", null, [_createVNode(VCheckboxBtn, {\r\n          \"modelValue\": modelValue,\r\n          \"indeterminate\": indeterminate,\r\n          \"onUpdate:modelValue\": selectGroup\r\n        }, null)]);\r\n      }\r\n      return _createVNode(\"td\", null, null);\r\n    })]);\r\n  }\r\n});\r\n//# sourceMappingURL=VDataTableGroupHeaderRow.mjs.map",
+      "start": 1756473943126,
+      "end": 1756473943279,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473943280,
+      "end": 1756473943280,
+      "order": "normal"
+    }
+  ]
+}

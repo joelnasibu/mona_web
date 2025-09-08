@@ -1,0 +1,231 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/search.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-text-field\r\n    style=\"max-width: clamp(300px, 30%, 350px)\"\r\n    :placeholder=\"label\"\r\n    hide-details\r\n    prepend-inner-icon=\"mdi-magnify\"\r\n    v-model=\"searchValue\"\r\n    bg-color=\"off-white-1\"\r\n    rounded\r\n    type=\"search\"\r\n  ></v-text-field>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  label: {\r\n    type: String,\r\n    default: \"Filter...\",\r\n  },\r\n  search: String,\r\n});\r\nconst emits = defineEmits([\"search\"]);\r\n\r\nconst searchValue = computed({\r\n  get() {\r\n    return props.search;\r\n  },\r\n  set(val) {\r\n    emits(\"search\", val);\r\n  },\r\n});\r\n</script>\r\n\r\n<style lang=\"scss\" scoped></style>\r\n",
+      "start": 1756473932853,
+      "end": 1756473933176,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473933176,
+      "end": 1756473933176,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { unref as _unref, resolveComponent as _resolveComponent, isRef as _isRef, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'search',\n  props: {\r\n  label: {\r\n    type: String,\r\n    default: \"Filter...\",\r\n  },\r\n  search: String,\r\n},\n  emits: [\"search\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst props = __props;\r\nconst emits = __emit;\r\n\r\nconst searchValue = computed({\r\n  get() {\r\n    return props.search;\r\n  },\r\n  set(val) {\r\n    emits(\"search\", val);\r\n  },\r\n});\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_text_field = _resolveComponent(\"v-text-field\")\n\n  return (_openBlock(), _createBlock(_component_v_text_field, {\n    style: {\"max-width\":\"clamp(300px, 30%, 350px)\"},\n    placeholder: __props.label,\n    \"hide-details\": \"\",\n    \"prepend-inner-icon\": \"mdi-magnify\",\n    modelValue: _unref(searchValue),\n    \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => (_isRef(searchValue) ? (searchValue).value = $event : null)),\n    \"bg-color\": \"off-white-1\",\n    rounded: \"\",\n    type: \"search\"\n  }, null, 8, [\"placeholder\", \"modelValue\"]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756473933176,
+      "end": 1756473933180,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473933180,
+      "end": 1756473933180,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473933180,
+      "end": 1756473933180,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473933180,
+      "end": 1756473933180,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473933180,
+      "end": 1756473933180,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { unref as _unref, resolveComponent as _resolveComponent, isRef as _isRef, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'search',\n  props: {\r\n  label: {\r\n    type: String,\r\n    default: \"Filter...\",\r\n  },\r\n  search: String,\r\n},\n  emits: [\"search\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst props = __props;\r\nconst emits = __emit;\r\n\r\nconst searchValue = computed({\r\n  get() {\r\n    return props.search;\r\n  },\r\n  set(val) {\r\n    emits(\"search\", val);\r\n  },\r\n});\r\n\nreturn (_ctx, _cache) => {\n                                                                   \n\n  return (_openBlock(), _createBlock(_component_v_text_field, {\n    style: {\"max-width\":\"clamp(300px, 30%, 350px)\"},\n    placeholder: __props.label,\n    \"hide-details\": \"\",\n    \"prepend-inner-icon\": \"mdi-magnify\",\n    modelValue: _unref(searchValue),\n    \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => (_isRef(searchValue) ? (searchValue).value = $event : null)),\n    \"bg-color\": \"off-white-1\",\n    rounded: \"\",\n    type: \"search\"\n  }, null, 8, [\"placeholder\", \"modelValue\"]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VTextField as _component_v_text_field } from \"vuetify/lib/components/VTextField/index.mjs\"\n\n",
+      "start": 1756473933180,
+      "end": 1756473933180,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473933181,
+      "end": 1756473933181,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { computed } from 'vue';\nimport { unref as _unref, resolveComponent as _resolveComponent, isRef as _isRef, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\n\nconst _sfc_main = {\n  __name: 'search',\n  props: {\r\n  label: {\r\n    type: String,\r\n    default: \"Filter...\",\r\n  },\r\n  search: String,\r\n},\n  emits: [\"search\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst props = __props;\r\nconst emits = __emit;\r\n\r\nconst searchValue = computed({\r\n  get() {\r\n    return props.search;\r\n  },\r\n  set(val) {\r\n    emits(\"search\", val);\r\n  },\r\n});\r\n\nreturn (_ctx, _cache) => {\n                                                                   \n\n  return (_openBlock(), _createBlock(_component_v_text_field, {\n    style: {\"max-width\":\"clamp(300px, 30%, 350px)\"},\n    placeholder: __props.label,\n    \"hide-details\": \"\",\n    \"prepend-inner-icon\": \"mdi-magnify\",\n    modelValue: _unref(searchValue),\n    \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => (_isRef(searchValue) ? (searchValue).value = $event : null)),\n    \"bg-color\": \"off-white-1\",\n    rounded: \"\",\n    type: \"search\"\n  }, null, 8, [\"placeholder\", \"modelValue\"]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VTextField as _component_v_text_field } from \"vuetify/lib/components/VTextField/index.mjs\"\n\n",
+      "start": 1756473933181,
+      "end": 1756473933183,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;AAGlJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACV,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC;AACD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACT,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC;AACJ,CAAC,CAAC,CAAC;;AAEH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAElE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3H,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5C;AACA;;AAEA;;;;AAIA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEvB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473933183,
+      "end": 1756473933183,
+      "order": "normal"
+    }
+  ]
+}

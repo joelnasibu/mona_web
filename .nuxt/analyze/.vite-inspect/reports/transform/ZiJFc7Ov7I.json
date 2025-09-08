@@ -1,0 +1,223 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/FeaturedProducts.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-container fluid class=\"pa-6\">\r\n    <!-- Featured Products Section -->\r\n    <div>\r\n      <!-- Section Title -->\r\n      <div class=\"d-flex flex-column mb-6\">\r\n        <h2 class=\"text-h5 font-weight-bold mb-2\">Featured Product</h2>\r\n        <div class=\"bg-grey-lighten-2\" style=\"height: 2px; width: 100%; max-width: 600px;\"></div>\r\n      </div>\r\n\r\n      <!-- Products Grid -->\r\n      <v-row dense class=\"px-4 justify-space-between\">\r\n        <v-col\r\n          v-for=\"(product, index) in products\"\r\n          :key=\"index\"\r\n          cols=\"12\"\r\n          sm=\"6\"\r\n          md=\"2\"\r\n          class=\"d-flex flex-column align-center\"\r\n        >\r\n          <!-- Product Image -->\r\n          <v-img\r\n            :src=\"product.img\"\r\n            :lazy-src=\"product.img\"\r\n            height=\"200\"\r\n            width=\"100%\"\r\n            cover\r\n            class=\"rounded-lg hoverable mb-3\"\r\n          ></v-img>\r\n\r\n          <div class=\"d-flex justify-space-between align-center w-100\">\r\n            \r\n            <div>\r\n              <div class=\"text-caption text-grey-darken-1\">$ {{ product.price }}</div>\r\n              <div class=\"text-body-2 font-weight-medium\">{{ product.name }}</div>\r\n            </div>\r\n\r\n           \r\n            <div class=\"d-flex gap-2\">\r\n              <Heart size=\"18\" class=\"cursor-pointer text-grey-darken-2 hover:text-red-500\" />\r\n              <ShoppingCart size=\"18\" class=\"cursor-pointer text-grey-darken-2 hover:text-orange-darken-2\" />\r\n            </div>\r\n          </div>\r\n        </v-col>\r\n      </v-row>\r\n\r\n      <!-- See More Link -->\r\n      <div class=\"mt-6 pl-4\">\r\n        <NuxtLink to=\"/products\" class=\"text-orange-darken-2 font-weight-medium\">\r\n          see more..\r\n        </NuxtLink>\r\n      </div>\r\n    </div>\r\n  </v-container>\r\n</template>\r\n\r\n<script setup>\r\nimport { Heart, ShoppingCart } from \"lucide-vue-next\";\r\n\r\nconst products = [\r\n  { name: \"Electronics\", price: 10, img: \"/images/categories/electronics.jpeg\" },\r\n  { name: \"Automotive\", price: 20, img: \"/images/categories/automotive.jpeg\" },\r\n  { name: \"Beauty\", price: 30, img: \"/images/categories/beauty.jpeg\" },\r\n  { name: \"Computers\", price: 40, img: \"/images/categories/computers.jpeg\" },\r\n  { name: \"Art\", price: 50, img: \"/images/categories/art.jpeg\" }\r\n];\r\n</script>\r\n\r\n<style scoped>\r\n.gap-2 {\r\n  gap: 8px;\r\n}\r\n</style>\r\n",
+      "start": 1756473937664,
+      "end": 1756473937926,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, unref as _unref, withCtx as _withCtx, createTextVNode as _createTextVNode, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"d-flex justify-space-between align-center w-100\" }\nconst _hoisted_2 = { class: \"text-caption text-grey-darken-1\" }\nconst _hoisted_3 = { class: \"text-body-2 font-weight-medium\" }\nconst _hoisted_4 = { class: \"d-flex gap-2\" }\nconst _hoisted_5 = { class: \"mt-6 pl-4\" }\n\nimport { Heart, ShoppingCart } from \"lucide-vue-next\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'FeaturedProducts',\n  setup(__props) {\n\r\nconst products = [\r\n  { name: \"Electronics\", price: 10, img: \"/images/categories/electronics.jpeg\" },\r\n  { name: \"Automotive\", price: 20, img: \"/images/categories/automotive.jpeg\" },\r\n  { name: \"Beauty\", price: 30, img: \"/images/categories/beauty.jpeg\" },\r\n  { name: \"Computers\", price: 40, img: \"/images/categories/computers.jpeg\" },\r\n  { name: \"Art\", price: 50, img: \"/images/categories/art.jpeg\" }\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_img = _resolveComponent(\"v-img\")\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    fluid: \"\",\n    class: \"pa-6\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", null, [\n        _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"d-flex flex-column mb-6\" }, [\n          _createElementVNode(\"h2\", { class: \"text-h5 font-weight-bold mb-2\" }, \"Featured Product\"),\n          _createElementVNode(\"div\", {\n            class: \"bg-grey-lighten-2\",\n            style: {\"height\":\"2px\",\"width\":\"100%\",\"max-width\":\"600px\"}\n          })\n        ], -1)),\n        _createVNode(_component_v_row, {\n          dense: \"\",\n          class: \"px-4 justify-space-between\"\n        }, {\n          default: _withCtx(() => [\n            (_openBlock(), _createElementBlock(_Fragment, null, _renderList(products, (product, index) => {\n              return _createVNode(_component_v_col, {\n                key: index,\n                cols: \"12\",\n                sm: \"6\",\n                md: \"2\",\n                class: \"d-flex flex-column align-center\"\n              }, {\n                default: _withCtx(() => [\n                  _createVNode(_component_v_img, {\n                    src: product.img,\n                    \"lazy-src\": product.img,\n                    height: \"200\",\n                    width: \"100%\",\n                    cover: \"\",\n                    class: \"rounded-lg hoverable mb-3\"\n                  }, null, 8, [\"src\", \"lazy-src\"]),\n                  _createElementVNode(\"div\", _hoisted_1, [\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"div\", _hoisted_2, \"$ \" + _toDisplayString(product.price), 1),\n                      _createElementVNode(\"div\", _hoisted_3, _toDisplayString(product.name), 1)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createVNode(_unref(Heart), {\n                        size: \"18\",\n                        class: \"cursor-pointer text-grey-darken-2 hover:text-red-500\"\n                      }),\n                      _createVNode(_unref(ShoppingCart), {\n                        size: \"18\",\n                        class: \"cursor-pointer text-grey-darken-2 hover:text-orange-darken-2\"\n                      })\n                    ])\n                  ])\n                ]),\n                _: 2\n              }, 1024)\n            }), 64))\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createVNode(_component_NuxtLink, {\n            to: \"/products\",\n            class: \"text-orange-darken-2 font-weight-medium\"\n          }, {\n            default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n              _createTextVNode(\" see more.. \", -1)\n            ]))]),\n            _: 1\n          })\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/FeaturedProducts.vue?vue&type=style&index=0&scoped=c097125c&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-c097125c\"]])",
+      "start": 1756473937926,
+      "end": 1756473937929,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473937929,
+      "end": 1756473937929,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473937929,
+      "end": 1756473937929,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473937929,
+      "end": 1756473937929,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, unref as _unref, withCtx as _withCtx, createTextVNode as _createTextVNode, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"d-flex justify-space-between align-center w-100\" }\nconst _hoisted_2 = { class: \"text-caption text-grey-darken-1\" }\nconst _hoisted_3 = { class: \"text-body-2 font-weight-medium\" }\nconst _hoisted_4 = { class: \"d-flex gap-2\" }\nconst _hoisted_5 = { class: \"mt-6 pl-4\" }\n\nimport { Heart, ShoppingCart } from \"lucide-vue-next\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'FeaturedProducts',\n  setup(__props) {\n\r\nconst products = [\r\n  { name: \"Electronics\", price: 10, img: \"/images/categories/electronics.jpeg\" },\r\n  { name: \"Automotive\", price: 20, img: \"/images/categories/automotive.jpeg\" },\r\n  { name: \"Beauty\", price: 30, img: \"/images/categories/beauty.jpeg\" },\r\n  { name: \"Computers\", price: 40, img: \"/images/categories/computers.jpeg\" },\r\n  { name: \"Art\", price: 50, img: \"/images/categories/art.jpeg\" }\r\n];\r\n\nreturn (_ctx, _cache) => {\n                                                     \n                                                     \n                                                     \n  const _component_NuxtLink = _resolveComponent(\"NuxtLink\")\n                                                                 \n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    fluid: \"\",\n    class: \"pa-6\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", null, [\n        _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"d-flex flex-column mb-6\" }, [\n          _createElementVNode(\"h2\", { class: \"text-h5 font-weight-bold mb-2\" }, \"Featured Product\"),\n          _createElementVNode(\"div\", {\n            class: \"bg-grey-lighten-2\",\n            style: {\"height\":\"2px\",\"width\":\"100%\",\"max-width\":\"600px\"}\n          })\n        ], -1)),\n        _createVNode(_component_v_row, {\n          dense: \"\",\n          class: \"px-4 justify-space-between\"\n        }, {\n          default: _withCtx(() => [\n            (_openBlock(), _createElementBlock(_Fragment, null, _renderList(products, (product, index) => {\n              return _createVNode(_component_v_col, {\n                key: index,\n                cols: \"12\",\n                sm: \"6\",\n                md: \"2\",\n                class: \"d-flex flex-column align-center\"\n              }, {\n                default: _withCtx(() => [\n                  _createVNode(_component_v_img, {\n                    src: product.img,\n                    \"lazy-src\": product.img,\n                    height: \"200\",\n                    width: \"100%\",\n                    cover: \"\",\n                    class: \"rounded-lg hoverable mb-3\"\n                  }, null, 8, [\"src\", \"lazy-src\"]),\n                  _createElementVNode(\"div\", _hoisted_1, [\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"div\", _hoisted_2, \"$ \" + _toDisplayString(product.price), 1),\n                      _createElementVNode(\"div\", _hoisted_3, _toDisplayString(product.name), 1)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createVNode(_unref(Heart), {\n                        size: \"18\",\n                        class: \"cursor-pointer text-grey-darken-2 hover:text-red-500\"\n                      }),\n                      _createVNode(_unref(ShoppingCart), {\n                        size: \"18\",\n                        class: \"cursor-pointer text-grey-darken-2 hover:text-orange-darken-2\"\n                      })\n                    ])\n                  ])\n                ]),\n                _: 2\n              }, 1024)\n            }), 64))\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createVNode(_component_NuxtLink, {\n            to: \"/products\",\n            class: \"text-orange-darken-2 font-weight-medium\"\n          }, {\n            default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n              _createTextVNode(\" see more.. \", -1)\n            ]))]),\n            _: 1\n          })\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/FeaturedProducts.vue?vue&type=style&index=0&scoped=c097125c&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-c097125c\"]])\n\n/* Vuetify */\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\nimport { VImg as _component_v_img } from \"vuetify/lib/components/VImg/index.mjs\"\n\n",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473937930,
+      "end": 1756473937930,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473937930,
+      "end": 1756473937933,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473937933,
+      "end": 1756473937933,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473937933,
+      "end": 1756473937933,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473937933,
+      "end": 1756473937933,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473937933,
+      "end": 1756473937933,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/nuxt/dist/app/components/nuxt-link\";\nimport { createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, unref as _unref, withCtx as _withCtx, createTextVNode as _createTextVNode, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"d-flex justify-space-between align-center w-100\" }\nconst _hoisted_2 = { class: \"text-caption text-grey-darken-1\" }\nconst _hoisted_3 = { class: \"text-body-2 font-weight-medium\" }\nconst _hoisted_4 = { class: \"d-flex gap-2\" }\nconst _hoisted_5 = { class: \"mt-6 pl-4\" }\n\nimport { Heart, ShoppingCart } from \"lucide-vue-next\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'FeaturedProducts',\n  setup(__props) {\n\r\nconst products = [\r\n  { name: \"Electronics\", price: 10, img: \"/images/categories/electronics.jpeg\" },\r\n  { name: \"Automotive\", price: 20, img: \"/images/categories/automotive.jpeg\" },\r\n  { name: \"Beauty\", price: 30, img: \"/images/categories/beauty.jpeg\" },\r\n  { name: \"Computers\", price: 40, img: \"/images/categories/computers.jpeg\" },\r\n  { name: \"Art\", price: 50, img: \"/images/categories/art.jpeg\" }\r\n];\r\n\nreturn (_ctx, _cache) => {\n                                                     \n                                                     \n                                                     \n  const _component_NuxtLink = __nuxt_component_0\n                                                                 \n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    fluid: \"\",\n    class: \"pa-6\"\n  }, {\n    default: _withCtx(() => [\n      _createElementVNode(\"div\", null, [\n        _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"d-flex flex-column mb-6\" }, [\n          _createElementVNode(\"h2\", { class: \"text-h5 font-weight-bold mb-2\" }, \"Featured Product\"),\n          _createElementVNode(\"div\", {\n            class: \"bg-grey-lighten-2\",\n            style: {\"height\":\"2px\",\"width\":\"100%\",\"max-width\":\"600px\"}\n          })\n        ], -1)),\n        _createVNode(_component_v_row, {\n          dense: \"\",\n          class: \"px-4 justify-space-between\"\n        }, {\n          default: _withCtx(() => [\n            (_openBlock(), _createElementBlock(_Fragment, null, _renderList(products, (product, index) => {\n              return _createVNode(_component_v_col, {\n                key: index,\n                cols: \"12\",\n                sm: \"6\",\n                md: \"2\",\n                class: \"d-flex flex-column align-center\"\n              }, {\n                default: _withCtx(() => [\n                  _createVNode(_component_v_img, {\n                    src: product.img,\n                    \"lazy-src\": product.img,\n                    height: \"200\",\n                    width: \"100%\",\n                    cover: \"\",\n                    class: \"rounded-lg hoverable mb-3\"\n                  }, null, 8, [\"src\", \"lazy-src\"]),\n                  _createElementVNode(\"div\", _hoisted_1, [\n                    _createElementVNode(\"div\", null, [\n                      _createElementVNode(\"div\", _hoisted_2, \"$ \" + _toDisplayString(product.price), 1),\n                      _createElementVNode(\"div\", _hoisted_3, _toDisplayString(product.name), 1)\n                    ]),\n                    _createElementVNode(\"div\", _hoisted_4, [\n                      _createVNode(_unref(Heart), {\n                        size: \"18\",\n                        class: \"cursor-pointer text-grey-darken-2 hover:text-red-500\"\n                      }),\n                      _createVNode(_unref(ShoppingCart), {\n                        size: \"18\",\n                        class: \"cursor-pointer text-grey-darken-2 hover:text-orange-darken-2\"\n                      })\n                    ])\n                  ])\n                ]),\n                _: 2\n              }, 1024)\n            }), 64))\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_5, [\n          _createVNode(_component_NuxtLink, {\n            to: \"/products\",\n            class: \"text-orange-darken-2 font-weight-medium\"\n          }, {\n            default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n              _createTextVNode(\" see more.. \", -1)\n            ]))]),\n            _: 1\n          })\n        ])\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/FeaturedProducts.vue?vue&type=style&index=0&scoped=c097125c&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-c097125c\"]])\n\n/* Vuetify */\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\nimport { VImg as _component_v_img } from \"vuetify/lib/components/VImg/index.mjs\"\n\n",
+      "start": 1756473937933,
+      "end": 1756473937934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "normal"
+    }
+  ]
+}

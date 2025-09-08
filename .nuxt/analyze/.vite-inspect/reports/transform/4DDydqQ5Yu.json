@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/lucide-vue-next/dist/esm/icons/book-dashed.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\n * @license lucide-vue-next v0.542.0 - ISC\n *\n * This source code is licensed under the ISC license.\n * See the LICENSE file in the root directory of this source tree.\n */\n\nimport createLucideIcon from '../createLucideIcon.js';\n\nconst BookDashed = createLucideIcon(\"book-dashed\", [\n  [\"path\", { d: \"M12 17h1.5\", key: \"1gkc67\" }],\n  [\"path\", { d: \"M12 22h1.5\", key: \"1my7sn\" }],\n  [\"path\", { d: \"M12 2h1.5\", key: \"19tvb7\" }],\n  [\"path\", { d: \"M17.5 22H19a1 1 0 0 0 1-1\", key: \"10akbh\" }],\n  [\"path\", { d: \"M17.5 2H19a1 1 0 0 1 1 1v1.5\", key: \"1vrfjs\" }],\n  [\"path\", { d: \"M20 14v3h-2.5\", key: \"1naeju\" }],\n  [\"path\", { d: \"M20 8.5V10\", key: \"1ctpfu\" }],\n  [\"path\", { d: \"M4 10V8.5\", key: \"1o3zg5\" }],\n  [\"path\", { d: \"M4 19.5V14\", key: \"ob81pf\" }],\n  [\"path\", { d: \"M4 4.5A2.5 2.5 0 0 1 6.5 2H8\", key: \"s8vcyb\" }],\n  [\"path\", { d: \"M8 22H6.5a1 1 0 0 1 0-5H8\", key: \"1cu73q\" }]\n]);\n\nexport { BookDashed as default };\n//# sourceMappingURL=book-dashed.js.map\n",
+      "start": 1756473943715,
+      "end": 1756473943787,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473943787,
+      "end": 1756473943787,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473943787,
+      "end": 1756473943787,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473943787,
+      "end": 1756473943788,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473943788,
+      "end": 1756473943788,
+      "order": "normal"
+    }
+  ]
+}

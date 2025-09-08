@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue?vue&type=style&index=0&scoped=4a813077&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.subtitle {\r\n  font-size: 1.1rem;\r\n  margin-bottom: 2rem;\r\n  color: #f97316;\r\n}\r\n",
+      "start": 1756474006782,
+      "end": 1756474006782,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue"
+        ],
+        "names": [],
+        "mappings": ";AAuCA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACR,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EACjB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EACnB,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <section\r\n    :style=\"{\r\n      backgroundImage: `url(${bgImage})`,\r\n      backgroundSize: 'cover',\r\n      backgroundPosition: 'center',\r\n    }\"\r\n  >\r\n    <div\r\n      class=\"bg-gray-50 py-16 px-6 text-center rounded-2xl shadow-md text-body-1\"\r\n    >\r\n      <LandingTitle title=\"Join Nairobi Markets\" />\r\n      <p class=\"mt-4 mx-auto\">\r\n        Create your business account and start showcasing your products today.\r\n      </p>\r\n\r\n      <div class=\"mt-8 flex justify-center\">\r\n        <NuxtLink to=\"/create-business-account\">\r\n          <v-btn\r\n            color=\"primary\"\r\n            size=\"large\"\r\n            flat\r\n            class=\"rounded-xl px-10 text-lg font-semibold text-capitalize text-subtitle-1\"\r\n          >\r\n            Become a vendor\r\n          </v-btn>\r\n        </NuxtLink>\r\n      </div>\r\n    </div>\r\n  </section>\r\n</template>\r\n\r\n<script setup>\r\nimport bgImage from \"@/assets/images/bg/white.png\";\r\ndefinePageMeta({\r\n  layout: \"new-landing\",\r\n});\r\n</script>\r\n<style scoped>\r\n.subtitle {\r\n  font-size: 1.1rem;\r\n  margin-bottom: 2rem;\r\n  color: #f97316;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006784,
+      "end": 1756474006784,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006784,
+      "end": 1756474006784,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006786,
+      "end": 1756474006786,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006786,
+      "end": 1756474006786,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474006786,
+      "end": 1756474006787,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".subtitle{color:#f97316;font-size:1.1rem;margin-bottom:2rem}",
+      "start": 1756474006787,
+      "end": 1756474006796,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue",
+        "mappings": "AACA,UAGE,aAAc,CAFd,gBAAiB,CACjB,kBAEF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.subtitle {\r\n  font-size: 1.1rem;\r\n  margin-bottom: 2rem;\r\n  color: #f97316;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474006797,
+      "end": 1756474006797,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474006800,
+      "end": 1756474006801,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474006802,
+      "end": 1756474006802,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".subtitle[data-v-4a813077]{color:#f97316;font-size:1.1rem;margin-bottom:2rem}",
+      "start": 1756474006803,
+      "end": 1756474006805,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue",
+        "mappings": "AAAA,2BAAU,aAAa,CAAC,gBAAgB,CAAC,kBAAkB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/vendor-signup.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474006807,
+      "end": 1756474006807,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474006819,
+      "end": 1756474006819,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474006819,
+      "end": 1756474006819,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006822,
+      "end": 1756474006822,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474006822,
+      "end": 1756474006822,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474006823,
+      "end": 1756474006823,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".subtitle[data-v-4a813077]{color:#f97316;font-size:1.1rem;margin-bottom:2rem}\"",
+      "start": 1756474006823,
+      "end": 1756474006823,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474006824,
+      "end": 1756474006826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474006828,
+      "end": 1756474006834,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474006835,
+      "end": 1756474006835,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474006836,
+      "end": 1756474006837,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474006837,
+      "end": 1756474006837,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474006838,
+      "end": 1756474006838,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006838,
+      "end": 1756474006838,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006838,
+      "end": 1756474006838,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006838,
+      "end": 1756474006838,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006838,
+      "end": 1756474006838,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006838,
+      "end": 1756474006839,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006838,
+      "end": 1756474006839,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006841,
+      "end": 1756474006841,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006841,
+      "end": 1756474006841,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474006842,
+      "end": 1756474006842,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474006842,
+      "end": 1756474006842,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474006842,
+      "end": 1756474006842,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474006843,
+      "end": 1756474006843,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474006843,
+      "end": 1756474006843,
+      "order": "normal"
+    }
+  ]
+}

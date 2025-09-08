@@ -1,0 +1,269 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/assets/css/vuetify.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-label.v-field-label,\r\n.v-label,\r\n.v-checkbox-btn .v-label,\r\n.v-switch .v-label {\r\n  font-size: 0.85rem;\r\n  letter-spacing: normal;\r\n}\r\n.v-field--focused .v-label.v-field-label,\r\n.v-field--active .v-label.v-field-label {\r\n  font-size: 0.75rem !important;\r\n}\r\n.v-field__field {\r\n  align-items: center !important;\r\n  font-size: 0.8rem !important;\r\n}\r\n.v-field__field:not(:has(textarea)) {\r\n  height: 34px !important;\r\n}\r\n.search .v-field__field {\r\n  height: 42px !important;\r\n}\r\n\r\n.v-selection-control__input .v-icon {\r\n  font-size: 1.1rem !important;\r\n  align-items: center !important;\r\n}\r\n.v-field__append-inner .v-icon--size-default,\r\n.v-field__prepend-inner .v-icon--size-default {\r\n  --v-icon-size-multiplier: 0.75;\r\n}\r\n.v-btn.v-btn--density-compact {\r\n  height: 30px !important;\r\n}\r\n.v-checkbox .v-selection-control {\r\n  --v-input-control-height: 10px !important;\r\n  flex: 0;\r\n}\r\n.v-checkbox .v-selection-control--density-compact {\r\n  --v-selection-control-size: 15px !important;\r\n}\r\n\r\n.v-text-field .v-messages__message {\r\n  margin-top: -6px !important;\r\n  font-size: 0.63rem;\r\n}\r\n.v-input:is(:not(.v-input--error)) .v-messages__message {\r\n  font-family: system-ui !important;\r\n  margin-top: -3px !important;\r\n}\r\n\r\n.v-btn-group--density-compact.v-btn-group {\r\n  height: 29px !important;\r\n}\r\n.v-table {\r\n  font-size: 0.75rem !important;\r\n}\r\n/* .v-data-table-progress {\r\n  background-color: hsla(240, 100%, 90%, 0.9);\r\n} */\r\n.v-data-table-progress .v-progress-linear__indeterminate {\r\n  background: inherit !important;\r\n}\r\n.v-card-progress {\r\n  background-color: hsla(20, 100%, 90%, 0.9);\r\n}\r\n.v-card-progress .v-progress-linear__indeterminate {\r\n  background: rgba(var(--v-theme-link));\r\n}\r\n.v-data-table-footer__pagination {\r\n  padding-block: 10px;\r\n}\r\n.v-table .v-field__field {\r\n  height: 25px !important;\r\n  align-items: center !important;\r\n  font-size: 0.7rem !important;\r\n}\r\n.v-table .v-data-table-header__content .v-icon--size-default {\r\n  font-size: 18px;\r\n  margin: auto 2px;\r\n  opacity: 0.5;\r\n}\r\n/* thead {\r\n    background-color: #fff;\r\n  } */\r\nthead * {\r\n  font-weight: bold;\r\n}\r\nth * {\r\n  color: initial;\r\n}\r\ntbody tr:nth-child(odd) {\r\n  background-color: hsl(205, 26%, 97%);\r\n}\r\ntbody tr:hover {\r\n  background-color: hsl(205, 26%, 90%);\r\n}\r\ntd {\r\n  border: none !important;\r\n}\r\n\r\n.v-date-picker-month__days {\r\n  row-gap: 0px !important;\r\n  flex: 0 !important;\r\n}\r\n.v-date-picker-month__day {\r\n  height: 38px !important;\r\n  width: 38px !important;\r\n}\r\n.v-date-picker-month__weekday {\r\n  font-size: 0.8rem !important;\r\n  font-weight: bold;\r\n}\r\n.v-date-picker-month__day .v-btn {\r\n  --v-btn-height: 28px;\r\n  --v-btn-size: 0.8rem !important;\r\n  background: transparent;\r\n}\r\n.v-date-picker-month {\r\n  padding: 0 0 12px 0 !important;\r\n  min-width: 300px !important;\r\n  justify-content: center !important;\r\n}\r\n.v-date-picker-controls {\r\n  width: 300px !important;\r\n  padding-inline: 5px;\r\n}\r\n\r\n.v-overlay .v-list:not(.menu-list) {\r\n  -webkit-backdrop-filter: blur(15px);\r\n  backdrop-filter: blur(15px);\r\n  background-color: hsla(204, 33%, 97%, 0.65);\r\n  padding-block: 0;\r\n}\r\n.v-overlay .v-list:not(.menu-list) * {\r\n  font-size: 0.75rem;\r\n}\r\n.v-overlay .v-list:not(.menu-list) .v-list-item--density-default {\r\n  min-height: 40px;\r\n}\r\n.v-overlay .v-list:not(.menu-list) .v-list-item:is(.v-list-item--active) * {\r\n  color: rgba(var(--v-theme-secondary));\r\n}\r\n\r\n.v-breadcrumbs--density-compact {\r\n  padding: 5px !important;\r\n  padding-inline-start: 0 !important;\r\n}\r\n.v-breadcrumbs-item,\r\n.v-breadcrumbs-divider {\r\n  padding: 0 4px !important;\r\n}\r\n\r\n.v-icon {\r\n  transition: transform 0.3s linear;\r\n}\r\n\r\n/* .v-slider-thumb {\r\n  --v-slider-thumb-size: 15px !important;\r\n} */\r\n.v-slider-thumb__surface::after {\r\n  width: 30px !important;\r\n  height: 30px !important;\r\n}\r\n\r\n.v-radio .v-label {\r\n  opacity: 1 !important;\r\n}\r\n\r\n.v-carousel__controls {\r\n  background-color: transparent !important;\r\n}\r\n.v-carousel__controls__item.v-btn--icon.v-btn--density-default {\r\n  --v-btn-height: 10px !important;\r\n}\r\n.v-carousel__controls__item {\r\n  margin: 0 5px !important;\r\n}\r\n",
+      "start": 1756473971367,
+      "end": 1756473972482,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473972482,
+      "end": 1756473972482,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473972482,
+      "end": 1756473972482,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473972482,
+      "end": 1756473972482,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473972482,
+      "end": 1756473972482,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473972482,
+      "end": 1756473972482,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-checkbox-btn .v-label,.v-label,.v-label.v-field-label,.v-switch .v-label{font-size:.85rem;letter-spacing:normal}.v-field--active .v-label.v-field-label,.v-field--focused .v-label.v-field-label{font-size:.75rem!important}.v-field__field{align-items:center!important;font-size:.8rem!important}.v-field__field:not(:has(textarea)){height:34px!important}.search .v-field__field{height:42px!important}.v-selection-control__input .v-icon{align-items:center!important;font-size:1.1rem!important}.v-field__append-inner .v-icon--size-default,.v-field__prepend-inner .v-icon--size-default{--v-icon-size-multiplier:0.75}.v-btn.v-btn--density-compact{height:30px!important}.v-checkbox .v-selection-control{--v-input-control-height:10px!important;flex:0}.v-checkbox .v-selection-control--density-compact{--v-selection-control-size:15px!important}.v-text-field .v-messages__message{font-size:.63rem;margin-top:-6px!important}.v-input:is(:not(.v-input--error)) .v-messages__message{font-family:system-ui!important;margin-top:-3px!important}.v-btn-group--density-compact.v-btn-group{height:29px!important}.v-table{font-size:.75rem!important}.v-data-table-progress .v-progress-linear__indeterminate{background:inherit!important}.v-card-progress{background-color:rgba(255,221,204,.9)}.v-card-progress .v-progress-linear__indeterminate{background:rgba(var(--v-theme-link))}.v-data-table-footer__pagination{padding-block:10px}.v-table .v-field__field{align-items:center!important;font-size:.7rem!important;height:25px!important}.v-table .v-data-table-header__content .v-icon--size-default{font-size:18px;margin:auto 2px;opacity:.5}thead *{font-weight:700}th *{color:initial}tbody tr:nth-child(odd){background-color:#f5f8f9}tbody tr:hover{background-color:#dfe7ec}td{border:none!important}.v-date-picker-month__days{flex:0!important;row-gap:0!important}.v-date-picker-month__day{height:38px!important;width:38px!important}.v-date-picker-month__weekday{font-size:.8rem!important;font-weight:700}.v-date-picker-month__day .v-btn{--v-btn-height:28px;--v-btn-size:0.8rem!important;background:transparent}.v-date-picker-month{justify-content:center!important;min-width:300px!important;padding:0 0 12px!important}.v-date-picker-controls{padding-inline:5px;width:300px!important}.v-overlay .v-list:not(.menu-list){backdrop-filter:blur(15px);background-color:rgba(245,248,250,.65);padding-block:0}.v-overlay .v-list:not(.menu-list) *{font-size:.75rem}.v-overlay .v-list:not(.menu-list) .v-list-item--density-default{min-height:40px}.v-overlay .v-list:not(.menu-list) .v-list-item:is(.v-list-item--active) *{color:rgba(var(--v-theme-secondary))}.v-breadcrumbs--density-compact{padding:5px!important;padding-inline-start:0!important}.v-breadcrumbs-divider,.v-breadcrumbs-item{padding:0 4px!important}.v-icon{transition:transform .3s linear}.v-slider-thumb__surface:after{height:30px!important;width:30px!important}.v-radio .v-label{opacity:1!important}.v-carousel__controls{background-color:transparent!important}.v-carousel__controls__item.v-btn--icon.v-btn--density-default{--v-btn-height:10px!important}.v-carousel__controls__item{margin:0 5px!important}",
+      "start": 1756473972482,
+      "end": 1756473972510,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/assets/css/vuetify.css",
+        "mappings": "AAAA,4EAIE,gBAAkB,CAClB,qBACF,CACA,iFAEE,0BACF,CACA,gBACE,4BAA8B,CAC9B,yBACF,CACA,oCACE,qBACF,CACA,wBACE,qBACF,CAEA,oCAEE,4BAA8B,CAD9B,0BAEF,CACA,2FAEE,6BACF,CACA,8BACE,qBACF,CACA,iCACE,uCAAyC,CACzC,MACF,CACA,kDACE,yCACF,CAEA,mCAEE,gBAAkB,CADlB,yBAEF,CACA,wDACE,+BAAiC,CACjC,yBACF,CAEA,0CACE,qBACF,CACA,SACE,0BACF,CAIA,yDACE,4BACF,CACA,iBACE,qCACF,CACA,mDACE,oCACF,CACA,iCACE,kBACF,CACA,yBAEE,4BAA8B,CAC9B,yBAA4B,CAF5B,qBAGF,CACA,6DACE,cAAe,CACf,eAAgB,CAChB,UACF,CAIA,QACE,eACF,CACA,KACE,aACF,CACA,wBACE,wBACF,CACA,eACE,wBACF,CACA,GACE,qBACF,CAEA,2BAEE,gBAAkB,CADlB,mBAEF,CACA,0BACE,qBAAuB,CACvB,oBACF,CACA,8BACE,yBAA4B,CAC5B,eACF,CACA,iCACE,mBAAoB,CACpB,6BAA+B,CAC/B,sBACF,CACA,qBAGE,gCAAkC,CADlC,yBAA2B,CAD3B,0BAGF,CACA,wBAEE,kBAAmB,CADnB,qBAEF,CAEA,mCAEE,0BAA2B,CAC3B,sCAA2C,CAC3C,eACF,CACA,qCACE,gBACF,CACA,iEACE,eACF,CACA,2EACE,oCACF,CAEA,gCACE,qBAAuB,CACvB,gCACF,CACA,2CAEE,uBACF,CAEA,QACE,+BACF,CAKA,+BAEE,qBAAuB,CADvB,oBAEF,CAEA,kBACE,mBACF,CAEA,sBACE,sCACF,CACA,+DACE,6BACF,CACA,4BACE,sBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/assets/css/vuetify.css"
+        ],
+        "sourcesContent": [
+          ".v-label.v-field-label,\r\n.v-label,\r\n.v-checkbox-btn .v-label,\r\n.v-switch .v-label {\r\n  font-size: 0.85rem;\r\n  letter-spacing: normal;\r\n}\r\n.v-field--focused .v-label.v-field-label,\r\n.v-field--active .v-label.v-field-label {\r\n  font-size: 0.75rem !important;\r\n}\r\n.v-field__field {\r\n  align-items: center !important;\r\n  font-size: 0.8rem !important;\r\n}\r\n.v-field__field:not(:has(textarea)) {\r\n  height: 34px !important;\r\n}\r\n.search .v-field__field {\r\n  height: 42px !important;\r\n}\r\n\r\n.v-selection-control__input .v-icon {\r\n  font-size: 1.1rem !important;\r\n  align-items: center !important;\r\n}\r\n.v-field__append-inner .v-icon--size-default,\r\n.v-field__prepend-inner .v-icon--size-default {\r\n  --v-icon-size-multiplier: 0.75;\r\n}\r\n.v-btn.v-btn--density-compact {\r\n  height: 30px !important;\r\n}\r\n.v-checkbox .v-selection-control {\r\n  --v-input-control-height: 10px !important;\r\n  flex: 0;\r\n}\r\n.v-checkbox .v-selection-control--density-compact {\r\n  --v-selection-control-size: 15px !important;\r\n}\r\n\r\n.v-text-field .v-messages__message {\r\n  margin-top: -6px !important;\r\n  font-size: 0.63rem;\r\n}\r\n.v-input:is(:not(.v-input--error)) .v-messages__message {\r\n  font-family: system-ui !important;\r\n  margin-top: -3px !important;\r\n}\r\n\r\n.v-btn-group--density-compact.v-btn-group {\r\n  height: 29px !important;\r\n}\r\n.v-table {\r\n  font-size: 0.75rem !important;\r\n}\r\n/* .v-data-table-progress {\r\n  background-color: hsla(240, 100%, 90%, 0.9);\r\n} */\r\n.v-data-table-progress .v-progress-linear__indeterminate {\r\n  background: inherit !important;\r\n}\r\n.v-card-progress {\r\n  background-color: hsla(20, 100%, 90%, 0.9);\r\n}\r\n.v-card-progress .v-progress-linear__indeterminate {\r\n  background: rgba(var(--v-theme-link));\r\n}\r\n.v-data-table-footer__pagination {\r\n  padding-block: 10px;\r\n}\r\n.v-table .v-field__field {\r\n  height: 25px !important;\r\n  align-items: center !important;\r\n  font-size: 0.7rem !important;\r\n}\r\n.v-table .v-data-table-header__content .v-icon--size-default {\r\n  font-size: 18px;\r\n  margin: auto 2px;\r\n  opacity: 0.5;\r\n}\r\n/* thead {\r\n    background-color: #fff;\r\n  } */\r\nthead * {\r\n  font-weight: bold;\r\n}\r\nth * {\r\n  color: initial;\r\n}\r\ntbody tr:nth-child(odd) {\r\n  background-color: hsl(205, 26%, 97%);\r\n}\r\ntbody tr:hover {\r\n  background-color: hsl(205, 26%, 90%);\r\n}\r\ntd {\r\n  border: none !important;\r\n}\r\n\r\n.v-date-picker-month__days {\r\n  row-gap: 0px !important;\r\n  flex: 0 !important;\r\n}\r\n.v-date-picker-month__day {\r\n  height: 38px !important;\r\n  width: 38px !important;\r\n}\r\n.v-date-picker-month__weekday {\r\n  font-size: 0.8rem !important;\r\n  font-weight: bold;\r\n}\r\n.v-date-picker-month__day .v-btn {\r\n  --v-btn-height: 28px;\r\n  --v-btn-size: 0.8rem !important;\r\n  background: transparent;\r\n}\r\n.v-date-picker-month {\r\n  padding: 0 0 12px 0 !important;\r\n  min-width: 300px !important;\r\n  justify-content: center !important;\r\n}\r\n.v-date-picker-controls {\r\n  width: 300px !important;\r\n  padding-inline: 5px;\r\n}\r\n\r\n.v-overlay .v-list:not(.menu-list) {\r\n  -webkit-backdrop-filter: blur(15px);\r\n  backdrop-filter: blur(15px);\r\n  background-color: hsla(204, 33%, 97%, 0.65);\r\n  padding-block: 0;\r\n}\r\n.v-overlay .v-list:not(.menu-list) * {\r\n  font-size: 0.75rem;\r\n}\r\n.v-overlay .v-list:not(.menu-list) .v-list-item--density-default {\r\n  min-height: 40px;\r\n}\r\n.v-overlay .v-list:not(.menu-list) .v-list-item:is(.v-list-item--active) * {\r\n  color: rgba(var(--v-theme-secondary));\r\n}\r\n\r\n.v-breadcrumbs--density-compact {\r\n  padding: 5px !important;\r\n  padding-inline-start: 0 !important;\r\n}\r\n.v-breadcrumbs-item,\r\n.v-breadcrumbs-divider {\r\n  padding: 0 4px !important;\r\n}\r\n\r\n.v-icon {\r\n  transition: transform 0.3s linear;\r\n}\r\n\r\n/* .v-slider-thumb {\r\n  --v-slider-thumb-size: 15px !important;\r\n} */\r\n.v-slider-thumb__surface::after {\r\n  width: 30px !important;\r\n  height: 30px !important;\r\n}\r\n\r\n.v-radio .v-label {\r\n  opacity: 1 !important;\r\n}\r\n\r\n.v-carousel__controls {\r\n  background-color: transparent !important;\r\n}\r\n.v-carousel__controls__item.v-btn--icon.v-btn--density-default {\r\n  --v-btn-height: 10px !important;\r\n}\r\n.v-carousel__controls__item {\r\n  margin: 0 5px !important;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473972510,
+      "end": 1756473972510,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473972510,
+      "end": 1756473972510,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473972510,
+      "end": 1756473972510,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473972510,
+      "end": 1756473972510,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473972510,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".v-checkbox-btn .v-label,.v-label,.v-label.v-field-label,.v-switch .v-label{font-size:.85rem;letter-spacing:normal}.v-field--active .v-label.v-field-label,.v-field--focused .v-label.v-field-label{font-size:.75rem!important}.v-field__field{align-items:center!important;font-size:.8rem!important}.v-field__field:not(:has(textarea)){height:34px!important}.search .v-field__field{height:42px!important}.v-selection-control__input .v-icon{align-items:center!important;font-size:1.1rem!important}.v-field__append-inner .v-icon--size-default,.v-field__prepend-inner .v-icon--size-default{--v-icon-size-multiplier:0.75}.v-btn.v-btn--density-compact{height:30px!important}.v-checkbox .v-selection-control{--v-input-control-height:10px!important;flex:0}.v-checkbox .v-selection-control--density-compact{--v-selection-control-size:15px!important}.v-text-field .v-messages__message{font-size:.63rem;margin-top:-6px!important}.v-input:is(:not(.v-input--error)) .v-messages__message{font-family:system-ui!important;margin-top:-3px!important}.v-btn-group--density-compact.v-btn-group{height:29px!important}.v-table{font-size:.75rem!important}.v-data-table-progress .v-progress-linear__indeterminate{background:inherit!important}.v-card-progress{background-color:rgba(255,221,204,.9)}.v-card-progress .v-progress-linear__indeterminate{background:rgba(var(--v-theme-link))}.v-data-table-footer__pagination{padding-block:10px}.v-table .v-field__field{align-items:center!important;font-size:.7rem!important;height:25px!important}.v-table .v-data-table-header__content .v-icon--size-default{font-size:18px;margin:auto 2px;opacity:.5}thead *{font-weight:700}th *{color:initial}tbody tr:nth-child(odd){background-color:#f5f8f9}tbody tr:hover{background-color:#dfe7ec}td{border:none!important}.v-date-picker-month__days{flex:0!important;row-gap:0!important}.v-date-picker-month__day{height:38px!important;width:38px!important}.v-date-picker-month__weekday{font-size:.8rem!important;font-weight:700}.v-date-picker-month__day .v-btn{--v-btn-height:28px;--v-btn-size:0.8rem!important;background:transparent}.v-date-picker-month{justify-content:center!important;min-width:300px!important;padding:0 0 12px!important}.v-date-picker-controls{padding-inline:5px;width:300px!important}.v-overlay .v-list:not(.menu-list){backdrop-filter:blur(15px);background-color:rgba(245,248,250,.65);padding-block:0}.v-overlay .v-list:not(.menu-list) *{font-size:.75rem}.v-overlay .v-list:not(.menu-list) .v-list-item--density-default{min-height:40px}.v-overlay .v-list:not(.menu-list) .v-list-item:is(.v-list-item--active) *{color:rgba(var(--v-theme-secondary))}.v-breadcrumbs--density-compact{padding:5px!important;padding-inline-start:0!important}.v-breadcrumbs-divider,.v-breadcrumbs-item{padding:0 4px!important}.v-icon{transition:transform .3s linear}.v-slider-thumb__surface:after{height:30px!important;width:30px!important}.v-radio .v-label{opacity:1!important}.v-carousel__controls{background-color:transparent!important}.v-carousel__controls__item.v-btn--icon.v-btn--density-default{--v-btn-height:10px!important}.v-carousel__controls__item{margin:0 5px!important}\"",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473972511,
+      "end": 1756473972511,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473972511,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473972511,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473972512,
+      "end": 1756473972512,
+      "order": "normal"
+    }
+  ]
+}

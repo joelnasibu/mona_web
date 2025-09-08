@@ -1,0 +1,100 @@
+import { _ as _export_sfc, m as useDevice, l as useRoute, h as useAppStore, s as storeToRefs, d as __nuxt_component_1, j as __nuxt_component_0$1 } from '../server.mjs';
+import { useSSRContext, withCtx, createVNode } from 'vue';
+import { ssrRenderComponent } from 'vue/server-renderer';
+import { V as VApp, a as VMain } from './VMain-YTg4QM3S.mjs';
+import '../../nitro/firebase-gen-2.mjs';
+import 'firebase-functions/v2/https';
+import 'node:http';
+import 'node:https';
+import 'fs';
+import 'path';
+import 'unhead';
+import '@unhead/shared';
+import 'vue-router';
+import '@algolia/cache-in-memory';
+import 'pinia-plugin-persistedstate';
+import './tag-pIHjuosL.mjs';
+import './resizeObserver-k8M9k6Xi.mjs';
+import './ssrBoot-xH9VG8QW.mjs';
+
+const _sfc_main$2 = {
+  __name: "app-bar",
+  __ssrInlineRender: true,
+  setup(__props) {
+    useDevice();
+    useRoute();
+    const app = useAppStore();
+    storeToRefs(app);
+    return (_ctx, _push, _parent, _attrs) => {
+      const _component_ClientOnly = __nuxt_component_0$1;
+      _push(ssrRenderComponent(_component_ClientOnly, _attrs, {}, _parent));
+    };
+  }
+};
+const _sfc_setup$2 = _sfc_main$2.setup;
+_sfc_main$2.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/landing/app-bar.vue");
+  return _sfc_setup$2 ? _sfc_setup$2(props, ctx) : void 0;
+};
+const __nuxt_component_0 = /* @__PURE__ */ _export_sfc(_sfc_main$2, [["__scopeId", "data-v-0db14242"]]);
+const _sfc_main$1 = {};
+function _sfc_ssrRender$1(_ctx, _push, _parent, _attrs) {
+  const _component_ClientOnly = __nuxt_component_0$1;
+  _push(ssrRenderComponent(_component_ClientOnly, _attrs, {}, _parent));
+}
+const _sfc_setup$1 = _sfc_main$1.setup;
+_sfc_main$1.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("components/landing/footer.vue");
+  return _sfc_setup$1 ? _sfc_setup$1(props, ctx) : void 0;
+};
+const __nuxt_component_2 = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["ssrRender", _sfc_ssrRender$1]]);
+const _sfc_main = {};
+function _sfc_ssrRender(_ctx, _push, _parent, _attrs) {
+  const _component_LandingAppBar = __nuxt_component_0;
+  const _component_NuxtPage = __nuxt_component_1;
+  const _component_LandingFooter = __nuxt_component_2;
+  _push(ssrRenderComponent(VApp, _attrs, {
+    default: withCtx((_, _push2, _parent2, _scopeId) => {
+      if (_push2) {
+        _push2(ssrRenderComponent(_component_LandingAppBar, null, null, _parent2, _scopeId));
+        _push2(ssrRenderComponent(VMain, null, {
+          default: withCtx((_2, _push3, _parent3, _scopeId2) => {
+            if (_push3) {
+              _push3(ssrRenderComponent(_component_NuxtPage, null, null, _parent3, _scopeId2));
+            } else {
+              return [
+                createVNode(_component_NuxtPage)
+              ];
+            }
+          }),
+          _: 1
+        }, _parent2, _scopeId));
+        _push2(ssrRenderComponent(_component_LandingFooter, null, null, _parent2, _scopeId));
+      } else {
+        return [
+          createVNode(_component_LandingAppBar),
+          createVNode(VMain, null, {
+            default: withCtx(() => [
+              createVNode(_component_NuxtPage)
+            ]),
+            _: 1
+          }),
+          createVNode(_component_LandingFooter)
+        ];
+      }
+    }),
+    _: 1
+  }, _parent));
+}
+const _sfc_setup = _sfc_main.setup;
+_sfc_main.setup = (props, ctx) => {
+  const ssrContext = useSSRContext();
+  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add("layouts/landing.vue");
+  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;
+};
+const landing = /* @__PURE__ */ _export_sfc(_sfc_main, [["ssrRender", _sfc_ssrRender]]);
+
+export { landing as default };
+//# sourceMappingURL=landing-O69tqXMQ.mjs.map

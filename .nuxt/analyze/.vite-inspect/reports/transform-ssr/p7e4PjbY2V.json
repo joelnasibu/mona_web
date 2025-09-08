@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VGrid/VRow.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Styles\r\nimport \"./VGrid.css\";\r\n\r\n// Composables\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { breakpoints } from \"../../composables/display.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\"; // Utilities\r\nimport { capitalize, computed, h } from 'vue';\r\nimport { genericComponent, propsFactory } from \"../../util/index.mjs\"; // Types\r\nconst ALIGNMENT = ['start', 'end', 'center'];\r\nconst SPACE = ['space-between', 'space-around', 'space-evenly'];\r\nfunction makeRowProps(prefix, def) {\r\n  return breakpoints.reduce((props, val) => {\r\n    const prefixKey = prefix + capitalize(val);\r\n    props[prefixKey] = def();\r\n    return props;\r\n  }, {});\r\n}\r\nconst ALIGN_VALUES = [...ALIGNMENT, 'baseline', 'stretch'];\r\nconst alignValidator = str => ALIGN_VALUES.includes(str);\r\nconst alignProps = makeRowProps('align', () => ({\r\n  type: String,\r\n  default: null,\r\n  validator: alignValidator\r\n}));\r\nconst JUSTIFY_VALUES = [...ALIGNMENT, ...SPACE];\r\nconst justifyValidator = str => JUSTIFY_VALUES.includes(str);\r\nconst justifyProps = makeRowProps('justify', () => ({\r\n  type: String,\r\n  default: null,\r\n  validator: justifyValidator\r\n}));\r\nconst ALIGN_CONTENT_VALUES = [...ALIGNMENT, ...SPACE, 'stretch'];\r\nconst alignContentValidator = str => ALIGN_CONTENT_VALUES.includes(str);\r\nconst alignContentProps = makeRowProps('alignContent', () => ({\r\n  type: String,\r\n  default: null,\r\n  validator: alignContentValidator\r\n}));\r\nconst propMap = {\r\n  align: Object.keys(alignProps),\r\n  justify: Object.keys(justifyProps),\r\n  alignContent: Object.keys(alignContentProps)\r\n};\r\nconst classMap = {\r\n  align: 'align',\r\n  justify: 'justify',\r\n  alignContent: 'align-content'\r\n};\r\nfunction breakpointClass(type, prop, val) {\r\n  let className = classMap[type];\r\n  if (val == null) {\r\n    return undefined;\r\n  }\r\n  if (prop) {\r\n    // alignSm -> Sm\r\n    const breakpoint = prop.replace(type, '');\r\n    className += `-${breakpoint}`;\r\n  }\r\n  // .align-items-sm-center\r\n  className += `-${val}`;\r\n  return className.toLowerCase();\r\n}\r\nexport const makeVRowProps = propsFactory({\r\n  dense: Boolean,\r\n  noGutters: Boolean,\r\n  align: {\r\n    type: String,\r\n    default: null,\r\n    validator: alignValidator\r\n  },\r\n  ...alignProps,\r\n  justify: {\r\n    type: String,\r\n    default: null,\r\n    validator: justifyValidator\r\n  },\r\n  ...justifyProps,\r\n  alignContent: {\r\n    type: String,\r\n    default: null,\r\n    validator: alignContentValidator\r\n  },\r\n  ...alignContentProps,\r\n  ...makeComponentProps(),\r\n  ...makeTagProps()\r\n}, 'VRow');\r\nexport const VRow = genericComponent()({\r\n  name: 'VRow',\r\n  props: makeVRowProps(),\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const classes = computed(() => {\r\n      const classList = [];\r\n\r\n      // Loop through `align`, `justify`, `alignContent` breakpoint props\r\n      let type;\r\n      for (type in propMap) {\r\n        propMap[type].forEach(prop => {\r\n          const value = props[prop];\r\n          const className = breakpointClass(type, prop, value);\r\n          if (className) classList.push(className);\r\n        });\r\n      }\r\n      classList.push({\r\n        'v-row--no-gutters': props.noGutters,\r\n        'v-row--dense': props.dense,\r\n        [`align-${props.align}`]: props.align,\r\n        [`justify-${props.justify}`]: props.justify,\r\n        [`align-content-${props.alignContent}`]: props.alignContent\r\n      });\r\n      return classList;\r\n    });\r\n    return () => h(props.tag, {\r\n      class: ['v-row', classes.value, props.class],\r\n      style: props.style\r\n    }, slots.default?.());\r\n  }\r\n});\r\n//# sourceMappingURL=VRow.mjs.map",
+      "start": 1756474005928,
+      "end": 1756474006100,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474006100,
+      "end": 1756474006100,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474006100,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006101,
+      "end": 1756474006101,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474006101,
+      "end": 1756474006103,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006104,
+      "end": 1756474006104,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474006105,
+      "end": 1756474006105,
+      "order": "normal"
+    }
+  ]
+}

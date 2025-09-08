@@ -1,0 +1,269 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VMessages/VMessages.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-messages {\r\n  flex: 1 1 auto;\r\n  font-size: 12px;\r\n  min-height: 14px;\r\n  min-width: 1px;\r\n  opacity: var(--v-medium-emphasis-opacity);\r\n  position: relative;\r\n}\r\n.v-messages__message {\r\n  line-height: 12px;\r\n  word-break: break-word;\r\n  overflow-wrap: break-word;\r\n  word-wrap: break-word;\r\n  hyphens: auto;\r\n  transition-duration: 150ms;\r\n}",
+      "start": 1756474013779,
+      "end": 1756474014235,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474014235,
+      "end": 1756474014235,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474014235,
+      "end": 1756474014235,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474014235,
+      "end": 1756474014235,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474014235,
+      "end": 1756474014235,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474014235,
+      "end": 1756474014235,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-messages{flex:1 1 auto;font-size:12px;min-height:14px;min-width:1px;opacity:var(--v-medium-emphasis-opacity);position:relative}.v-messages__message{line-height:12px;overflow-wrap:break-word;word-break:break-word;word-wrap:break-word;hyphens:auto;transition-duration:.15s}",
+      "start": 1756474014235,
+      "end": 1756474014242,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VMessages/VMessages.css",
+        "mappings": "AAAA,YACE,aAAc,CACd,cAAe,CACf,eAAgB,CAChB,aAAc,CACd,wCAAyC,CACzC,iBACF,CACA,qBACE,gBAAiB,CAEjB,wBAAyB,CADzB,qBAAsB,CAEtB,oBAAqB,CACrB,YAAa,CACb,wBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VMessages/VMessages.css"
+        ],
+        "sourcesContent": [
+          ".v-messages {\r\n  flex: 1 1 auto;\r\n  font-size: 12px;\r\n  min-height: 14px;\r\n  min-width: 1px;\r\n  opacity: var(--v-medium-emphasis-opacity);\r\n  position: relative;\r\n}\r\n.v-messages__message {\r\n  line-height: 12px;\r\n  word-break: break-word;\r\n  overflow-wrap: break-word;\r\n  word-wrap: break-word;\r\n  hyphens: auto;\r\n  transition-duration: 150ms;\r\n}"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474014242,
+      "end": 1756474014242,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474014242,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".v-messages{flex:1 1 auto;font-size:12px;min-height:14px;min-width:1px;opacity:var(--v-medium-emphasis-opacity);position:relative}.v-messages__message{line-height:12px;overflow-wrap:break-word;word-break:break-word;word-wrap:break-word;hyphens:auto;transition-duration:.15s}\"",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474014243,
+      "end": 1756474014243,
+      "order": "normal"
+    }
+  ]
+}

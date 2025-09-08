@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/km/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const formatDistanceLocale = {\r\n  lessThanXSeconds: \"តិចជាង {{count}} វិនាទី\",\r\n  xSeconds: \"{{count}} វិនាទី\",\r\n  halfAMinute: \"កន្លះនាទី\",\r\n  lessThanXMinutes: \"តិចជាង {{count}} នាទី\",\r\n  xMinutes: \"{{count}} នាទី\",\r\n  aboutXHours: \"ប្រហែល {{count}} ម៉ោង\",\r\n  xHours: \"{{count}} ម៉ោង\",\r\n  xDays: \"{{count}} ថ្ងៃ\",\r\n  aboutXWeeks: \"ប្រហែល {{count}} សប្តាហ៍\",\r\n  xWeeks: \"{{count}} សប្តាហ៍\",\r\n  aboutXMonths: \"ប្រហែល {{count}} ខែ\",\r\n  xMonths: \"{{count}} ខែ\",\r\n  aboutXYears: \"ប្រហែល {{count}} ឆ្នាំ\",\r\n  xYears: \"{{count}} ឆ្នាំ\",\r\n  overXYears: \"ជាង {{count}} ឆ្នាំ\",\r\n  almostXYears: \"ជិត {{count}} ឆ្នាំ\",\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const tokenValue = formatDistanceLocale[token];\r\n\r\n  let result = tokenValue;\r\n\r\n  if (typeof count === \"number\") {\r\n    result = result.replace(\"{{count}}\", count.toString());\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return \"ក្នុងរយៈពេល \" + result;\r\n    } else {\r\n      return result + \"មុន\";\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756473948269,
+      "end": 1756473948317,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948317,
+      "end": 1756473948317,
+      "order": "normal"
+    }
+  ]
+}
