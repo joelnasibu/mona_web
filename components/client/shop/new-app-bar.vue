@@ -13,8 +13,12 @@
       <CoreMidScreenLayout class="px-1 px-md-1">
         <div class="d-flex align-center">
           <NuxtLink to="/shop">
-            <v-img src="/fulls.png" width="250" style="margin-left: -40px;" ></v-img>
-          </NuxtLink>
+  <v-img
+    src="/fulls.png"
+    :width="smallSize ? 150 : 250"
+    :style="{ marginLeft: smallSize ? '-20px' : '-40px' }"
+  />
+</NuxtLink>
           <v-container class="pa-0" fluid>
             <v-row class="ma-auto" align="center" justify="start">
               <v-col md="6" lg="7" v-if="!isMobile" class="">

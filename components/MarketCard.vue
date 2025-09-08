@@ -1,5 +1,5 @@
-<template> 
-  <section 
+<template>
+  <section
     class="market-grid-section mt-16 px-6"
     :style="{
       backgroundImage: `url(${bgImage})`,
@@ -8,29 +8,28 @@
     }"
   >
     <div class="market-grid">
-      <a
+      <NuxtLink
         v-for="(market, index) in markets"
         :key="index"
-        :href="market.link"
+        :to="market.link || '#'"
         class="market-card group"
         :style="{ backgroundImage: `url(${market.image})` }"
       >
         <div class="overlay"></div>
         <div class="content">
           <h3 class="market-name">{{ market.name }}</h3>
-          <div class="market-desc flex items-center gap-2 text-orange-400">
-            <component :is="market.icon" class="w-4 h-4 text-white" />
+          <div class="market-desc flex items-center gap-2">
+            <component v-if="market.icon" :is="market.icon" class="w-4 h-4 text-white" />
             <span>{{ market.description }}</span>
           </div>
         </div>
-      </a>
+      </NuxtLink>
     </div>
   </section>
 </template>
 
 <script setup>
 import bgImage from '@/assets/images/bg/white.png'
-
 
 import Adams from '@/assets/images/markets/Adams_Market.png'
 import Gikomba from '@/assets/images/markets/Gikomba_Market.png'
@@ -40,7 +39,6 @@ import Kariokor from '@/assets/images/markets/Kariokor_Market.png'
 import Maasai from '@/assets/images/markets/Maasai_Market.png'
 import Village from '@/assets/images/markets/Village_Market.png'
 import Farmers from '@/assets/images/markets/Farmers_Market.png'
-
 
 import { ShoppingBag, Shirt, Home, Flower2, HandPlatter, Gem, Store, Leaf } from 'lucide-vue-next'
 
@@ -86,7 +84,6 @@ const markets = [
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;
   min-height: 220px;
-  box-sizing: border-box;
   background-size: cover;
   background-position: center;
   overflow: hidden;
@@ -94,13 +91,13 @@ const markets = [
 
 .market-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.2); 
+  background: rgba(0, 0, 0, 0.2);
   border-radius: 12px;
 }
 
@@ -121,10 +118,10 @@ const markets = [
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: #fb923c
+  color: #fb923c;
 }
-.market-desc svg {
-    stroke: #fb923c
-  }
 
+.market-desc svg {
+  stroke: #fb923c;
+}
 </style>
