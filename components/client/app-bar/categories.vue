@@ -5,7 +5,7 @@
       location="start"
       class="hide-scrollbar"
       temporary
-      width="300"
+      :width="smallSize ? 200 : 300"
       v-model="catDrawerState"
     >
       <v-list density="compact" class="pa-0 hide-scrollbar">
@@ -50,6 +50,13 @@
 <script setup>
 const emits = defineEmits(["close"]);
 
+const { smAndDown } = useDisplay();
+const { isMobile } = useDevice();
+const smallSize = computed(() => {
+  return isMobile || smAndDown;
+});
+
+import { useDisplay } from "vuetify";
 import { useCategoryStore } from "~/store/categories";
 const { toggleStatus } = useCategoryStore();
 const { categories: list, openCategoryDrawer } = storeToRefs(

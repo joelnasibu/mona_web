@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/HeroSlider.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-carousel\r\n    v-model=\"current\"\r\n    :show-arrows=\"false\"\r\n    cycle\r\n    height=\"500\"\r\n    hide-delimiters\r\n    hide-delimiter-background\r\n  >\r\n    <v-carousel-item\r\n      v-for=\"(item, i) in items\"\r\n      :key=\"i\"\r\n      :src=\"item.src\"\r\n      :value=\"i\"\r\n      cover\r\n    >\r\n      <div class=\"absolute inset-0 bg-black/40 z-10\"></div>\r\n\r\n      <!-- Text container pinned bottom-left -->\r\n      <div\r\n        class=\"absolute bottom-0 left-0 z-20 pl-6 sm:pl-16 md:pl-24 w-full md:w-2/3 lg:w-1/2 flex flex-col items-start pb-6\"\r\n      >\r\n        <h2 class=\"text-3xl font-bold text-white mb-2\">\r\n          {{ item.title }}\r\n        </h2>\r\n        <p class=\"text-lg text-white mb-4\">\r\n          {{ item.text }}\r\n        </p>\r\n        <v-btn color=\"orange\" variant=\"flat\" class=\"px-6 py-2 text-white rounded-full\">\r\n          {{ item.button }}\r\n        </v-btn>\r\n      </div>\r\n    </v-carousel-item>\r\n  </v-carousel>\r\n\r\n  <!-- Custom pill indicators -->\r\n  <div class=\"relative z-30 flex justify-center -mt-6 space-x-3\">\r\n    <div\r\n      v-for=\"(item, i) in items\"\r\n      :key=\"i\"\r\n      class=\"h-3 rounded-full cursor-pointer transition-all duration-300\"\r\n      :class=\"current === i ? 'bg-orange-500 w-10' : 'bg-gray-300 w-6'\"\r\n      @click=\"current = i\"\r\n    />\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nimport { ref } from \"vue\";\r\n\r\nconst current = ref(0);\r\n\r\nconst items = [\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg\",\r\n    title: \"Let your home reflect\",\r\n    text: \"The beauty hidden inside\",\r\n    button: \"Shop Now\",\r\n  },\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/sky.jpg\",\r\n    title: \"Let’s Us Help\",\r\n    text: \"Explore the variety you deserve\",\r\n    button: \"Shop Now\",\r\n  },\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/bird.jpg\",\r\n    title: \"Best Deals Everyday\",\r\n    text: \"Save big on top products\",\r\n    button: \"Shop Now\",\r\n  },\r\n];\r\n</script>\r\n\r\n<style scoped>\r\n.v-carousel-item {\r\n  position: relative;\r\n}\r\n.transition-all {\r\n  transition: all 0.3s ease;\r\n}\r\n</style>\r\n",
+      "start": 1756473937650,
+      "end": 1756473937915,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473937915,
+      "end": 1756473937915,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, normalizeClass as _normalizeClass } from \"vue\"\n\nconst _hoisted_1 = { class: \"absolute bottom-0 left-0 z-20 pl-6 sm:pl-16 md:pl-24 w-full md:w-2/3 lg:w-1/2 flex flex-col items-start pb-6\" }\nconst _hoisted_2 = { class: \"text-3xl font-bold text-white mb-2\" }\nconst _hoisted_3 = { class: \"text-lg text-white mb-4\" }\nconst _hoisted_4 = { class: \"relative z-30 flex justify-center -mt-6 space-x-3\" }\nconst _hoisted_5 = [\"onClick\"]\n\nimport { ref } from \"vue\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'HeroSlider',\n  setup(__props) {\n\r\nconst current = ref(0);\r\n\r\nconst items = [\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg\",\r\n    title: \"Let your home reflect\",\r\n    text: \"The beauty hidden inside\",\r\n    button: \"Shop Now\",\r\n  },\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/sky.jpg\",\r\n    title: \"Let’s Us Help\",\r\n    text: \"Explore the variety you deserve\",\r\n    button: \"Shop Now\",\r\n  },\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/bird.jpg\",\r\n    title: \"Best Deals Everyday\",\r\n    text: \"Save big on top products\",\r\n    button: \"Shop Now\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n  const _component_v_carousel_item = _resolveComponent(\"v-carousel-item\")\n  const _component_v_carousel = _resolveComponent(\"v-carousel\")\n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_v_carousel, {\n      modelValue: current.value,\n      \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => ((current).value = $event)),\n      \"show-arrows\": false,\n      cycle: \"\",\n      height: \"500\",\n      \"hide-delimiters\": \"\",\n      \"hide-delimiter-background\": \"\"\n    }, {\n      default: _withCtx(() => [\n        (_openBlock(), _createElementBlock(_Fragment, null, _renderList(items, (item, i) => {\n          return _createVNode(_component_v_carousel_item, {\n            key: i,\n            src: item.src,\n            value: i,\n            cover: \"\"\n          }, {\n            default: _withCtx(() => [\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"absolute inset-0 bg-black/40 z-10\" }, null, -1)),\n              _createElementVNode(\"div\", _hoisted_1, [\n                _createElementVNode(\"h2\", _hoisted_2, _toDisplayString(item.title), 1),\n                _createElementVNode(\"p\", _hoisted_3, _toDisplayString(item.text), 1),\n                _createVNode(_component_v_btn, {\n                  color: \"orange\",\n                  variant: \"flat\",\n                  class: \"px-6 py-2 text-white rounded-full\"\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(item.button), 1)\n                  ]),\n                  _: 2\n                }, 1024)\n              ])\n            ]),\n            _: 2\n          }, 1032, [\"src\", \"value\"])\n        }), 64))\n      ]),\n      _: 1\n    }, 8, [\"modelValue\"]),\n    _createElementVNode(\"div\", _hoisted_4, [\n      (_openBlock(), _createElementBlock(_Fragment, null, _renderList(items, (item, i) => {\n        return _createElementVNode(\"div\", {\n          key: i,\n          class: _normalizeClass([\"h-3 rounded-full cursor-pointer transition-all duration-300\", current.value === i ? 'bg-orange-500 w-10' : 'bg-gray-300 w-6']),\n          onClick: $event => (current.value = i)\n        }, null, 10, _hoisted_5)\n      }), 64))\n    ])\n  ], 64))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/HeroSlider.vue?vue&type=style&index=0&scoped=fa3ce523&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-fa3ce523\"]])",
+      "start": 1756473937915,
+      "end": 1756473937921,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473937921,
+      "end": 1756473937921,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473937921,
+      "end": 1756473937921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473937921,
+      "end": 1756473937921,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473937921,
+      "end": 1756473937921,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, createElementVNode as _createElementVNode, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, normalizeClass as _normalizeClass } from \"vue\"\n\nconst _hoisted_1 = { class: \"absolute bottom-0 left-0 z-20 pl-6 sm:pl-16 md:pl-24 w-full md:w-2/3 lg:w-1/2 flex flex-col items-start pb-6\" }\nconst _hoisted_2 = { class: \"text-3xl font-bold text-white mb-2\" }\nconst _hoisted_3 = { class: \"text-lg text-white mb-4\" }\nconst _hoisted_4 = { class: \"relative z-30 flex justify-center -mt-6 space-x-3\" }\nconst _hoisted_5 = [\"onClick\"]\n\nimport { ref } from \"vue\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'HeroSlider',\n  setup(__props) {\n\r\nconst current = ref(0);\r\n\r\nconst items = [\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg\",\r\n    title: \"Let your home reflect\",\r\n    text: \"The beauty hidden inside\",\r\n    button: \"Shop Now\",\r\n  },\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/sky.jpg\",\r\n    title: \"Let’s Us Help\",\r\n    text: \"Explore the variety you deserve\",\r\n    button: \"Shop Now\",\r\n  },\r\n  {\r\n    src: \"https://cdn.vuetifyjs.com/images/carousel/bird.jpg\",\r\n    title: \"Best Deals Everyday\",\r\n    text: \"Save big on top products\",\r\n    button: \"Shop Now\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n                                                     \n                                                                         \n                                                               \n\n  return (_openBlock(), _createElementBlock(_Fragment, null, [\n    _createVNode(_component_v_carousel, {\n      modelValue: current.value,\n      \"onUpdate:modelValue\": _cache[0] || (_cache[0] = $event => ((current).value = $event)),\n      \"show-arrows\": false,\n      cycle: \"\",\n      height: \"500\",\n      \"hide-delimiters\": \"\",\n      \"hide-delimiter-background\": \"\"\n    }, {\n      default: _withCtx(() => [\n        (_openBlock(), _createElementBlock(_Fragment, null, _renderList(items, (item, i) => {\n          return _createVNode(_component_v_carousel_item, {\n            key: i,\n            src: item.src,\n            value: i,\n            cover: \"\"\n          }, {\n            default: _withCtx(() => [\n              _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"absolute inset-0 bg-black/40 z-10\" }, null, -1)),\n              _createElementVNode(\"div\", _hoisted_1, [\n                _createElementVNode(\"h2\", _hoisted_2, _toDisplayString(item.title), 1),\n                _createElementVNode(\"p\", _hoisted_3, _toDisplayString(item.text), 1),\n                _createVNode(_component_v_btn, {\n                  color: \"orange\",\n                  variant: \"flat\",\n                  class: \"px-6 py-2 text-white rounded-full\"\n                }, {\n                  default: _withCtx(() => [\n                    _createTextVNode(_toDisplayString(item.button), 1)\n                  ]),\n                  _: 2\n                }, 1024)\n              ])\n            ]),\n            _: 2\n          }, 1032, [\"src\", \"value\"])\n        }), 64))\n      ]),\n      _: 1\n    }, 8, [\"modelValue\"]),\n    _createElementVNode(\"div\", _hoisted_4, [\n      (_openBlock(), _createElementBlock(_Fragment, null, _renderList(items, (item, i) => {\n        return _createElementVNode(\"div\", {\n          key: i,\n          class: _normalizeClass([\"h-3 rounded-full cursor-pointer transition-all duration-300\", current.value === i ? 'bg-orange-500 w-10' : 'bg-gray-300 w-6']),\n          onClick: $event => (current.value = i)\n        }, null, 10, _hoisted_5)\n      }), 64))\n    ])\n  ], 64))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/HeroSlider.vue?vue&type=style&index=0&scoped=fa3ce523&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-fa3ce523\"]])\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VCarouselItem as _component_v_carousel_item, VCarousel as _component_v_carousel } from \"vuetify/lib/components/VCarousel/index.mjs\"\n\n",
+      "start": 1756473937921,
+      "end": 1756473937922,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473937922,
+      "end": 1756473937922,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473937922,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473937925,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473937925,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473937925,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473937925,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473937925,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473937925,
+      "end": 1756473937925,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473937925,
+      "end": 1756473937926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473937926,
+      "end": 1756473937926,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VDataTable/VDataTable.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode, resolveDirective as _resolveDirective, Fragment as _Fragment } from \"vue\";\r\n// Styles\r\nimport \"./VDataTable.css\";\r\n\r\n// Components\r\nimport { makeVDataTableFooterProps, VDataTableFooter } from \"./VDataTableFooter.mjs\";\r\nimport { makeVDataTableHeadersProps, VDataTableHeaders } from \"./VDataTableHeaders.mjs\";\r\nimport { makeVDataTableRowsProps, VDataTableRows } from \"./VDataTableRows.mjs\";\r\nimport { VDivider } from \"../VDivider/index.mjs\";\r\nimport { makeVTableProps, VTable } from \"../VTable/VTable.mjs\"; // Composables\r\nimport { makeDataTableExpandProps, provideExpanded } from \"./composables/expand.mjs\";\r\nimport { createGroupBy, makeDataTableGroupProps, provideGroupBy, useGroupedItems } from \"./composables/group.mjs\";\r\nimport { createHeaders, makeDataTableHeaderProps } from \"./composables/headers.mjs\";\r\nimport { makeDataTableItemsProps, useDataTableItems } from \"./composables/items.mjs\";\r\nimport { useOptions } from \"./composables/options.mjs\";\r\nimport { createPagination, makeDataTablePaginateProps, providePagination, usePaginatedItems } from \"./composables/paginate.mjs\";\r\nimport { makeDataTableSelectProps, provideSelection } from \"./composables/select.mjs\";\r\nimport { createSort, makeDataTableSortProps, provideSort, useSortedItems } from \"./composables/sort.mjs\";\r\nimport { provideDefaults } from \"../../composables/defaults.mjs\";\r\nimport { makeFilterProps, useFilter } from \"../../composables/filter.mjs\"; // Utilities\r\nimport { computed, toRef } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeDataTableProps = propsFactory({\r\n  ...makeVDataTableRowsProps(),\r\n  width: [String, Number],\r\n  search: String,\r\n  ...makeDataTableExpandProps(),\r\n  ...makeDataTableGroupProps(),\r\n  ...makeDataTableHeaderProps(),\r\n  ...makeDataTableItemsProps(),\r\n  ...makeDataTableSelectProps(),\r\n  ...makeDataTableSortProps(),\r\n  ...makeVDataTableHeadersProps(),\r\n  ...makeVTableProps()\r\n}, 'DataTable');\r\nexport const makeVDataTableProps = propsFactory({\r\n  ...makeDataTablePaginateProps(),\r\n  ...makeDataTableProps(),\r\n  ...makeFilterProps(),\r\n  ...makeVDataTableFooterProps()\r\n}, 'VDataTable');\r\nexport const VDataTable = genericComponent()({\r\n  name: 'VDataTable',\r\n  props: makeVDataTableProps(),\r\n  emits: {\r\n    'update:modelValue': value => true,\r\n    'update:page': value => true,\r\n    'update:itemsPerPage': value => true,\r\n    'update:sortBy': value => true,\r\n    'update:options': value => true,\r\n    'update:groupBy': value => true,\r\n    'update:expanded': value => true,\r\n    'update:currentItems': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      attrs,\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      groupBy\r\n    } = createGroupBy(props);\r\n    const {\r\n      sortBy,\r\n      multiSort,\r\n      mustSort\r\n    } = createSort(props);\r\n    const {\r\n      page,\r\n      itemsPerPage\r\n    } = createPagination(props);\r\n    const {\r\n      columns,\r\n      headers,\r\n      sortFunctions,\r\n      sortRawFunctions,\r\n      filterFunctions\r\n    } = createHeaders(props, {\r\n      groupBy,\r\n      showSelect: toRef(props, 'showSelect'),\r\n      showExpand: toRef(props, 'showExpand')\r\n    });\r\n    const {\r\n      items\r\n    } = useDataTableItems(props, columns);\r\n    const search = toRef(props, 'search');\r\n    const {\r\n      filteredItems\r\n    } = useFilter(props, items, search, {\r\n      transform: item => item.columns,\r\n      customKeyFilter: filterFunctions\r\n    });\r\n    const {\r\n      toggleSort\r\n    } = provideSort({\r\n      sortBy,\r\n      multiSort,\r\n      mustSort,\r\n      page\r\n    });\r\n    const {\r\n      sortByWithGroups,\r\n      opened,\r\n      extractRows,\r\n      isGroupOpen,\r\n      toggleGroup\r\n    } = provideGroupBy({\r\n      groupBy,\r\n      sortBy\r\n    });\r\n    const {\r\n      sortedItems\r\n    } = useSortedItems(props, filteredItems, sortByWithGroups, sortFunctions, sortRawFunctions);\r\n    const {\r\n      flatItems\r\n    } = useGroupedItems(sortedItems, groupBy, opened);\r\n    const itemsLength = computed(() => flatItems.value.length);\r\n    const {\r\n      startIndex,\r\n      stopIndex,\r\n      pageCount,\r\n      setItemsPerPage\r\n    } = providePagination({\r\n      page,\r\n      itemsPerPage,\r\n      itemsLength\r\n    });\r\n    const {\r\n      paginatedItems\r\n    } = usePaginatedItems({\r\n      items: flatItems,\r\n      startIndex,\r\n      stopIndex,\r\n      itemsPerPage\r\n    });\r\n    const paginatedItemsWithoutGroups = computed(() => extractRows(paginatedItems.value));\r\n    const {\r\n      isSelected,\r\n      select,\r\n      selectAll,\r\n      toggleSelect,\r\n      someSelected,\r\n      allSelected\r\n    } = provideSelection(props, {\r\n      allItems: items,\r\n      currentPage: paginatedItemsWithoutGroups\r\n    });\r\n    const {\r\n      isExpanded,\r\n      toggleExpand\r\n    } = provideExpanded(props);\r\n    useOptions({\r\n      page,\r\n      itemsPerPage,\r\n      sortBy,\r\n      groupBy,\r\n      search\r\n    });\r\n    provideDefaults({\r\n      VDataTableRows: {\r\n        hideNoData: toRef(props, 'hideNoData'),\r\n        noDataText: toRef(props, 'noDataText'),\r\n        loading: toRef(props, 'loading'),\r\n        loadingText: toRef(props, 'loadingText')\r\n      }\r\n    });\r\n    const slotProps = computed(() => ({\r\n      page: page.value,\r\n      itemsPerPage: itemsPerPage.value,\r\n      sortBy: sortBy.value,\r\n      pageCount: pageCount.value,\r\n      toggleSort,\r\n      setItemsPerPage,\r\n      someSelected: someSelected.value,\r\n      allSelected: allSelected.value,\r\n      isSelected,\r\n      select,\r\n      selectAll,\r\n      toggleSelect,\r\n      isExpanded,\r\n      toggleExpand,\r\n      isGroupOpen,\r\n      toggleGroup,\r\n      items: paginatedItemsWithoutGroups.value.map(item => item.raw),\r\n      internalItems: paginatedItemsWithoutGroups.value,\r\n      groupedItems: paginatedItems.value,\r\n      columns: columns.value,\r\n      headers: headers.value\r\n    }));\r\n    useRender(() => {\r\n      const dataTableFooterProps = VDataTableFooter.filterProps(props);\r\n      const dataTableHeadersProps = VDataTableHeaders.filterProps(props);\r\n      const dataTableRowsProps = VDataTableRows.filterProps(props);\r\n      const tableProps = VTable.filterProps(props);\r\n      return _createVNode(VTable, _mergeProps({\r\n        \"class\": ['v-data-table', {\r\n          'v-data-table--show-select': props.showSelect,\r\n          'v-data-table--loading': props.loading\r\n        }, props.class],\r\n        \"style\": props.style\r\n      }, tableProps), {\r\n        top: () => slots.top?.(slotProps.value),\r\n        default: () => slots.default ? slots.default(slotProps.value) : _createVNode(_Fragment, null, [slots.colgroup?.(slotProps.value), _createVNode(\"thead\", null, [_createVNode(VDataTableHeaders, dataTableHeadersProps, slots)]), slots.thead?.(slotProps.value), _createVNode(\"tbody\", null, [slots['body.prepend']?.(slotProps.value), slots.body ? slots.body(slotProps.value) : _createVNode(VDataTableRows, _mergeProps(attrs, dataTableRowsProps, {\r\n          \"items\": paginatedItems.value\r\n        }), slots), slots['body.append']?.(slotProps.value)]), slots.tbody?.(slotProps.value), slots.tfoot?.(slotProps.value)]),\r\n        bottom: () => slots.bottom ? slots.bottom(slotProps.value) : _createVNode(_Fragment, null, [_createVNode(VDivider, null, null), _createVNode(VDataTableFooter, dataTableFooterProps, {\r\n          prepend: slots['footer.prepend']\r\n        })])\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VDataTable.mjs.map",
+      "start": 1756474006036,
+      "end": 1756474006192,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006192,
+      "end": 1756474006193,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006192,
+      "end": 1756474006193,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006193,
+      "end": 1756474006193,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006195,
+      "end": 1756474006196,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006195,
+      "end": 1756474006196,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474006196,
+      "end": 1756474006196,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474006196,
+      "end": 1756474006196,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006196,
+      "end": 1756474006196,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474006196,
+      "end": 1756474006200,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474006200,
+      "end": 1756474006200,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474006200,
+      "end": 1756474006200,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474006200,
+      "end": 1756474006200,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474006200,
+      "end": 1756474006200,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474006200,
+      "end": 1756474006200,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474006200,
+      "end": 1756474006201,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474006201,
+      "end": 1756474006201,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474006202,
+      "end": 1756474006202,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474006202,
+      "end": 1756474006202,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474006202,
+      "end": 1756474006202,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474006202,
+      "end": 1756474006202,
+      "order": "normal"
+    }
+  ]
+}

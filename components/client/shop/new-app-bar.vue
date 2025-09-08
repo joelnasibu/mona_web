@@ -6,7 +6,7 @@
     <v-app-bar
       absolute
       class="card-white"
-      :height="smallSize ? 60 : 64"
+      :height="smallSize ? 110 : 60"
       flat
       id="appBar"
     >
@@ -42,12 +42,12 @@
                     </div>
                   </div> -->
                   <!-- <v-spacer v-if="!isMobile"></v-spacer> -->
-                  <div class="" title="My shopping cart">
+                  <div class="mt-1" title="My shopping cart">
                     <v-badge :content="cart.length" color="primary-accent">
                       <Icon
                         name="solar:cart-large-2-linear"
                         class="mr-1 cursor-pointer text-primary-accent"
-                        size="1.6rem"
+                        :size="smallSize ? '1.5rem' : '1.2rem'"
                         @click="openCart"
                       />
                     </v-badge>

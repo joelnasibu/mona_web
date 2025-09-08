@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue?vue&type=style&index=0&scoped=f5409376&lang.css",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px);\r\n  background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n",
+      "start": 1756474003275,
+      "end": 1756474003275,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue"
+        ],
+        "names": [],
+        "mappings": ";AAsEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACT,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC/B,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC7B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AAC5D",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"w-100\">\r\n    <div class=\"py-2 text-center\">\r\n      <b>Forgot Password</b>\r\n    </div>\r\n    <div class=\"d-flex align-center justify-center w-100\">\r\n      <v-card\r\n        class=\"mx-auto mt-4 pa-4 auth-card rounded-lg bg-transparent\"\r\n        flat\r\n      >\r\n        <v-form ref=\"formData\">\r\n          <v-text-field\r\n            label=\"Adresse email\"\r\n            prepend-inner-icon=\"mdi-email-outline\"\r\n            v-model=\"emailAddress\"\r\n            :rules=\"email()\"\r\n            @keypress.enter.prevent=\"handleForgot\"\r\n          ></v-text-field>\r\n          <v-btn\r\n            class=\"rounded-lg text-none text-caption\"\r\n            color=\"primary-accent\"\r\n            block\r\n            flat\r\n            size=\"small\"\r\n            :loading=\"loading\"\r\n            @click=\"handleForgot\"\r\n          >\r\n            <span>Submit</span>\r\n          </v-btn>\r\n        </v-form>\r\n        <div class=\"w-100 text-caption mt-4\">\r\n          <div class=\"d-flex align-center w-100\">\r\n            <span>Already have account?</span>\r\n            <NuxtLink :to=\"{ name: 'auth' }\" class=\"px-2 text-primary-accent\">\r\n              <span>Sign in instead</span>\r\n            </NuxtLink>\r\n          </div>\r\n        </div>\r\n      </v-card>\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst environmentVariable = useRuntimeConfig();\r\nconst { email } = useRules();\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { loading, error } = storeToRefs(useAppStore());\r\n\r\nimport { useAuthStore } from \"~/store/auth\";\r\nconst { forgotPassword } = useAuthStore();\r\n\r\nconst emailAddress = ref(\"\");\r\nconst formData = ref(null);\r\nconst handleForgot = async () => {\r\n  const { valid } = await formData.value.validate();\r\n  if (valid) {\r\n    await forgotPassword({ email: emailAddress.value });\r\n    if (!error.value) {\r\n      emailAddress.value = \"\";\r\n      navigateTo({\r\n        name: \"auth\",\r\n      });\r\n    }\r\n  }\r\n};\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px);\r\n  background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474003275,
+      "end": 1756474003276,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474003275,
+      "end": 1756474003276,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474003276,
+      "end": 1756474003276,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474003276,
+      "end": 1756474003276,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474003277,
+      "end": 1756474003278,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".auth-card{width:clamp(320px,30%,420px)}",
+      "start": 1756474003278,
+      "end": 1756474003288,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue",
+        "mappings": "AACA,WACE,4BAGF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px);\r\n  background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474003288,
+      "end": 1756474003288,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474003288,
+      "end": 1756474003288,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474003288,
+      "end": 1756474003288,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".auth-card[data-v-f5409376]{width:clamp(320px,30%,420px)}",
+      "start": 1756474003291,
+      "end": 1756474003294,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue",
+        "mappings": "AAAA,4BAAW,4BAA4B",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/forgot-password.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474003299,
+      "end": 1756474003299,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474003303,
+      "end": 1756474003303,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474003304,
+      "end": 1756474003314,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474003314,
+      "end": 1756474003315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756474003315,
+      "end": 1756474003315,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474003315,
+      "end": 1756474003315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474003315,
+      "end": 1756474003315,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474003315,
+      "end": 1756474003315,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474003315,
+      "end": 1756474003316,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474003316,
+      "end": 1756474003316,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474003316,
+      "end": 1756474003316,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003316,
+      "end": 1756474003316,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003316,
+      "end": 1756474003316,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474003317,
+      "end": 1756474003317,
+      "order": "normal"
+    }
+  ]
+}

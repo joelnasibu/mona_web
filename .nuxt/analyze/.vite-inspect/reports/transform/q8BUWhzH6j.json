@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VSlider/VSlider.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode, Fragment as _Fragment } from \"vue\";\r\n// Styles\r\nimport \"./VSlider.css\";\r\n\r\n// Components\r\nimport { VSliderThumb } from \"./VSliderThumb.mjs\";\r\nimport { VSliderTrack } from \"./VSliderTrack.mjs\";\r\nimport { makeVInputProps, VInput } from \"../VInput/VInput.mjs\";\r\nimport { VLabel } from \"../VLabel/index.mjs\"; // Composables\r\nimport { makeSliderProps, useSlider, useSteps } from \"./slider.mjs\";\r\nimport { makeFocusProps, useFocus } from \"../../composables/focus.mjs\";\r\nimport { useRtl } from \"../../composables/locale.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { computed, ref } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVSliderProps = propsFactory({\r\n  ...makeFocusProps(),\r\n  ...makeSliderProps(),\r\n  ...makeVInputProps(),\r\n  modelValue: {\r\n    type: [Number, String],\r\n    default: 0\r\n  }\r\n}, 'VSlider');\r\nexport const VSlider = genericComponent()({\r\n  name: 'VSlider',\r\n  props: makeVSliderProps(),\r\n  emits: {\r\n    'update:focused': value => true,\r\n    'update:modelValue': v => true,\r\n    start: value => true,\r\n    end: value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots,\r\n      emit\r\n    } = _ref;\r\n    const thumbContainerRef = ref();\r\n    const {\r\n      rtlClasses\r\n    } = useRtl();\r\n    const steps = useSteps(props);\r\n    const model = useProxiedModel(props, 'modelValue', undefined, value => {\r\n      return steps.roundValue(value == null ? steps.min.value : value);\r\n    });\r\n    const {\r\n      min,\r\n      max,\r\n      mousePressed,\r\n      roundValue,\r\n      onSliderMousedown,\r\n      onSliderTouchstart,\r\n      trackContainerRef,\r\n      position,\r\n      hasLabels,\r\n      readonly\r\n    } = useSlider({\r\n      props,\r\n      steps,\r\n      onSliderStart: () => {\r\n        emit('start', model.value);\r\n      },\r\n      onSliderEnd: _ref2 => {\r\n        let {\r\n          value\r\n        } = _ref2;\r\n        const roundedValue = roundValue(value);\r\n        model.value = roundedValue;\r\n        emit('end', roundedValue);\r\n      },\r\n      onSliderMove: _ref3 => {\r\n        let {\r\n          value\r\n        } = _ref3;\r\n        return model.value = roundValue(value);\r\n      },\r\n      getActiveThumb: () => thumbContainerRef.value?.$el\r\n    });\r\n    const {\r\n      isFocused,\r\n      focus,\r\n      blur\r\n    } = useFocus(props);\r\n    const trackStop = computed(() => position(model.value));\r\n    useRender(() => {\r\n      const inputProps = VInput.filterProps(props);\r\n      const hasPrepend = !!(props.label || slots.label || slots.prepend);\r\n      return _createVNode(VInput, _mergeProps({\r\n        \"class\": ['v-slider', {\r\n          'v-slider--has-labels': !!slots['tick-label'] || hasLabels.value,\r\n          'v-slider--focused': isFocused.value,\r\n          'v-slider--pressed': mousePressed.value,\r\n          'v-slider--disabled': props.disabled\r\n        }, rtlClasses.value, props.class],\r\n        \"style\": props.style\r\n      }, inputProps, {\r\n        \"focused\": isFocused.value\r\n      }), {\r\n        ...slots,\r\n        prepend: hasPrepend ? slotProps => _createVNode(_Fragment, null, [slots.label?.(slotProps) ?? (props.label ? _createVNode(VLabel, {\r\n          \"id\": slotProps.id.value,\r\n          \"class\": \"v-slider__label\",\r\n          \"text\": props.label\r\n        }, null) : undefined), slots.prepend?.(slotProps)]) : undefined,\r\n        default: _ref4 => {\r\n          let {\r\n            id,\r\n            messagesId\r\n          } = _ref4;\r\n          return _createVNode(\"div\", {\r\n            \"class\": \"v-slider__container\",\r\n            \"onMousedown\": !readonly.value ? onSliderMousedown : undefined,\r\n            \"onTouchstartPassive\": !readonly.value ? onSliderTouchstart : undefined\r\n          }, [_createVNode(\"input\", {\r\n            \"id\": id.value,\r\n            \"name\": props.name || id.value,\r\n            \"disabled\": !!props.disabled,\r\n            \"readonly\": !!props.readonly,\r\n            \"tabindex\": \"-1\",\r\n            \"value\": model.value\r\n          }, null), _createVNode(VSliderTrack, {\r\n            \"ref\": trackContainerRef,\r\n            \"start\": 0,\r\n            \"stop\": trackStop.value\r\n          }, {\r\n            'tick-label': slots['tick-label']\r\n          }), _createVNode(VSliderThumb, {\r\n            \"ref\": thumbContainerRef,\r\n            \"aria-describedby\": messagesId.value,\r\n            \"focused\": isFocused.value,\r\n            \"min\": min.value,\r\n            \"max\": max.value,\r\n            \"modelValue\": model.value,\r\n            \"onUpdate:modelValue\": v => model.value = v,\r\n            \"position\": trackStop.value,\r\n            \"elevation\": props.elevation,\r\n            \"onFocus\": focus,\r\n            \"onBlur\": blur,\r\n            \"ripple\": props.ripple\r\n          }, {\r\n            'thumb-label': slots['thumb-label']\r\n          })]);\r\n        }\r\n      });\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VSlider.mjs.map",
+      "start": 1756473949813,
+      "end": 1756473949909,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949909,
+      "end": 1756473949909,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949909,
+      "end": 1756473949910,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949910,
+      "end": 1756473949910,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949910,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949911,
+      "end": 1756473949911,
+      "order": "normal"
+    }
+  ]
+}

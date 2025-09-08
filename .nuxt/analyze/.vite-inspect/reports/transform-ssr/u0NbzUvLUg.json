@@ -1,0 +1,268 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/table-header.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\">\r\n    <v-badge :content=\"number\" inline color=\"link\" location=\"end\">\r\n      <b class=\"mr-5\">{{ text }}</b>\r\n    </v-badge>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  text: String,\r\n  number: [String, Number],\r\n});\r\n</script>\r\n\r\n<style lang=\"scss\" scoped></style>\r\n",
+      "start": 1756474002515,
+      "end": 1756474002822,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474002822,
+      "end": 1756474002822,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'table-header',\n  __ssrInlineRender: true,\n  props: {\r\n  text: String,\r\n  number: [String, Number],\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  const _component_v_badge = _resolveComponent(\"v-badge\")\n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\" }, _attrs))}>`)\n  _push(_ssrRenderComponent(_component_v_badge, {\n    content: __props.number,\n    inline: \"\",\n    color: \"link\",\n    location: \"end\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<b class=\"mr-5\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.text)\n        }</b>`)\n      } else {\n        return [\n          _createVNode(\"b\", { class: \"mr-5\" }, _toDisplayString(__props.text), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n}\n\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/admin/core/table-header.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main",
+      "start": 1756474002822,
+      "end": 1756474002825,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/table-header.vue"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;;AAQc;AACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,OAGZ,CAAC;;;;;6CAXI,KAAK,EAAC,2DAA2D;;IAC1D,OAAO,EAAE,cAAM;IAAE,MAAM,EAAN,EAAM;IAAC,KAAK,EAAC,MAAM;IAAC,QAAQ,EAAC,KAAK;;sBAA7D,CAEU;;;;;0BADW,YAAI;;;;UAAvB,aAA8B,OAA3B,KAAK,EAAC,MAAM,qBAAI,YAAI",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\">\r\n    <v-badge :content=\"number\" inline color=\"link\" location=\"end\">\r\n      <b class=\"mr-5\">{{ text }}</b>\r\n    </v-badge>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  text: String,\r\n  number: [String, Number],\r\n});\r\n</script>\r\n\r\n<style lang=\"scss\" scoped></style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474002825,
+      "end": 1756474002825,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002825,
+      "end": 1756474002825,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002825,
+      "end": 1756474002825,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474002825,
+      "end": 1756474002825,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474002825,
+      "end": 1756474002825,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'table-header',\n  __ssrInlineRender: true,\n  props: {\r\n  text: String,\r\n  number: [String, Number],\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n                                                         \n\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\" }, _attrs))}>`)\n  _push(_ssrRenderComponent(_component_v_badge, {\n    content: __props.number,\n    inline: \"\",\n    color: \"link\",\n    location: \"end\"\n  }, {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(`<b class=\"mr-5\"${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.text)\n        }</b>`)\n      } else {\n        return [\n          _createVNode(\"b\", { class: \"mr-5\" }, _toDisplayString(__props.text), 1)\n        ]\n      }\n    }),\n    _: 1\n  }, _parent))\n  _push(`</div>`)\n}\n}\n\n}\n\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/admin/core/table-header.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBadge as _component_v_badge } from \"vuetify/lib/components/VBadge/index.mjs\"\n\n",
+      "start": 1756474002825,
+      "end": 1756474002826,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474002826,
+      "end": 1756474002826,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002826,
+      "end": 1756474002826,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474002826,
+      "end": 1756474002826,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\";\nconst _sfc_main = {\n  __name: \"table-header\",\n  __ssrInlineRender: true,\n  props: {\n    text: String,\n    number: [String, Number]\n  },\n  setup(__props) {\n    const props = __props;\n    return (_ctx, _push, _parent, _attrs) => {\n      _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\" }, _attrs))}>`);\n      _push(_ssrRenderComponent(_component_v_badge, {\n        content: __props.number,\n        inline: \"\",\n        color: \"link\",\n        location: \"end\"\n      }, {\n        default: _withCtx((_, _push2, _parent2, _scopeId) => {\n          if (_push2) {\n            _push2(`<b class=\"mr-5\"${_scopeId}>${_ssrInterpolate(__props.text)}</b>`);\n          } else {\n            return [\n              _createVNode(\"b\", { class: \"mr-5\" }, _toDisplayString(__props.text), 1)\n            ];\n          }\n        }),\n        _: 1\n      }, _parent));\n      _push(`</div>`);\n    };\n  }\n};\nimport { useSSRContext as __vite_useSSRContext } from \"vue\";\nconst _sfc_setup = _sfc_main.setup;\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext();\n  (ssrContext.modules || (ssrContext.modules = /* @__PURE__ */ new Set())).add(\"components/admin/core/table-header.vue\");\n  return _sfc_setup ? _sfc_setup(props, ctx) : void 0;\n};\nexport default _sfc_main;\nimport { VBadge as _component_v_badge } from \"vuetify/lib/components/VBadge/index.mjs\";\n",
+      "start": 1756474002826,
+      "end": 1756474003417,
+      "order": "normal",
+      "sourcemaps": "{\n  \"version\": 3,\n  \"sources\": [\"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/table-header.vue\"],\n  \"sourcesContent\": [\"import { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createVNode as _createVNode, mergeProps as _mergeProps } from \\\"vue\\\"\\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \\\"vue/server-renderer\\\"\\n\\n\\nconst _sfc_main = {\\n  __name: 'table-header',\\n  __ssrInlineRender: true,\\n  props: {\\r\\n  text: String,\\r\\n  number: [String, Number],\\r\\n},\\n  setup(__props) {\\n\\r\\nconst props = __props;\\r\\n\\nreturn (_ctx, _push, _parent, _attrs) => {\\n                                                         \\n\\n  _push(`<div${_ssrRenderAttrs(_mergeProps({ class: \\\"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\\\" }, _attrs))}>`)\\n  _push(_ssrRenderComponent(_component_v_badge, {\\n    content: __props.number,\\n    inline: \\\"\\\",\\n    color: \\\"link\\\",\\n    location: \\\"end\\\"\\n  }, {\\n    default: _withCtx((_, _push, _parent, _scopeId) => {\\n      if (_push) {\\n        _push(`<b class=\\\"mr-5\\\"${\\n          _scopeId\\n        }>${\\n          _ssrInterpolate(__props.text)\\n        }</b>`)\\n      } else {\\n        return [\\n          _createVNode(\\\"b\\\", { class: \\\"mr-5\\\" }, _toDisplayString(__props.text), 1)\\n        ]\\n      }\\n    }),\\n    _: 1\\n  }, _parent))\\n  _push(`</div>`)\\n}\\n}\\n\\n}\\n\\n\\n\\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\\nconst _sfc_setup = _sfc_main.setup\\n_sfc_main.setup = (props, ctx) => {\\n  const ssrContext = __vite_useSSRContext()\\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\\\"components/admin/core/table-header.vue\\\")\\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\\n}\\nexport default _sfc_main\\n\\n/* Vuetify */\\nimport { VBadge as _component_v_badge } from \\\"vuetify/lib/components/VBadge/index.mjs\\\"\\n\\n\"],\n  \"mappings\": \"AAAA,SAAS,oBAAoB,mBAAmB,WAAW,UAAU,mBAAmB,kBAAkB,eAAe,cAAc,cAAc,mBAAmB;AACxK,SAAS,sBAAsB,qBAAqB,kBAAkB,iBAAiB,kBAAkB,uBAAuB;AAGhI,MAAM,YAAY;AAAA,EAChB,QAAQ;AAAA,EACR,mBAAmB;AAAA,EACnB,OAAO;AAAA,IACP,MAAM;AAAA,IACN,QAAQ,CAAC,QAAQ,MAAM;AAAA,EACzB;AAAA,EACE,MAAM,SAAS;AAEjB,UAAM,QAAQ;AAEd,WAAO,CAAC,MAAM,OAAO,SAAS,WAAW;AAGvC,YAAM,OAAO,gBAAgB,YAAY,EAAE,OAAO,4DAA4D,GAAG,MAAM,CAAC,CAAC,GAAG;AAC5H,YAAM,oBAAoB,oBAAoB;AAAA,QAC5C,SAAS,QAAQ;AAAA,QACjB,QAAQ;AAAA,QACR,OAAO;AAAA,QACP,UAAU;AAAA,MACZ,GAAG;AAAA,QACD,SAAS,SAAS,CAAC,GAAGA,QAAOC,UAAS,aAAa;AACjD,cAAID,QAAO;AACT,YAAAA,OAAM,kBACJ,QACF,IACE,gBAAgB,QAAQ,IAAI,CAC9B,MAAM;AAAA,UACR,OAAO;AACL,mBAAO;AAAA,cACL,aAAa,KAAK,EAAE,OAAO,OAAO,GAAG,iBAAiB,QAAQ,IAAI,GAAG,CAAC;AAAA,YACxE;AAAA,UACF;AAAA,QACF,CAAC;AAAA,QACD,GAAG;AAAA,MACL,GAAG,OAAO,CAAC;AACX,YAAM,QAAQ;AAAA,IAChB;AAAA,EACA;AAEA;AAIA,SAAS,iBAAiB,4BAA4B;AACtD,MAAM,aAAa,UAAU;AAC7B,UAAU,QAAQ,CAAC,OAAO,QAAQ;AAChC,QAAM,aAAa,qBAAqB;AACvC,GAAC,WAAW,YAAY,WAAW,UAAU,oBAAI,IAAI,IAAI,IAAI,wCAAwC;AACtG,SAAO,aAAa,WAAW,OAAO,GAAG,IAAI;AAC/C;AACA,eAAe;AAGf,SAAS,UAAU,0BAA0B;\",\n  \"names\": [\"_push\", \"_parent\"]\n}\n"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474003417,
+      "end": 1756474003417,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003418,
+      "end": 1756474003418,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003418,
+      "end": 1756474003418,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003418,
+      "end": 1756474003428,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003418,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003438,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003438,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003438,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003438,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474003438,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474003438,
+      "end": 1756474003438,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474003442,
+      "end": 1756474003442,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474003442,
+      "end": 1756474003442,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474003443,
+      "end": 1756474003443,
+      "order": "normal"
+    }
+  ]
+}

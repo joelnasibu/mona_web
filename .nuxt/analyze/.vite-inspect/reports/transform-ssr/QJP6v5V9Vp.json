@@ -1,0 +1,17 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/nuxt/dist/app/types.js",
+  "transforms": [
+    {
+      "name": "__load__",
+      "result": "",
+      "start": 1756474001914,
+      "end": 1756474001914
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474001914,
+      "end": 1756474001915,
+      "order": "normal"
+    }
+  ]
+}

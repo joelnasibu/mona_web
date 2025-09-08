@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/parse/_lib/parsers/LocalWeekParser.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { setWeek } from \"../../../setWeek.mjs\";\r\nimport { startOfWeek } from \"../../../startOfWeek.mjs\";\r\nimport { numericPatterns } from \"../constants.mjs\";\r\nimport { Parser } from \"../Parser.mjs\";\r\nimport { parseNDigits, parseNumericPattern } from \"../utils.mjs\";\r\n\r\n// Local week of year\r\nexport class LocalWeekParser extends Parser {\r\n  priority = 100;\r\n\r\n  parse(dateString, token, match) {\r\n    switch (token) {\r\n      case \"w\":\r\n        return parseNumericPattern(numericPatterns.week, dateString);\r\n      case \"wo\":\r\n        return match.ordinalNumber(dateString, { unit: \"week\" });\r\n      default:\r\n        return parseNDigits(token.length, dateString);\r\n    }\r\n  }\r\n\r\n  validate(_date, value) {\r\n    return value >= 1 && value <= 53;\r\n  }\r\n\r\n  set(date, _flags, value, options) {\r\n    return startOfWeek(setWeek(date, value, options), options);\r\n  }\r\n\r\n  incompatibleTokens = [\r\n    \"y\",\r\n    \"R\",\r\n    \"u\",\r\n    \"q\",\r\n    \"Q\",\r\n    \"M\",\r\n    \"L\",\r\n    \"I\",\r\n    \"d\",\r\n    \"D\",\r\n    \"i\",\r\n    \"t\",\r\n    \"T\",\r\n  ];\r\n}\r\n",
+      "start": 1756473949175,
+      "end": 1756473949304,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949304,
+      "end": 1756473949304,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949304,
+      "end": 1756473949304,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949304,
+      "end": 1756473949304,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949304,
+      "end": 1756473949304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949304,
+      "end": 1756473949304,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949308,
+      "end": 1756473949308,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue?vue&type=style&index=0&scoped=831bdf79&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.visible-image {\r\n  border-color: rgba(var(--v-theme-link)) !important;\r\n  border-width: 2px !important;\r\n}\r\n",
+      "start": 1756474010799,
+      "end": 1756474010799,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue"
+        ],
+        "names": [],
+        "mappings": ";AA8UA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div>\r\n    <v-container class=\"pa-0\" fluid>\r\n      <v-row align=\"center\">\r\n        <v-col cols=\"12\" sm=\"4\" class=\"text-caption\">\r\n          <div class=\"mx-auto d-flex flex-column align-center\">\r\n            <AdminCoreImage\r\n              @setImage=\"setImage\"\r\n              :image=\"payload.thumbnail\"\r\n              :profile=\"false\"\r\n              :full-size=\"true\"\r\n              :editable=\"false\"\r\n            />\r\n          </div>\r\n        </v-col>\r\n        <v-col cols=\"12\" sm=\"8\">\r\n          <v-form ref=\"formData\">\r\n            <v-container class=\"pa-0\" fluid>\r\n              <v-row>\r\n                <v-col lg=\"6\" md=\"6\" xs=\"12\" class=\"py-0\">\r\n                  <v-text-field\r\n                    label=\"Name\"\r\n                    v-model=\"payload.productName\"\r\n                    :rules=\"name()\"\r\n                    @input.capture=\"transformToUpperCase\"\r\n                    id=\"selectProduct\"\r\n                    append-inner-icon=\"mdi-chevron-down\"\r\n                  ></v-text-field>\r\n                  <AdminCoreSelect\r\n                    activator=\"#selectProduct\"\r\n                    :list=\"data.map((v) => v.productName)\"\r\n                    :listValue=\"payload.productName\"\r\n                    @setItem=\"setProduct\"\r\n                  />\r\n                </v-col>\r\n                <v-col lg=\"6\" md=\"6\" xs=\"12\" sm=\"6\" class=\"py-0\">\r\n                  <v-text-field\r\n                    label=\"Brand\"\r\n                    v-model=\"payload.brand\"\r\n                  ></v-text-field>\r\n                </v-col>\r\n                <!-- <v-col lg=\"6\" md=\"6\" xs=\"12\" sm=\"6\" class=\"py-0\">\r\n                  <v-text-field label=\"Model\" v-model=\"payload.model\" :rules=\"required()\"></v-text-field>\r\n                </v-col> -->\r\n                <v-col lg=\"6\" md=\"6\" xs=\"12\" sm=\"6\" class=\"py-0\">\r\n                  <v-text-field\r\n                    label=\"Category\"\r\n                    v-model=\"payload.category\"\r\n                    append-inner-icon=\"mdi-chevron-down\"\r\n                    :rules=\"required()\"\r\n                    readonly\r\n                    :loading=\"loadData\"\r\n                    id=\"selectCategory\"\r\n                  ></v-text-field>\r\n                  <AdminCoreSelect\r\n                    activator=\"#selectCategory\"\r\n                    :list=\"categoriesList\"\r\n                    :listValue=\"payload.category\"\r\n                    @setItem=\"setCategory\"\r\n                  />\r\n                </v-col>\r\n                <v-col lg=\"6\" md=\"6\" xs=\"12\" sm=\"6\" class=\"py-0\">\r\n                  <v-text-field\r\n                    label=\"Subcategory\"\r\n                    v-model=\"payload.subcategory\"\r\n                    append-inner-icon=\"mdi-chevron-down\"\r\n                    :rules=\"payload.category ? required() : []\"\r\n                    readonly\r\n                    :loading=\"loadData\"\r\n                    id=\"selectSubcategory\"\r\n                    :disabled=\"payload.category === ''\"\r\n                  ></v-text-field>\r\n                  <AdminCoreSelect\r\n                    activator=\"#selectSubcategory\"\r\n                    :list=\"subcategoriesList\"\r\n                    :listValue=\"payload.subcategory\"\r\n                    @setItem=\"setSubcategory\"\r\n                  />\r\n                </v-col>\r\n                <v-col lg=\"6\" md=\"6\" xs=\"12\" sm=\"6\" class=\"py-0\">\r\n                  <v-text-field\r\n                    label=\"Price\"\r\n                    v-model.number=\"payload.price\"\r\n                    :rules=\"required()\"\r\n                    @keypress=\"digitsOnly\"\r\n                    prefix=\"USD\"\r\n                  ></v-text-field>\r\n                </v-col>\r\n                <v-col lg=\"6\" md=\"6\" xs=\"12\" sm=\"6\" class=\"py-0\">\r\n                  <div class=\"d-flex ga-2\">\r\n                    <v-text-field\r\n                      label=\"Discount\"\r\n                      v-model.number=\"payload.discount\"\r\n                      @keypress=\"digitsOnly\"\r\n                      suffix=\"%\"\r\n                      :hint=\"\r\n                        currencyFormat(\r\n                          Number(\r\n                            payload.price -\r\n                              priceAfterDiscount(\r\n                                payload.price,\r\n                                payload.discount\r\n                              )\r\n                          )\r\n                        )\r\n                      \"\r\n                      persistent-hint\r\n                    ></v-text-field>\r\n                    <v-text-field\r\n                      label=\"Price after discount\"\r\n                      v-model=\"handlePriceAfterDiscount\"\r\n                      readonly\r\n                      prefix=\"USD\"\r\n                      v-if=\"handlePriceAfterDiscount > 0\"\r\n                      style=\"opacity: 0.6\"\r\n                    ></v-text-field>\r\n                  </div>\r\n                </v-col>\r\n              </v-row>\r\n            </v-container>\r\n          </v-form>\r\n          <v-expand-transition>\r\n            <div\r\n              class=\"no-wrap overflow-x-auto w-100 hide-scrollbar\"\r\n              v-if=\"payload.images.length > 0\"\r\n            >\r\n              <v-badge\r\n                :content=\"payload.images.length\"\r\n                color=\"link\"\r\n                class=\"text-subtitle-2 mt-3\"\r\n                inline\r\n              >\r\n                <span class=\"mr-5\">Product Images</span>\r\n              </v-badge>\r\n              <div class=\"ga-2 mt-3 d-flex\">\r\n                <div\r\n                  class=\"position-relative\"\r\n                  v-for=\"(img, i) in payload.images\"\r\n                  :key=\"i\"\r\n                >\r\n                  <v-hover v-slot=\"{ isHovering, props }\">\r\n                    <div class=\"\" v-bind=\"props\">\r\n                      <v-card\r\n                        width=\"100\"\r\n                        class=\"card-outlined rounded-lg\"\r\n                        flat\r\n                        :class=\"{ 'visible-image': payload.thumbnail === img }\"\r\n                      >\r\n                        <v-img :src=\"img\" :aspect-ratio=\"4 / 3\">\r\n                          <v-expand-transition>\r\n                            <div\r\n                              v-if=\"isHovering\"\r\n                              class=\"d-flex text-caption cursor-pointer\"\r\n                              style=\"\r\n                                height: 100%;\r\n                                background: rgba(0, 0, 0, 0.3);\r\n                              \"\r\n                              title=\"Remove image\"\r\n                              @click=\"removeItem(i)\"\r\n                            >\r\n                              <v-icon\r\n                                icon=\"mdi-delete\"\r\n                                class=\"ma-auto\"\r\n                                color=\"white\"\r\n                                size=\"x-large\"\r\n                              ></v-icon>\r\n                            </div>\r\n                          </v-expand-transition>\r\n                        </v-img>\r\n                      </v-card>\r\n                      <v-slide-y-transition>\r\n                        <div\r\n                          class=\"text-caption text-center text-link cursor-pointer text-decoration-underline\"\r\n                          v-if=\"isHovering && img !== payload.thumbnail\"\r\n                          @click=\"payload.thumbnail = img\"\r\n                        >\r\n                          <span>Set as thumbnail</span>\r\n                        </div>\r\n                      </v-slide-y-transition>\r\n                    </div>\r\n                  </v-hover>\r\n                  <v-slide-y-transition>\r\n                    <div\r\n                      class=\"text-caption text-center\"\r\n                      v-if=\"payload.thumbnail === img\"\r\n                    >\r\n                      <span>Thumbnail</span>\r\n                      <v-icon\r\n                        icon=\"mdi-check-circle\"\r\n                        end\r\n                        size=\"x-small\"\r\n                      ></v-icon>\r\n                    </div>\r\n                  </v-slide-y-transition>\r\n                </div>\r\n              </div>\r\n            </div>\r\n          </v-expand-transition>\r\n        </v-col>\r\n      </v-row>\r\n    </v-container>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  edit: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n  payload: Object,\r\n  trigger: Boolean,\r\n});\r\nconst emits = defineEmits([\"step\"]);\r\n\r\nconst { required, name } = useRules();\r\nconst { digitsOnly, priceAfterDiscount, currencyFormat, transformToUpperCase } =\r\n  useHelpers();\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { toggleSnackbar } = useAppStore();\r\n\r\nimport { useCategoryStore } from \"~/store/categories\";\r\nconst { getCategoriesByType } = useCategoryStore();\r\nimport { useSubcategoryStore } from \"~/store/subcategories\";\r\nconst { getSubcategoriesPerCategory } = useSubcategoryStore();\r\nconst categories = ref([]);\r\nconst subcategories = ref([]);\r\nconst loadData = ref(false);\r\nconst getData = async () => {\r\n  // let [cat, subcat] = await Promise.all([\r\n  //   getCategoriesByType(false, \"SHOP\"),\r\n  //   getSubcategories(false),\r\n  // ]);\r\n  // subcategories.value = subcat;\r\n\r\n  loadData.value = true;\r\n  categories.value = await getCategoriesByType(false, \"SHOP\");\r\n  if (props.edit)\r\n    props.payload.categoryId = categories.value.find(\r\n      (cat) => cat.category === props.payload.category\r\n    )?.id;\r\n  loadData.value = false;\r\n};\r\nwatchEffect(() => {\r\n  getData();\r\n});\r\nconst categoriesList = computed(() => {\r\n  return categories.value.map((c) => c.category);\r\n});\r\n\r\nconst setCategory = async (val) => {\r\n  loadData.value = true;\r\n  props.payload.category = val;\r\n  props.payload.categoryId = categories.value.find(\r\n    (cat) => cat.category === val\r\n  )?.id;\r\n  props.payload.subcategory = \"\";\r\n  subcategories.value = await getSubcategoriesPerCategory(\r\n    false,\r\n    props.payload.categoryId\r\n  );\r\n  loadData.value = false;\r\n};\r\n\r\nconst subcategoriesList = computed(() => {\r\n  return subcategories.value\r\n    .filter((sub) => sub.categoryId === props.payload.categoryId)\r\n    .map((sub) => sub.subcategory);\r\n});\r\n\r\nconst setSubcategory = (val) => {\r\n  props.payload.subcategory = val;\r\n  props.payload.subcategoryId = subcategories.value.find(\r\n    (sub) => sub.subcategory === val\r\n  )?.id;\r\n};\r\n\r\nconst setImage = (val) => {\r\n  if (props.payload.thumbnail && props.edit) {\r\n    //props.payload.images[0];\r\n    props.payload.images.push(val);\r\n  } else {\r\n    props.payload.thumbnail = val;\r\n  }\r\n};\r\nconst removeItem = (index) => {\r\n  props.payload.images.splice(index, 1);\r\n};\r\n\r\nconst handlePriceAfterDiscount = computed(() => {\r\n  return priceAfterDiscount(props.payload.price, props.payload.discount);\r\n});\r\n\r\nconst formData = ref(null);\r\n\r\nwatch(\r\n  () => props.trigger,\r\n  () => {\r\n    moveNext();\r\n  }\r\n);\r\nconst moveNext = async () => {\r\n  let tab = 0;\r\n\r\n  const { valid } = await formData.value.validate();\r\n  if (valid)\r\n    if (props.payload.thumbnail) tab = 1;\r\n    else\r\n      toggleSnackbar({\r\n        status: true,\r\n        message: \"Image is required\",\r\n        type: \"warning\",\r\n      });\r\n  emits(\"step\", tab);\r\n};\r\n\r\nimport { useProductStore } from \"~/store/products\";\r\nconst { businessProducts, publishedProducts } = useProductStore(),\r\n  data = await publishedProducts(),\r\n  setProduct = (val) => {\r\n    let prod = data.find((p) => p.productName === val);\r\n    if (!!prod)\r\n      Object.keys(props.payload).forEach((element) => {\r\n        props.payload[element] = prod[element];\r\n        setCategory(prod.category.name);\r\n        props.payload.subcategory = prod.category.subcategory;\r\n      });\r\n\r\n    console.log(prod, props.payload);\r\n  };\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.visible-image {\r\n  border-color: rgba(var(--v-theme-link)) !important;\r\n  border-width: 2px !important;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474010799,
+      "end": 1756474010799,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474010799,
+      "end": 1756474010799,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474010799,
+      "end": 1756474010799,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474010799,
+      "end": 1756474010799,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474010799,
+      "end": 1756474010799,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".visible-image{border-color:rgba(var(--v-theme-link))!important;border-width:2px!important}",
+      "start": 1756474010799,
+      "end": 1756474010805,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue",
+        "mappings": "AACA,eACE,gDAAkD,CAClD,0BACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.visible-image {\r\n  border-color: rgba(var(--v-theme-link)) !important;\r\n  border-width: 2px !important;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474010805,
+      "end": 1756474010805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474010805,
+      "end": 1756474010805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474010805,
+      "end": 1756474010805,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".visible-image[data-v-831bdf79]{border-color:rgba(var(--v-theme-link))!important;border-width:2px!important}",
+      "start": 1756474010805,
+      "end": 1756474010807,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue",
+        "mappings": "AAAA,gCAAe,gDAAgD,CAAC,0BAA0B",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/product/inputs/basic.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474010807,
+      "end": 1756474010807,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".visible-image[data-v-831bdf79]{border-color:rgba(var(--v-theme-link))!important;border-width:2px!important}\"",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474010808,
+      "end": 1756474010808,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474010808,
+      "end": 1756474010809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474010809,
+      "end": 1756474010809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474010809,
+      "end": 1756474010809,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474010809,
+      "end": 1756474010809,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474010809,
+      "end": 1756474010809,
+      "order": "normal"
+    }
+  ]
+}

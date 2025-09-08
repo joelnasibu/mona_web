@@ -1,0 +1,266 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/title.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div\r\n    class=\"container bg-white text-center py-10 text-h5 d-flex justify-center\"\r\n  >\r\n    <!-- data-aos-duration=\"800\"\r\n    data-aos=\"fade-left\" -->\r\n    <b class=\"title-text position-relative mt-n6\">{{ title }}</b>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  title: String,\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.container {\r\n  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 90%);\r\n}\r\n.title-text::after {\r\n  content: \"\";\r\n  margin: auto;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: -2px;\r\n  width: 55%;\r\n  height: 2px;\r\n  position: absolute;\r\n  background-color: currentColor;\r\n}\r\n</style>\r\n",
+      "start": 1756474006849,
+      "end": 1756474008926,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474008926,
+      "end": 1756474008926,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'title',\n  __ssrInlineRender: true,\n  props: {\r\n  title: String,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"container bg-white text-center py-10 text-h5 d-flex justify-center\" }, _attrs))\n  } data-v-b872dd19><b class=\"title-text position-relative mt-n6\" data-v-b872dd19>${\n    _ssrInterpolate(__props.title)\n  }</b></div>`)\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/title.vue?vue&type=style&index=0&scoped=b872dd19&lang.css\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/landing/title.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-b872dd19\"]])",
+      "start": 1756474008926,
+      "end": 1756474008929,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/title.vue"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;AAUc;AAGX;;;;kCAXC,KAAK,EAAC,oEAAoE;;oBAIzB,aAAK",
+        "sourcesContent": [
+          "<template>\r\n  <div\r\n    class=\"container bg-white text-center py-10 text-h5 d-flex justify-center\"\r\n  >\r\n    <!-- data-aos-duration=\"800\"\r\n    data-aos=\"fade-left\" -->\r\n    <b class=\"title-text position-relative mt-n6\">{{ title }}</b>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  title: String,\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.container {\r\n  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 90%);\r\n}\r\n.title-text::after {\r\n  content: \"\";\r\n  margin: auto;\r\n  left: 0;\r\n  right: 0;\r\n  bottom: -2px;\r\n  width: 55%;\r\n  height: 2px;\r\n  position: absolute;\r\n  background-color: currentColor;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'title',\n  __ssrInlineRender: true,\n  props: {\r\n  title: String,\r\n},\n  setup(__props) {\n\r\n\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  _push(`<div${\n    _ssrRenderAttrs(_mergeProps({ class: \"container bg-white text-center py-10 text-h5 d-flex justify-center\" }, _attrs))\n  } data-v-b872dd19><b class=\"title-text position-relative mt-n6\" data-v-b872dd19>${\n    _ssrInterpolate(__props.title)\n  }</b></div>`)\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/title.vue?vue&type=style&index=0&scoped=b872dd19&lang.css\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/landing/title.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-b872dd19\"]])",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474008929,
+      "end": 1756474008929,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474008929,
+      "end": 1756474008932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474008932,
+      "end": 1756474008932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474008932,
+      "end": 1756474008932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474008932,
+      "end": 1756474008932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474008932,
+      "end": 1756474008932,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474008932,
+      "end": 1756474008932,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474008932,
+      "end": 1756474008933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474008933,
+      "end": 1756474008933,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474008933,
+      "end": 1756474008933,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474008933,
+      "end": 1756474008933,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474008933,
+      "end": 1756474008933,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474008933,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474008933,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474008934,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474008934,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474008934,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474008934,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474008934,
+      "end": 1756474008934,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474008935,
+      "end": 1756474008935,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474008935,
+      "end": 1756474008935,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474008935,
+      "end": 1756474008935,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474008935,
+      "end": 1756474008935,
+      "order": "normal"
+    }
+  ]
+}

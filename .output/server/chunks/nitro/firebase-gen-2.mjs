@@ -3888,7 +3888,7 @@ function klona(x) {
 
 const inlineAppConfig = {
   "nuxt": {
-    "buildId": "03ca0aeb-2ae8-4d19-8610-7b29c665dd52"
+    "buildId": "9f07ff20-ac36-4334-80a6-27bb6de9ec8a"
   },
   "nitro": {
     "firebase": {
@@ -4743,7 +4743,7 @@ const storage = createStorage({});
 
 storage.mount('/assets', assets);
 
-storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"C:\\Users\\ADMIN\\Documents\\GitHub\\smartsell\\.data\\kv"}));
+storage.mount('data', unstorage_47drivers_47fs_45lite({"driver":"fsLite","base":"C:\\Users\\ADMIN\\Documents\\GitHub\\nairobi-market\\frontend\\.data\\kv"}));
 
 function useStorage(base = "") {
   return base ? prefixStorage(storage, base) : storage;
@@ -5206,11 +5206,11 @@ const errorHandler = (async function errorhandler(error, event) {
   return send(event, html);
 });
 
-const _lazy_mcxtdb = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
+const _lazy_RT4teg = () => import('../handlers/renderer.mjs').then(function (n) { return n.r; });
 
 const handlers = [
-  { route: '/__nuxt_error', handler: _lazy_mcxtdb, lazy: true, middleware: false, method: undefined },
-  { route: '/**', handler: _lazy_mcxtdb, lazy: true, middleware: false, method: undefined }
+  { route: '/__nuxt_error', handler: _lazy_RT4teg, lazy: true, middleware: false, method: undefined },
+  { route: '/**', handler: _lazy_RT4teg, lazy: true, middleware: false, method: undefined }
 ];
 
 function createNitroApp() {

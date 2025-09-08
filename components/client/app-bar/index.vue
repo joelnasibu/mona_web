@@ -6,7 +6,7 @@
     <v-app-bar
       absolute
       class="card-white"
-      :height="smallSize ? 60 : 64"
+      :height="smAndDown ? 110 : 60"
       flat
       id="appBar"
     >
@@ -16,14 +16,17 @@
             <v-img src="/fulls.png" width="250" style="margin-left: -40px;"></v-img>
           </NuxtLink>
           <v-container class="pa-0" fluid>
-            <v-row class="ma-auto" align="center" justify="start">
-              <v-col md="6" lg="7" v-if="!isMobile" class="">
+            <v-row class="ma-auto" align="center" justify="end">
+              <!-- <v-col xs="4" sm="4" md="4" lg="4" xl="4">
+                
+                 <ClientAppBarDelivery /> 
+              </v-col> -->
+              <v-col md="6" lg="7" v-if="!isMobile">
                 <ClientAppBarSearch keyword="SHOP" />
               </v-col>
 
-              <v-col xs="8" sm="8" md="4" lg="5">
+              <v-col xs="8" sm="8" md="4" lg="4">
                 <div class="d-flex align-center justify-end ga-4">
-                  <v-spacer></v-spacer>
                   <ClientAppBarAccount class="mx-2 mx-md-0" />
                   <!-- <div class="d-flex align-center" v-if="!isMobile">
                     <div class="d-flex align-center text-caption px-3 ga-5">
@@ -36,14 +39,14 @@
                         <span>{{ name }}</span>
                       </NuxtLink>
                     </div>
-                  </div> -->
-                  <!-- <v-spacer v-if="!isMobile"></v-spacer> -->
-                  <div class="" title="My shopping cart">
+                  </div>
+                  <v-spacer v-if="!isMobile"></v-spacer> -->
+                  <div class="mt-1" title="My shopping cart">
                     <v-badge :content="cart.length" color="primary-accent">
                       <Icon
                         name="solar:cart-large-2-linear"
-                        class="mr-1 cursor-pointer text-primary-darken"
-                        size="1.6rem"
+                        class="mr-1 cursor-pointer text-primary-dark"
+                        :size="smallSize ? '1.5rem' : '1.2rem'"
                         @click="openCart"
                       />
                     </v-badge>

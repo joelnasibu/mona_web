@@ -1,0 +1,5 @@
+const Footer_vue_vue_type_style_index_0_scoped_dc52198c_lang = ".footer[data-v-dc52198c]{background-color:#032f46;color:#e6e3e1}.footer-title[data-v-dc52198c]{font-weight:700;margin-bottom:1rem;text-transform:uppercase}.footer-text[data-v-dc52198c]{align-items:flex-start;color:#e6e3e1;display:flex;font-size:.9rem;gap:.8rem;line-height:1.5;margin-bottom:.6rem}.footer-icon[data-v-dc52198c]{color:orange;flex-shrink:0;height:20px;width:20px}.privacy-links[data-v-dc52198c]{display:flex;flex-direction:column;gap:.5rem}.privacy-link[data-v-dc52198c]{color:#fff;text-decoration:none}.privacy-link[data-v-dc52198c]:hover{color:orange}.social-links[data-v-dc52198c]{display:flex;gap:1rem}.social-link[data-v-dc52198c]{color:#fff;font-size:1.2rem}.social-link[data-v-dc52198c]:hover{color:orange}.footer-bottom-text[data-v-dc52198c]{color:#e6e3e1;font-size:.8rem;margin-top:12px}.footer-link[data-v-dc52198c]{color:orange;text-decoration:none}.footer-link[data-v-dc52198c]:hover{color:#fff}";
+export {
+  Footer_vue_vue_type_style_index_0_scoped_dc52198c_lang as default
+};
+//# sourceMappingURL=Footer-styles-1.mjs-aVgoApmZ.js.map

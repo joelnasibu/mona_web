@@ -4,7 +4,8 @@
     <v-main>
       <NuxtPage />
     </v-main>
-    <ClientFooter />
+    <!-- <ClientFooter /> -->
+    <ClientShopNewFooter />
     <FloatingChat />
   </v-app>
 </template>

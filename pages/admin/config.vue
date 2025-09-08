@@ -3,7 +3,7 @@
     <div
       flat
       class="card-outlined h-100 rounded-lg position-relative bg-white transition-width"
-      :style="{ width: full ? '20%' : '55px' }"
+      :style="{ width: full ? '20%' : '50px' }"
     >
       <ConfigLinks />
       <div
@@ -11,7 +11,7 @@
         style="top: 0; bottom: 0; right: -15px"
       >
         <v-btn icon size="25" color="primary" @click="full = !full">
-          <v-icon :class="{ 'transform-180': full }">mdi-chevron-left</v-icon>
+          <v-icon :class="{ 'transform-180': full }">mdi-chevron-right</v-icon>
         </v-btn>
       </div>
     </div>

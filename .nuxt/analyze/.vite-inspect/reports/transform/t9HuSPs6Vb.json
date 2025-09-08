@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/differenceInMinutes.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { getRoundingMethod } from \"./_lib/getRoundingMethod.mjs\";\r\nimport { millisecondsInMinute } from \"./constants.mjs\";\r\nimport { differenceInMilliseconds } from \"./differenceInMilliseconds.mjs\";\r\n\r\n/**\r\n * The {@link differenceInMinutes} function options.\r\n */\r\n\r\n/**\r\n * @name differenceInMinutes\r\n * @category Minute Helpers\r\n * @summary Get the number of minutes between the given dates.\r\n *\r\n * @description\r\n * Get the signed number of full (rounded towards 0) minutes between the given dates.\r\n *\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param dateLeft - The later date\r\n * @param dateRight - The earlier date\r\n * @param options - An object with options.\r\n *\r\n * @returns The number of minutes\r\n *\r\n * @example\r\n * // How many minutes are between 2 July 2014 12:07:59 and 2 July 2014 12:20:00?\r\n * const result = differenceInMinutes(\r\n *   new Date(2014, 6, 2, 12, 20, 0),\r\n *   new Date(2014, 6, 2, 12, 7, 59)\r\n * )\r\n * //=> 12\r\n *\r\n * @example\r\n * // How many minutes are between 10:01:59 and 10:00:00\r\n * const result = differenceInMinutes(\r\n *   new Date(2000, 0, 1, 10, 0, 0),\r\n *   new Date(2000, 0, 1, 10, 1, 59)\r\n * )\r\n * //=> -1\r\n */\r\nexport function differenceInMinutes(dateLeft, dateRight, options) {\r\n  const diff =\r\n    differenceInMilliseconds(dateLeft, dateRight) / millisecondsInMinute;\r\n  return getRoundingMethod(options?.roundingMethod)(diff);\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default differenceInMinutes;\r\n",
+      "start": 1756473942136,
+      "end": 1756473942185,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473942185,
+      "end": 1756473942185,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473942185,
+      "end": 1756473942186,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473942186,
+      "end": 1756473942186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473942186,
+      "end": 1756473942186,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue?vue&type=style&index=0&scoped=3e87a40c&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.map-container {\r\n  width: 100%;\r\n  height: 500px;\r\n}\r\n\r\n.pulse-wrapper {\r\n  position: relative;\r\n  width: 40px;\r\n  height: 40px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.pulse {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  background: rgba(214, 0, 0, 0.4);\r\n  transform: translate(-50%, -50%);\r\n  animation: pulse 2s infinite;\r\n  pointer-events: none;\r\n  z-index: 1;\r\n  will-change: transform, opacity;\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    transform: translate(-50%, -50%) scale(0.8);\r\n    opacity: 0.7;\r\n  }\r\n  70% {\r\n    transform: translate(-50%, -50%) scale(1.5);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translate(-50%, -50%) scale(0.8);\r\n    opacity: 0;\r\n  }\r\n}\r\n",
+      "start": 1756474006761,
+      "end": 1756474006761,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue"
+        ],
+        "names": [],
+        "mappings": "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",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<script setup>\r\nimport { ref, onMounted } from \"vue\";\r\n\r\nconst mapContainer = ref(null);\r\n\r\nonMounted(async () => {\r\n  const L = (await import(\"leaflet\")).default;\r\n  await import(\"leaflet/dist/leaflet.css\");\r\n  await import(\"leaflet.markercluster\");\r\n  await import(\"leaflet.markercluster/dist/MarkerCluster.css\");\r\n  await import(\"leaflet.markercluster/dist/MarkerCluster.Default.css\");\r\n\r\n  const markets = [\r\n    { name: \"Adams Market\", coords: [-1.30263, 36.7798] },\r\n    { name: \"Gikomba Market\", coords: [-1.2863, 36.8415] },\r\n    { name: \"Toi Market\", coords: [-1.299, 36.79] },\r\n    { name: \"City Market\", coords: [-1.2833, 36.817] },\r\n    { name: \"Kariokor Market\", coords: [-1.28123, 36.83797] },\r\n    { name: \"Maasai Market\", coords: [-1.282, 36.814] },\r\n    { name: \"Village Market\", coords: [-1.204, 36.869] },\r\n    { name: \"Nairobi Farmers Market\", coords: [-1.2082228, 36.8326568] },\r\n  ];\r\n\r\n  if (mapContainer.value._leaflet_id) {\r\n    mapContainer.value._leaflet_id = null;\r\n  }\r\n\r\n  const marketIcon = L.divIcon({\r\n    className: \"custom-marker\",\r\n    html: `\r\n      <div class=\"pulse-wrapper\">\r\n        <span class=\"pulse\"></span>\r\n        <svg xmlns=\"http://www.w3.org/2000/svg\" width=\"28\" height=\"28\" viewBox=\"0 0 24 24\">\r\n          <path fill=\"#d60000\" d=\"M12 6.5A2.5 2.5 0 0 1 14.5 9a2.5 2.5 0 0 1-2.5 2.5A2.5 2.5 0 0 1 9.5 9A2.5 2.5 0 0 1 12 6.5M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7m0 2a5 5 0 0 0-5 5c0 1 0 3 5 9.71C17 12 17 10 17 9a5 5 0 0 0-5-5\"/>\r\n        </svg>\r\n      </div>\r\n    `,\r\n    iconSize: [40, 40],\r\n    iconAnchor: [20, 40],\r\n    popupAnchor: [0, -35],\r\n  });\r\n\r\n  const map = L.map(mapContainer.value).setView([-1.286389, 36.817223], 13);\r\n\r\n  L.tileLayer(\"https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png\", {\r\n    attribution: \"&copy; OpenStreetMap contributors\",\r\n  }).addTo(map);\r\n\r\n  const markers = L.markerClusterGroup({\r\n    maxClusterRadius: 50,\r\n    showCoverageOnHover: false,\r\n    spiderfyOnEveryZoom: true,\r\n    animate: false,\r\n  });\r\n\r\n  markets.forEach((market) => {\r\n    const marker = L.marker(market.coords, { icon: marketIcon });\r\n    marker.bindPopup(`<strong>${market.name}</strong>`);\r\n    markers.addLayer(marker);\r\n  });\r\n\r\n  map.addLayer(markers);\r\n  window.addEventListener(\"resize\", () => map.invalidateSize());\r\n});\r\n</script>\r\n\r\n<template>\r\n  <section class=\"hero-section\">\r\n    <div ref=\"mapContainer\" class=\"map-container\"></div>\r\n  </section>\r\n</template>\r\n\r\n<style scoped>\r\n.map-container {\r\n  width: 100%;\r\n  height: 500px;\r\n}\r\n\r\n.pulse-wrapper {\r\n  position: relative;\r\n  width: 40px;\r\n  height: 40px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.pulse {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  background: rgba(214, 0, 0, 0.4);\r\n  transform: translate(-50%, -50%);\r\n  animation: pulse 2s infinite;\r\n  pointer-events: none;\r\n  z-index: 1;\r\n  will-change: transform, opacity;\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    transform: translate(-50%, -50%) scale(0.8);\r\n    opacity: 0.7;\r\n  }\r\n  70% {\r\n    transform: translate(-50%, -50%) scale(1.5);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translate(-50%, -50%) scale(0.8);\r\n    opacity: 0;\r\n  }\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006761,
+      "end": 1756474006763,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006761,
+      "end": 1756474006763,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006763,
+      "end": 1756474006764,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006763,
+      "end": 1756474006764,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474006765,
+      "end": 1756474006765,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".map-container{height:500px;width:100%}.pulse-wrapper{align-items:center;display:flex;height:40px;justify-content:center;position:relative;width:40px}.pulse{animation:pulse 2s infinite;background:rgba(214,0,0,.4);border-radius:50%;height:30px;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:30px;will-change:transform,opacity;z-index:1}@keyframes pulse{0%{opacity:.7;transform:translate(-50%,-50%) scale(.8)}70%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}to{opacity:0;transform:translate(-50%,-50%) scale(.8)}}",
+      "start": 1756474006766,
+      "end": 1756474006776,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue",
+        "mappings": "AACA,eAEE,YAAa,CADb,UAEF,CAEA,eAKE,kBAAmB,CADnB,YAAa,CADb,WAAY,CAGZ,sBAAuB,CALvB,iBAAkB,CAClB,UAKF,CAEA,OASE,2BAA4B,CAF5B,2BAAgC,CADhC,iBAAkB,CADlB,WAAY,CAFZ,QAAS,CAOT,mBAAoB,CATpB,iBAAkB,CAClB,OAAQ,CAMR,8BAAgC,CAJhC,UAAW,CAQX,6BAA+B,CAD/B,SAEF,CAEA,iBACE,GAEE,UAAY,CADZ,wCAEF,CACA,IAEE,SAAU,CADV,yCAEF,CACA,GAEE,SAAU,CADV,wCAEF,CACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.map-container {\r\n  width: 100%;\r\n  height: 500px;\r\n}\r\n\r\n.pulse-wrapper {\r\n  position: relative;\r\n  width: 40px;\r\n  height: 40px;\r\n  display: flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n}\r\n\r\n.pulse {\r\n  position: absolute;\r\n  top: 50%;\r\n  left: 50%;\r\n  width: 30px;\r\n  height: 30px;\r\n  border-radius: 50%;\r\n  background: rgba(214, 0, 0, 0.4);\r\n  transform: translate(-50%, -50%);\r\n  animation: pulse 2s infinite;\r\n  pointer-events: none;\r\n  z-index: 1;\r\n  will-change: transform, opacity;\r\n}\r\n\r\n@keyframes pulse {\r\n  0% {\r\n    transform: translate(-50%, -50%) scale(0.8);\r\n    opacity: 0.7;\r\n  }\r\n  70% {\r\n    transform: translate(-50%, -50%) scale(1.5);\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    transform: translate(-50%, -50%) scale(0.8);\r\n    opacity: 0;\r\n  }\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474006777,
+      "end": 1756474006777,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474006780,
+      "end": 1756474006780,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474006781,
+      "end": 1756474006781,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".map-container[data-v-3e87a40c]{height:500px;width:100%}.pulse-wrapper[data-v-3e87a40c]{align-items:center;display:flex;height:40px;justify-content:center;position:relative;width:40px}.pulse[data-v-3e87a40c]{animation:pulse-3e87a40c 2s infinite;background:rgba(214,0,0,.4);border-radius:50%;height:30px;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:30px;will-change:transform,opacity;z-index:1}@keyframes pulse-3e87a40c{0%{opacity:.7;transform:translate(-50%,-50%) scale(.8)}70%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}to{opacity:0;transform:translate(-50%,-50%) scale(.8)}}",
+      "start": 1756474006782,
+      "end": 1756474006784,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue",
+        "mappings": "AAAA,gCAAe,YAAY,CAAC,UAAU,CAAC,gCAAe,kBAAkB,CAAC,YAAY,CAAC,WAAW,CAAC,sBAAsB,CAAC,iBAAiB,CAAC,UAAU,CAAC,wBAAO,oCAA2B,CAAC,2BAA2B,CAAC,iBAAiB,CAAC,WAAW,CAAC,QAAQ,CAAC,mBAAmB,CAAC,iBAAiB,CAAC,OAAO,CAAC,8BAA8B,CAAC,UAAU,CAAC,6BAA6B,CAAC,SAAS,CAAC,0BAAiB,GAAG,UAAU,CAAC,wCAAwC,CAAC,IAAI,SAAS,CAAC,yCAAyC,CAAC,GAAG,SAAS,CAAC,wCAAwC,CAAC",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/hero.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474006786,
+      "end": 1756474006786,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006786,
+      "end": 1756474006786,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006786,
+      "end": 1756474006786,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006787,
+      "end": 1756474006787,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006787,
+      "end": 1756474006787,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474006792,
+      "end": 1756474006792,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474006793,
+      "end": 1756474006793,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006795,
+      "end": 1756474006795,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474006796,
+      "end": 1756474006796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474006796,
+      "end": 1756474006796,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".map-container[data-v-3e87a40c]{height:500px;width:100%}.pulse-wrapper[data-v-3e87a40c]{align-items:center;display:flex;height:40px;justify-content:center;position:relative;width:40px}.pulse[data-v-3e87a40c]{animation:pulse-3e87a40c 2s infinite;background:rgba(214,0,0,.4);border-radius:50%;height:30px;left:50%;pointer-events:none;position:absolute;top:50%;transform:translate(-50%,-50%);width:30px;will-change:transform,opacity;z-index:1}@keyframes pulse-3e87a40c{0%{opacity:.7;transform:translate(-50%,-50%) scale(.8)}70%{opacity:0;transform:translate(-50%,-50%) scale(1.5)}to{opacity:0;transform:translate(-50%,-50%) scale(.8)}}\"",
+      "start": 1756474006797,
+      "end": 1756474006797,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474006797,
+      "end": 1756474006800,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474006801,
+      "end": 1756474006802,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474006803,
+      "end": 1756474006803,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474006805,
+      "end": 1756474006806,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474006807,
+      "end": 1756474006807,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006809,
+      "end": 1756474006809,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006819,
+      "end": 1756474006819,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006819,
+      "end": 1756474006819,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006819,
+      "end": 1756474006819,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006819,
+      "end": 1756474006819,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006822,
+      "end": 1756474006822,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006822,
+      "end": 1756474006822,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474006822,
+      "end": 1756474006823,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474006823,
+      "end": 1756474006823,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474006823,
+      "end": 1756474006824,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474006827,
+      "end": 1756474006828,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474006835,
+      "end": 1756474006835,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VDataTable/composables/group.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Composables\r\nimport { useProxiedModel } from \"../../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { computed, inject, provide, ref } from 'vue';\r\nimport { getObjectValueByPath, propsFactory } from \"../../../util/index.mjs\"; // Types\r\nexport const makeDataTableGroupProps = propsFactory({\r\n  groupBy: {\r\n    type: Array,\r\n    default: () => []\r\n  }\r\n}, 'DataTable-group');\r\nconst VDataTableGroupSymbol = Symbol.for('vuetify:data-table-group');\r\nexport function createGroupBy(props) {\r\n  const groupBy = useProxiedModel(props, 'groupBy');\r\n  return {\r\n    groupBy\r\n  };\r\n}\r\nexport function provideGroupBy(options) {\r\n  const {\r\n    groupBy,\r\n    sortBy\r\n  } = options;\r\n  const opened = ref(new Set());\r\n  const sortByWithGroups = computed(() => {\r\n    return groupBy.value.map(val => ({\r\n      ...val,\r\n      order: val.order ?? false\r\n    })).concat(sortBy.value);\r\n  });\r\n  function isGroupOpen(group) {\r\n    return opened.value.has(group.id);\r\n  }\r\n  function toggleGroup(group) {\r\n    const newOpened = new Set(opened.value);\r\n    if (!isGroupOpen(group)) newOpened.add(group.id);else newOpened.delete(group.id);\r\n    opened.value = newOpened;\r\n  }\r\n  function extractRows(items) {\r\n    function dive(group) {\r\n      const arr = [];\r\n      for (const item of group.items) {\r\n        if ('type' in item && item.type === 'group') {\r\n          arr.push(...dive(item));\r\n        } else {\r\n          arr.push(item);\r\n        }\r\n      }\r\n      return arr;\r\n    }\r\n    return dive({\r\n      type: 'group',\r\n      items,\r\n      id: 'dummy',\r\n      key: 'dummy',\r\n      value: 'dummy',\r\n      depth: 0\r\n    });\r\n  }\r\n\r\n  // onBeforeMount(() => {\r\n  //   for (const key of groupedItems.value.keys()) {\r\n  //     opened.value.add(key)\r\n  //   }\r\n  // })\r\n\r\n  const data = {\r\n    sortByWithGroups,\r\n    toggleGroup,\r\n    opened,\r\n    groupBy,\r\n    extractRows,\r\n    isGroupOpen\r\n  };\r\n  provide(VDataTableGroupSymbol, data);\r\n  return data;\r\n}\r\nexport function useGroupBy() {\r\n  const data = inject(VDataTableGroupSymbol);\r\n  if (!data) throw new Error('Missing group!');\r\n  return data;\r\n}\r\nfunction groupItemsByProperty(items, groupBy) {\r\n  if (!items.length) return [];\r\n  const groups = new Map();\r\n  for (const item of items) {\r\n    const value = getObjectValueByPath(item.raw, groupBy);\r\n    if (!groups.has(value)) {\r\n      groups.set(value, []);\r\n    }\r\n    groups.get(value).push(item);\r\n  }\r\n  return groups;\r\n}\r\nfunction groupItems(items, groupBy) {\r\n  let depth = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;\r\n  let prefix = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'root';\r\n  if (!groupBy.length) return [];\r\n  const groupedItems = groupItemsByProperty(items, groupBy[0]);\r\n  const groups = [];\r\n  const rest = groupBy.slice(1);\r\n  groupedItems.forEach((items, value) => {\r\n    const key = groupBy[0];\r\n    const id = `${prefix}_${key}_${value}`;\r\n    groups.push({\r\n      depth,\r\n      id,\r\n      key,\r\n      value,\r\n      items: rest.length ? groupItems(items, rest, depth + 1, id) : items,\r\n      type: 'group'\r\n    });\r\n  });\r\n  return groups;\r\n}\r\nfunction flattenItems(items, opened) {\r\n  const flatItems = [];\r\n  for (const item of items) {\r\n    // TODO: make this better\r\n    if ('type' in item && item.type === 'group') {\r\n      if (item.value != null) {\r\n        flatItems.push(item);\r\n      }\r\n      if (opened.has(item.id) || item.value == null) {\r\n        flatItems.push(...flattenItems(item.items, opened));\r\n      }\r\n    } else {\r\n      flatItems.push(item);\r\n    }\r\n  }\r\n  return flatItems;\r\n}\r\nexport function useGroupedItems(items, groupBy, opened) {\r\n  const flatItems = computed(() => {\r\n    if (!groupBy.value.length) return items.value;\r\n    const groupedItems = groupItems(items.value, groupBy.value.map(item => item.key));\r\n    return flattenItems(groupedItems, opened.value);\r\n  });\r\n  return {\r\n    flatItems\r\n  };\r\n}\r\n//# sourceMappingURL=group.mjs.map",
+      "start": 1756474010038,
+      "end": 1756474010411,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474010411,
+      "end": 1756474010411,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474010412,
+      "end": 1756474010412,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474010412,
+      "end": 1756474010412,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474010412,
+      "end": 1756474010412,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474010412,
+      "end": 1756474010412,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474010413,
+      "end": 1756474010413,
+      "order": "normal"
+    }
+  ]
+}

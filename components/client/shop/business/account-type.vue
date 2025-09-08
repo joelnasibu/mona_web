@@ -1,25 +1,17 @@
 <template>
   <v-container fluid>
     <v-row align="center">
-      <v-col cols="12" sm="5">
+      <v-col cols="12" sm="5" class="d-none d-md-block">
         <div class="d-flex ga-3 text-grey-darken-2 text-caption">
           <v-icon start icon="mdi-information-outline" class=""></v-icon>
           <div class="">
-            <span>Select the type of account you need.</span>
+            <span>Select your market location & products category.</span>
 
             <ul class="mt-4 ml-5">
               <li>
-                <b>Vendor account: </b>
                 <span
-                  >designed for businesses and suppliers to manage their
-                  products and services within the platform.
-                </span>
-              </li>
-              <li class="mt-3">
-                <b>Employer account: </b>
-                <span
-                  >designed for businesses and organizations to manage their
-                  hiring and employment processes.</span
+                  >Designed for businesses and suppliers to manage their
+                  products and services within the platform.</span
                 >
               </li>
             </ul>
@@ -30,20 +22,25 @@
         <v-form ref="formData">
           <div class="">
             <v-text-field
-              label="Account type"
+              label="Market"
               v-model="type"
-              id="selectAccounttype"
+              id="selectMarket"
               readonly
               append-inner-icon="mdi-chevron-down"
               :rules="required()"
             ></v-text-field>
             <AdminCoreSelect
-              activator="#selectAccounttype"
+              activator="#selectMarket"
               :list="types.map((t) => t.title)"
               :list-value="type"
               @set-item="setType"
             />
           </div>
+          <v-text-field
+            label="Store Number"
+            v-model="payload.storeNumber"
+            :rules="required()"
+          ></v-text-field>
           <div class="">
             <v-text-field
               label="Category"
@@ -116,7 +113,7 @@ watch(
 );
 const moveNext = async () => {
   const { valid } = await formData.value.validate();
-  emits("step", valid ? 1: 0);
+  emits("step", valid ? 1 : 0);
 };
 </script>
 

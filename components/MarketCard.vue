@@ -79,7 +79,7 @@ const markets = [
   flex-direction: column;
   justify-content: flex-end;
   padding: 1.5rem;
-  border-radius: 12px;
+  border-radius: 8px;
   color: white;
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;

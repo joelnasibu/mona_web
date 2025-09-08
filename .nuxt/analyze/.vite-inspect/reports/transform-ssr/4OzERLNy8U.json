@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue?vue&type=style&index=0&scoped=f4ecd46d&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n",
+      "start": 1756474006293,
+      "end": 1756474006293,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue"
+        ],
+        "names": [],
+        "mappings": ";AAiYA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC;AACf;;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div :id=\"`field_${handle_id}`\">\r\n    <v-text-field\r\n      :label=\"label\"\r\n      :maxLength=\"9\"\r\n      v-model.number=\"phone\"\r\n      @keypress=\"digitsOnly\"\r\n      :id=\"handle_id\"\r\n      :rules=\"required ? number() : []\"\r\n      :loading=\"loading\"\r\n      :hide-details=\"!required\"\r\n    >\r\n      <!-- :prefix=\"getCountryCallingCode(country) ?? '+243'\" -->\r\n      <template v-slot:prepend-inner>\r\n        <div\r\n          class=\"d-flex align-center justify-center append text-caption\"\r\n          :id=\"`country_${handle_id}`\"\r\n        >\r\n          <!-- \r\n          <flag :iso=\"country.cca2\" :title=\"chainCountryName(country)\" :squared=\"false\" /> -->\r\n          <span class=\"mx-2\">{{\r\n            getCountryCallingCode(country) ?? \"+243\"\r\n          }}</span>\r\n          <v-icon\r\n            class=\"icon\"\r\n            icon=\"mdi-chevron-down\"\r\n            :class=\"{ 'transform-180deg': menu }\"\r\n            size=\"13\"\r\n            color=\"grey\"\r\n          ></v-icon>\r\n        </div>\r\n      </template>\r\n      <v-menu\r\n        :activator=\"`#country_${handle_id}`\"\r\n        :close-on-content-click=\"false\"\r\n        v-model=\"menu\"\r\n      >\r\n        <v-list\r\n          class=\"pa-0 position-relative card-outlined rounded-lg mt-2 mb-4 ml-n3 hide-scrollbar\"\r\n          max-height=\"250\"\r\n          :width=\"inputWidth\"\r\n          density=\"compact\"\r\n          lines=\"false\"\r\n        >\r\n          <div\r\n            class=\"pa-0 text-caption bg-grey-lighten-3 position-sticky\"\r\n            style=\"top: 0; z-index: 1\"\r\n          >\r\n            <input\r\n              type=\"search\"\r\n              :placeholder=\"`Filter (${allCountries.length}) items...`\"\r\n              class=\"px-3 w-100 filter-input\"\r\n              id=\"searchInput\"\r\n              v-model=\"search\"\r\n              autofocus\r\n              autocomplete=\"off\"\r\n            />\r\n          </div>\r\n          <v-divider></v-divider>\r\n          <div\r\n            v-for=\"(item, i) in allCountries\"\r\n            :key=\"i\"\r\n            class=\"text-caption\"\r\n            :title=\"chainCountryName(item)\"\r\n          >\r\n            <v-list-item\r\n              color=\"secondary\"\r\n              @click=\"setCountry(item)\"\r\n              :active=\"country == item\"\r\n            >\r\n              <template v-slot:prepend>\r\n                <div class=\"pr-3\">\r\n                  <!-- <flag :iso=\"item.cca2\" :title=\"item.name.official\" :squared=\"false\" /> -->\r\n                </div>\r\n              </template>\r\n              <span class=\"\">{{\r\n                `${item.name.common} (${getCountryCallingCode(item)})`\r\n              }}</span>\r\n            </v-list-item>\r\n            <v-divider></v-divider>\r\n          </div>\r\n          <div class=\"\" v-if=\"allCountries.length === 0\">\r\n            <div class=\"py-5 text-caption text-center\">\r\n              <span>No countries</span>\r\n            </div>\r\n          </div>\r\n        </v-list>\r\n      </v-menu>\r\n    </v-text-field>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  number: [String, Number],\r\n  required: {\r\n    type: Boolean,\r\n    default: true,\r\n  },\r\n  label: {\r\n    type: String,\r\n    default: \"Telephone number\",\r\n  },\r\n});\r\nconst emits = defineEmits([\"setPhone\"]);\r\n// const phone = defineModel()\r\n\r\nconst { digitsOnly } = useHelpers();\r\nconst { number } = useRules();\r\n\r\nconst country = ref({\r\n  name: {\r\n    common: \"Kenya\",\r\n    official: \"Republic of Kenya\",\r\n    nativeName: {\r\n      eng: {\r\n        official: \"Republic of Kenya\",\r\n        common: \"Kenya\",\r\n      },\r\n      swa: {\r\n        official: \"Republic of Kenya\",\r\n        common: \"Kenya\",\r\n      },\r\n    },\r\n  },\r\n  tld: [\".ke\"],\r\n  cca2: \"KE\",\r\n  ccn3: \"404\",\r\n  cioc: \"KEN\",\r\n  independent: true,\r\n  status: \"officially-assigned\",\r\n  unMember: true,\r\n  currencies: {\r\n    KES: {\r\n      symbol: \"Sh\",\r\n      name: \"Kenyan shilling\",\r\n    },\r\n  },\r\n  idd: {\r\n    root: \"+2\",\r\n    suffixes: [\"54\"],\r\n  },\r\n  capital: [\"Nairobi\"],\r\n  altSpellings: [\"KE\", \"Republic of Kenya\", \"Jamhuri ya Kenya\"],\r\n  region: \"Africa\",\r\n  subregion: \"Eastern Africa\",\r\n  languages: {\r\n    eng: \"English\",\r\n    swa: \"Swahili\",\r\n  },\r\n  latlng: [1.0, 38.0],\r\n  landlocked: false,\r\n  borders: [\"ETH\", \"SOM\", \"SSD\", \"TZA\", \"UGA\"],\r\n  area: 580367.0,\r\n  demonyms: {\r\n    eng: {\r\n      f: \"Kenyan\",\r\n      m: \"Kenyan\",\r\n    },\r\n    fra: {\r\n      f: \"Kényane\",\r\n      m: \"Kényan\",\r\n    },\r\n  },\r\n  cca3: \"KEN\",\r\n  translations: {\r\n    ara: {\r\n      official: \"جمهورية كينيا\",\r\n      common: \"كينيا\",\r\n    },\r\n    bre: {\r\n      official: \"Republik Kenya\",\r\n      common: \"Kenya\",\r\n    },\r\n    ces: {\r\n      official: \"Keňská republika\",\r\n      common: \"Keňa\",\r\n    },\r\n    cym: {\r\n      official: \"Republic of Kenya\",\r\n      common: \"Kenya\",\r\n    },\r\n    deu: {\r\n      official: \"Republik Kenia\",\r\n      common: \"Kenia\",\r\n    },\r\n    est: {\r\n      official: \"Keenia Vabariik\",\r\n      common: \"Keenia\",\r\n    },\r\n    fin: {\r\n      official: \"Kenian tasavalta\",\r\n      common: \"Kenia\",\r\n    },\r\n    fra: {\r\n      official: \"République du Kenya\",\r\n      common: \"Kenya\",\r\n    },\r\n    hrv: {\r\n      official: \"Republika Kenija\",\r\n      common: \"Kenija\",\r\n    },\r\n    hun: {\r\n      official: \"Kenyai Köztársaság\",\r\n      common: \"Kenya\",\r\n    },\r\n    ind: {\r\n      official: \"Republik Kenya\",\r\n      common: \"Kenya\",\r\n    },\r\n    ita: {\r\n      official: \"Repubblica del Kenya\",\r\n      common: \"Kenya\",\r\n    },\r\n    jpn: {\r\n      official: \"ケニア共和国\",\r\n      common: \"ケニア\",\r\n    },\r\n    kor: {\r\n      official: \"케냐 공화국\",\r\n      common: \"케냐\",\r\n    },\r\n    nld: {\r\n      official: \"Republiek Kenia\",\r\n      common: \"Kenia\",\r\n    },\r\n    per: {\r\n      official: \"جمهوری کنیا\",\r\n      common: \"کنیا\",\r\n    },\r\n    pol: {\r\n      official: \"Republika Kenii\",\r\n      common: \"Kenia\",\r\n    },\r\n    por: {\r\n      official: \"República do Quénia\",\r\n      common: \"Quénia\",\r\n    },\r\n    rus: {\r\n      official: \"Республика Кения\",\r\n      common: \"Кения\",\r\n    },\r\n    slk: {\r\n      official: \"Kenská republika\",\r\n      common: \"Keňa\",\r\n    },\r\n    spa: {\r\n      official: \"República de Kenya\",\r\n      common: \"Kenia\",\r\n    },\r\n    srp: {\r\n      official: \"Република Кенија\",\r\n      common: \"Кенија\",\r\n    },\r\n    swe: {\r\n      official: \"Republiken Kenya\",\r\n      common: \"Kenya\",\r\n    },\r\n    tur: {\r\n      official: \"Kenya Cumhuriyeti\",\r\n      common: \"Kenya\",\r\n    },\r\n    urd: {\r\n      official: \"جمہوریہ کینیا\",\r\n      common: \"کینیا\",\r\n    },\r\n    zho: {\r\n      official: \"肯尼亚共和国\",\r\n      common: \"肯尼亚\",\r\n    },\r\n  },\r\n  flag: \"\\uD83C\\uDDF0\\uD83C\\uDDEA\",\r\n  maps: {\r\n    googleMaps: \"https://goo.gl/maps/Ni9M7wcCxf8bJHLX8\",\r\n    openStreetMaps: \"https://www.openstreetmap.org/relation/192798\",\r\n  },\r\n  population: 53771300,\r\n  gini: {\r\n    2015: 40.8,\r\n  },\r\n  fifa: \"KEN\",\r\n  car: {\r\n    signs: [\"EAK\"],\r\n    side: \"left\",\r\n  },\r\n  timezones: [\"UTC+03:00\"],\r\n  continents: [\"Africa\"],\r\n  flags: {\r\n    png: \"https://flagcdn.com/w320/ke.png\",\r\n    svg: \"https://flagcdn.com/ke.svg\",\r\n    alt: \"The flag of Kenya is composed of three equal horizontal bands of black, red with white top and bottom edges, and green. An emblem comprising a red, black and white Maasai shield covering two crossed white spears is superimposed at the center of the field.\",\r\n  },\r\n  coatOfArms: {\r\n    png: \"https://mainfacts.com/media/images/coats_of_arms/ke.png\",\r\n    svg: \"https://mainfacts.com/media/images/coats_of_arms/ke.svg\",\r\n  },\r\n  startOfWeek: \"monday\",\r\n  capitalInfo: {\r\n    latlng: [-1.28, 36.82],\r\n  },\r\n  postalCode: {\r\n    format: \"#####\",\r\n    regex: \"^(\\\\d{5})$\",\r\n  },\r\n});\r\nconst phone = computed({\r\n  get() {\r\n    let code, num;\r\n    if (String(props.number).charAt(0) === \"+\" || props.number.length >= 12) {\r\n      code =\r\n        String(props.number).charAt(0) === \"+\"\r\n          ? props.number.substring(0, 4)\r\n          : `+${props.number.substring(0, 3)}`;\r\n      num = props.number.substring(props.number.charAt(0) === \"+\" ? 4 : 3);\r\n      country.value = countries.value.find(\r\n        (c) => getCountryCallingCode(c) === code\r\n      );\r\n    } else {\r\n      num = props.number;\r\n    }\r\n\r\n    return num;\r\n  },\r\n  set(val) {\r\n    emits(\"setPhone\", `${getCountryCallingCode(country.value)}${val}`);\r\n  },\r\n});\r\n\r\nconst handle_id = computed(() => {\r\n  return props.label === \"Telephone number\"\r\n    ? \"default_telephone\"\r\n    : props.label.replaceAll(\" \", \"_\");\r\n});\r\n\r\nimport { useAppStore } from \"@/store/app\";\r\nconst app = useAppStore();\r\nconst { loading } = storeToRefs(app);\r\n\r\nconst search = ref(\"\");\r\nconst countries = ref(await app.getCountries());\r\n\r\nconst allCountries = computed(() => {\r\n  let all = countries.value\r\n    .sort((a, b) => (a.name.common > b.name.common ? 1 : -1))\r\n    .filter((val) => {\r\n      return String(val.name.official)\r\n        .toLowerCase()\r\n        .includes(search.value.toLowerCase());\r\n    });\r\n  return [\r\n    country.value,\r\n    ...all.filter((c) => c.name.official !== country.value.name.official),\r\n  ];\r\n});\r\n\r\nconst menu = ref(false);\r\nconst setCountry = (ctry) => {\r\n  menu.value = false;\r\n  country.value = ctry;\r\n  country.value.callingCode = getCountryCallingCode(ctry);\r\n  document.getElementById(handle_id.value).focus();\r\n\r\n  emits(\r\n    \"setPhone\",\r\n    `${getCountryCallingCode(country.value)}${props.number.substring(4)}`\r\n  );\r\n};\r\n\r\nconst getCountryCallingCode = (ctry) => {\r\n  return Object.keys(ctry?.idd).length !== 0\r\n    ? `${ctry.idd?.root}${ctry.idd?.suffixes[0]}`\r\n    : \"-\";\r\n};\r\nconst chainCountryName = (ctry) => {\r\n  return `${ctry.name.official}`;\r\n};\r\n\r\nconst inputWidth = ref(0);\r\nonMounted(() => {\r\n  let input = document.getElementById(`field_${handle_id.value}`);\r\n  inputWidth.value = input.offsetWidth;\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006293,
+      "end": 1756474006293,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006293,
+      "end": 1756474006293,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006293,
+      "end": 1756474006293,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006293,
+      "end": 1756474006293,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474006293,
+      "end": 1756474006294,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".filter-input:focus{border:none;outline:none}.filter-input{padding-block:8.5px}",
+      "start": 1756474006294,
+      "end": 1756474006304,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue",
+        "mappings": "AACA,oBACE,WAAY,CACZ,YACF,CAEA,cACE,mBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue"
+        ],
+        "sourcesContent": [
+          "\r\n.filter-input:focus {\r\n  border: none;\r\n  outline: none;\r\n}\r\n\r\n.filter-input {\r\n  padding-block: 8.5px;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474006305,
+      "end": 1756474006305,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474006308,
+      "end": 1756474006308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474006308,
+      "end": 1756474006308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".filter-input[data-v-f4ecd46d]:focus{border:none;outline:none}.filter-input[data-v-f4ecd46d]{padding-block:8.5px}",
+      "start": 1756474006308,
+      "end": 1756474006310,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue",
+        "mappings": "AAAA,qCAAoB,WAAW,CAAC,YAAY,CAAC,+BAAc,mBAAmB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/telephone.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474006312,
+      "end": 1756474006312,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006312,
+      "end": 1756474006312,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006312,
+      "end": 1756474006312,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006312,
+      "end": 1756474006312,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006312,
+      "end": 1756474006312,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474006316,
+      "end": 1756474006316,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474006316,
+      "end": 1756474006318,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006319,
+      "end": 1756474006319,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474006319,
+      "end": 1756474006319,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474006319,
+      "end": 1756474006319,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".filter-input[data-v-f4ecd46d]:focus{border:none;outline:none}.filter-input[data-v-f4ecd46d]{padding-block:8.5px}\"",
+      "start": 1756474006319,
+      "end": 1756474006320,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474006320,
+      "end": 1756474006320,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474006320,
+      "end": 1756474006320,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474006320,
+      "end": 1756474006320,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006321,
+      "end": 1756474006321,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006321,
+      "end": 1756474006322,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006321,
+      "end": 1756474006322,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474006322,
+      "end": 1756474006322,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474006322,
+      "end": 1756474006322,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474006322,
+      "end": 1756474006322,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474006322,
+      "end": 1756474006322,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474006322,
+      "end": 1756474006322,
+      "order": "normal"
+    }
+  ]
+}

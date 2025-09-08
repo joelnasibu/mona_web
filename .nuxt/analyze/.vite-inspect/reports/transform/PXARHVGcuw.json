@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/ca/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n * Davant de les xifres que es diuen amb vocal inicial, 1 i 11, s'apostrofen els articles el i la i la preposició de igual que si estiguessin escrits amb lletres.\r\n *    l'1 de juliol ('l'u')\r\n *    l'11 de novembre ('l'onze')\r\n *    l'11a clàusula del contracte ('l'onzena')\r\n *    la contractació d'11 jugadors ('d'onze')\r\n *    l'aval d'11.000 socis ('d'onze mil')\r\n *\r\n * Reference: https://aplicacions.llengua.gencat.cat/llc/AppJava/index.html?input_cercar=apostrofaci%25F3+davant+xifres&action=Principal&method=detall_completa&numPagina=1&idHit=11236&database=FITXES_PUB&tipusFont=Fitxes%20de%20l%27Optimot&idFont=11236&titol=apostrofaci%F3%20davant%20de%20xifres%20%2F%20apostrofaci%F3%20davant%20de%201%20i%2011&numeroResultat=1&clickLink=detall&tipusCerca=cerca.normes\r\n */\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: \"menys d'un segon\",\r\n    eleven: \"menys d'onze segons\",\r\n    other: \"menys de {{count}} segons\",\r\n  },\r\n\r\n  xSeconds: {\r\n    one: \"1 segon\",\r\n    other: \"{{count}} segons\",\r\n  },\r\n\r\n  halfAMinute: \"mig minut\",\r\n\r\n  lessThanXMinutes: {\r\n    one: \"menys d'un minut\",\r\n    eleven: \"menys d'onze minuts\",\r\n    other: \"menys de {{count}} minuts\",\r\n  },\r\n\r\n  xMinutes: {\r\n    one: \"1 minut\",\r\n    other: \"{{count}} minuts\",\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: \"aproximadament una hora\",\r\n    other: \"aproximadament {{count}} hores\",\r\n  },\r\n\r\n  xHours: {\r\n    one: \"1 hora\",\r\n    other: \"{{count}} hores\",\r\n  },\r\n\r\n  xDays: {\r\n    one: \"1 dia\",\r\n    other: \"{{count}} dies\",\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: \"aproximadament una setmana\",\r\n    other: \"aproximadament {{count}} setmanes\",\r\n  },\r\n\r\n  xWeeks: {\r\n    one: \"1 setmana\",\r\n    other: \"{{count}} setmanes\",\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: \"aproximadament un mes\",\r\n    other: \"aproximadament {{count}} mesos\",\r\n  },\r\n\r\n  xMonths: {\r\n    one: \"1 mes\",\r\n    other: \"{{count}} mesos\",\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: \"aproximadament un any\",\r\n    other: \"aproximadament {{count}} anys\",\r\n  },\r\n\r\n  xYears: {\r\n    one: \"1 any\",\r\n    other: \"{{count}} anys\",\r\n  },\r\n\r\n  overXYears: {\r\n    one: \"més d'un any\",\r\n    eleven: \"més d'onze anys\",\r\n    other: \"més de {{count}} anys\",\r\n  },\r\n\r\n  almostXYears: {\r\n    one: \"gairebé un any\",\r\n    other: \"gairebé {{count}} anys\",\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  let result;\r\n\r\n  const tokenValue = formatDistanceLocale[token];\r\n  if (typeof tokenValue === \"string\") {\r\n    result = tokenValue;\r\n  } else if (count === 1) {\r\n    result = tokenValue.one;\r\n  } else if (count === 11 && tokenValue.eleven) {\r\n    result = tokenValue.eleven;\r\n  } else {\r\n    result = tokenValue.other.replace(\"{{count}}\", String(count));\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      return \"en \" + result;\r\n    } else {\r\n      return \"fa \" + result;\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756473947837,
+      "end": 1756473947888,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473947888,
+      "end": 1756473947888,
+      "order": "normal"
+    }
+  ]
+}

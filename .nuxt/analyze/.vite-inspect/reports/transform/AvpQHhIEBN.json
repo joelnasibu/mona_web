@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/sr/_lib/localize.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { buildLocalizeFn } from \"../../_lib/buildLocalizeFn.mjs\";\r\n\r\nconst eraValues = {\r\n  narrow: [\"пр.н.е.\", \"АД\"],\r\n  abbreviated: [\"пр. Хр.\", \"по. Хр.\"],\r\n  wide: [\"Пре Христа\", \"После Христа\"],\r\n};\r\n\r\nconst quarterValues = {\r\n  narrow: [\"1.\", \"2.\", \"3.\", \"4.\"],\r\n  abbreviated: [\"1. кв.\", \"2. кв.\", \"3. кв.\", \"4. кв.\"],\r\n  wide: [\"1. квартал\", \"2. квартал\", \"3. квартал\", \"4. квартал\"],\r\n};\r\n\r\nconst monthValues = {\r\n  narrow: [\r\n    \"1.\",\r\n    \"2.\",\r\n    \"3.\",\r\n    \"4.\",\r\n    \"5.\",\r\n    \"6.\",\r\n    \"7.\",\r\n    \"8.\",\r\n    \"9.\",\r\n    \"10.\",\r\n    \"11.\",\r\n    \"12.\",\r\n  ],\r\n\r\n  abbreviated: [\r\n    \"јан\",\r\n    \"феб\",\r\n    \"мар\",\r\n    \"апр\",\r\n    \"мај\",\r\n    \"јун\",\r\n    \"јул\",\r\n    \"авг\",\r\n    \"сеп\",\r\n    \"окт\",\r\n    \"нов\",\r\n    \"дец\",\r\n  ],\r\n\r\n  wide: [\r\n    \"јануар\",\r\n    \"фебруар\",\r\n    \"март\",\r\n    \"април\",\r\n    \"мај\",\r\n    \"јун\",\r\n    \"јул\",\r\n    \"август\",\r\n    \"септембар\",\r\n    \"октобар\",\r\n    \"новембар\",\r\n    \"децембар\",\r\n  ],\r\n};\r\n\r\nconst formattingMonthValues = {\r\n  narrow: [\r\n    \"1.\",\r\n    \"2.\",\r\n    \"3.\",\r\n    \"4.\",\r\n    \"5.\",\r\n    \"6.\",\r\n    \"7.\",\r\n    \"8.\",\r\n    \"9.\",\r\n    \"10.\",\r\n    \"11.\",\r\n    \"12.\",\r\n  ],\r\n\r\n  abbreviated: [\r\n    \"јан\",\r\n    \"феб\",\r\n    \"мар\",\r\n    \"апр\",\r\n    \"мај\",\r\n    \"јун\",\r\n    \"јул\",\r\n    \"авг\",\r\n    \"сеп\",\r\n    \"окт\",\r\n    \"нов\",\r\n    \"дец\",\r\n  ],\r\n\r\n  wide: [\r\n    \"јануар\",\r\n    \"фебруар\",\r\n    \"март\",\r\n    \"април\",\r\n    \"мај\",\r\n    \"јун\",\r\n    \"јул\",\r\n    \"август\",\r\n    \"септембар\",\r\n    \"октобар\",\r\n    \"новембар\",\r\n    \"децембар\",\r\n  ],\r\n};\r\n\r\nconst dayValues = {\r\n  narrow: [\"Н\", \"П\", \"У\", \"С\", \"Ч\", \"П\", \"С\"],\r\n  short: [\"нед\", \"пон\", \"уто\", \"сре\", \"чет\", \"пет\", \"суб\"],\r\n  abbreviated: [\"нед\", \"пон\", \"уто\", \"сре\", \"чет\", \"пет\", \"суб\"],\r\n  wide: [\r\n    \"недеља\",\r\n    \"понедељак\",\r\n    \"уторак\",\r\n    \"среда\",\r\n    \"четвртак\",\r\n    \"петак\",\r\n    \"субота\",\r\n  ],\r\n};\r\n\r\nconst formattingDayPeriodValues = {\r\n  narrow: {\r\n    am: \"АМ\",\r\n    pm: \"ПМ\",\r\n    midnight: \"поноћ\",\r\n    noon: \"подне\",\r\n    morning: \"ујутру\",\r\n    afternoon: \"поподне\",\r\n    evening: \"увече\",\r\n    night: \"ноћу\",\r\n  },\r\n  abbreviated: {\r\n    am: \"АМ\",\r\n    pm: \"ПМ\",\r\n    midnight: \"поноћ\",\r\n    noon: \"подне\",\r\n    morning: \"ујутру\",\r\n    afternoon: \"поподне\",\r\n    evening: \"увече\",\r\n    night: \"ноћу\",\r\n  },\r\n  wide: {\r\n    am: \"AM\",\r\n    pm: \"PM\",\r\n    midnight: \"поноћ\",\r\n    noon: \"подне\",\r\n    morning: \"ујутру\",\r\n    afternoon: \"после подне\",\r\n    evening: \"увече\",\r\n    night: \"ноћу\",\r\n  },\r\n};\r\n\r\nconst dayPeriodValues = {\r\n  narrow: {\r\n    am: \"AM\",\r\n    pm: \"PM\",\r\n    midnight: \"поноћ\",\r\n    noon: \"подне\",\r\n    morning: \"ујутру\",\r\n    afternoon: \"поподне\",\r\n    evening: \"увече\",\r\n    night: \"ноћу\",\r\n  },\r\n  abbreviated: {\r\n    am: \"AM\",\r\n    pm: \"PM\",\r\n    midnight: \"поноћ\",\r\n    noon: \"подне\",\r\n    morning: \"ујутру\",\r\n    afternoon: \"поподне\",\r\n    evening: \"увече\",\r\n    night: \"ноћу\",\r\n  },\r\n  wide: {\r\n    am: \"AM\",\r\n    pm: \"PM\",\r\n    midnight: \"поноћ\",\r\n    noon: \"подне\",\r\n    morning: \"ујутру\",\r\n    afternoon: \"после подне\",\r\n    evening: \"увече\",\r\n    night: \"ноћу\",\r\n  },\r\n};\r\n\r\nconst ordinalNumber = (dirtyNumber, _options) => {\r\n  const number = Number(dirtyNumber);\r\n  return number + \".\";\r\n};\r\n\r\nexport const localize = {\r\n  ordinalNumber,\r\n\r\n  era: buildLocalizeFn({\r\n    values: eraValues,\r\n    defaultWidth: \"wide\",\r\n  }),\r\n\r\n  quarter: buildLocalizeFn({\r\n    values: quarterValues,\r\n    defaultWidth: \"wide\",\r\n    argumentCallback: (quarter) => quarter - 1,\r\n  }),\r\n\r\n  month: buildLocalizeFn({\r\n    values: monthValues,\r\n    defaultWidth: \"wide\",\r\n    formattingValues: formattingMonthValues,\r\n    defaultFormattingWidth: \"wide\",\r\n  }),\r\n\r\n  day: buildLocalizeFn({\r\n    values: dayValues,\r\n    defaultWidth: \"wide\",\r\n  }),\r\n\r\n  dayPeriod: buildLocalizeFn({\r\n    values: dayPeriodValues,\r\n    defaultWidth: \"wide\",\r\n    formattingValues: formattingDayPeriodValues,\r\n    defaultFormattingWidth: \"wide\",\r\n  }),\r\n};\r\n",
+      "start": 1756473948553,
+      "end": 1756473948598,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948598,
+      "end": 1756473948598,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948598,
+      "end": 1756473948599,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948599,
+      "end": 1756473948599,
+      "order": "normal"
+    }
+  ]
+}

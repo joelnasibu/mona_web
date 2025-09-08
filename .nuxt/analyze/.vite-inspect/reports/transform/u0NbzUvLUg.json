@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/table-header.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\">\r\n    <v-badge :content=\"number\" inline color=\"link\" location=\"end\">\r\n      <b class=\"mr-5\">{{ text }}</b>\r\n    </v-badge>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  text: String,\r\n  number: [String, Number],\r\n});\r\n</script>\r\n\r\n<style lang=\"scss\" scoped></style>\r\n",
+      "start": 1756473932854,
+      "end": 1756473933184,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473933184,
+      "end": 1756473933184,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\" }\nconst _hoisted_2 = { class: \"mr-5\" }\n\n\nconst _sfc_main = {\n  __name: 'table-header',\n  props: {\r\n  text: String,\r\n  number: [String, Number],\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_badge = _resolveComponent(\"v-badge\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_v_badge, {\n      content: __props.number,\n      inline: \"\",\n      color: \"link\",\n      location: \"end\"\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"b\", _hoisted_2, _toDisplayString(__props.text), 1)\n      ]),\n      _: 1\n    }, 8, [\"content\"])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756473933184,
+      "end": 1756473933187,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473933187,
+      "end": 1756473933187,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473933187,
+      "end": 1756473933187,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473933187,
+      "end": 1756473933187,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473933187,
+      "end": 1756473933187,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"py-2 bg-card text-body-2 rounded-ts-lg rounded-te-lg px-3\" }\nconst _hoisted_2 = { class: \"mr-5\" }\n\n\nconst _sfc_main = {\n  __name: 'table-header',\n  props: {\r\n  text: String,\r\n  number: [String, Number],\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\nreturn (_ctx, _cache) => {\n                                                         \n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_v_badge, {\n      content: __props.number,\n      inline: \"\",\n      color: \"link\",\n      location: \"end\"\n    }, {\n      default: _withCtx(() => [\n        _createElementVNode(\"b\", _hoisted_2, _toDisplayString(__props.text), 1)\n      ]),\n      _: 1\n    }, 8, [\"content\"])\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBadge as _component_v_badge } from \"vuetify/lib/components/VBadge/index.mjs\"\n\n",
+      "start": 1756473933187,
+      "end": 1756473933187,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473933187,
+      "end": 1756473933187,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473933187,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473933188,
+      "end": 1756473933188,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473933188,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473933189,
+      "end": 1756473933189,
+      "order": "normal"
+    }
+  ]
+}

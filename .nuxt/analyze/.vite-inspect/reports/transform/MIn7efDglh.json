@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VOverlay/locationStrategies.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "// Composables\r\nimport { useToggleScope } from \"../../composables/toggleScope.mjs\"; // Utilities\r\nimport { computed, nextTick, onScopeDispose, ref, watch } from 'vue';\r\nimport { anchorToPoint, getOffset } from \"./util/point.mjs\";\r\nimport { clamp, consoleError, convertToUnit, destructComputed, flipAlign, flipCorner, flipSide, getAxis, getScrollParents, IN_BROWSER, isFixedPosition, nullifyTransforms, parseAnchor, propsFactory } from \"../../util/index.mjs\";\r\nimport { Box, getOverflow, getTargetBox } from \"../../util/box.mjs\"; // Types\r\nconst locationStrategies = {\r\n  static: staticLocationStrategy,\r\n  // specific viewport position, usually centered\r\n  connected: connectedLocationStrategy // connected to a certain element\r\n};\r\nexport const makeLocationStrategyProps = propsFactory({\r\n  locationStrategy: {\r\n    type: [String, Function],\r\n    default: 'static',\r\n    validator: val => typeof val === 'function' || val in locationStrategies\r\n  },\r\n  location: {\r\n    type: String,\r\n    default: 'bottom'\r\n  },\r\n  origin: {\r\n    type: String,\r\n    default: 'auto'\r\n  },\r\n  offset: [Number, String, Array]\r\n}, 'VOverlay-location-strategies');\r\nexport function useLocationStrategies(props, data) {\r\n  const contentStyles = ref({});\r\n  const updateLocation = ref();\r\n  if (IN_BROWSER) {\r\n    useToggleScope(() => !!(data.isActive.value && props.locationStrategy), reset => {\r\n      watch(() => props.locationStrategy, reset);\r\n      onScopeDispose(() => {\r\n        window.removeEventListener('resize', onResize);\r\n        updateLocation.value = undefined;\r\n      });\r\n      window.addEventListener('resize', onResize, {\r\n        passive: true\r\n      });\r\n      if (typeof props.locationStrategy === 'function') {\r\n        updateLocation.value = props.locationStrategy(data, props, contentStyles)?.updateLocation;\r\n      } else {\r\n        updateLocation.value = locationStrategies[props.locationStrategy](data, props, contentStyles)?.updateLocation;\r\n      }\r\n    });\r\n  }\r\n  function onResize(e) {\r\n    updateLocation.value?.(e);\r\n  }\r\n  return {\r\n    contentStyles,\r\n    updateLocation\r\n  };\r\n}\r\nfunction staticLocationStrategy() {\r\n  // TODO\r\n}\r\n\r\n/** Get size of element ignoring max-width/max-height */\r\nfunction getIntrinsicSize(el, isRtl) {\r\n  // const scrollables = new Map<Element, [number, number]>()\r\n  // el.querySelectorAll('*').forEach(el => {\r\n  //   const x = el.scrollLeft\r\n  //   const y = el.scrollTop\r\n  //   if (x || y) {\r\n  //     scrollables.set(el, [x, y])\r\n  //   }\r\n  // })\r\n\r\n  // const initialMaxWidth = el.style.maxWidth\r\n  // const initialMaxHeight = el.style.maxHeight\r\n  // el.style.removeProperty('max-width')\r\n  // el.style.removeProperty('max-height')\r\n\r\n  if (isRtl) {\r\n    el.style.removeProperty('left');\r\n  } else {\r\n    el.style.removeProperty('right');\r\n  }\r\n\r\n  /* eslint-disable-next-line sonarjs/prefer-immediate-return */\r\n  const contentBox = nullifyTransforms(el);\r\n  if (isRtl) {\r\n    contentBox.x += parseFloat(el.style.right || 0);\r\n  } else {\r\n    contentBox.x -= parseFloat(el.style.left || 0);\r\n  }\r\n  contentBox.y -= parseFloat(el.style.top || 0);\r\n\r\n  // el.style.maxWidth = initialMaxWidth\r\n  // el.style.maxHeight = initialMaxHeight\r\n  // scrollables.forEach((position, el) => {\r\n  //   el.scrollTo(...position)\r\n  // })\r\n\r\n  return contentBox;\r\n}\r\nfunction connectedLocationStrategy(data, props, contentStyles) {\r\n  const activatorFixed = Array.isArray(data.target.value) || isFixedPosition(data.target.value);\r\n  if (activatorFixed) {\r\n    Object.assign(contentStyles.value, {\r\n      position: 'fixed',\r\n      top: 0,\r\n      [data.isRtl.value ? 'right' : 'left']: 0\r\n    });\r\n  }\r\n  const {\r\n    preferredAnchor,\r\n    preferredOrigin\r\n  } = destructComputed(() => {\r\n    const parsedAnchor = parseAnchor(props.location, data.isRtl.value);\r\n    const parsedOrigin = props.origin === 'overlap' ? parsedAnchor : props.origin === 'auto' ? flipSide(parsedAnchor) : parseAnchor(props.origin, data.isRtl.value);\r\n\r\n    // Some combinations of props may produce an invalid origin\r\n    if (parsedAnchor.side === parsedOrigin.side && parsedAnchor.align === flipAlign(parsedOrigin).align) {\r\n      return {\r\n        preferredAnchor: flipCorner(parsedAnchor),\r\n        preferredOrigin: flipCorner(parsedOrigin)\r\n      };\r\n    } else {\r\n      return {\r\n        preferredAnchor: parsedAnchor,\r\n        preferredOrigin: parsedOrigin\r\n      };\r\n    }\r\n  });\r\n  const [minWidth, minHeight, maxWidth, maxHeight] = ['minWidth', 'minHeight', 'maxWidth', 'maxHeight'].map(key => {\r\n    return computed(() => {\r\n      const val = parseFloat(props[key]);\r\n      return isNaN(val) ? Infinity : val;\r\n    });\r\n  });\r\n  const offset = computed(() => {\r\n    if (Array.isArray(props.offset)) {\r\n      return props.offset;\r\n    }\r\n    if (typeof props.offset === 'string') {\r\n      const offset = props.offset.split(' ').map(parseFloat);\r\n      if (offset.length < 2) offset.push(0);\r\n      return offset;\r\n    }\r\n    return typeof props.offset === 'number' ? [props.offset, 0] : [0, 0];\r\n  });\r\n  let observe = false;\r\n  const observer = new ResizeObserver(() => {\r\n    if (observe) updateLocation();\r\n  });\r\n  watch([data.target, data.contentEl], (_ref, _ref2) => {\r\n    let [newTarget, newContentEl] = _ref;\r\n    let [oldTarget, oldContentEl] = _ref2;\r\n    if (oldTarget && !Array.isArray(oldTarget)) observer.unobserve(oldTarget);\r\n    if (newTarget && !Array.isArray(newTarget)) observer.observe(newTarget);\r\n    if (oldContentEl) observer.unobserve(oldContentEl);\r\n    if (newContentEl) observer.observe(newContentEl);\r\n  }, {\r\n    immediate: true\r\n  });\r\n  onScopeDispose(() => {\r\n    observer.disconnect();\r\n  });\r\n\r\n  // eslint-disable-next-line max-statements\r\n  function updateLocation() {\r\n    observe = false;\r\n    requestAnimationFrame(() => observe = true);\r\n    if (!data.target.value || !data.contentEl.value) return;\r\n    const targetBox = getTargetBox(data.target.value);\r\n    const contentBox = getIntrinsicSize(data.contentEl.value, data.isRtl.value);\r\n    const scrollParents = getScrollParents(data.contentEl.value);\r\n    const viewportMargin = 12;\r\n    if (!scrollParents.length) {\r\n      scrollParents.push(document.documentElement);\r\n      if (!(data.contentEl.value.style.top && data.contentEl.value.style.left)) {\r\n        contentBox.x -= parseFloat(document.documentElement.style.getPropertyValue('--v-body-scroll-x') || 0);\r\n        contentBox.y -= parseFloat(document.documentElement.style.getPropertyValue('--v-body-scroll-y') || 0);\r\n      }\r\n    }\r\n    const viewport = scrollParents.reduce((box, el) => {\r\n      const rect = el.getBoundingClientRect();\r\n      const scrollBox = new Box({\r\n        x: el === document.documentElement ? 0 : rect.x,\r\n        y: el === document.documentElement ? 0 : rect.y,\r\n        width: el.clientWidth,\r\n        height: el.clientHeight\r\n      });\r\n      if (box) {\r\n        return new Box({\r\n          x: Math.max(box.left, scrollBox.left),\r\n          y: Math.max(box.top, scrollBox.top),\r\n          width: Math.min(box.right, scrollBox.right) - Math.max(box.left, scrollBox.left),\r\n          height: Math.min(box.bottom, scrollBox.bottom) - Math.max(box.top, scrollBox.top)\r\n        });\r\n      }\r\n      return scrollBox;\r\n    }, undefined);\r\n    viewport.x += viewportMargin;\r\n    viewport.y += viewportMargin;\r\n    viewport.width -= viewportMargin * 2;\r\n    viewport.height -= viewportMargin * 2;\r\n    let placement = {\r\n      anchor: preferredAnchor.value,\r\n      origin: preferredOrigin.value\r\n    };\r\n    function checkOverflow(_placement) {\r\n      const box = new Box(contentBox);\r\n      const targetPoint = anchorToPoint(_placement.anchor, targetBox);\r\n      const contentPoint = anchorToPoint(_placement.origin, box);\r\n      let {\r\n        x,\r\n        y\r\n      } = getOffset(targetPoint, contentPoint);\r\n      switch (_placement.anchor.side) {\r\n        case 'top':\r\n          y -= offset.value[0];\r\n          break;\r\n        case 'bottom':\r\n          y += offset.value[0];\r\n          break;\r\n        case 'left':\r\n          x -= offset.value[0];\r\n          break;\r\n        case 'right':\r\n          x += offset.value[0];\r\n          break;\r\n      }\r\n      switch (_placement.anchor.align) {\r\n        case 'top':\r\n          y -= offset.value[1];\r\n          break;\r\n        case 'bottom':\r\n          y += offset.value[1];\r\n          break;\r\n        case 'left':\r\n          x -= offset.value[1];\r\n          break;\r\n        case 'right':\r\n          x += offset.value[1];\r\n          break;\r\n      }\r\n      box.x += x;\r\n      box.y += y;\r\n      box.width = Math.min(box.width, maxWidth.value);\r\n      box.height = Math.min(box.height, maxHeight.value);\r\n      const overflows = getOverflow(box, viewport);\r\n      return {\r\n        overflows,\r\n        x,\r\n        y\r\n      };\r\n    }\r\n    let x = 0;\r\n    let y = 0;\r\n    const available = {\r\n      x: 0,\r\n      y: 0\r\n    };\r\n    const flipped = {\r\n      x: false,\r\n      y: false\r\n    };\r\n    let resets = -1;\r\n    while (true) {\r\n      if (resets++ > 10) {\r\n        consoleError('Infinite loop detected in connectedLocationStrategy');\r\n        break;\r\n      }\r\n      const {\r\n        x: _x,\r\n        y: _y,\r\n        overflows\r\n      } = checkOverflow(placement);\r\n      x += _x;\r\n      y += _y;\r\n      contentBox.x += _x;\r\n      contentBox.y += _y;\r\n\r\n      // flip\r\n      {\r\n        const axis = getAxis(placement.anchor);\r\n        const hasOverflowX = overflows.x.before || overflows.x.after;\r\n        const hasOverflowY = overflows.y.before || overflows.y.after;\r\n        let reset = false;\r\n        ['x', 'y'].forEach(key => {\r\n          if (key === 'x' && hasOverflowX && !flipped.x || key === 'y' && hasOverflowY && !flipped.y) {\r\n            const newPlacement = {\r\n              anchor: {\r\n                ...placement.anchor\r\n              },\r\n              origin: {\r\n                ...placement.origin\r\n              }\r\n            };\r\n            const flip = key === 'x' ? axis === 'y' ? flipAlign : flipSide : axis === 'y' ? flipSide : flipAlign;\r\n            newPlacement.anchor = flip(newPlacement.anchor);\r\n            newPlacement.origin = flip(newPlacement.origin);\r\n            const {\r\n              overflows: newOverflows\r\n            } = checkOverflow(newPlacement);\r\n            if (newOverflows[key].before <= overflows[key].before && newOverflows[key].after <= overflows[key].after || newOverflows[key].before + newOverflows[key].after < (overflows[key].before + overflows[key].after) / 2) {\r\n              placement = newPlacement;\r\n              reset = flipped[key] = true;\r\n            }\r\n          }\r\n        });\r\n        if (reset) continue;\r\n      }\r\n\r\n      // shift\r\n      if (overflows.x.before) {\r\n        x += overflows.x.before;\r\n        contentBox.x += overflows.x.before;\r\n      }\r\n      if (overflows.x.after) {\r\n        x -= overflows.x.after;\r\n        contentBox.x -= overflows.x.after;\r\n      }\r\n      if (overflows.y.before) {\r\n        y += overflows.y.before;\r\n        contentBox.y += overflows.y.before;\r\n      }\r\n      if (overflows.y.after) {\r\n        y -= overflows.y.after;\r\n        contentBox.y -= overflows.y.after;\r\n      }\r\n\r\n      // size\r\n      {\r\n        const overflows = getOverflow(contentBox, viewport);\r\n        available.x = viewport.width - overflows.x.before - overflows.x.after;\r\n        available.y = viewport.height - overflows.y.before - overflows.y.after;\r\n        x += overflows.x.before;\r\n        contentBox.x += overflows.x.before;\r\n        y += overflows.y.before;\r\n        contentBox.y += overflows.y.before;\r\n      }\r\n      break;\r\n    }\r\n    const axis = getAxis(placement.anchor);\r\n    Object.assign(contentStyles.value, {\r\n      '--v-overlay-anchor-origin': `${placement.anchor.side} ${placement.anchor.align}`,\r\n      transformOrigin: `${placement.origin.side} ${placement.origin.align}`,\r\n      // transform: `translate(${pixelRound(x)}px, ${pixelRound(y)}px)`,\r\n      top: convertToUnit(pixelRound(y)),\r\n      left: data.isRtl.value ? undefined : convertToUnit(pixelRound(x)),\r\n      right: data.isRtl.value ? convertToUnit(pixelRound(-x)) : undefined,\r\n      minWidth: convertToUnit(axis === 'y' ? Math.min(minWidth.value, targetBox.width) : minWidth.value),\r\n      maxWidth: convertToUnit(pixelCeil(clamp(available.x, minWidth.value === Infinity ? 0 : minWidth.value, maxWidth.value))),\r\n      maxHeight: convertToUnit(pixelCeil(clamp(available.y, minHeight.value === Infinity ? 0 : minHeight.value, maxHeight.value)))\r\n    });\r\n    return {\r\n      available,\r\n      contentBox\r\n    };\r\n  }\r\n  watch(() => [preferredAnchor.value, preferredOrigin.value, props.offset, props.minWidth, props.minHeight, props.maxWidth, props.maxHeight], () => updateLocation());\r\n  nextTick(() => {\r\n    const result = updateLocation();\r\n\r\n    // TODO: overflowing content should only require a single updateLocation call\r\n    // Icky hack to make sure the content is positioned consistently\r\n    if (!result) return;\r\n    const {\r\n      available,\r\n      contentBox\r\n    } = result;\r\n    if (contentBox.height > available.y) {\r\n      requestAnimationFrame(() => {\r\n        updateLocation();\r\n        requestAnimationFrame(() => {\r\n          updateLocation();\r\n        });\r\n      });\r\n    }\r\n  });\r\n  return {\r\n    updateLocation\r\n  };\r\n}\r\nfunction pixelRound(val) {\r\n  return Math.round(val * devicePixelRatio) / devicePixelRatio;\r\n}\r\nfunction pixelCeil(val) {\r\n  return Math.ceil(val * devicePixelRatio) / devicePixelRatio;\r\n}\r\n//# sourceMappingURL=locationStrategies.mjs.map",
+      "start": 1756473948700,
+      "end": 1756473948769,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948769,
+      "end": 1756473948769,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948769,
+      "end": 1756473948770,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948770,
+      "end": 1756473948770,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948770,
+      "end": 1756473948770,
+      "order": "normal"
+    }
+  ]
+}

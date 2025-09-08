@@ -1,0 +1,266 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/dialog-header.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-card-title\r\n    class=\"text-body-2 pa-0 d-flex align-center ga-2 bg-drawer position-sticky\"\r\n    style=\"top: 0; z-index: 2\"\r\n  >\r\n    <v-btn\r\n      icon=\"mdi-close\"\r\n      size=\"small\"\r\n      rounded=\"lg\"\r\n      title=\"Close\"\r\n      @click=\"emits('close')\"\r\n      variant=\"text\"\r\n      class=\"rounded-te-0 rounded-be-0\"\r\n    ></v-btn>\r\n    <span>{{ title }}</span>\r\n    <v-spacer></v-spacer>\r\n    <slot />\r\n  </v-card-title>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  title: String,\r\n});\r\nconst emits = defineEmits([\"close\"]);\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756474002240,
+      "end": 1756474002747,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474002747,
+      "end": 1756474002747,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474002748,
+      "end": 1756474002748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474002748,
+      "end": 1756474002748,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, renderSlot as _renderSlot, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'dialog-header',\n  __ssrInlineRender: true,\n  props: {\r\n  title: String,\r\n},\n  emits: [\"close\"],\n  setup(__props, { emit: __emit }) {\n\r\n\r\nconst emits = __emit;\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  const _component_v_card_title = _resolveComponent(\"v-card-title\")\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n  const _component_v_spacer = _resolveComponent(\"v-spacer\")\n\n  _push(_ssrRenderComponent(_component_v_card_title, _mergeProps({\n    class: \"text-body-2 pa-0 d-flex align-center ga-2 bg-drawer position-sticky\",\n    style: {\"top\":\"0\",\"z-index\":\"2\"}\n  }, _attrs), {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(_component_v_btn, {\n          icon: \"mdi-close\",\n          size: \"small\",\n          rounded: \"lg\",\n          title: \"Close\",\n          onClick: $event => (emits('close')),\n          variant: \"text\",\n          class: \"rounded-te-0 rounded-be-0\"\n        }, null, _parent, _scopeId))\n        _push(`<span${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.title)\n        }</span>`)\n        _push(_ssrRenderComponent(_component_v_spacer, null, null, _parent, _scopeId))\n        _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push, _parent, _scopeId)\n      } else {\n        return [\n          _createVNode(_component_v_btn, {\n            icon: \"mdi-close\",\n            size: \"small\",\n            rounded: \"lg\",\n            title: \"Close\",\n            onClick: $event => (emits('close')),\n            variant: \"text\",\n            class: \"rounded-te-0 rounded-be-0\"\n          }, null, 8, [\"onClick\"]),\n          _createVNode(\"span\", null, _toDisplayString(__props.title), 1),\n          _createVNode(_component_v_spacer),\n          _renderSlot(_ctx.$slots, \"default\")\n        ]\n      }\n    }),\n    _: 3\n  }, _parent))\n}\n}\n\n}\n\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/admin/core/dialog-header.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main",
+      "start": 1756474002748,
+      "end": 1756474002752,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/admin/core/dialog-header.vue"
+        ],
+        "names": [],
+        "mappings": ";;;;;;;;;;;;AAoBc;AAGX;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,MAAsB,CAAC;;;;;;;;IAtBjC,KAAK,EAAC,qEAAqE;IAC3E,KAA0B,EAA1B,yBAA0B;;sBAF5B,CAgBe;;;UAXX,IAAI,EAAC,WAAW;UAChB,IAAI,EAAC,OAAO;UACZ,OAAO,EAAC,IAAI;UACZ,KAAK,EAAC,OAAO;UACZ,OAAK,aAAE,KAAK;UACb,OAAO,EAAC,MAAM;UACd,KAAK,EAAC,2BAA2B;;;;;0BAE1B,aAAK;;;;;;UATd,aAQS;YAPP,IAAI,EAAC,WAAW;YAChB,IAAI,EAAC,OAAO;YACZ,OAAO,EAAC,IAAI;YACZ,KAAK,EAAC,OAAO;YACZ,OAAK,aAAE,KAAK;YACb,OAAO,EAAC,MAAM;YACd,KAAK,EAAC,2BAA2B;;UAEnC,aAAwB,+BAAf,aAAK;UACd,aAAqB;UACrB,YAAQ",
+        "sourcesContent": [
+          "<template>\r\n  <v-card-title\r\n    class=\"text-body-2 pa-0 d-flex align-center ga-2 bg-drawer position-sticky\"\r\n    style=\"top: 0; z-index: 2\"\r\n  >\r\n    <v-btn\r\n      icon=\"mdi-close\"\r\n      size=\"small\"\r\n      rounded=\"lg\"\r\n      title=\"Close\"\r\n      @click=\"emits('close')\"\r\n      variant=\"text\"\r\n      class=\"rounded-te-0 rounded-be-0\"\r\n    ></v-btn>\r\n    <span>{{ title }}</span>\r\n    <v-spacer></v-spacer>\r\n    <slot />\r\n  </v-card-title>\r\n</template>\r\n\r\n<script setup>\r\ndefineProps({\r\n  title: String,\r\n});\r\nconst emits = defineEmits([\"close\"]);\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, toDisplayString as _toDisplayString, renderSlot as _renderSlot, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderComponent as _ssrRenderComponent, ssrRenderSlot as _ssrRenderSlot, ssrInterpolate as _ssrInterpolate } from \"vue/server-renderer\"\n\n\nconst _sfc_main = {\n  __name: 'dialog-header',\n  __ssrInlineRender: true,\n  props: {\r\n  title: String,\r\n},\n  emits: [\"close\"],\n  setup(__props, { emit: __emit }) {\n\r\n\r\nconst emits = __emit;\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n                                                                   \n                                                     \n                                                           \n\n  _push(_ssrRenderComponent(_component_v_card_title, _mergeProps({\n    class: \"text-body-2 pa-0 d-flex align-center ga-2 bg-drawer position-sticky\",\n    style: {\"top\":\"0\",\"z-index\":\"2\"}\n  }, _attrs), {\n    default: _withCtx((_, _push, _parent, _scopeId) => {\n      if (_push) {\n        _push(_ssrRenderComponent(_component_v_btn, {\n          icon: \"mdi-close\",\n          size: \"small\",\n          rounded: \"lg\",\n          title: \"Close\",\n          onClick: $event => (emits('close')),\n          variant: \"text\",\n          class: \"rounded-te-0 rounded-be-0\"\n        }, null, _parent, _scopeId))\n        _push(`<span${\n          _scopeId\n        }>${\n          _ssrInterpolate(__props.title)\n        }</span>`)\n        _push(_ssrRenderComponent(_component_v_spacer, null, null, _parent, _scopeId))\n        _ssrRenderSlot(_ctx.$slots, \"default\", {}, null, _push, _parent, _scopeId)\n      } else {\n        return [\n          _createVNode(_component_v_btn, {\n            icon: \"mdi-close\",\n            size: \"small\",\n            rounded: \"lg\",\n            title: \"Close\",\n            onClick: $event => (emits('close')),\n            variant: \"text\",\n            class: \"rounded-te-0 rounded-be-0\"\n          }, null, 8, [\"onClick\"]),\n          _createVNode(\"span\", null, _toDisplayString(__props.title), 1),\n          _createVNode(_component_v_spacer),\n          _renderSlot(_ctx.$slots, \"default\")\n        ]\n      }\n    }),\n    _: 3\n  }, _parent))\n}\n}\n\n}\n\n\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/admin/core/dialog-header.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VCardTitle as _component_v_card_title } from \"vuetify/lib/components/VCard/index.mjs\"\nimport { VSpacer as _component_v_spacer } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474002752,
+      "end": 1756474002752,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474002753,
+      "end": 1756474002753,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474002753,
+      "end": 1756474002754,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474002753,
+      "end": 1756474002754,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474002754,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474002754,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474002755,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474002755,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474002755,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474002755,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474002755,
+      "end": 1756474002755,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474002755,
+      "end": 1756474002756,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474002756,
+      "end": 1756474002756,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474002756,
+      "end": 1756474002756,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474002756,
+      "end": 1756474002756,
+      "order": "normal"
+    }
+  ]
+}
