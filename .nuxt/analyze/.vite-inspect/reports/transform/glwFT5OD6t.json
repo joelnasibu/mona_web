@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/socket.io-parser/build/esm/index.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { Emitter } from \"@socket.io/component-emitter\";\r\nimport { deconstructPacket, reconstructPacket } from \"./binary.js\";\r\nimport { isBinary, hasBinary } from \"./is-binary.js\";\r\n/**\r\n * These strings must not be used as event names, as they have a special meaning.\r\n */\r\nconst RESERVED_EVENTS = [\r\n    \"connect\",\r\n    \"connect_error\",\r\n    \"disconnect\",\r\n    \"disconnecting\",\r\n    \"newListener\",\r\n    \"removeListener\", // used by the Node.js EventEmitter\r\n];\r\n/**\r\n * Protocol version.\r\n *\r\n * @public\r\n */\r\nexport const protocol = 5;\r\nexport var PacketType;\r\n(function (PacketType) {\r\n    PacketType[PacketType[\"CONNECT\"] = 0] = \"CONNECT\";\r\n    PacketType[PacketType[\"DISCONNECT\"] = 1] = \"DISCONNECT\";\r\n    PacketType[PacketType[\"EVENT\"] = 2] = \"EVENT\";\r\n    PacketType[PacketType[\"ACK\"] = 3] = \"ACK\";\r\n    PacketType[PacketType[\"CONNECT_ERROR\"] = 4] = \"CONNECT_ERROR\";\r\n    PacketType[PacketType[\"BINARY_EVENT\"] = 5] = \"BINARY_EVENT\";\r\n    PacketType[PacketType[\"BINARY_ACK\"] = 6] = \"BINARY_ACK\";\r\n})(PacketType || (PacketType = {}));\r\n/**\r\n * A socket.io Encoder instance\r\n */\r\nexport class Encoder {\r\n    /**\r\n     * Encoder constructor\r\n     *\r\n     * @param {function} replacer - custom replacer to pass down to JSON.parse\r\n     */\r\n    constructor(replacer) {\r\n        this.replacer = replacer;\r\n    }\r\n    /**\r\n     * Encode a packet as a single string if non-binary, or as a\r\n     * buffer sequence, depending on packet type.\r\n     *\r\n     * @param {Object} obj - packet object\r\n     */\r\n    encode(obj) {\r\n        if (obj.type === PacketType.EVENT || obj.type === PacketType.ACK) {\r\n            if (hasBinary(obj)) {\r\n                return this.encodeAsBinary({\r\n                    type: obj.type === PacketType.EVENT\r\n                        ? PacketType.BINARY_EVENT\r\n                        : PacketType.BINARY_ACK,\r\n                    nsp: obj.nsp,\r\n                    data: obj.data,\r\n                    id: obj.id,\r\n                });\r\n            }\r\n        }\r\n        return [this.encodeAsString(obj)];\r\n    }\r\n    /**\r\n     * Encode packet as string.\r\n     */\r\n    encodeAsString(obj) {\r\n        // first is type\r\n        let str = \"\" + obj.type;\r\n        // attachments if we have them\r\n        if (obj.type === PacketType.BINARY_EVENT ||\r\n            obj.type === PacketType.BINARY_ACK) {\r\n            str += obj.attachments + \"-\";\r\n        }\r\n        // if we have a namespace other than `/`\r\n        // we append it followed by a comma `,`\r\n        if (obj.nsp && \"/\" !== obj.nsp) {\r\n            str += obj.nsp + \",\";\r\n        }\r\n        // immediately followed by the id\r\n        if (null != obj.id) {\r\n            str += obj.id;\r\n        }\r\n        // json data\r\n        if (null != obj.data) {\r\n            str += JSON.stringify(obj.data, this.replacer);\r\n        }\r\n        return str;\r\n    }\r\n    /**\r\n     * Encode packet as 'buffer sequence' by removing blobs, and\r\n     * deconstructing packet into object with placeholders and\r\n     * a list of buffers.\r\n     */\r\n    encodeAsBinary(obj) {\r\n        const deconstruction = deconstructPacket(obj);\r\n        const pack = this.encodeAsString(deconstruction.packet);\r\n        const buffers = deconstruction.buffers;\r\n        buffers.unshift(pack); // add packet info to beginning of data list\r\n        return buffers; // write all the buffers\r\n    }\r\n}\r\n// see https://stackoverflow.com/questions/8511281/check-if-a-value-is-an-object-in-javascript\r\nfunction isObject(value) {\r\n    return Object.prototype.toString.call(value) === \"[object Object]\";\r\n}\r\n/**\r\n * A socket.io Decoder instance\r\n *\r\n * @return {Object} decoder\r\n */\r\nexport class Decoder extends Emitter {\r\n    /**\r\n     * Decoder constructor\r\n     *\r\n     * @param {function} reviver - custom reviver to pass down to JSON.stringify\r\n     */\r\n    constructor(reviver) {\r\n        super();\r\n        this.reviver = reviver;\r\n    }\r\n    /**\r\n     * Decodes an encoded packet string into packet JSON.\r\n     *\r\n     * @param {String} obj - encoded packet\r\n     */\r\n    add(obj) {\r\n        let packet;\r\n        if (typeof obj === \"string\") {\r\n            if (this.reconstructor) {\r\n                throw new Error(\"got plaintext data when reconstructing a packet\");\r\n            }\r\n            packet = this.decodeString(obj);\r\n            const isBinaryEvent = packet.type === PacketType.BINARY_EVENT;\r\n            if (isBinaryEvent || packet.type === PacketType.BINARY_ACK) {\r\n                packet.type = isBinaryEvent ? PacketType.EVENT : PacketType.ACK;\r\n                // binary packet's json\r\n                this.reconstructor = new BinaryReconstructor(packet);\r\n                // no attachments, labeled binary but no binary data to follow\r\n                if (packet.attachments === 0) {\r\n                    super.emitReserved(\"decoded\", packet);\r\n                }\r\n            }\r\n            else {\r\n                // non-binary full packet\r\n                super.emitReserved(\"decoded\", packet);\r\n            }\r\n        }\r\n        else if (isBinary(obj) || obj.base64) {\r\n            // raw binary data\r\n            if (!this.reconstructor) {\r\n                throw new Error(\"got binary data when not reconstructing a packet\");\r\n            }\r\n            else {\r\n                packet = this.reconstructor.takeBinaryData(obj);\r\n                if (packet) {\r\n                    // received final buffer\r\n                    this.reconstructor = null;\r\n                    super.emitReserved(\"decoded\", packet);\r\n                }\r\n            }\r\n        }\r\n        else {\r\n            throw new Error(\"Unknown type: \" + obj);\r\n        }\r\n    }\r\n    /**\r\n     * Decode a packet String (JSON data)\r\n     *\r\n     * @param {String} str\r\n     * @return {Object} packet\r\n     */\r\n    decodeString(str) {\r\n        let i = 0;\r\n        // look up type\r\n        const p = {\r\n            type: Number(str.charAt(0)),\r\n        };\r\n        if (PacketType[p.type] === undefined) {\r\n            throw new Error(\"unknown packet type \" + p.type);\r\n        }\r\n        // look up attachments if type binary\r\n        if (p.type === PacketType.BINARY_EVENT ||\r\n            p.type === PacketType.BINARY_ACK) {\r\n            const start = i + 1;\r\n            while (str.charAt(++i) !== \"-\" && i != str.length) { }\r\n            const buf = str.substring(start, i);\r\n            if (buf != Number(buf) || str.charAt(i) !== \"-\") {\r\n                throw new Error(\"Illegal attachments\");\r\n            }\r\n            p.attachments = Number(buf);\r\n        }\r\n        // look up namespace (if any)\r\n        if (\"/\" === str.charAt(i + 1)) {\r\n            const start = i + 1;\r\n            while (++i) {\r\n                const c = str.charAt(i);\r\n                if (\",\" === c)\r\n                    break;\r\n                if (i === str.length)\r\n                    break;\r\n            }\r\n            p.nsp = str.substring(start, i);\r\n        }\r\n        else {\r\n            p.nsp = \"/\";\r\n        }\r\n        // look up id\r\n        const next = str.charAt(i + 1);\r\n        if (\"\" !== next && Number(next) == next) {\r\n            const start = i + 1;\r\n            while (++i) {\r\n                const c = str.charAt(i);\r\n                if (null == c || Number(c) != c) {\r\n                    --i;\r\n                    break;\r\n                }\r\n                if (i === str.length)\r\n                    break;\r\n            }\r\n            p.id = Number(str.substring(start, i + 1));\r\n        }\r\n        // look up json data\r\n        if (str.charAt(++i)) {\r\n            const payload = this.tryParse(str.substr(i));\r\n            if (Decoder.isPayloadValid(p.type, payload)) {\r\n                p.data = payload;\r\n            }\r\n            else {\r\n                throw new Error(\"invalid payload\");\r\n            }\r\n        }\r\n        return p;\r\n    }\r\n    tryParse(str) {\r\n        try {\r\n            return JSON.parse(str, this.reviver);\r\n        }\r\n        catch (e) {\r\n            return false;\r\n        }\r\n    }\r\n    static isPayloadValid(type, payload) {\r\n        switch (type) {\r\n            case PacketType.CONNECT:\r\n                return isObject(payload);\r\n            case PacketType.DISCONNECT:\r\n                return payload === undefined;\r\n            case PacketType.CONNECT_ERROR:\r\n                return typeof payload === \"string\" || isObject(payload);\r\n            case PacketType.EVENT:\r\n            case PacketType.BINARY_EVENT:\r\n                return (Array.isArray(payload) &&\r\n                    (typeof payload[0] === \"number\" ||\r\n                        (typeof payload[0] === \"string\" &&\r\n                            RESERVED_EVENTS.indexOf(payload[0]) === -1)));\r\n            case PacketType.ACK:\r\n            case PacketType.BINARY_ACK:\r\n                return Array.isArray(payload);\r\n        }\r\n    }\r\n    /**\r\n     * Deallocates a parser's resources\r\n     */\r\n    destroy() {\r\n        if (this.reconstructor) {\r\n            this.reconstructor.finishedReconstruction();\r\n            this.reconstructor = null;\r\n        }\r\n    }\r\n}\r\n/**\r\n * A manager of a binary event's 'buffer sequence'. Should\r\n * be constructed whenever a packet of type BINARY_EVENT is\r\n * decoded.\r\n *\r\n * @param {Object} packet\r\n * @return {BinaryReconstructor} initialized reconstructor\r\n */\r\nclass BinaryReconstructor {\r\n    constructor(packet) {\r\n        this.packet = packet;\r\n        this.buffers = [];\r\n        this.reconPack = packet;\r\n    }\r\n    /**\r\n     * Method to be called when binary data received from connection\r\n     * after a BINARY_EVENT packet.\r\n     *\r\n     * @param {Buffer | ArrayBuffer} binData - the raw binary data received\r\n     * @return {null | Object} returns null if more binary data is expected or\r\n     *   a reconstructed packet object if all buffers have been received.\r\n     */\r\n    takeBinaryData(binData) {\r\n        this.buffers.push(binData);\r\n        if (this.buffers.length === this.reconPack.attachments) {\r\n            // done with buffer list\r\n            const packet = reconstructPacket(this.reconPack, this.buffers);\r\n            this.finishedReconstruction();\r\n            return packet;\r\n        }\r\n        return null;\r\n    }\r\n    /**\r\n     * Cleans up binary packet reconstruction variables.\r\n     */\r\n    finishedReconstruction() {\r\n        this.reconPack = null;\r\n        this.buffers = [];\r\n    }\r\n}\r\n",
+      "start": 1756473938050,
+      "end": 1756473938235,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473938235,
+      "end": 1756473938235,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473938236,
+      "end": 1756473938236,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473938236,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473938237,
+      "end": 1756473938237,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473938237,
+      "end": 1756473938238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473938238,
+      "end": 1756473938238,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473938238,
+      "end": 1756473938238,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473938238,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473938239,
+      "end": 1756473938239,
+      "order": "normal"
+    }
+  ]
+}

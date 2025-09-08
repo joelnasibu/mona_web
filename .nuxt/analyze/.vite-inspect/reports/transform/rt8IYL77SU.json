@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VCard/VCard.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { withDirectives as _withDirectives, resolveDirective as _resolveDirective, createVNode as _createVNode } from \"vue\";\r\n/* eslint-disable complexity */\r\n\r\n// Styles\r\nimport \"./VCard.css\";\r\n\r\n// Components\r\nimport { VCardActions } from \"./VCardActions.mjs\";\r\nimport { VCardItem } from \"./VCardItem.mjs\";\r\nimport { VCardText } from \"./VCardText.mjs\";\r\nimport { VDefaultsProvider } from \"../VDefaultsProvider/index.mjs\";\r\nimport { VImg } from \"../VImg/index.mjs\"; // Composables\r\nimport { makeBorderProps, useBorder } from \"../../composables/border.mjs\";\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { makeDensityProps, useDensity } from \"../../composables/density.mjs\";\r\nimport { makeDimensionProps, useDimension } from \"../../composables/dimensions.mjs\";\r\nimport { makeElevationProps, useElevation } from \"../../composables/elevation.mjs\";\r\nimport { IconValue } from \"../../composables/icons.mjs\";\r\nimport { LoaderSlot, makeLoaderProps, useLoader } from \"../../composables/loader.mjs\";\r\nimport { makeLocationProps, useLocation } from \"../../composables/location.mjs\";\r\nimport { makePositionProps, usePosition } from \"../../composables/position.mjs\";\r\nimport { makeRoundedProps, useRounded } from \"../../composables/rounded.mjs\";\r\nimport { makeRouterProps, useLink } from \"../../composables/router.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\";\r\nimport { makeThemeProps, provideTheme } from \"../../composables/theme.mjs\";\r\nimport { genOverlays, makeVariantProps, useVariant } from \"../../composables/variant.mjs\"; // Directives\r\nimport { Ripple } from \"../../directives/ripple/index.mjs\"; // Utilities\r\nimport { computed } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVCardProps = propsFactory({\r\n  appendAvatar: String,\r\n  appendIcon: IconValue,\r\n  disabled: Boolean,\r\n  flat: Boolean,\r\n  hover: Boolean,\r\n  image: String,\r\n  link: {\r\n    type: Boolean,\r\n    default: undefined\r\n  },\r\n  prependAvatar: String,\r\n  prependIcon: IconValue,\r\n  ripple: {\r\n    type: [Boolean, Object],\r\n    default: true\r\n  },\r\n  subtitle: [String, Number],\r\n  text: [String, Number],\r\n  title: [String, Number],\r\n  ...makeBorderProps(),\r\n  ...makeComponentProps(),\r\n  ...makeDensityProps(),\r\n  ...makeDimensionProps(),\r\n  ...makeElevationProps(),\r\n  ...makeLoaderProps(),\r\n  ...makeLocationProps(),\r\n  ...makePositionProps(),\r\n  ...makeRoundedProps(),\r\n  ...makeRouterProps(),\r\n  ...makeTagProps(),\r\n  ...makeThemeProps(),\r\n  ...makeVariantProps({\r\n    variant: 'elevated'\r\n  })\r\n}, 'VCard');\r\nexport const VCard = genericComponent()({\r\n  name: 'VCard',\r\n  directives: {\r\n    Ripple\r\n  },\r\n  props: makeVCardProps(),\r\n  setup(props, _ref) {\r\n    let {\r\n      attrs,\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      themeClasses\r\n    } = provideTheme(props);\r\n    const {\r\n      borderClasses\r\n    } = useBorder(props);\r\n    const {\r\n      colorClasses,\r\n      colorStyles,\r\n      variantClasses\r\n    } = useVariant(props);\r\n    const {\r\n      densityClasses\r\n    } = useDensity(props);\r\n    const {\r\n      dimensionStyles\r\n    } = useDimension(props);\r\n    const {\r\n      elevationClasses\r\n    } = useElevation(props);\r\n    const {\r\n      loaderClasses\r\n    } = useLoader(props);\r\n    const {\r\n      locationStyles\r\n    } = useLocation(props);\r\n    const {\r\n      positionClasses\r\n    } = usePosition(props);\r\n    const {\r\n      roundedClasses\r\n    } = useRounded(props);\r\n    const link = useLink(props, attrs);\r\n    const isLink = computed(() => props.link !== false && link.isLink.value);\r\n    const isClickable = computed(() => !props.disabled && props.link !== false && (props.link || link.isClickable.value));\r\n    useRender(() => {\r\n      const Tag = isLink.value ? 'a' : props.tag;\r\n      const hasTitle = !!(slots.title || props.title != null);\r\n      const hasSubtitle = !!(slots.subtitle || props.subtitle != null);\r\n      const hasHeader = hasTitle || hasSubtitle;\r\n      const hasAppend = !!(slots.append || props.appendAvatar || props.appendIcon);\r\n      const hasPrepend = !!(slots.prepend || props.prependAvatar || props.prependIcon);\r\n      const hasImage = !!(slots.image || props.image);\r\n      const hasCardItem = hasHeader || hasPrepend || hasAppend;\r\n      const hasText = !!(slots.text || props.text != null);\r\n      return _withDirectives(_createVNode(Tag, {\r\n        \"class\": ['v-card', {\r\n          'v-card--disabled': props.disabled,\r\n          'v-card--flat': props.flat,\r\n          'v-card--hover': props.hover && !(props.disabled || props.flat),\r\n          'v-card--link': isClickable.value\r\n        }, themeClasses.value, borderClasses.value, colorClasses.value, densityClasses.value, elevationClasses.value, loaderClasses.value, positionClasses.value, roundedClasses.value, variantClasses.value, props.class],\r\n        \"style\": [colorStyles.value, dimensionStyles.value, locationStyles.value, props.style],\r\n        \"href\": link.href.value,\r\n        \"onClick\": isClickable.value && link.navigate,\r\n        \"tabindex\": props.disabled ? -1 : undefined\r\n      }, {\r\n        default: () => [hasImage && _createVNode(\"div\", {\r\n          \"key\": \"image\",\r\n          \"class\": \"v-card__image\"\r\n        }, [!slots.image ? _createVNode(VImg, {\r\n          \"key\": \"image-img\",\r\n          \"cover\": true,\r\n          \"src\": props.image\r\n        }, null) : _createVNode(VDefaultsProvider, {\r\n          \"key\": \"image-defaults\",\r\n          \"disabled\": !props.image,\r\n          \"defaults\": {\r\n            VImg: {\r\n              cover: true,\r\n              src: props.image\r\n            }\r\n          }\r\n        }, slots.image)]), _createVNode(LoaderSlot, {\r\n          \"name\": \"v-card\",\r\n          \"active\": !!props.loading,\r\n          \"color\": typeof props.loading === 'boolean' ? undefined : props.loading\r\n        }, {\r\n          default: slots.loader\r\n        }), hasCardItem && _createVNode(VCardItem, {\r\n          \"key\": \"item\",\r\n          \"prependAvatar\": props.prependAvatar,\r\n          \"prependIcon\": props.prependIcon,\r\n          \"title\": props.title,\r\n          \"subtitle\": props.subtitle,\r\n          \"appendAvatar\": props.appendAvatar,\r\n          \"appendIcon\": props.appendIcon\r\n        }, {\r\n          default: slots.item,\r\n          prepend: slots.prepend,\r\n          title: slots.title,\r\n          subtitle: slots.subtitle,\r\n          append: slots.append\r\n        }), hasText && _createVNode(VCardText, {\r\n          \"key\": \"text\"\r\n        }, {\r\n          default: () => [slots.text?.() ?? props.text]\r\n        }), slots.default?.(), slots.actions && _createVNode(VCardActions, null, {\r\n          default: slots.actions\r\n        }), genOverlays(isClickable.value, 'v-card')]\r\n      }), [[_resolveDirective(\"ripple\"), isClickable.value && props.ripple]]);\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VCard.mjs.map",
+      "start": 1756473938574,
+      "end": 1756473938666,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473938666,
+      "end": 1756473938666,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473938666,
+      "end": 1756473938666,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473938666,
+      "end": 1756473938666,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473938666,
+      "end": 1756473938666,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473938667,
+      "end": 1756473938667,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473938667,
+      "end": 1756473938668,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473938668,
+      "end": 1756473938668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473938668,
+      "end": 1756473938668,
+      "order": "normal"
+    }
+  ]
+}

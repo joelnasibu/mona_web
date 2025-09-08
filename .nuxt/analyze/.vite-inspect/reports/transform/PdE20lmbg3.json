@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/engine.io-client/build/esm/transport.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { decodePacket } from \"engine.io-parser\";\r\nimport { Emitter } from \"@socket.io/component-emitter\";\r\nimport { installTimerFunctions } from \"./util.js\";\r\nimport { encode } from \"./contrib/parseqs.js\";\r\nexport class TransportError extends Error {\r\n    constructor(reason, description, context) {\r\n        super(reason);\r\n        this.description = description;\r\n        this.context = context;\r\n        this.type = \"TransportError\";\r\n    }\r\n}\r\nexport class Transport extends Emitter {\r\n    /**\r\n     * Transport abstract constructor.\r\n     *\r\n     * @param {Object} opts - options\r\n     * @protected\r\n     */\r\n    constructor(opts) {\r\n        super();\r\n        this.writable = false;\r\n        installTimerFunctions(this, opts);\r\n        this.opts = opts;\r\n        this.query = opts.query;\r\n        this.socket = opts.socket;\r\n        this.supportsBinary = !opts.forceBase64;\r\n    }\r\n    /**\r\n     * Emits an error.\r\n     *\r\n     * @param {String} reason\r\n     * @param description\r\n     * @param context - the error context\r\n     * @return {Transport} for chaining\r\n     * @protected\r\n     */\r\n    onError(reason, description, context) {\r\n        super.emitReserved(\"error\", new TransportError(reason, description, context));\r\n        return this;\r\n    }\r\n    /**\r\n     * Opens the transport.\r\n     */\r\n    open() {\r\n        this.readyState = \"opening\";\r\n        this.doOpen();\r\n        return this;\r\n    }\r\n    /**\r\n     * Closes the transport.\r\n     */\r\n    close() {\r\n        if (this.readyState === \"opening\" || this.readyState === \"open\") {\r\n            this.doClose();\r\n            this.onClose();\r\n        }\r\n        return this;\r\n    }\r\n    /**\r\n     * Sends multiple packets.\r\n     *\r\n     * @param {Array} packets\r\n     */\r\n    send(packets) {\r\n        if (this.readyState === \"open\") {\r\n            this.write(packets);\r\n        }\r\n        else {\r\n            // this might happen if the transport was silently closed in the beforeunload event handler\r\n        }\r\n    }\r\n    /**\r\n     * Called upon open\r\n     *\r\n     * @protected\r\n     */\r\n    onOpen() {\r\n        this.readyState = \"open\";\r\n        this.writable = true;\r\n        super.emitReserved(\"open\");\r\n    }\r\n    /**\r\n     * Called with data.\r\n     *\r\n     * @param {String} data\r\n     * @protected\r\n     */\r\n    onData(data) {\r\n        const packet = decodePacket(data, this.socket.binaryType);\r\n        this.onPacket(packet);\r\n    }\r\n    /**\r\n     * Called with a decoded packet.\r\n     *\r\n     * @protected\r\n     */\r\n    onPacket(packet) {\r\n        super.emitReserved(\"packet\", packet);\r\n    }\r\n    /**\r\n     * Called upon close.\r\n     *\r\n     * @protected\r\n     */\r\n    onClose(details) {\r\n        this.readyState = \"closed\";\r\n        super.emitReserved(\"close\", details);\r\n    }\r\n    /**\r\n     * Pauses the transport, in order not to lose packets during an upgrade.\r\n     *\r\n     * @param onPause\r\n     */\r\n    pause(onPause) { }\r\n    createUri(schema, query = {}) {\r\n        return (schema +\r\n            \"://\" +\r\n            this._hostname() +\r\n            this._port() +\r\n            this.opts.path +\r\n            this._query(query));\r\n    }\r\n    _hostname() {\r\n        const hostname = this.opts.hostname;\r\n        return hostname.indexOf(\":\") === -1 ? hostname : \"[\" + hostname + \"]\";\r\n    }\r\n    _port() {\r\n        if (this.opts.port &&\r\n            ((this.opts.secure && Number(this.opts.port !== 443)) ||\r\n                (!this.opts.secure && Number(this.opts.port) !== 80))) {\r\n            return \":\" + this.opts.port;\r\n        }\r\n        else {\r\n            return \"\";\r\n        }\r\n    }\r\n    _query(query) {\r\n        const encodedQuery = encode(query);\r\n        return encodedQuery.length ? \"?\" + encodedQuery : \"\";\r\n    }\r\n}\r\n",
+      "start": 1756473947346,
+      "end": 1756473947582,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473947582,
+      "end": 1756473947582,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473947582,
+      "end": 1756473947582,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473947582,
+      "end": 1756473947583,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473947583,
+      "end": 1756473947583,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473947583,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473947584,
+      "end": 1756473947584,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,223 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/floating-chat.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <ClientOnly>\r\n    <v-btn\r\n      location=\"bottom end\"\r\n      class=\"position-fixed ma-8\"\r\n      color=\"primary-dark\"\r\n      title=\"Messages\"\r\n      icon=\"mdi-chat-processing-outline\"\r\n      :style=\"{ zIndex: 1 }\"\r\n      elevation=\"12\"\r\n      :to=\"{ name: 'inbox' }\"\r\n    ></v-btn>\r\n  </ClientOnly>\r\n</template>\r\n\r\n<script setup>\r\nimport { useChatStore } from \"~/store/chat\";\r\n\r\nconst { toggleChatStatus } = useChatStore();\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756473937929,
+      "end": 1756473938155,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473938155,
+      "end": 1756473938155,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport { useChatStore } from \"~/store/chat\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'floating-chat',\n  setup(__props) {\n\r\nconst { toggleChatStatus } = useChatStore();\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n\n  return (_openBlock(), _createBlock(_component_ClientOnly, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_btn, {\n        location: \"bottom end\",\n        class: \"position-fixed ma-8\",\n        color: \"primary-dark\",\n        title: \"Messages\",\n        icon: \"mdi-chat-processing-outline\",\n        style: { zIndex: 1 },\n        elevation: \"12\",\n        to: { name: 'inbox' }\n      })\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756473938155,
+      "end": 1756473938156,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473938156,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport { useChatStore } from \"~/store/chat\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'floating-chat',\n  setup(__props) {\n\r\nconst { toggleChatStatus } = useChatStore();\r\n\nreturn (_ctx, _cache) => {\n                                                     \n  const _component_ClientOnly = _resolveComponent(\"ClientOnly\")\n\n  return (_openBlock(), _createBlock(_component_ClientOnly, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_btn, {\n        location: \"bottom end\",\n        class: \"position-fixed ma-8\",\n        color: \"primary-dark\",\n        title: \"Messages\",\n        icon: \"mdi-chat-processing-outline\",\n        style: { zIndex: 1 },\n        elevation: \"12\",\n        to: { name: 'inbox' }\n      })\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\n\n",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473938157,
+      "end": 1756473938157,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473938157,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/nuxt/dist/app/components/client-only\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, withCtx as _withCtx, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nimport { useChatStore } from \"~/store/chat\";\r\n\r\n\nconst _sfc_main = {\n  __name: 'floating-chat',\n  setup(__props) {\n\r\nconst { toggleChatStatus } = useChatStore();\r\n\nreturn (_ctx, _cache) => {\n                                                     \n  const _component_ClientOnly = __nuxt_component_0\n\n  return (_openBlock(), _createBlock(_component_ClientOnly, null, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_btn, {\n        location: \"bottom end\",\n        class: \"position-fixed ma-8\",\n        color: \"primary-dark\",\n        title: \"Messages\",\n        icon: \"mdi-chat-processing-outline\",\n        style: { zIndex: 1 },\n        elevation: \"12\",\n        to: { name: 'inbox' }\n      })\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\n\n",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473938158,
+      "end": 1756473938158,
+      "order": "normal"
+    }
+  ]
+}

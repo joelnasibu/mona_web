@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/setMonth.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { constructFrom } from \"./constructFrom.mjs\";\r\nimport { getDaysInMonth } from \"./getDaysInMonth.mjs\";\r\nimport { toDate } from \"./toDate.mjs\";\r\n\r\n/**\r\n * @name setMonth\r\n * @category Month Helpers\r\n * @summary Set the month to the given date.\r\n *\r\n * @description\r\n * Set the month to the given date.\r\n *\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to be changed\r\n * @param month - The month of the new date\r\n *\r\n * @returns The new date with the month set\r\n *\r\n * @example\r\n * // Set February to 1 September 2014:\r\n * const result = setMonth(new Date(2014, 8, 1), 1)\r\n * //=> Sat Feb 01 2014 00:00:00\r\n */\r\nexport function setMonth(date, month) {\r\n  const _date = toDate(date);\r\n  const year = _date.getFullYear();\r\n  const day = _date.getDate();\r\n\r\n  const dateWithDesiredMonth = constructFrom(date, 0);\r\n  dateWithDesiredMonth.setFullYear(year, month, 15);\r\n  dateWithDesiredMonth.setHours(0, 0, 0, 0);\r\n  const daysInMonth = getDaysInMonth(dateWithDesiredMonth);\r\n  // Set the last day of the new month\r\n  // if the original date was the last day of the longer month\r\n  _date.setMonth(month, Math.min(day, daysInMonth));\r\n  return _date;\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default setMonth;\r\n",
+      "start": 1756473942585,
+      "end": 1756473942627,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473942627,
+      "end": 1756473942627,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473942627,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473942628,
+      "end": 1756473942628,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@supabase/auth-js/dist/module/lib/fetch.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var __rest = (this && this.__rest) || function (s, e) {\r\n    var t = {};\r\n    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)\r\n        t[p] = s[p];\r\n    if (s != null && typeof Object.getOwnPropertySymbols === \"function\")\r\n        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {\r\n            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))\r\n                t[p[i]] = s[p[i]];\r\n        }\r\n    return t;\r\n};\r\nimport { API_VERSIONS, API_VERSION_HEADER_NAME } from './constants';\r\nimport { expiresAt, looksLikeFetchResponse, parseResponseAPIVersion } from './helpers';\r\nimport { AuthApiError, AuthRetryableFetchError, AuthWeakPasswordError, AuthUnknownError, AuthSessionMissingError, } from './errors';\r\nconst _getErrorMessage = (err) => err.msg || err.message || err.error_description || err.error || JSON.stringify(err);\r\nconst NETWORK_ERROR_CODES = [502, 503, 504];\r\nexport async function handleError(error) {\r\n    var _a;\r\n    if (!looksLikeFetchResponse(error)) {\r\n        throw new AuthRetryableFetchError(_getErrorMessage(error), 0);\r\n    }\r\n    if (NETWORK_ERROR_CODES.includes(error.status)) {\r\n        // status in 500...599 range - server had an error, request might be retryed.\r\n        throw new AuthRetryableFetchError(_getErrorMessage(error), error.status);\r\n    }\r\n    let data;\r\n    try {\r\n        data = await error.json();\r\n    }\r\n    catch (e) {\r\n        throw new AuthUnknownError(_getErrorMessage(e), e);\r\n    }\r\n    let errorCode = undefined;\r\n    const responseAPIVersion = parseResponseAPIVersion(error);\r\n    if (responseAPIVersion &&\r\n        responseAPIVersion.getTime() >= API_VERSIONS['2024-01-01'].timestamp &&\r\n        typeof data === 'object' &&\r\n        data &&\r\n        typeof data.code === 'string') {\r\n        errorCode = data.code;\r\n    }\r\n    else if (typeof data === 'object' && data && typeof data.error_code === 'string') {\r\n        errorCode = data.error_code;\r\n    }\r\n    if (!errorCode) {\r\n        // Legacy support for weak password errors, when there were no error codes\r\n        if (typeof data === 'object' &&\r\n            data &&\r\n            typeof data.weak_password === 'object' &&\r\n            data.weak_password &&\r\n            Array.isArray(data.weak_password.reasons) &&\r\n            data.weak_password.reasons.length &&\r\n            data.weak_password.reasons.reduce((a, i) => a && typeof i === 'string', true)) {\r\n            throw new AuthWeakPasswordError(_getErrorMessage(data), error.status, data.weak_password.reasons);\r\n        }\r\n    }\r\n    else if (errorCode === 'weak_password') {\r\n        throw new AuthWeakPasswordError(_getErrorMessage(data), error.status, ((_a = data.weak_password) === null || _a === void 0 ? void 0 : _a.reasons) || []);\r\n    }\r\n    else if (errorCode === 'session_not_found') {\r\n        // The `session_id` inside the JWT does not correspond to a row in the\r\n        // `sessions` table. This usually means the user has signed out, has been\r\n        // deleted, or their session has somehow been terminated.\r\n        throw new AuthSessionMissingError();\r\n    }\r\n    throw new AuthApiError(_getErrorMessage(data), error.status || 500, errorCode);\r\n}\r\nconst _getRequestParams = (method, options, parameters, body) => {\r\n    const params = { method, headers: (options === null || options === void 0 ? void 0 : options.headers) || {} };\r\n    if (method === 'GET') {\r\n        return params;\r\n    }\r\n    params.headers = Object.assign({ 'Content-Type': 'application/json;charset=UTF-8' }, options === null || options === void 0 ? void 0 : options.headers);\r\n    params.body = JSON.stringify(body);\r\n    return Object.assign(Object.assign({}, params), parameters);\r\n};\r\nexport async function _request(fetcher, method, url, options) {\r\n    var _a;\r\n    const headers = Object.assign({}, options === null || options === void 0 ? void 0 : options.headers);\r\n    if (!headers[API_VERSION_HEADER_NAME]) {\r\n        headers[API_VERSION_HEADER_NAME] = API_VERSIONS['2024-01-01'].name;\r\n    }\r\n    if (options === null || options === void 0 ? void 0 : options.jwt) {\r\n        headers['Authorization'] = `Bearer ${options.jwt}`;\r\n    }\r\n    const qs = (_a = options === null || options === void 0 ? void 0 : options.query) !== null && _a !== void 0 ? _a : {};\r\n    if (options === null || options === void 0 ? void 0 : options.redirectTo) {\r\n        qs['redirect_to'] = options.redirectTo;\r\n    }\r\n    const queryString = Object.keys(qs).length ? '?' + new URLSearchParams(qs).toString() : '';\r\n    const data = await _handleRequest(fetcher, method, url + queryString, {\r\n        headers,\r\n        noResolveJson: options === null || options === void 0 ? void 0 : options.noResolveJson,\r\n    }, {}, options === null || options === void 0 ? void 0 : options.body);\r\n    return (options === null || options === void 0 ? void 0 : options.xform) ? options === null || options === void 0 ? void 0 : options.xform(data) : { data: Object.assign({}, data), error: null };\r\n}\r\nasync function _handleRequest(fetcher, method, url, options, parameters, body) {\r\n    const requestParams = _getRequestParams(method, options, parameters, body);\r\n    let result;\r\n    try {\r\n        result = await fetcher(url, Object.assign({}, requestParams));\r\n    }\r\n    catch (e) {\r\n        console.error(e);\r\n        // fetch failed, likely due to a network or CORS error\r\n        throw new AuthRetryableFetchError(_getErrorMessage(e), 0);\r\n    }\r\n    if (!result.ok) {\r\n        await handleError(result);\r\n    }\r\n    if (options === null || options === void 0 ? void 0 : options.noResolveJson) {\r\n        return result;\r\n    }\r\n    try {\r\n        return await result.json();\r\n    }\r\n    catch (e) {\r\n        await handleError(e);\r\n    }\r\n}\r\nexport function _sessionResponse(data) {\r\n    var _a;\r\n    let session = null;\r\n    if (hasSession(data)) {\r\n        session = Object.assign({}, data);\r\n        if (!data.expires_at) {\r\n            session.expires_at = expiresAt(data.expires_in);\r\n        }\r\n    }\r\n    const user = (_a = data.user) !== null && _a !== void 0 ? _a : data;\r\n    return { data: { session, user }, error: null };\r\n}\r\nexport function _sessionResponsePassword(data) {\r\n    const response = _sessionResponse(data);\r\n    if (!response.error &&\r\n        data.weak_password &&\r\n        typeof data.weak_password === 'object' &&\r\n        Array.isArray(data.weak_password.reasons) &&\r\n        data.weak_password.reasons.length &&\r\n        data.weak_password.message &&\r\n        typeof data.weak_password.message === 'string' &&\r\n        data.weak_password.reasons.reduce((a, i) => a && typeof i === 'string', true)) {\r\n        response.data.weak_password = data.weak_password;\r\n    }\r\n    return response;\r\n}\r\nexport function _userResponse(data) {\r\n    var _a;\r\n    const user = (_a = data.user) !== null && _a !== void 0 ? _a : data;\r\n    return { data: { user }, error: null };\r\n}\r\nexport function _ssoResponse(data) {\r\n    return { data, error: null };\r\n}\r\nexport function _generateLinkResponse(data) {\r\n    const { action_link, email_otp, hashed_token, redirect_to, verification_type } = data, rest = __rest(data, [\"action_link\", \"email_otp\", \"hashed_token\", \"redirect_to\", \"verification_type\"]);\r\n    const properties = {\r\n        action_link,\r\n        email_otp,\r\n        hashed_token,\r\n        redirect_to,\r\n        verification_type,\r\n    };\r\n    const user = Object.assign({}, rest);\r\n    return {\r\n        data: {\r\n            properties,\r\n            user,\r\n        },\r\n        error: null,\r\n    };\r\n}\r\nexport function _noResolveJsonResponse(data) {\r\n    return data;\r\n}\r\n/**\r\n * hasSession checks if the response object contains a valid session\r\n * @param data A response object\r\n * @returns true if a session is in the response\r\n */\r\nfunction hasSession(data) {\r\n    return data.access_token && data.refresh_token && data.expires_in;\r\n}\r\n//# sourceMappingURL=fetch.js.map",
+      "start": 1756473949558,
+      "end": 1756473949672,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949672,
+      "end": 1756473949672,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949672,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949673,
+      "end": 1756473949673,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949673,
+      "end": 1756473949674,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949674,
+      "end": 1756473949674,
+      "order": "normal"
+    }
+  ]
+}

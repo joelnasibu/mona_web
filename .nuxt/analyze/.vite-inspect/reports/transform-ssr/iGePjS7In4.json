@@ -1,0 +1,266 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/MarketSection.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <section class=\"py-10\">\r\n    <!-- Section Title -->\r\n    <div class=\"text-center mb-8\">\r\n      <h3 class=\"text-h5 font-weight-bold mb-2\">{{ title }}</h3>\r\n      <div class=\"mx-auto\" style=\"width: 80px; height: 3px; background-color: #ccc; border-radius: 2px;\"></div>\r\n    </div>\r\n\r\n    <!-- Grid of Products / Deals -->\r\n    <div class=\"market-container\">\r\n      <div class=\"market-grid\">\r\n        <a\r\n          v-for=\"(item, i) in visibleItems\"\r\n          :key=\"i\"\r\n          href=\"#\"\r\n          class=\"market-card group\"\r\n          :style=\"{ backgroundImage: `url(${item.image})` }\"\r\n        >\r\n          <div class=\"overlay\"></div>\r\n          <div class=\"content\">\r\n            <h3 class=\"market-name\">{{ item.name || item.title }}</h3>\r\n            <v-btn\r\n              v-if=\"showButton\"\r\n              color=\"orange-darken-2\"\r\n              size=\"small\"\r\n              class=\"rounded-pill mt-2\"\r\n              variant=\"flat\"\r\n            >\r\n              {{ buttonText }}\r\n            </v-btn>\r\n          </div>\r\n        </a>\r\n      </div>\r\n\r\n      <!-- Toggle Button -->\r\n      <div v-if=\"items.length > initialCount\" class=\"text-center mt-6\">\r\n        <v-btn color=\"orange-darken-2\" class=\"rounded-pill\" @click=\"toggleItems\">\r\n          {{ isExpanded ? 'Show Less' : 'See More' }}\r\n        </v-btn>\r\n      </div>\r\n    </div>\r\n  </section>\r\n</template>\r\n\r\n<script setup>\r\nimport { ref, watch } from \"vue\";\r\n\r\nconst props = defineProps({\r\n  title: String,\r\n  items: Array,\r\n  showButton: { type: Boolean, default: false },\r\n  buttonText: { type: String, default: \"View Deal\" }\r\n});\r\n\r\nconst initialCount = 4;\r\nconst isExpanded = ref(false);\r\nconst visibleItems = ref(props.items.slice(0, initialCount));\r\n\r\n// Watch for updates if items change dynamically\r\nwatch(() => props.items, (newItems) => {\r\n  visibleItems.value = newItems.slice(0, isExpanded.value ? newItems.length : initialCount);\r\n});\r\n\r\nfunction toggleItems() {\r\n  isExpanded.value = !isExpanded.value;\r\n  visibleItems.value = isExpanded.value ? props.items : props.items.slice(0, initialCount);\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.market-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(4, 1fr);\r\n  gap: 1.5rem;\r\n}\r\n@media (max-width: 1024px) {\r\n  .market-grid {\r\n    grid-template-columns: repeat(2, 1fr);\r\n  }\r\n}\r\n@media (max-width: 640px) {\r\n  .market-grid {\r\n    grid-template-columns: 1fr;\r\n  }\r\n}\r\n\r\n.market-container {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  padding: 0 1.5rem;\r\n}\r\n\r\n.market-card {\r\n  position: relative;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: flex-end;\r\n  padding: 1.5rem;\r\n  border-radius: 12px;\r\n  color: white;\r\n  text-decoration: none;\r\n  transition: transform 0.3s, box-shadow 0.3s;\r\n  min-height: 220px;\r\n  box-sizing: border-box;\r\n  background-size: cover;\r\n  background-position: center;\r\n  overflow: hidden;\r\n}\r\n\r\n.market-card:hover {\r\n  transform: translateY(-5px) scale(1.02);\r\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);\r\n}\r\n\r\n.overlay {\r\n  position: absolute;\r\n  inset: 0;\r\n  background: rgba(0, 0, 0, 0.45);\r\n  border-radius: 12px;\r\n  transition: background 0.3s;\r\n}\r\n\r\n.market-card:hover .overlay {\r\n  background: rgba(0, 0, 0, 0.6);\r\n}\r\n\r\n.content {\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n\r\n.market-name {\r\n  font-size: 1.25rem;\r\n  font-weight: bold;\r\n  margin-bottom: 0.5rem;\r\n}\r\n</style>\r\n",
+      "start": 1756474005065,
+      "end": 1756474005601,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474005601,
+      "end": 1756474005601,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderStyle as _ssrRenderStyle, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport { ref, watch } from \"vue\";\r\n\r\nconst initialCount = 4;\r\n\nconst _sfc_main = {\n  __name: 'MarketSection',\n  __ssrInlineRender: true,\n  props: {\r\n  title: String,\r\n  items: Array,\r\n  showButton: { type: Boolean, default: false },\r\n  buttonText: { type: String, default: \"View Deal\" }\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\r\nconst isExpanded = ref(false);\r\nconst visibleItems = ref(props.items.slice(0, initialCount));\r\n\r\n// Watch for updates if items change dynamically\r\nwatch(() => props.items, (newItems) => {\r\n  visibleItems.value = newItems.slice(0, isExpanded.value ? newItems.length : initialCount);\r\n});\r\n\r\nfunction toggleItems() {\r\n  isExpanded.value = !isExpanded.value;\r\n  visibleItems.value = isExpanded.value ? props.items : props.items.slice(0, initialCount);\r\n}\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n\n  _push(`<section${\n    _ssrRenderAttrs(_mergeProps({ class: \"py-10\" }, _attrs))\n  } data-v-41d91f14><div class=\"text-center mb-8\" data-v-41d91f14><h3 class=\"text-h5 font-weight-bold mb-2\" data-v-41d91f14>${\n    _ssrInterpolate(__props.title)\n  }</h3><div class=\"mx-auto\" style=\"${\n    _ssrRenderStyle({\"width\":\"80px\",\"height\":\"3px\",\"background-color\":\"#ccc\",\"border-radius\":\"2px\"})\n  }\" data-v-41d91f14></div></div><div class=\"market-container\" data-v-41d91f14><div class=\"market-grid\" data-v-41d91f14><!--[-->`)\n  _ssrRenderList(visibleItems.value, (item, i) => {\n    _push(`<a href=\"#\" class=\"market-card group\" style=\"${\n      _ssrRenderStyle({ backgroundImage: `url(${item.image})` })\n    }\" data-v-41d91f14><div class=\"overlay\" data-v-41d91f14></div><div class=\"content\" data-v-41d91f14><h3 class=\"market-name\" data-v-41d91f14>${\n      _ssrInterpolate(item.name || item.title)\n    }</h3>`)\n    if (__props.showButton) {\n      _push(_ssrRenderComponent(_component_v_btn, {\n        color: \"orange-darken-2\",\n        size: \"small\",\n        class: \"rounded-pill mt-2\",\n        variant: \"flat\"\n      }, {\n        default: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(__props.buttonText)}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(__props.buttonText), 1)\n            ]\n          }\n        }),\n        _: 2\n      }, _parent))\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div></a>`)\n  })\n  _push(`<!--]--></div>`)\n  if (__props.items.length > initialCount) {\n    _push(`<div class=\"text-center mt-6\" data-v-41d91f14>`)\n    _push(_ssrRenderComponent(_component_v_btn, {\n      color: \"orange-darken-2\",\n      class: \"rounded-pill\",\n      onClick: toggleItems\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(`${_ssrInterpolate(isExpanded.value ? 'Show Less' : 'See More')}`)\n        } else {\n          return [\n            _createTextVNode(_toDisplayString(isExpanded.value ? 'Show Less' : 'See More'), 1)\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div></section>`)\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/MarketSection.vue?vue&type=style&index=0&scoped=41d91f14&lang.css\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/MarketSection.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-41d91f14\"]])",
+      "start": 1756474005601,
+      "end": 1756474005607,
+      "order": "normal",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/MarketSection.vue"
+        ],
+        "names": [],
+        "mappings": ";;;AA6CA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC;AAQA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;;;;;;;;;;;AAVT;AAGd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,OAKZ,CAAC;AACH;AAEA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7D;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5F,CAAC,CAAC,CAAC;AACH;AACA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3F,CAAC;;;;;;kCAjEU,KAAK,EAAC,OAAO;;oBAG2B,aAAK;;oBAC7B,+EAA6E;;iBAO1E,kBAAY,GAAxB,IAAI,EAAE,CAAC;;gDAImB,IAAI,CAAC,KAAK;;sBAIf,IAAI,CAAC,IAAI,IAAI,IAAI,CAAC,KAAK;;QAE1C,kBAAU;;QAChB,KAAK,EAAC,iBAAiB;QACvB,IAAI,EAAC,OAAO;QACZ,KAAK,EAAC,mBAAmB;QACzB,OAAO,EAAC,MAAM;;0BALhB,CAQQ;;qCADH,kBAAU;;;gDAAV,kBAAU;;;;;;;;;;;;MAOV,aAAK,CAAC,MAAM,GAAG,YAAY;;;MAC7B,KAAK,EAAC,iBAAiB;MAAC,KAAK,EAAC,cAAc;MAAE,OAAK,EAAE,WAAW;;wBAAvE,CAEQ;;mCADH,gBAAU;;;8CAAV,gBAAU",
+        "sourcesContent": [
+          "<template>\r\n  <section class=\"py-10\">\r\n    <!-- Section Title -->\r\n    <div class=\"text-center mb-8\">\r\n      <h3 class=\"text-h5 font-weight-bold mb-2\">{{ title }}</h3>\r\n      <div class=\"mx-auto\" style=\"width: 80px; height: 3px; background-color: #ccc; border-radius: 2px;\"></div>\r\n    </div>\r\n\r\n    <!-- Grid of Products / Deals -->\r\n    <div class=\"market-container\">\r\n      <div class=\"market-grid\">\r\n        <a\r\n          v-for=\"(item, i) in visibleItems\"\r\n          :key=\"i\"\r\n          href=\"#\"\r\n          class=\"market-card group\"\r\n          :style=\"{ backgroundImage: `url(${item.image})` }\"\r\n        >\r\n          <div class=\"overlay\"></div>\r\n          <div class=\"content\">\r\n            <h3 class=\"market-name\">{{ item.name || item.title }}</h3>\r\n            <v-btn\r\n              v-if=\"showButton\"\r\n              color=\"orange-darken-2\"\r\n              size=\"small\"\r\n              class=\"rounded-pill mt-2\"\r\n              variant=\"flat\"\r\n            >\r\n              {{ buttonText }}\r\n            </v-btn>\r\n          </div>\r\n        </a>\r\n      </div>\r\n\r\n      <!-- Toggle Button -->\r\n      <div v-if=\"items.length > initialCount\" class=\"text-center mt-6\">\r\n        <v-btn color=\"orange-darken-2\" class=\"rounded-pill\" @click=\"toggleItems\">\r\n          {{ isExpanded ? 'Show Less' : 'See More' }}\r\n        </v-btn>\r\n      </div>\r\n    </div>\r\n  </section>\r\n</template>\r\n\r\n<script setup>\r\nimport { ref, watch } from \"vue\";\r\n\r\nconst props = defineProps({\r\n  title: String,\r\n  items: Array,\r\n  showButton: { type: Boolean, default: false },\r\n  buttonText: { type: String, default: \"View Deal\" }\r\n});\r\n\r\nconst initialCount = 4;\r\nconst isExpanded = ref(false);\r\nconst visibleItems = ref(props.items.slice(0, initialCount));\r\n\r\n// Watch for updates if items change dynamically\r\nwatch(() => props.items, (newItems) => {\r\n  visibleItems.value = newItems.slice(0, isExpanded.value ? newItems.length : initialCount);\r\n});\r\n\r\nfunction toggleItems() {\r\n  isExpanded.value = !isExpanded.value;\r\n  visibleItems.value = isExpanded.value ? props.items : props.items.slice(0, initialCount);\r\n}\r\n</script>\r\n\r\n<style scoped>\r\n.market-grid {\r\n  display: grid;\r\n  grid-template-columns: repeat(4, 1fr);\r\n  gap: 1.5rem;\r\n}\r\n@media (max-width: 1024px) {\r\n  .market-grid {\r\n    grid-template-columns: repeat(2, 1fr);\r\n  }\r\n}\r\n@media (max-width: 640px) {\r\n  .market-grid {\r\n    grid-template-columns: 1fr;\r\n  }\r\n}\r\n\r\n.market-container {\r\n  max-width: 1200px;\r\n  margin: 0 auto;\r\n  padding: 0 1.5rem;\r\n}\r\n\r\n.market-card {\r\n  position: relative;\r\n  display: flex;\r\n  flex-direction: column;\r\n  justify-content: flex-end;\r\n  padding: 1.5rem;\r\n  border-radius: 12px;\r\n  color: white;\r\n  text-decoration: none;\r\n  transition: transform 0.3s, box-shadow 0.3s;\r\n  min-height: 220px;\r\n  box-sizing: border-box;\r\n  background-size: cover;\r\n  background-position: center;\r\n  overflow: hidden;\r\n}\r\n\r\n.market-card:hover {\r\n  transform: translateY(-5px) scale(1.02);\r\n  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);\r\n}\r\n\r\n.overlay {\r\n  position: absolute;\r\n  inset: 0;\r\n  background: rgba(0, 0, 0, 0.45);\r\n  border-radius: 12px;\r\n  transition: background 0.3s;\r\n}\r\n\r\n.market-card:hover .overlay {\r\n  background: rgba(0, 0, 0, 0.6);\r\n}\r\n\r\n.content {\r\n  position: relative;\r\n  z-index: 2;\r\n}\r\n\r\n.market-name {\r\n  font-size: 1.25rem;\r\n  font-weight: bold;\r\n  margin-bottom: 0.5rem;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474005607,
+      "end": 1756474005607,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474005607,
+      "end": 1756474005607,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474005607,
+      "end": 1756474005607,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474005610,
+      "end": 1756474005611,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474005610,
+      "end": 1756474005611,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, withCtx as _withCtx, toDisplayString as _toDisplayString, createTextVNode as _createTextVNode, mergeProps as _mergeProps } from \"vue\"\nimport { ssrRenderStyle as _ssrRenderStyle, ssrRenderComponent as _ssrRenderComponent, ssrRenderAttrs as _ssrRenderAttrs, ssrInterpolate as _ssrInterpolate, ssrRenderList as _ssrRenderList } from \"vue/server-renderer\"\n\nimport { ref, watch } from \"vue\";\r\n\r\nconst initialCount = 4;\r\n\nconst _sfc_main = {\n  __name: 'MarketSection',\n  __ssrInlineRender: true,\n  props: {\r\n  title: String,\r\n  items: Array,\r\n  showButton: { type: Boolean, default: false },\r\n  buttonText: { type: String, default: \"View Deal\" }\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\r\nconst isExpanded = ref(false);\r\nconst visibleItems = ref(props.items.slice(0, initialCount));\r\n\r\n// Watch for updates if items change dynamically\r\nwatch(() => props.items, (newItems) => {\r\n  visibleItems.value = newItems.slice(0, isExpanded.value ? newItems.length : initialCount);\r\n});\r\n\r\nfunction toggleItems() {\r\n  isExpanded.value = !isExpanded.value;\r\n  visibleItems.value = isExpanded.value ? props.items : props.items.slice(0, initialCount);\r\n}\r\n\nreturn (_ctx, _push, _parent, _attrs) => {\n                                                     \n\n  _push(`<section${\n    _ssrRenderAttrs(_mergeProps({ class: \"py-10\" }, _attrs))\n  } data-v-41d91f14><div class=\"text-center mb-8\" data-v-41d91f14><h3 class=\"text-h5 font-weight-bold mb-2\" data-v-41d91f14>${\n    _ssrInterpolate(__props.title)\n  }</h3><div class=\"mx-auto\" style=\"${\n    _ssrRenderStyle({\"width\":\"80px\",\"height\":\"3px\",\"background-color\":\"#ccc\",\"border-radius\":\"2px\"})\n  }\" data-v-41d91f14></div></div><div class=\"market-container\" data-v-41d91f14><div class=\"market-grid\" data-v-41d91f14><!--[-->`)\n  _ssrRenderList(visibleItems.value, (item, i) => {\n    _push(`<a href=\"#\" class=\"market-card group\" style=\"${\n      _ssrRenderStyle({ backgroundImage: `url(${item.image})` })\n    }\" data-v-41d91f14><div class=\"overlay\" data-v-41d91f14></div><div class=\"content\" data-v-41d91f14><h3 class=\"market-name\" data-v-41d91f14>${\n      _ssrInterpolate(item.name || item.title)\n    }</h3>`)\n    if (__props.showButton) {\n      _push(_ssrRenderComponent(_component_v_btn, {\n        color: \"orange-darken-2\",\n        size: \"small\",\n        class: \"rounded-pill mt-2\",\n        variant: \"flat\"\n      }, {\n        default: _withCtx((_, _push, _parent, _scopeId) => {\n          if (_push) {\n            _push(`${_ssrInterpolate(__props.buttonText)}`)\n          } else {\n            return [\n              _createTextVNode(_toDisplayString(__props.buttonText), 1)\n            ]\n          }\n        }),\n        _: 2\n      }, _parent))\n    } else {\n      _push(`<!---->`)\n    }\n    _push(`</div></a>`)\n  })\n  _push(`<!--]--></div>`)\n  if (__props.items.length > initialCount) {\n    _push(`<div class=\"text-center mt-6\" data-v-41d91f14>`)\n    _push(_ssrRenderComponent(_component_v_btn, {\n      color: \"orange-darken-2\",\n      class: \"rounded-pill\",\n      onClick: toggleItems\n    }, {\n      default: _withCtx((_, _push, _parent, _scopeId) => {\n        if (_push) {\n          _push(`${_ssrInterpolate(isExpanded.value ? 'Show Less' : 'See More')}`)\n        } else {\n          return [\n            _createTextVNode(_toDisplayString(isExpanded.value ? 'Show Less' : 'See More'), 1)\n          ]\n        }\n      }),\n      _: 1\n    }, _parent))\n    _push(`</div>`)\n  } else {\n    _push(`<!---->`)\n  }\n  _push(`</div></section>`)\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/MarketSection.vue?vue&type=style&index=0&scoped=41d91f14&lang.css\"\n\nimport { useSSRContext as __vite_useSSRContext } from 'vue'\nconst _sfc_setup = _sfc_main.setup\n_sfc_main.setup = (props, ctx) => {\n  const ssrContext = __vite_useSSRContext()\n  ;(ssrContext.modules || (ssrContext.modules = new Set())).add(\"components/MarketSection.vue\")\n  return _sfc_setup ? _sfc_setup(props, ctx) : undefined\n}\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-41d91f14\"]])\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\n\n",
+      "start": 1756474005612,
+      "end": 1756474005612,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474005612,
+      "end": 1756474005612,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474005615,
+      "end": 1756474005615,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474005616,
+      "end": 1756474005622,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474005622,
+      "end": 1756474005622,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474005622,
+      "end": 1756474005622,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474005623,
+      "end": 1756474005623,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474005624,
+      "end": 1756474005627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474005624,
+      "end": 1756474005627,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474005627,
+      "end": 1756474005627,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474005627,
+      "end": 1756474005627,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474005627,
+      "end": 1756474005628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474005627,
+      "end": 1756474005628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474005628,
+      "end": 1756474005628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474005628,
+      "end": 1756474005628,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474005628,
+      "end": 1756474005628,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474005628,
+      "end": 1756474005629,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474005629,
+      "end": 1756474005629,
+      "order": "normal"
+    }
+  ]
+}

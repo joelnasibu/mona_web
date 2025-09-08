@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/mn/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: \"секунд хүрэхгүй\",\r\n    other: \"{{count}} секунд хүрэхгүй\",\r\n  },\r\n\r\n  xSeconds: {\r\n    one: \"1 секунд\",\r\n    other: \"{{count}} секунд\",\r\n  },\r\n\r\n  halfAMinute: \"хагас минут\",\r\n\r\n  lessThanXMinutes: {\r\n    one: \"минут хүрэхгүй\",\r\n    other: \"{{count}} минут хүрэхгүй\",\r\n  },\r\n\r\n  xMinutes: {\r\n    one: \"1 минут\",\r\n    other: \"{{count}} минут\",\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: \"ойролцоогоор 1 цаг\",\r\n    other: \"ойролцоогоор {{count}} цаг\",\r\n  },\r\n\r\n  xHours: {\r\n    one: \"1 цаг\",\r\n    other: \"{{count}} цаг\",\r\n  },\r\n\r\n  xDays: {\r\n    one: \"1 өдөр\",\r\n    other: \"{{count}} өдөр\",\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: \"ойролцоогоор 1 долоо хоног\",\r\n    other: \"ойролцоогоор {{count}} долоо хоног\",\r\n  },\r\n\r\n  xWeeks: {\r\n    one: \"1 долоо хоног\",\r\n    other: \"{{count}} долоо хоног\",\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: \"ойролцоогоор 1 сар\",\r\n    other: \"ойролцоогоор {{count}} сар\",\r\n  },\r\n\r\n  xMonths: {\r\n    one: \"1 сар\",\r\n    other: \"{{count}} сар\",\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: \"ойролцоогоор 1 жил\",\r\n    other: \"ойролцоогоор {{count}} жил\",\r\n  },\r\n\r\n  xYears: {\r\n    one: \"1 жил\",\r\n    other: \"{{count}} жил\",\r\n  },\r\n\r\n  overXYears: {\r\n    one: \"1 жил гаран\",\r\n    other: \"{{count}} жил гаран\",\r\n  },\r\n\r\n  almostXYears: {\r\n    one: \"бараг 1 жил\",\r\n    other: \"бараг {{count}} жил\",\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  let result;\r\n\r\n  const tokenValue = formatDistanceLocale[token];\r\n  if (typeof tokenValue === \"string\") {\r\n    result = tokenValue;\r\n  } else if (count === 1) {\r\n    result = tokenValue.one;\r\n  } else {\r\n    result = tokenValue.other.replace(\"{{count}}\", String(count));\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    /**\r\n     * Append genitive case\r\n     */\r\n    const words = result.split(\" \");\r\n    const lastword = words.pop();\r\n    result = words.join(\" \");\r\n    switch (lastword) {\r\n      case \"секунд\":\r\n        result += \" секундийн\";\r\n        break;\r\n      case \"минут\":\r\n        result += \" минутын\";\r\n        break;\r\n      case \"цаг\":\r\n        result += \" цагийн\";\r\n        break;\r\n      case \"өдөр\":\r\n        result += \" өдрийн\";\r\n        break;\r\n      case \"сар\":\r\n        result += \" сарын\";\r\n        break;\r\n      case \"жил\":\r\n        result += \" жилийн\";\r\n        break;\r\n      case \"хоног\":\r\n        result += \" хоногийн\";\r\n        break;\r\n      case \"гаран\":\r\n        result += \" гараны\";\r\n        break;\r\n      case \"хүрэхгүй\":\r\n        result += \" хүрэхгүй хугацааны\";\r\n        break;\r\n      default:\r\n        result += lastword + \"-н\";\r\n    }\r\n\r\n    if (options.comparison && options.comparison > 0) {\r\n      return result + \" дараа\";\r\n    } else {\r\n      return result + \" өмнө\";\r\n    }\r\n  }\r\n\r\n  return result;\r\n};\r\n",
+      "start": 1756473948358,
+      "end": 1756473948403,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948403,
+      "end": 1756473948403,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948403,
+      "end": 1756473948404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948404,
+      "end": 1756473948404,
+      "order": "normal"
+    }
+  ]
+}

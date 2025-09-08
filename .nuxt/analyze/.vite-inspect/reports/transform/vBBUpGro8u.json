@@ -1,0 +1,225 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/intro.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"bg-white py-5 py-md-10\">\r\n    <CoreMidScreenLayout>\r\n      <v-container>\r\n        <v-row align=\"center\">\r\n          <v-col cols=\"12\" sm=\"4\">\r\n            <div class=\"text-h5\" style=\"max-width: 20ch\">\r\n              <b>\r\n                <!-- <span class=\"text-primary-accent\">{{ appName }} : </span> -->\r\n                Votre portail polyvalent pour le commerce et les opportunités\r\n                d'emploi\r\n              </b>\r\n            </div>\r\n            <div\r\n              class=\"text-subtitle-2 text-grey-darken-1 mt-8\"\r\n              style=\"max-width: 30ch; font-weight: 500\"\r\n            >\r\n              <span>\r\n                <!-- Une plateforme innovante qui combine le meilleur du commerce\r\n                électronique et de la recherche d'emplois en un seul endroit. -->\r\n                Notre mission est de simplifier votre vie quotidienne en vous\r\n                offrant un accès facile à une large gamme de produits de qualité\r\n                et à des opportunités de carrière enrichissantes.\r\n              </span>\r\n            </div>\r\n          </v-col>\r\n          <v-col cols=\"12\" sm=\"4\" v-for=\"section in sections\">\r\n            <div class=\"d-flex flex-column\">\r\n              <div\r\n                class=\"bg-card card-outlined pa-2 rounded-lg\"\r\n                style=\"width: fit-content\"\r\n              >\r\n                <v-icon :icon=\"section.icon\"></v-icon>\r\n              </div>\r\n              <div class=\"text-subtitle-1 my-2\">\r\n                <b>{{ section.title }}</b>\r\n              </div>\r\n              <div class=\"text-caption\">\r\n                <span>{{ section.description }}</span>\r\n              </div>\r\n            </div>\r\n          </v-col>\r\n        </v-row>\r\n      </v-container>\r\n    </CoreMidScreenLayout>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst appName = import.meta.env.VITE_APP_NAME;\r\n\r\nconst sections = [\r\n  {\r\n    icon: \"mdi-creation-outline\",\r\n    title: \"Commerce Électronique\",\r\n    description:\r\n      \"Une large gamme de produits, de la mode aux gadgets technologiques, en passant par les produits de beauté et bien d'autres encore.\",\r\n  },\r\n  {\r\n    icon: \"mdi-briefcase-outline\",\r\n    title: \"Recherche d'Emplois\",\r\n    description:\r\n      \"Trouver l'emploi qui correspond à vos compétences et à vos aspirations professionnelles.\",\r\n  },\r\n];\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756473934899,
+      "end": 1756473935157,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473935157,
+      "end": 1756473935157,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473935157,
+      "end": 1756473935157,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473935157,
+      "end": 1756473935157,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473935157,
+      "end": 1756473935157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473935157,
+      "end": 1756473935157,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473935157,
+      "end": 1756473935158,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473935158,
+      "end": 1756473935158,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = { class: \"bg-white py-5 py-md-10\" }\nconst _hoisted_2 = { class: \"d-flex flex-column\" }\nconst _hoisted_3 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: {\"width\":\"fit-content\"}\n}\nconst _hoisted_4 = { class: \"text-subtitle-1 my-2\" }\nconst _hoisted_5 = { class: \"text-caption\" }\n\n\nconst _sfc_main = {\n  __name: 'intro',\n  setup(__props) {\n\r\nconst appName = import.meta.env.VITE_APP_NAME;\r\n\r\nconst sections = [\r\n  {\r\n    icon: \"mdi-creation-outline\",\r\n    title: \"Commerce Électronique\",\r\n    description:\r\n      \"Une large gamme de produits, de la mode aux gadgets technologiques, en passant par les produits de beauté et bien d'autres encore.\",\r\n  },\r\n  {\r\n    icon: \"mdi-briefcase-outline\",\r\n    title: \"Recherche d'Emplois\",\r\n    description:\r\n      \"Trouver l'emploi qui correspond à vos compétences et à vos aspirations professionnelles.\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_icon = _resolveComponent(\"v-icon\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n  const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_CoreMidScreenLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_v_container, null, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_row, { align: \"center\" }, {\n              default: _withCtx(() => [\n                _createVNode(_component_v_col, {\n                  cols: \"12\",\n                  sm: \"4\"\n                }, {\n                  default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                    _createElementVNode(\"div\", {\n                      class: \"text-h5\",\n                      style: {\"max-width\":\"20ch\"}\n                    }, [\n                      _createElementVNode(\"b\", null, \" Votre portail polyvalent pour le commerce et les opportunités d'emploi \")\n                    ], -1),\n                    _createElementVNode(\"div\", {\n                      class: \"text-subtitle-2 text-grey-darken-1 mt-8\",\n                      style: {\"max-width\":\"30ch\",\"font-weight\":\"500\"}\n                    }, [\n                      _createElementVNode(\"span\", null, \" Notre mission est de simplifier votre vie quotidienne en vous offrant un accès facile à une large gamme de produits de qualité et à des opportunités de carrière enrichissantes. \")\n                    ], -1)\n                  ]))]),\n                  _: 1\n                }),\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(sections, (section) => {\n                  return _createVNode(_component_v_col, {\n                    cols: \"12\",\n                    sm: \"4\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createElementVNode(\"div\", _hoisted_2, [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createVNode(_component_v_icon, {\n                            icon: section.icon\n                          }, null, 8, [\"icon\"])\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_4, [\n                          _createElementVNode(\"b\", null, _toDisplayString(section.title), 1)\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_5, [\n                          _createElementVNode(\"span\", null, _toDisplayString(section.description), 1)\n                        ])\n                      ])\n                    ]),\n                    _: 2\n                  }, 1024)\n                }), 64))\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756473935158,
+      "end": 1756473935160,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString } from \"vue\"\n\nconst _hoisted_1 = { class: \"bg-white py-5 py-md-10\" }\nconst _hoisted_2 = { class: \"d-flex flex-column\" }\nconst _hoisted_3 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: {\"width\":\"fit-content\"}\n}\nconst _hoisted_4 = { class: \"text-subtitle-1 my-2\" }\nconst _hoisted_5 = { class: \"text-caption\" }\n\n\nconst _sfc_main = {\n  __name: 'intro',\n  setup(__props) {\n\r\nconst appName = import.meta.env.VITE_APP_NAME;\r\n\r\nconst sections = [\r\n  {\r\n    icon: \"mdi-creation-outline\",\r\n    title: \"Commerce Électronique\",\r\n    description:\r\n      \"Une large gamme de produits, de la mode aux gadgets technologiques, en passant par les produits de beauté et bien d'autres encore.\",\r\n  },\r\n  {\r\n    icon: \"mdi-briefcase-outline\",\r\n    title: \"Recherche d'Emplois\",\r\n    description:\r\n      \"Trouver l'emploi qui correspond à vos compétences et à vos aspirations professionnelles.\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n                                                     \n                                                       \n                                                     \n                                                                 \n  const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_CoreMidScreenLayout, null, {\n      default: _withCtx(() => [\n        _createVNode(_component_v_container, null, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_row, { align: \"center\" }, {\n              default: _withCtx(() => [\n                _createVNode(_component_v_col, {\n                  cols: \"12\",\n                  sm: \"4\"\n                }, {\n                  default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                    _createElementVNode(\"div\", {\n                      class: \"text-h5\",\n                      style: {\"max-width\":\"20ch\"}\n                    }, [\n                      _createElementVNode(\"b\", null, \" Votre portail polyvalent pour le commerce et les opportunités d'emploi \")\n                    ], -1),\n                    _createElementVNode(\"div\", {\n                      class: \"text-subtitle-2 text-grey-darken-1 mt-8\",\n                      style: {\"max-width\":\"30ch\",\"font-weight\":\"500\"}\n                    }, [\n                      _createElementVNode(\"span\", null, \" Notre mission est de simplifier votre vie quotidienne en vous offrant un accès facile à une large gamme de produits de qualité et à des opportunités de carrière enrichissantes. \")\n                    ], -1)\n                  ]))]),\n                  _: 1\n                }),\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(sections, (section) => {\n                  return _createVNode(_component_v_col, {\n                    cols: \"12\",\n                    sm: \"4\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createElementVNode(\"div\", _hoisted_2, [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createVNode(_component_v_icon, {\n                            icon: section.icon\n                          }, null, 8, [\"icon\"])\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_4, [\n                          _createElementVNode(\"b\", null, _toDisplayString(section.title), 1)\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_5, [\n                          _createElementVNode(\"span\", null, _toDisplayString(section.description), 1)\n                        ])\n                      ])\n                    ]),\n                    _: 2\n                  }, 1024)\n                }), 64))\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        })\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\nimport { VIcon as _component_v_icon } from \"vuetify/lib/components/VIcon/index.mjs\"\n\n",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473935160,
+      "end": 1756473935160,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "result": "import { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString } from \"vue\";\nconst _hoisted_1 = { class: \"bg-white py-5 py-md-10\" };\nconst _hoisted_2 = { class: \"d-flex flex-column\" };\nconst _hoisted_3 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: { \"width\": \"fit-content\" }\n};\nconst _hoisted_4 = { class: \"text-subtitle-1 my-2\" };\nconst _hoisted_5 = { class: \"text-caption\" };\nconst _sfc_main = {\n  __name: \"intro\",\n  setup(__props) {\n    const appName = \"Smartsell\";\n    const sections = [\n      {\n        icon: \"mdi-creation-outline\",\n        title: \"Commerce Électronique\",\n        description: \"Une large gamme de produits, de la mode aux gadgets technologiques, en passant par les produits de beauté et bien d'autres encore.\"\n      },\n      {\n        icon: \"mdi-briefcase-outline\",\n        title: \"Recherche d'Emplois\",\n        description: \"Trouver l'emploi qui correspond à vos compétences et à vos aspirations professionnelles.\"\n      }\n    ];\n    return (_ctx, _cache) => {\n      const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\");\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_CoreMidScreenLayout, null, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_container, null, {\n              default: _withCtx(() => [\n                _createVNode(_component_v_row, { align: \"center\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_col, {\n                      cols: \"12\",\n                      sm: \"4\"\n                    }, {\n                      default: _withCtx(() => [..._cache[0] || (_cache[0] = [\n                        _createElementVNode(\"div\", {\n                          class: \"text-h5\",\n                          style: { \"max-width\": \"20ch\" }\n                        }, [\n                          _createElementVNode(\"b\", null, \" Votre portail polyvalent pour le commerce et les opportunités d'emploi \")\n                        ], -1),\n                        _createElementVNode(\"div\", {\n                          class: \"text-subtitle-2 text-grey-darken-1 mt-8\",\n                          style: { \"max-width\": \"30ch\", \"font-weight\": \"500\" }\n                        }, [\n                          _createElementVNode(\"span\", null, \" Notre mission est de simplifier votre vie quotidienne en vous offrant un accès facile à une large gamme de produits de qualité et à des opportunités de carrière enrichissantes. \")\n                        ], -1)\n                      ])]),\n                      _: 1\n                    }),\n                    (_openBlock(), _createElementBlock(_Fragment, null, _renderList(sections, (section) => {\n                      return _createVNode(_component_v_col, {\n                        cols: \"12\",\n                        sm: \"4\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"div\", _hoisted_2, [\n                            _createElementVNode(\"div\", _hoisted_3, [\n                              _createVNode(_component_v_icon, {\n                                icon: section.icon\n                              }, null, 8, [\"icon\"])\n                            ]),\n                            _createElementVNode(\"div\", _hoisted_4, [\n                              _createElementVNode(\"b\", null, _toDisplayString(section.title), 1)\n                            ]),\n                            _createElementVNode(\"div\", _hoisted_5, [\n                              _createElementVNode(\"span\", null, _toDisplayString(section.description), 1)\n                            ])\n                          ])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 64))\n                  ]),\n                  _: 1\n                })\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n};\nexport default _sfc_main;\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\";\nimport { VIcon as _component_v_icon } from \"vuetify/lib/components/VIcon/index.mjs\";\n",
+      "start": 1756473935160,
+      "end": 1756473937339,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473937339,
+      "end": 1756473937339,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473937339,
+      "end": 1756473937340,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473937340,
+      "end": 1756473937340,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473937340,
+      "end": 1756473937340,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473937340,
+      "end": 1756473937340,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473937340,
+      "end": 1756473937340,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/mid-screen-layout.vue\";\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString } from \"vue\";\nconst _hoisted_1 = { class: \"bg-white py-5 py-md-10\" };\nconst _hoisted_2 = { class: \"d-flex flex-column\" };\nconst _hoisted_3 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: { \"width\": \"fit-content\" }\n};\nconst _hoisted_4 = { class: \"text-subtitle-1 my-2\" };\nconst _hoisted_5 = { class: \"text-caption\" };\nconst _sfc_main = {\n  __name: \"intro\",\n  setup(__props) {\n    const appName = \"Smartsell\";\n    const sections = [\n      {\n        icon: \"mdi-creation-outline\",\n        title: \"Commerce Électronique\",\n        description: \"Une large gamme de produits, de la mode aux gadgets technologiques, en passant par les produits de beauté et bien d'autres encore.\"\n      },\n      {\n        icon: \"mdi-briefcase-outline\",\n        title: \"Recherche d'Emplois\",\n        description: \"Trouver l'emploi qui correspond à vos compétences et à vos aspirations professionnelles.\"\n      }\n    ];\n    return (_ctx, _cache) => {\n      const _component_CoreMidScreenLayout = __nuxt_component_0;\n      return _openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n        _createVNode(_component_CoreMidScreenLayout, null, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_container, null, {\n              default: _withCtx(() => [\n                _createVNode(_component_v_row, { align: \"center\" }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_col, {\n                      cols: \"12\",\n                      sm: \"4\"\n                    }, {\n                      default: _withCtx(() => [..._cache[0] || (_cache[0] = [\n                        _createElementVNode(\"div\", {\n                          class: \"text-h5\",\n                          style: { \"max-width\": \"20ch\" }\n                        }, [\n                          _createElementVNode(\"b\", null, \" Votre portail polyvalent pour le commerce et les opportunités d'emploi \")\n                        ], -1),\n                        _createElementVNode(\"div\", {\n                          class: \"text-subtitle-2 text-grey-darken-1 mt-8\",\n                          style: { \"max-width\": \"30ch\", \"font-weight\": \"500\" }\n                        }, [\n                          _createElementVNode(\"span\", null, \" Notre mission est de simplifier votre vie quotidienne en vous offrant un accès facile à une large gamme de produits de qualité et à des opportunités de carrière enrichissantes. \")\n                        ], -1)\n                      ])]),\n                      _: 1\n                    }),\n                    (_openBlock(), _createElementBlock(_Fragment, null, _renderList(sections, (section) => {\n                      return _createVNode(_component_v_col, {\n                        cols: \"12\",\n                        sm: \"4\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createElementVNode(\"div\", _hoisted_2, [\n                            _createElementVNode(\"div\", _hoisted_3, [\n                              _createVNode(_component_v_icon, {\n                                icon: section.icon\n                              }, null, 8, [\"icon\"])\n                            ]),\n                            _createElementVNode(\"div\", _hoisted_4, [\n                              _createElementVNode(\"b\", null, _toDisplayString(section.title), 1)\n                            ]),\n                            _createElementVNode(\"div\", _hoisted_5, [\n                              _createElementVNode(\"span\", null, _toDisplayString(section.description), 1)\n                            ])\n                          ])\n                        ]),\n                        _: 2\n                      }, 1024);\n                    }), 64))\n                  ]),\n                  _: 1\n                })\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        })\n      ]);\n    };\n  }\n};\nexport default _sfc_main;\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\";\nimport { VIcon as _component_v_icon } from \"vuetify/lib/components/VIcon/index.mjs\";\n",
+      "start": 1756473937340,
+      "end": 1756473937340,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473937341,
+      "end": 1756473937341,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473937341,
+      "end": 1756473937341,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473937341,
+      "end": 1756473937341,
+      "order": "normal"
+    }
+  ]
+}

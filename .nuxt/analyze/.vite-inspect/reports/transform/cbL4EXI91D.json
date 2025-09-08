@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/_lib/getTimezoneOffsetInMilliseconds.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { toDate } from \"../toDate.mjs\";\r\n\r\n/**\r\n * Google Chrome as of 67.0.3396.87 introduced timezones with offset that includes seconds.\r\n * They usually appear for dates that denote time before the timezones were introduced\r\n * (e.g. for 'Europe/Prague' timezone the offset is GMT+00:57:44 before 1 October 1891\r\n * and GMT+01:00:00 after that date)\r\n *\r\n * Date#getTimezoneOffset returns the offset in minutes and would return 57 for the example above,\r\n * which would lead to incorrect calculations.\r\n *\r\n * This function returns the timezone offset in milliseconds that takes seconds in account.\r\n */\r\nexport function getTimezoneOffsetInMilliseconds(date) {\r\n  const _date = toDate(date);\r\n  const utcDate = new Date(\r\n    Date.UTC(\r\n      _date.getFullYear(),\r\n      _date.getMonth(),\r\n      _date.getDate(),\r\n      _date.getHours(),\r\n      _date.getMinutes(),\r\n      _date.getSeconds(),\r\n      _date.getMilliseconds(),\r\n    ),\r\n  );\r\n  utcDate.setUTCFullYear(_date.getFullYear());\r\n  return +date - +utcDate;\r\n}\r\n",
+      "start": 1756473947520,
+      "end": 1756473947676,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947676,
+      "end": 1756473947676,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473947676,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473947677,
+      "end": 1756473947677,
+      "order": "normal"
+    }
+  ]
+}

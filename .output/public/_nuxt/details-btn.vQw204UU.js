@@ -1,0 +1,1 @@
+import{o as s,e as i,V as n}from"./entry.rlzPHxfP.js";const a={__name:"details-btn",emits:["details"],setup(r,{emit:e}){const o=e;return(l,t)=>(s(),i(n,{class:"text-capitalize",icon:"mdi-dots-horizontal",rounded:"lg",size:"28",flat:"",color:"primary-dark",title:"Preview details",onClick:t[0]||(t[0]=c=>o("details"))}))}},m=a;export{m as _};

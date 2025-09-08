@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue?vue&type=style&index=0&scoped=4c80dff3&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n/* .auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  backdrop-filter: blur(5px);\r\n  background-color: rgba(255, 255, 255, 0.312) !important;\r\n} */\r\na {\r\n  color: currentColor;\r\n}\r\n",
+      "start": 1756474002883,
+      "end": 1756474002883,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue"
+        ],
+        "names": [],
+        "mappings": ";AAuJA,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACZ,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzD,EAAE,CAAC;AACH,EAAE;EACA,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACrB",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"w-100\">\r\n    <div class=\"py-2 text-center\">\r\n      <b>Create a free account</b>\r\n    </div>\r\n    <v-container>\r\n      <v-row justify=\"center\">\r\n        <v-col cols=\"12\" sm=\"4\">\r\n          <v-card\r\n            class=\"mx-auto mt-4 pa-5 auth-card rounded-lg bg-transparent\"\r\n            flat\r\n          >\r\n            <v-form ref=\"formRef\" class=\"form-data\" @submit.prevent>\r\n              <div class=\"d-flex ga-2\">\r\n                <v-text-field\r\n                  placeholder=\"First name\"\r\n                  v-model=\"payload.firstname\"\r\n                  bg-color=\"white\"\r\n                  :rules=\"name()\"\r\n                  prepend-inner-icon=\"mdi-account-outline\"\r\n                ></v-text-field>\r\n                <v-text-field\r\n                  placeholder=\"Last name\"\r\n                  v-model=\"payload.lastname\"\r\n                  bg-color=\"white\"\r\n                  :rules=\"name()\"\r\n                  prepend-inner-icon=\"mdi-account-outline\"\r\n                ></v-text-field>\r\n              </div>\r\n              <v-text-field\r\n                placeholder=\"Email address\"\r\n                v-model=\"payload.email\"\r\n                bg-color=\"white\"\r\n                :rules=\"email()\"\r\n                prepend-inner-icon=\"mdi-email-outline\"\r\n              ></v-text-field>\r\n              <Telephone :number=\"payload.phone\" @set-phone=\"setPhone\" />\r\n              <CorePassword\r\n                :password=\"payload.password\"\r\n                :show-password=\"showPassword\"\r\n                @toggleShowPassword=\"showPassword = !showPassword\"\r\n                @weakPassword=\"checkPassword\"\r\n                @setPassword=\"setPassword\"\r\n              />\r\n              <v-text-field\r\n                placeholder=\"Re-enter Password\"\r\n                prepend-inner-icon=\"mdi-lock-outline\"\r\n                :append-inner-icon=\"`${\r\n                  showConfirm ? 'mdi-eye-off-outline' : 'mdi-eye-outline'\r\n                }`\"\r\n                @click:append-inner=\"showConfirm = !showConfirm\"\r\n                class=\"mt-1\"\r\n                :type=\"`${showConfirm ? 'text' : 'password'}`\"\r\n                :rules=\"confirmPassword(payload.password)\"\r\n                bg-color=\"white\"\r\n                v-model=\"payload.confirmPassword\"\r\n                autocomplete=\"off\"\r\n              ></v-text-field>\r\n\r\n              <v-btn\r\n                class=\"my-1 text-none text-caption\"\r\n                flat\r\n                density=\"comfortable\"\r\n                color=\"primary-accent\"\r\n                block\r\n                @click=\"handleContinue()\"\r\n                :loading=\"loading\"\r\n              >\r\n                <span>Continue</span>\r\n              </v-btn>\r\n              <div class=\"text-start my-5 text-caption-2\">\r\n                <span>\r\n                  By conitnuing, I consent to Smartsell's\r\n                  <a href=\"#\"> Conditions of use</a> and\r\n                  <a href=\"#\"> Private Policy</a>.</span\r\n                >\r\n              </div>\r\n              <div class=\"w-100 text-caption\">\r\n                <div class=\"d-flex align-center w-100\">\r\n                  <span>Already have account?</span>\r\n                  <NuxtLink\r\n                    :to=\"{ name: 'auth' }\"\r\n                    class=\"px-2 text-primary-accent\"\r\n                  >\r\n                    <span>Sign in instead</span>\r\n                  </NuxtLink>\r\n                </div>\r\n              </div>\r\n            </v-form>\r\n          </v-card>\r\n        </v-col>\r\n      </v-row>\r\n    </v-container>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst { required, name, email, confirmPassword } = useRules();\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { loading, error } = storeToRefs(useAppStore());\r\n\r\nimport { useAuthStore } from \"~/store/auth\";\r\nconst { createAccount } = useAuthStore();\r\n\r\nconst payload = ref({\r\n  email: \"\",\r\n  firstname: \"\",\r\n  lastname: \"\",\r\n  phone: \"\",\r\n  password: \"\",\r\n  confirmPassword: \"\",\r\n  picture: \"\",\r\n  gender: \"\",\r\n  username: \"\",\r\n});\r\n\r\nconst setPhone = (val) => {\r\n  payload.value.phone = val;\r\n};\r\n\r\nconst showPassword = ref(false);\r\nconst showConfirm = ref(false);\r\nconst isPasswordWeak = ref(false);\r\nconst checkPassword = (val) => {\r\n  isPasswordWeak.value = val;\r\n};\r\nconst setPassword = (val) => {\r\n  payload.value.password = val;\r\n};\r\n\r\nconst formRef = ref(\"\");\r\nconst handleContinue = async () => {\r\n  const { valid } = await formRef.value.validate();\r\n  if (valid) {\r\n    await createAccount(payload.value);\r\n    if (!error.value)\r\n      setTimeout(() => {\r\n        navigateTo({\r\n          name: \"auth\",\r\n        });\r\n      }, 2000);\r\n  }\r\n};\r\n\r\nuseHead({\r\n  title: \"Create a new account\",\r\n});\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n/* .auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  backdrop-filter: blur(5px);\r\n  background-color: rgba(255, 255, 255, 0.312) !important;\r\n} */\r\na {\r\n  color: currentColor;\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474002883,
+      "end": 1756474002883,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474002883,
+      "end": 1756474002883,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474002908,
+      "end": 1756474002908,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474002908,
+      "end": 1756474002908,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474002908,
+      "end": 1756474002908,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": "a{color:currentColor}",
+      "start": 1756474002908,
+      "end": 1756474002920,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue",
+        "mappings": "AAMA,EACE,kBACF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue"
+        ],
+        "sourcesContent": [
+          "\r\n/* .auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  backdrop-filter: blur(5px);\r\n  background-color: rgba(255, 255, 255, 0.312) !important;\r\n} */\r\na {\r\n  color: currentColor;\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474002920,
+      "end": 1756474002921,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474002924,
+      "end": 1756474002925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474002925,
+      "end": 1756474002925,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "a[data-v-4c80dff3]{color:currentColor}",
+      "start": 1756474002926,
+      "end": 1756474002928,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue",
+        "mappings": "AAAA,mBAAE,kBAAkB",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/create-account.vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474002929,
+      "end": 1756474002929,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002929,
+      "end": 1756474002929,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002929,
+      "end": 1756474002929,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474002930,
+      "end": 1756474002930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474002930,
+      "end": 1756474002930,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474002930,
+      "end": 1756474002930,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474002930,
+      "end": 1756474002930,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474002957,
+      "end": 1756474002957,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474002978,
+      "end": 1756474002978,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474002978,
+      "end": 1756474002978,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \"a[data-v-4c80dff3]{color:currentColor}\"",
+      "start": 1756474002979,
+      "end": 1756474002979,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474002979,
+      "end": 1756474002979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474002979,
+      "end": 1756474002979,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474002997,
+      "end": 1756474002997,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474002998,
+      "end": 1756474002998,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474002999,
+      "end": 1756474002999,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474002999,
+      "end": 1756474002999,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003031,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003031,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474003032,
+      "end": 1756474003032,
+      "order": "normal"
+    }
+  ]
+}

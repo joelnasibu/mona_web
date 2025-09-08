@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/pl/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: {\r\n      regular: \"mniej niż sekunda\",\r\n      past: \"mniej niż sekundę\",\r\n      future: \"mniej niż sekundę\",\r\n    },\r\n    twoFour: \"mniej niż {{count}} sekundy\",\r\n    other: \"mniej niż {{count}} sekund\",\r\n  },\r\n\r\n  xSeconds: {\r\n    one: {\r\n      regular: \"sekunda\",\r\n      past: \"sekundę\",\r\n      future: \"sekundę\",\r\n    },\r\n    twoFour: \"{{count}} sekundy\",\r\n    other: \"{{count}} sekund\",\r\n  },\r\n\r\n  halfAMinute: {\r\n    one: \"pół minuty\",\r\n    twoFour: \"pół minuty\",\r\n    other: \"pół minuty\",\r\n  },\r\n\r\n  lessThanXMinutes: {\r\n    one: {\r\n      regular: \"mniej niż minuta\",\r\n      past: \"mniej niż minutę\",\r\n      future: \"mniej niż minutę\",\r\n    },\r\n    twoFour: \"mniej niż {{count}} minuty\",\r\n    other: \"mniej niż {{count}} minut\",\r\n  },\r\n\r\n  xMinutes: {\r\n    one: {\r\n      regular: \"minuta\",\r\n      past: \"minutę\",\r\n      future: \"minutę\",\r\n    },\r\n    twoFour: \"{{count}} minuty\",\r\n    other: \"{{count}} minut\",\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: {\r\n      regular: \"około godziny\",\r\n      past: \"około godziny\",\r\n      future: \"około godzinę\",\r\n    },\r\n    twoFour: \"około {{count}} godziny\",\r\n    other: \"około {{count}} godzin\",\r\n  },\r\n\r\n  xHours: {\r\n    one: {\r\n      regular: \"godzina\",\r\n      past: \"godzinę\",\r\n      future: \"godzinę\",\r\n    },\r\n    twoFour: \"{{count}} godziny\",\r\n    other: \"{{count}} godzin\",\r\n  },\r\n\r\n  xDays: {\r\n    one: {\r\n      regular: \"dzień\",\r\n      past: \"dzień\",\r\n      future: \"1 dzień\",\r\n    },\r\n    twoFour: \"{{count}} dni\",\r\n    other: \"{{count}} dni\",\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: \"około tygodnia\",\r\n    twoFour: \"około {{count}} tygodni\",\r\n    other: \"około {{count}} tygodni\",\r\n  },\r\n\r\n  xWeeks: {\r\n    one: \"tydzień\",\r\n    twoFour: \"{{count}} tygodnie\",\r\n    other: \"{{count}} tygodni\",\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: \"około miesiąc\",\r\n    twoFour: \"około {{count}} miesiące\",\r\n    other: \"około {{count}} miesięcy\",\r\n  },\r\n\r\n  xMonths: {\r\n    one: \"miesiąc\",\r\n    twoFour: \"{{count}} miesiące\",\r\n    other: \"{{count}} miesięcy\",\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: \"około rok\",\r\n    twoFour: \"około {{count}} lata\",\r\n    other: \"około {{count}} lat\",\r\n  },\r\n\r\n  xYears: {\r\n    one: \"rok\",\r\n    twoFour: \"{{count}} lata\",\r\n    other: \"{{count}} lat\",\r\n  },\r\n\r\n  overXYears: {\r\n    one: \"ponad rok\",\r\n    twoFour: \"ponad {{count}} lata\",\r\n    other: \"ponad {{count}} lat\",\r\n  },\r\n\r\n  almostXYears: {\r\n    one: \"prawie rok\",\r\n    twoFour: \"prawie {{count}} lata\",\r\n    other: \"prawie {{count}} lat\",\r\n  },\r\n};\r\n\r\nfunction declensionGroup(scheme, count) {\r\n  if (count === 1) {\r\n    return scheme.one;\r\n  }\r\n\r\n  const rem100 = count % 100;\r\n\r\n  // ends with 11-20\r\n  if (rem100 <= 20 && rem100 > 10) {\r\n    return scheme.other;\r\n  }\r\n\r\n  const rem10 = rem100 % 10;\r\n\r\n  // ends with 2, 3, 4\r\n  if (rem10 >= 2 && rem10 <= 4) {\r\n    return scheme.twoFour;\r\n  }\r\n\r\n  return scheme.other;\r\n}\r\n\r\nfunction declension(scheme, count, time) {\r\n  const group = declensionGroup(scheme, count);\r\n  const finalText = typeof group === \"string\" ? group : group[time];\r\n  return finalText.replace(\"{{count}}\", String(count));\r\n}\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const scheme = formatDistanceLocale[token];\r\n  if (!options?.addSuffix) {\r\n    return declension(scheme, count, \"regular\");\r\n  }\r\n\r\n  if (options.comparison && options.comparison > 0) {\r\n    return \"za \" + declension(scheme, count, \"future\");\r\n  } else {\r\n    return declension(scheme, count, \"past\") + \" temu\";\r\n  }\r\n};\r\n",
+      "start": 1756473948465,
+      "end": 1756473948500,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948500,
+      "end": 1756473948500,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948500,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948501,
+      "end": 1756473948501,
+      "order": "normal"
+    }
+  ]
+}

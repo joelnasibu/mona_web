@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/engine.io-client/build/esm/transports/polling-xhr.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { Polling } from \"./polling.js\";\r\nimport { Emitter } from \"@socket.io/component-emitter\";\r\nimport { installTimerFunctions, pick } from \"../util.js\";\r\nimport { globalThisShim as globalThis } from \"../globals.node.js\";\r\nimport { hasCORS } from \"../contrib/has-cors.js\";\r\nfunction empty() { }\r\nexport class BaseXHR extends Polling {\r\n    /**\r\n     * XHR Polling constructor.\r\n     *\r\n     * @param {Object} opts\r\n     * @package\r\n     */\r\n    constructor(opts) {\r\n        super(opts);\r\n        if (typeof location !== \"undefined\") {\r\n            const isSSL = \"https:\" === location.protocol;\r\n            let port = location.port;\r\n            // some user agents have empty `location.port`\r\n            if (!port) {\r\n                port = isSSL ? \"443\" : \"80\";\r\n            }\r\n            this.xd =\r\n                (typeof location !== \"undefined\" &&\r\n                    opts.hostname !== location.hostname) ||\r\n                    port !== opts.port;\r\n        }\r\n    }\r\n    /**\r\n     * Sends data.\r\n     *\r\n     * @param {String} data to send.\r\n     * @param {Function} called upon flush.\r\n     * @private\r\n     */\r\n    doWrite(data, fn) {\r\n        const req = this.request({\r\n            method: \"POST\",\r\n            data: data,\r\n        });\r\n        req.on(\"success\", fn);\r\n        req.on(\"error\", (xhrStatus, context) => {\r\n            this.onError(\"xhr post error\", xhrStatus, context);\r\n        });\r\n    }\r\n    /**\r\n     * Starts a poll cycle.\r\n     *\r\n     * @private\r\n     */\r\n    doPoll() {\r\n        const req = this.request();\r\n        req.on(\"data\", this.onData.bind(this));\r\n        req.on(\"error\", (xhrStatus, context) => {\r\n            this.onError(\"xhr poll error\", xhrStatus, context);\r\n        });\r\n        this.pollXhr = req;\r\n    }\r\n}\r\nexport class Request extends Emitter {\r\n    /**\r\n     * Request constructor\r\n     *\r\n     * @param {Object} options\r\n     * @package\r\n     */\r\n    constructor(createRequest, uri, opts) {\r\n        super();\r\n        this.createRequest = createRequest;\r\n        installTimerFunctions(this, opts);\r\n        this._opts = opts;\r\n        this._method = opts.method || \"GET\";\r\n        this._uri = uri;\r\n        this._data = undefined !== opts.data ? opts.data : null;\r\n        this._create();\r\n    }\r\n    /**\r\n     * Creates the XHR object and sends the request.\r\n     *\r\n     * @private\r\n     */\r\n    _create() {\r\n        var _a;\r\n        const opts = pick(this._opts, \"agent\", \"pfx\", \"key\", \"passphrase\", \"cert\", \"ca\", \"ciphers\", \"rejectUnauthorized\", \"autoUnref\");\r\n        opts.xdomain = !!this._opts.xd;\r\n        const xhr = (this._xhr = this.createRequest(opts));\r\n        try {\r\n            xhr.open(this._method, this._uri, true);\r\n            try {\r\n                if (this._opts.extraHeaders) {\r\n                    // @ts-ignore\r\n                    xhr.setDisableHeaderCheck && xhr.setDisableHeaderCheck(true);\r\n                    for (let i in this._opts.extraHeaders) {\r\n                        if (this._opts.extraHeaders.hasOwnProperty(i)) {\r\n                            xhr.setRequestHeader(i, this._opts.extraHeaders[i]);\r\n                        }\r\n                    }\r\n                }\r\n            }\r\n            catch (e) { }\r\n            if (\"POST\" === this._method) {\r\n                try {\r\n                    xhr.setRequestHeader(\"Content-type\", \"text/plain;charset=UTF-8\");\r\n                }\r\n                catch (e) { }\r\n            }\r\n            try {\r\n                xhr.setRequestHeader(\"Accept\", \"*/*\");\r\n            }\r\n            catch (e) { }\r\n            (_a = this._opts.cookieJar) === null || _a === void 0 ? void 0 : _a.addCookies(xhr);\r\n            // ie6 check\r\n            if (\"withCredentials\" in xhr) {\r\n                xhr.withCredentials = this._opts.withCredentials;\r\n            }\r\n            if (this._opts.requestTimeout) {\r\n                xhr.timeout = this._opts.requestTimeout;\r\n            }\r\n            xhr.onreadystatechange = () => {\r\n                var _a;\r\n                if (xhr.readyState === 3) {\r\n                    (_a = this._opts.cookieJar) === null || _a === void 0 ? void 0 : _a.parseCookies(\r\n                    // @ts-ignore\r\n                    xhr.getResponseHeader(\"set-cookie\"));\r\n                }\r\n                if (4 !== xhr.readyState)\r\n                    return;\r\n                if (200 === xhr.status || 1223 === xhr.status) {\r\n                    this._onLoad();\r\n                }\r\n                else {\r\n                    // make sure the `error` event handler that's user-set\r\n                    // does not throw in the same tick and gets caught here\r\n                    this.setTimeoutFn(() => {\r\n                        this._onError(typeof xhr.status === \"number\" ? xhr.status : 0);\r\n                    }, 0);\r\n                }\r\n            };\r\n            xhr.send(this._data);\r\n        }\r\n        catch (e) {\r\n            // Need to defer since .create() is called directly from the constructor\r\n            // and thus the 'error' event can only be only bound *after* this exception\r\n            // occurs.  Therefore, also, we cannot throw here at all.\r\n            this.setTimeoutFn(() => {\r\n                this._onError(e);\r\n            }, 0);\r\n            return;\r\n        }\r\n        if (typeof document !== \"undefined\") {\r\n            this._index = Request.requestsCount++;\r\n            Request.requests[this._index] = this;\r\n        }\r\n    }\r\n    /**\r\n     * Called upon error.\r\n     *\r\n     * @private\r\n     */\r\n    _onError(err) {\r\n        this.emitReserved(\"error\", err, this._xhr);\r\n        this._cleanup(true);\r\n    }\r\n    /**\r\n     * Cleans up house.\r\n     *\r\n     * @private\r\n     */\r\n    _cleanup(fromError) {\r\n        if (\"undefined\" === typeof this._xhr || null === this._xhr) {\r\n            return;\r\n        }\r\n        this._xhr.onreadystatechange = empty;\r\n        if (fromError) {\r\n            try {\r\n                this._xhr.abort();\r\n            }\r\n            catch (e) { }\r\n        }\r\n        if (typeof document !== \"undefined\") {\r\n            delete Request.requests[this._index];\r\n        }\r\n        this._xhr = null;\r\n    }\r\n    /**\r\n     * Called upon load.\r\n     *\r\n     * @private\r\n     */\r\n    _onLoad() {\r\n        const data = this._xhr.responseText;\r\n        if (data !== null) {\r\n            this.emitReserved(\"data\", data);\r\n            this.emitReserved(\"success\");\r\n            this._cleanup();\r\n        }\r\n    }\r\n    /**\r\n     * Aborts the request.\r\n     *\r\n     * @package\r\n     */\r\n    abort() {\r\n        this._cleanup();\r\n    }\r\n}\r\nRequest.requestsCount = 0;\r\nRequest.requests = {};\r\n/**\r\n * Aborts pending requests when unloading the window. This is needed to prevent\r\n * memory leaks (e.g. when using IE) and to ensure that no spurious error is\r\n * emitted.\r\n */\r\nif (typeof document !== \"undefined\") {\r\n    // @ts-ignore\r\n    if (typeof attachEvent === \"function\") {\r\n        // @ts-ignore\r\n        attachEvent(\"onunload\", unloadHandler);\r\n    }\r\n    else if (typeof addEventListener === \"function\") {\r\n        const terminationEvent = \"onpagehide\" in globalThis ? \"pagehide\" : \"unload\";\r\n        addEventListener(terminationEvent, unloadHandler, false);\r\n    }\r\n}\r\nfunction unloadHandler() {\r\n    for (let i in Request.requests) {\r\n        if (Request.requests.hasOwnProperty(i)) {\r\n            Request.requests[i].abort();\r\n        }\r\n    }\r\n}\r\nconst hasXHR2 = (function () {\r\n    const xhr = newRequest({\r\n        xdomain: false,\r\n    });\r\n    return xhr && xhr.responseType !== null;\r\n})();\r\n/**\r\n * HTTP long-polling based on the built-in `XMLHttpRequest` object.\r\n *\r\n * Usage: browser\r\n *\r\n * @see https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest\r\n */\r\nexport class XHR extends BaseXHR {\r\n    constructor(opts) {\r\n        super(opts);\r\n        const forceBase64 = opts && opts.forceBase64;\r\n        this.supportsBinary = hasXHR2 && !forceBase64;\r\n    }\r\n    request(opts = {}) {\r\n        Object.assign(opts, { xd: this.xd }, this.opts);\r\n        return new Request(newRequest, this.uri(), opts);\r\n    }\r\n}\r\nfunction newRequest(opts) {\r\n    const xdomain = opts.xdomain;\r\n    // XMLHttpRequest can be disabled on IE\r\n    try {\r\n        if (\"undefined\" !== typeof XMLHttpRequest && (!xdomain || hasCORS)) {\r\n            return new XMLHttpRequest();\r\n        }\r\n    }\r\n    catch (e) { }\r\n    if (!xdomain) {\r\n        try {\r\n            return new globalThis[[\"Active\"].concat(\"Object\").join(\"X\")](\"Microsoft.XMLHTTP\");\r\n        }\r\n        catch (e) { }\r\n    }\r\n}\r\n",
+      "start": 1756473947440,
+      "end": 1756473947667,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473947667,
+      "end": 1756473947667,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473947667,
+      "end": 1756473947667,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473947667,
+      "end": 1756473947667,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473947667,
+      "end": 1756473947667,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473947667,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473947668,
+      "end": 1756473947668,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473947668,
+      "end": 1756473947669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473947669,
+      "end": 1756473947669,
+      "order": "normal"
+    }
+  ]
+}

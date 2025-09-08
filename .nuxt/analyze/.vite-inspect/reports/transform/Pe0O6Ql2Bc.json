@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/ta/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "function isPluralType(val) {\r\n  return val.one !== undefined;\r\n}\r\n\r\nconst formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    one: {\r\n      default: \"ஒரு வினாடிக்கு குறைவாக\",\r\n      in: \"ஒரு வினாடிக்குள்\",\r\n      ago: \"ஒரு வினாடிக்கு முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} வினாடிகளுக்கு குறைவாக\",\r\n      in: \"{{count}} வினாடிகளுக்குள்\",\r\n      ago: \"{{count}} வினாடிகளுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  xSeconds: {\r\n    one: {\r\n      default: \"1 வினாடி\",\r\n      in: \"1 வினாடியில்\",\r\n      ago: \"1 வினாடி முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} விநாடிகள்\",\r\n      in: \"{{count}} வினாடிகளில்\",\r\n      ago: \"{{count}} விநாடிகளுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  halfAMinute: {\r\n    default: \"அரை நிமிடம்\",\r\n    in: \"அரை நிமிடத்தில்\",\r\n    ago: \"அரை நிமிடம் முன்பு\",\r\n  },\r\n\r\n  lessThanXMinutes: {\r\n    one: {\r\n      default: \"ஒரு நிமிடத்திற்கும் குறைவாக\",\r\n      in: \"ஒரு நிமிடத்திற்குள்\",\r\n      ago: \"ஒரு நிமிடத்திற்கு முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} நிமிடங்களுக்கும் குறைவாக\",\r\n      in: \"{{count}} நிமிடங்களுக்குள்\",\r\n      ago: \"{{count}} நிமிடங்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  xMinutes: {\r\n    one: {\r\n      default: \"1 நிமிடம்\",\r\n      in: \"1 நிமிடத்தில்\",\r\n      ago: \"1 நிமிடம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} நிமிடங்கள்\",\r\n      in: \"{{count}} நிமிடங்களில்\",\r\n      ago: \"{{count}} நிமிடங்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  aboutXHours: {\r\n    one: {\r\n      default: \"சுமார் 1 மணி நேரம்\",\r\n      in: \"சுமார் 1 மணி நேரத்தில்\",\r\n      ago: \"சுமார் 1 மணி நேரத்திற்கு முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"சுமார் {{count}} மணி நேரம்\",\r\n      in: \"சுமார் {{count}} மணி நேரத்திற்கு முன்பு\",\r\n      ago: \"சுமார் {{count}} மணி நேரத்தில்\",\r\n    },\r\n  },\r\n\r\n  xHours: {\r\n    one: {\r\n      default: \"1 மணி நேரம்\",\r\n      in: \"1 மணி நேரத்தில்\",\r\n      ago: \"1 மணி நேரத்திற்கு முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} மணி நேரம்\",\r\n      in: \"{{count}} மணி நேரத்தில்\",\r\n      ago: \"{{count}} மணி நேரத்திற்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  xDays: {\r\n    one: {\r\n      default: \"1 நாள்\",\r\n      in: \"1 நாளில்\",\r\n      ago: \"1 நாள் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} நாட்கள்\",\r\n      in: \"{{count}} நாட்களில்\",\r\n      ago: \"{{count}} நாட்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    one: {\r\n      default: \"சுமார் 1 வாரம்\",\r\n      in: \"சுமார் 1 வாரத்தில்\",\r\n      ago: \"சுமார் 1 வாரம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"சுமார் {{count}} வாரங்கள்\",\r\n      in: \"சுமார் {{count}} வாரங்களில்\",\r\n      ago: \"சுமார் {{count}} வாரங்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  xWeeks: {\r\n    one: {\r\n      default: \"1 வாரம்\",\r\n      in: \"1 வாரத்தில்\",\r\n      ago: \"1 வாரம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} வாரங்கள்\",\r\n      in: \"{{count}} வாரங்களில்\",\r\n      ago: \"{{count}} வாரங்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  aboutXMonths: {\r\n    one: {\r\n      default: \"சுமார் 1 மாதம்\",\r\n      in: \"சுமார் 1 மாதத்தில்\",\r\n      ago: \"சுமார் 1 மாதத்திற்கு முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"சுமார் {{count}} மாதங்கள்\",\r\n      in: \"சுமார் {{count}} மாதங்களில்\",\r\n      ago: \"சுமார் {{count}} மாதங்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  xMonths: {\r\n    one: {\r\n      default: \"1 மாதம்\",\r\n      in: \"1 மாதத்தில்\",\r\n      ago: \"1 மாதம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} மாதங்கள்\",\r\n      in: \"{{count}} மாதங்களில்\",\r\n      ago: \"{{count}} மாதங்களுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  aboutXYears: {\r\n    one: {\r\n      default: \"சுமார் 1 வருடம்\",\r\n      in: \"சுமார் 1 ஆண்டில்\",\r\n      ago: \"சுமார் 1 வருடம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"சுமார் {{count}} ஆண்டுகள்\",\r\n      in: \"சுமார் {{count}} ஆண்டுகளில்\",\r\n      ago: \"சுமார் {{count}} ஆண்டுகளுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  xYears: {\r\n    one: {\r\n      default: \"1 வருடம்\",\r\n      in: \"1 ஆண்டில்\",\r\n      ago: \"1 வருடம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} ஆண்டுகள்\",\r\n      in: \"{{count}} ஆண்டுகளில்\",\r\n      ago: \"{{count}} ஆண்டுகளுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  overXYears: {\r\n    one: {\r\n      default: \"1 வருடத்திற்கு மேல்\",\r\n      in: \"1 வருடத்திற்கும் மேலாக\",\r\n      ago: \"1 வருடம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"{{count}} ஆண்டுகளுக்கும் மேலாக\",\r\n      in: \"{{count}} ஆண்டுகளில்\",\r\n      ago: \"{{count}} ஆண்டுகளுக்கு முன்பு\",\r\n    },\r\n  },\r\n\r\n  almostXYears: {\r\n    one: {\r\n      default: \"கிட்டத்தட்ட 1 வருடம்\",\r\n      in: \"கிட்டத்தட்ட 1 ஆண்டில்\",\r\n      ago: \"கிட்டத்தட்ட 1 வருடம் முன்பு\",\r\n    },\r\n    other: {\r\n      default: \"கிட்டத்தட்ட {{count}} ஆண்டுகள்\",\r\n      in: \"கிட்டத்தட்ட {{count}} ஆண்டுகளில்\",\r\n      ago: \"கிட்டத்தட்ட {{count}} ஆண்டுகளுக்கு முன்பு\",\r\n    },\r\n  },\r\n};\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const tense = options?.addSuffix\r\n    ? options.comparison && options.comparison > 0\r\n      ? \"in\"\r\n      : \"ago\"\r\n    : \"default\";\r\n\r\n  const tokenValue = formatDistanceLocale[token];\r\n\r\n  if (!isPluralType(tokenValue)) return tokenValue[tense];\r\n\r\n  if (count === 1) {\r\n    return tokenValue.one[tense];\r\n  } else {\r\n    return tokenValue.other[tense].replace(\"{{count}}\", String(count));\r\n  }\r\n};\r\n",
+      "start": 1756473948570,
+      "end": 1756473948615,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948615,
+      "end": 1756473948615,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948615,
+      "end": 1756473948616,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948616,
+      "end": 1756473948616,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948616,
+      "end": 1756473948617,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948617,
+      "end": 1756473948617,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948617,
+      "end": 1756473948617,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948617,
+      "end": 1756473948617,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948617,
+      "end": 1756473948617,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948617,
+      "end": 1756473948617,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948617,
+      "end": 1756473948617,
+      "order": "normal"
+    }
+  ]
+}

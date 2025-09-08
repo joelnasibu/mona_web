@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/client/shop/product/quantity.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div\r\n    class=\"d-flex qty text-caption rounded overflow-hidden\"\r\n    style=\"width: fit-content\"\r\n  >\r\n    <div\r\n      class=\"px-2 font-weight-bold cursor-pointer btn-qty text-black\"\r\n      :class=\"{ 'py-1 px-3': !small }\"\r\n      @click=\"qtyModifier(false)\"\r\n    >\r\n      -\r\n    </div>\r\n    <v-divider vertical></v-divider>\r\n    <div class=\"px-2 font-weight-bold\" :class=\"{ 'py-1 px-3': !small }\">\r\n      {{ quantity }}\r\n    </div>\r\n    <v-divider vertical></v-divider>\r\n    <div\r\n      class=\"px-2 font-weight-bold cursor-pointer btn-qty text-black\"\r\n      :class=\"{ 'py-1 px-3': !small }\"\r\n      @click=\"qtyModifier(true)\"\r\n    >\r\n      +\r\n    </div>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst emits = defineEmits([\"increase\"]);\r\nconst props = defineProps({\r\n  quantity: [Number, String],\r\n  small: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n});\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { toggleSnackbar } = useAppStore();\r\n\r\nconst qtyModifier = (increase) => {\r\n  if (increase)\r\n    if (props.quantity === 10)\r\n      toggleSnackbar({\r\n        status: true,\r\n        type: \"warning\",\r\n        message: \"You cannot purchase more than 10 items for this product\",\r\n      });\r\n    else emits(\"increase\", increase);\r\n  else if (props.quantity > 1) emits(\"increase\", increase);\r\n};\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.qty {\r\n  border: 1px solid rgba(var(--v-theme-primary));\r\n}\r\n\r\n.btn-qty {\r\n  background-color: rgba(var(--v-theme-primary), 0.2);\r\n}\r\n</style>\r\n",
+      "start": 1756473937763,
+      "end": 1756473938013,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473938013,
+      "end": 1756473938013,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"d-flex qty text-caption rounded overflow-hidden\",\n  style: {\"width\":\"fit-content\"}\n}\n\nimport { useAppStore } from \"~/store/app\";\r\n\nconst _sfc_main = {\n  __name: 'quantity',\n  props: {\r\n  quantity: [Number, String],\r\n  small: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n},\n  emits: [\"increase\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst emits = __emit;\r\nconst props = __props;\r\n\r\nconst { toggleSnackbar } = useAppStore();\r\n\r\nconst qtyModifier = (increase) => {\r\n  if (increase)\r\n    if (props.quantity === 10)\r\n      toggleSnackbar({\r\n        status: true,\r\n        type: \"warning\",\r\n        message: \"You cannot purchase more than 10 items for this product\",\r\n      });\r\n    else emits(\"increase\", increase);\r\n  else if (props.quantity > 1) emits(\"increase\", increase);\r\n};\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_divider = _resolveComponent(\"v-divider\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"px-2 font-weight-bold cursor-pointer btn-qty text-black\", { 'py-1 px-3': !__props.small }]),\n      onClick: _cache[0] || (_cache[0] = $event => (qtyModifier(false)))\n    }, \" - \", 2),\n    _createVNode(_component_v_divider, { vertical: \"\" }),\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"px-2 font-weight-bold\", { 'py-1 px-3': !__props.small }])\n    }, _toDisplayString(__props.quantity), 3),\n    _createVNode(_component_v_divider, { vertical: \"\" }),\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"px-2 font-weight-bold cursor-pointer btn-qty text-black\", { 'py-1 px-3': !__props.small }]),\n      onClick: _cache[1] || (_cache[1] = $event => (qtyModifier(true)))\n    }, \" + \", 2)\n  ]))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/client/shop/product/quantity.vue?vue&type=style&index=0&scoped=ca6fd648&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-ca6fd648\"]])",
+      "start": 1756473938013,
+      "end": 1756473938016,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473938016,
+      "end": 1756473938016,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938016,
+      "end": 1756473938016,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473938016,
+      "end": 1756473938016,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { normalizeClass as _normalizeClass, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, createVNode as _createVNode, toDisplayString as _toDisplayString, openBlock as _openBlock, createElementBlock as _createElementBlock } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"d-flex qty text-caption rounded overflow-hidden\",\n  style: {\"width\":\"fit-content\"}\n}\n\nimport { useAppStore } from \"~/store/app\";\r\n\nconst _sfc_main = {\n  __name: 'quantity',\n  props: {\r\n  quantity: [Number, String],\r\n  small: {\r\n    type: Boolean,\r\n    default: false,\r\n  },\r\n},\n  emits: [\"increase\"],\n  setup(__props, { emit: __emit }) {\n\r\nconst emits = __emit;\r\nconst props = __props;\r\n\r\nconst { toggleSnackbar } = useAppStore();\r\n\r\nconst qtyModifier = (increase) => {\r\n  if (increase)\r\n    if (props.quantity === 10)\r\n      toggleSnackbar({\r\n        status: true,\r\n        type: \"warning\",\r\n        message: \"You cannot purchase more than 10 items for this product\",\r\n      });\r\n    else emits(\"increase\", increase);\r\n  else if (props.quantity > 1) emits(\"increase\", increase);\r\n};\r\n\nreturn (_ctx, _cache) => {\n                                                             \n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"px-2 font-weight-bold cursor-pointer btn-qty text-black\", { 'py-1 px-3': !__props.small }]),\n      onClick: _cache[0] || (_cache[0] = $event => (qtyModifier(false)))\n    }, \" - \", 2),\n    _createVNode(_component_v_divider, { vertical: \"\" }),\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"px-2 font-weight-bold\", { 'py-1 px-3': !__props.small }])\n    }, _toDisplayString(__props.quantity), 3),\n    _createVNode(_component_v_divider, { vertical: \"\" }),\n    _createElementVNode(\"div\", {\n      class: _normalizeClass([\"px-2 font-weight-bold cursor-pointer btn-qty text-black\", { 'py-1 px-3': !__props.small }]),\n      onClick: _cache[1] || (_cache[1] = $event => (qtyModifier(true)))\n    }, \" + \", 2)\n  ]))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/client/shop/product/quantity.vue?vue&type=style&index=0&scoped=ca6fd648&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-ca6fd648\"]])\n\n/* Vuetify */\nimport { VDivider as _component_v_divider } from \"vuetify/lib/components/VDivider/index.mjs\"\n\n",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473938017,
+      "end": 1756473938017,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473938017,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473938019,
+      "end": 1756473938019,
+      "order": "normal"
+    }
+  ]
+}
