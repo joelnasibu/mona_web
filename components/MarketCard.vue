@@ -45,7 +45,7 @@ import Farmers from '@/assets/images/markets/Farmers_Market.png'
 import { ShoppingBag, Shirt, Home, Flower2, HandPlatter, Gem, Store, Leaf } from 'lucide-vue-next'
 
 const markets = [
-  { name: 'Adams Market', description: 'Fresh produce', link: '#', image: Adams, icon: ShoppingBag },
+  { name: 'Adams Market', description: 'Fresh produce', link: '/shop', image: Adams, icon: ShoppingBag },
   { name: 'Gikomba Market', description: 'Fashion & Everyday Essentials', link: '#', image: Gikomba, icon: Shirt },
   { name: 'Toi Market', description: 'Fresh Produce & Home Goods', link: '#', image: Toi, icon: Home },
   { name: 'City Market', description: 'Flowers, Food & Lifestyle', link: '#', image: City, icon: Flower2 },
