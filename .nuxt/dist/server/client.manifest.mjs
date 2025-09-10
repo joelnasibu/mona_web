@@ -1,1 +1,1 @@
-export { default } from "file:///C:/Users/ADMIN/Documents/GitHub/nairobi-markets/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
+export { default } from "file:///C:/Users/user/Documents/Projects/afrimarketz/web/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
