@@ -44,13 +44,13 @@ import { ShoppingBag, Shirt, Home, Flower2, HandPlatter, Gem, Store, Leaf } from
 
 const markets = [
   { name: 'Adams Market', description: 'Fresh produce', link: '/shop', image: Adams, icon: ShoppingBag },
-  { name: 'Gikomba Market', description: 'Fashion & Everyday Essentials', link: '#', image: Gikomba, icon: Shirt },
-  { name: 'Toi Market', description: 'Fresh Produce & Home Goods', link: '#', image: Toi, icon: Home },
-  { name: 'City Market', description: 'Flowers, Food & Lifestyle', link: '#', image: City, icon: Flower2 },
-  { name: 'Kariokor Market', description: 'Crafts & Handmade Goods ', link: '#', image: Kariokor, icon: HandPlatter },
-  { name: 'Maasai Market', description: 'Culture & Design', link: '#', image: Maasai, icon: Gem },
-  { name: 'Village Market', description: 'Premium Shopping & Crafts', link: '#', image: Village, icon: Store },
-  { name: 'Nairobi Farmers Market', description: 'Organic & Sustainable Living', link: '#', image: Farmers, icon: Leaf }
+  { name: 'Gikomba Market', description: 'Fashion & Everyday Essentials', link: '/shop', image: Gikomba, icon: Shirt },
+  { name: 'Toi Market', description: 'Fresh Produce & Home Goods', link: '/shop', image: Toi, icon: Home },
+  { name: 'City Market', description: 'Flowers, Food & Lifestyle', link: '/shop', image: City, icon: Flower2 },
+  { name: 'Kariokor Market', description: 'Crafts & Handmade Goods ', link: '/shop', image: Kariokor, icon: HandPlatter },
+  { name: 'Maasai Market', description: 'Culture & Design', link: '/shop', image: Maasai, icon: Gem },
+  { name: 'Village Market', description: 'Premium Shopping & Crafts', link: '/shop', image: Village, icon: Store },
+  { name: 'Nairobi Farmers Market', description: 'Organic & Sustainable Living', link: '/shop', image: Farmers, icon: Leaf }
 ]
 </script>
 

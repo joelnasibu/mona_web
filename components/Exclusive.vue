@@ -17,6 +17,7 @@
           md="6"
           lg="3"
           class="grid-card d-flex flex-column align-center"
+          @click="goToProduct(product)"
         >
           <!-- Product Image -->
           <v-img
@@ -39,10 +40,18 @@
               </div>
             </div>
 
-            <!-- Icons in Orange -->
+            <!-- Action Icons -->
             <div class="d-flex gap-2">
-              <Heart size="18" class="cursor-pointer orange--text" />
-              <ShoppingCart size="18" class="cursor-pointer orange--text" />
+              <Heart
+                size="18"
+                class="cursor-pointer orange--text"
+                @click.stop="goToWishlist(product)"
+              />
+              <ShoppingCart
+                size="18"
+                class="cursor-pointer orange--text"
+                @click.stop="goToCart(product)"
+              />
             </div>
           </div>
         </v-col>
@@ -53,6 +62,11 @@
 
 <script setup>
 import { Heart, ShoppingCart } from "lucide-vue-next";
+import { useRouter } from "vue-router";
+import { useCartStore } from "~/store/cart";
+
+const router = useRouter();
+const cartStore = useCartStore();
 
 const products = [
   { name: "Electronics", price: 10, img: "/images/categories/electronics.jpeg" },
@@ -64,6 +78,32 @@ const products = [
   { name: "Fashion", price: 70, img: "/images/categories/fashion.jpeg" },
   { name: "Toys", price: 80, img: "/images/categories/toys.jpeg" },
 ];
+
+// Navigate to dynamic product page
+const goToProduct = (product) => {
+  const productSlug = product.name.toLowerCase().replace(/\s+/g, "-");
+  router.push(`/shop/${productSlug}`);
+};
+
+// Save to wishlist
+const goToWishlist = (product) => {
+  let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+  wishlist.push(product);
+  localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  router.push("/profile/wishlist");
+};
+
+// Save to cart
+const goToCart = (product) => {
+  const payload = {
+    productId: product.name,
+    name: product.name,
+    price: product.price,
+    img: product.img,
+    quantity: 1,
+  };
+  cartStore.toggleProductInCart(payload);
+};
 </script>
 
 <style scoped>
@@ -74,14 +114,13 @@ const products = [
 /* wrapper adds breathing room between sections */
 .section-wrapper {
   max-width: 1200px;
-  margin: 0 auto 64px auto; /* spacing between containers */
+  margin: 0 auto 64px auto;
   padding-left: 16px;
   padding-right: 16px;
-  margin-bottom: 0%;
   margin-top: -30px;
 }
 
-/* interactive grid card (same as Featured Product) */
+/* interactive grid card */
 .grid-card {
   background-color: #fff;
   border-radius: 12px;
@@ -102,7 +141,6 @@ const products = [
   flex-direction: column;
   align-items: flex-start;
   padding: 0 8px;
- 
 }
 
 .section-underline {
@@ -111,7 +149,6 @@ const products = [
   background-color: #e0e0e0;
 }
 
-/* Orange theme */
 .orange--text {
   color: #ff6600 !important;
 }

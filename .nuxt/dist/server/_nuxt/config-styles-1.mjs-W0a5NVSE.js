@@ -1,5 +1,0 @@
-const config_vue_vue_type_style_index_0_scoped_3566152a_lang = ".transform-180[data-v-3566152a]{transform:rotate(180deg)!important;transition:transform .3s ease}.transition-width[data-v-3566152a]{transition:width .3s ease-in-out}";
-export {
-  config_vue_vue_type_style_index_0_scoped_3566152a_lang as default
-};
-//# sourceMappingURL=config-styles-1.mjs-W0a5NVSE.js.map

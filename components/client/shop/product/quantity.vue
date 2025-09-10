@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-const emits = defineEmits(["increase"]);
+const emits = defineEmits(["change"]); // single event
 const props = defineProps({
   quantity: [Number, String],
   small: {
@@ -38,18 +38,27 @@ const props = defineProps({
 import { useAppStore } from "~/store/app";
 const { toggleSnackbar } = useAppStore();
 
-const qtyModifier = (increase) => {
-  if (increase)
-    if (props.quantity === 10)
+const qtyModifier = (change) => {
+  if (change > 0) {
+    // increase
+    if (props.quantity === 10) {
       toggleSnackbar({
         status: true,
         type: "warning",
         message: "You cannot purchase more than 10 items for this product",
       });
-    else emits("increase", increase);
-  else if (props.quantity > 1) emits("increase", increase);
+    } else {
+      emits("change", +1); // send +1
+    }
+  } else {
+    // decrease
+    if (props.quantity > 1) {
+      emits("change", -1); // send -1
+    }
+  }
 };
 </script>
+
 
 <style lang="css" scoped>
 .qty {
