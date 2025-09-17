@@ -57,7 +57,11 @@
     "jsonwebtoken": "9.0.2",
     "jwa": "2.0.1",
     "jwks-rsa": "3.2.0",
+<<<<<<< HEAD
     "jws": "4.0.0",
+=======
+    "jws": "3.2.2",
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
     "limiter": "1.1.5",
     "lodash.clonedeep": "4.5.0",
     "lodash.includes": "4.3.0",
@@ -69,6 +73,10 @@
     "lodash.once": "4.1.1",
     "lru-cache": "6.0.0",
     "lru-memoizer": "2.3.0",
+<<<<<<< HEAD
+=======
+    "lucide-vue-next": "0.542.0",
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
     "ms": "2.1.3",
     "node-fetch": "2.7.0",
     "node-forge": "1.3.1",

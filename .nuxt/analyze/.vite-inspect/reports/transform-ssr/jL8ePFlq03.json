@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VDataTable/VDataTableFooter.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { mergeProps as _mergeProps, createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VDataTableFooter.css\";\r\n\r\n// Components\r\nimport { VPagination } from \"../VPagination/index.mjs\";\r\nimport { VSelect } from \"../VSelect/index.mjs\"; // Composables\r\nimport { usePagination } from \"./composables/paginate.mjs\";\r\nimport { useLocale } from \"../../composables/locale.mjs\"; // Utilities\r\nimport { computed } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVDataTableFooterProps = propsFactory({\r\n  prevIcon: {\r\n    type: String,\r\n    default: '$prev'\r\n  },\r\n  nextIcon: {\r\n    type: String,\r\n    default: '$next'\r\n  },\r\n  firstIcon: {\r\n    type: String,\r\n    default: '$first'\r\n  },\r\n  lastIcon: {\r\n    type: String,\r\n    default: '$last'\r\n  },\r\n  itemsPerPageText: {\r\n    type: String,\r\n    default: '$vuetify.dataFooter.itemsPerPageText'\r\n  },\r\n  pageText: {\r\n    type: String,\r\n    default: '$vuetify.dataFooter.pageText'\r\n  },\r\n  firstPageLabel: {\r\n    type: String,\r\n    default: '$vuetify.dataFooter.firstPage'\r\n  },\r\n  prevPageLabel: {\r\n    type: String,\r\n    default: '$vuetify.dataFooter.prevPage'\r\n  },\r\n  nextPageLabel: {\r\n    type: String,\r\n    default: '$vuetify.dataFooter.nextPage'\r\n  },\r\n  lastPageLabel: {\r\n    type: String,\r\n    default: '$vuetify.dataFooter.lastPage'\r\n  },\r\n  itemsPerPageOptions: {\r\n    type: Array,\r\n    default: () => [{\r\n      value: 10,\r\n      title: '10'\r\n    }, {\r\n      value: 25,\r\n      title: '25'\r\n    }, {\r\n      value: 50,\r\n      title: '50'\r\n    }, {\r\n      value: 100,\r\n      title: '100'\r\n    }, {\r\n      value: -1,\r\n      title: '$vuetify.dataFooter.itemsPerPageAll'\r\n    }]\r\n  },\r\n  showCurrentPage: Boolean\r\n}, 'VDataTableFooter');\r\nexport const VDataTableFooter = genericComponent()({\r\n  name: 'VDataTableFooter',\r\n  props: makeVDataTableFooterProps(),\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      t\r\n    } = useLocale();\r\n    const {\r\n      page,\r\n      pageCount,\r\n      startIndex,\r\n      stopIndex,\r\n      itemsLength,\r\n      itemsPerPage,\r\n      setItemsPerPage\r\n    } = usePagination();\r\n    const itemsPerPageOptions = computed(() => props.itemsPerPageOptions.map(option => {\r\n      if (typeof option === 'number') {\r\n        return {\r\n          value: option,\r\n          title: option === -1 ? t('$vuetify.dataFooter.itemsPerPageAll') : String(option)\r\n        };\r\n      }\r\n      return {\r\n        ...option,\r\n        title: t(option.title)\r\n      };\r\n    }));\r\n    useRender(() => {\r\n      const paginationProps = VPagination.filterProps(props);\r\n      return _createVNode(\"div\", {\r\n        \"class\": \"v-data-table-footer\"\r\n      }, [slots.prepend?.(), _createVNode(\"div\", {\r\n        \"class\": \"v-data-table-footer__items-per-page\"\r\n      }, [_createVNode(\"span\", null, [t(props.itemsPerPageText)]), _createVNode(VSelect, {\r\n        \"items\": itemsPerPageOptions.value,\r\n        \"modelValue\": itemsPerPage.value,\r\n        \"onUpdate:modelValue\": v => setItemsPerPage(Number(v)),\r\n        \"density\": \"compact\",\r\n        \"variant\": \"outlined\",\r\n        \"hide-details\": true\r\n      }, null)]), _createVNode(\"div\", {\r\n        \"class\": \"v-data-table-footer__info\"\r\n      }, [_createVNode(\"div\", null, [t(props.pageText, !itemsLength.value ? 0 : startIndex.value + 1, stopIndex.value, itemsLength.value)])]), _createVNode(\"div\", {\r\n        \"class\": \"v-data-table-footer__pagination\"\r\n      }, [_createVNode(VPagination, _mergeProps({\r\n        \"modelValue\": page.value,\r\n        \"onUpdate:modelValue\": $event => page.value = $event,\r\n        \"density\": \"comfortable\",\r\n        \"first-aria-label\": props.firstPageLabel,\r\n        \"last-aria-label\": props.lastPageLabel,\r\n        \"length\": pageCount.value,\r\n        \"next-aria-label\": props.nextPageLabel,\r\n        \"previous-aria-label\": props.prevPageLabel,\r\n        \"rounded\": true,\r\n        \"show-first-last-page\": true,\r\n        \"total-visible\": props.showCurrentPage ? 1 : 0,\r\n        \"variant\": \"plain\"\r\n      }, paginationProps), null)])]);\r\n    });\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VDataTableFooter.mjs.map",
+      "start": 1756474006042,
+      "end": 1756474006203,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474006203,
+      "end": 1756474006203,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474006203,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474006205,
+      "end": 1756474006205,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006205,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474006205,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474006206,
+      "end": 1756474006206,
+      "order": "normal"
+    }
+  ]
+}

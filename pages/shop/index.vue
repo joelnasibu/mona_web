@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <ClientOnly>
     <div class="px-3 px-md-0">
       <CoreMidScreenLayout :xl="9">
@@ -126,3 +127,24 @@ useHead({
 </script>
 
 <style lang="css" scoped></style>
+=======
+  <v-container fluid class="pa-0">
+   
+    <HeroSlider />
+     <CategoriesSection/>
+     <FeaturedProducts />
+     <LatestProducts />
+     <Exclusive />
+     <Banner />
+     <Deals />
+     <JustForyou />
+     
+  </v-container>
+</template>
+
+<script setup>
+import HeroSlider from '~/components/HeroSlider.vue'
+import CategoriesSection from '~/components/CategoriesSection.vue'
+import FeaturedProducts from '~/components/FeaturedProducts.vue'
+</script>
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041

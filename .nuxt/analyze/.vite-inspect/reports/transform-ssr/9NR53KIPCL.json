@@ -1,0 +1,252 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VDatePicker/VDatePickerMonths.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { createVNode as _createVNode, mergeProps as _mergeProps } from \"vue\";\r\n// Styles\r\nimport \"./VDatePickerMonths.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\"; // Composables\r\nimport { useDate } from \"../../composables/date/index.mjs\";\r\nimport { useProxiedModel } from \"../../composables/proxiedModel.mjs\"; // Utilities\r\nimport { computed, watchEffect } from 'vue';\r\nimport { convertToUnit, createRange, genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const makeVDatePickerMonthsProps = propsFactory({\r\n  color: String,\r\n  height: [String, Number],\r\n  modelValue: Number\r\n}, 'VDatePickerMonths');\r\nexport const VDatePickerMonths = genericComponent()({\r\n  name: 'VDatePickerMonths',\r\n  props: makeVDatePickerMonthsProps(),\r\n  emits: {\r\n    'update:modelValue': date => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const adapter = useDate();\r\n    const model = useProxiedModel(props, 'modelValue');\r\n    const months = computed(() => {\r\n      let date = adapter.startOfYear(adapter.date());\r\n      return createRange(12).map(i => {\r\n        const text = adapter.format(date, 'monthShort');\r\n        date = adapter.getNextMonth(date);\r\n        return {\r\n          text,\r\n          value: i\r\n        };\r\n      });\r\n    });\r\n    watchEffect(() => {\r\n      model.value = model.value ?? adapter.getMonth(adapter.date());\r\n    });\r\n    useRender(() => _createVNode(\"div\", {\r\n      \"class\": \"v-date-picker-months\",\r\n      \"style\": {\r\n        height: convertToUnit(props.height)\r\n      }\r\n    }, [_createVNode(\"div\", {\r\n      \"class\": \"v-date-picker-months__content\"\r\n    }, [months.value.map((month, i) => {\r\n      const btnProps = {\r\n        active: model.value === i,\r\n        color: model.value === i ? props.color : undefined,\r\n        rounded: true,\r\n        text: month.text,\r\n        variant: model.value === month.value ? 'flat' : 'text',\r\n        onClick: () => onClick(i)\r\n      };\r\n      function onClick(i) {\r\n        model.value = i;\r\n      }\r\n      return slots.month?.({\r\n        month,\r\n        i,\r\n        props: btnProps\r\n      }) ?? _createVNode(VBtn, _mergeProps({\r\n        \"key\": \"month\"\r\n      }, btnProps, {\r\n        \"onClick\": () => onClick(i)\r\n      }), null);\r\n    })])]));\r\n    return {};\r\n  }\r\n});\r\n//# sourceMappingURL=VDatePickerMonths.mjs.map",
+      "start": 1756474011940,
+      "end": 1756474012254,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474012254,
+      "end": 1756474012254,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474012254,
+      "end": 1756474012254,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474012255,
+      "end": 1756474012255,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474012255,
+      "end": 1756474012256,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474012256,
+      "end": 1756474012256,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474012256,
+      "end": 1756474012261,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474012261,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474012262,
+      "end": 1756474012262,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474012263,
+      "end": 1756474012263,
+      "order": "normal"
+    }
+  ]
+}

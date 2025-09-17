@@ -73,7 +73,7 @@
             </div>
             <div class="text-h5" style="max-width: 20ch">
               <b><span class="text-primary-accent">Attract top talent</span>
-                with our powerful recruiting tools!
+                with our powerful recruiting tools.
               </b>
             </div>
             <div class="my-4 text-subtitle-1 text-grey-darken-1" style="max-width: 60ch">

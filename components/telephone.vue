@@ -1,30 +1,71 @@
 <template>
-
   <div :id="`field_${handle_id}`">
-    <v-text-field :label="label" :maxLength="9" v-model.number="phone" @keypress="digitsOnly" :id="handle_id"
-      :rules="required ? number() : []" :loading="loading" :hide-details="!required">
+    <v-text-field
+      :label="label"
+      :maxLength="9"
+      v-model.number="phone"
+      @keypress="digitsOnly"
+      :id="handle_id"
+      :rules="required ? number() : []"
+      :loading="loading"
+      :hide-details="!required"
+    >
       <!-- :prefix="getCountryCallingCode(country) ?? '+243'" -->
       <template v-slot:prepend-inner>
-        <div class="d-flex align-center justify-center append text-caption" :id="`country_${handle_id}`">
+        <div
+          class="d-flex align-center justify-center append text-caption"
+          :id="`country_${handle_id}`"
+        >
           <!-- 
           <flag :iso="country.cca2" :title="chainCountryName(country)" :squared="false" /> -->
-          <span class="mx-2">{{
-            getCountryCallingCode(country) ?? "+243"
-          }}</span>
-          <v-icon class="icon" icon="mdi-chevron-down" :class="{ 'transform-180deg': menu }" size="13"
-            color="grey"></v-icon>
+          <span class="mx-2">{{ getCountryCallingCode(country) ?? "+243" }}</span>
+          <v-icon
+            class="icon"
+            icon="mdi-chevron-down"
+            :class="{ 'transform-180deg': menu }"
+            size="13"
+            color="grey"
+          ></v-icon>
         </div>
       </template>
-      <v-menu :activator="`#country_${handle_id}`" :close-on-content-click="false" v-model="menu">
-        <v-list class="pa-0 position-relative card-outlined rounded-lg mt-2 mb-4 ml-n3 hide-scrollbar" max-height="250"
-          :width="inputWidth" density="compact" lines="false">
-          <div class="pa-0 text-caption bg-grey-lighten-3 position-sticky" style="top: 0; z-index: 1">
-            <input type="search" :placeholder="`Filter (${allCountries.length}) items...`"
-              class="px-3 w-100 filter-input" id="searchInput" v-model="search" autofocus autocomplete="off" />
+      <v-menu
+        :activator="`#country_${handle_id}`"
+        :close-on-content-click="false"
+        v-model="menu"
+      >
+        <v-list
+          class="pa-0 position-relative card-outlined rounded-lg mt-2 mb-4 ml-n3 hide-scrollbar"
+          max-height="250"
+          :width="inputWidth"
+          density="compact"
+          lines="false"
+        >
+          <div
+            class="pa-0 text-caption bg-grey-lighten-3 position-sticky"
+            style="top: 0; z-index: 1"
+          >
+            <input
+              type="search"
+              :placeholder="`Filter (${allCountries.length}) items...`"
+              class="px-3 w-100 filter-input"
+              id="searchInput"
+              v-model="search"
+              autofocus
+              autocomplete="off"
+            />
           </div>
           <v-divider></v-divider>
-          <div v-for="(item, i) in allCountries" :key="i" class="text-caption" :title="chainCountryName(item)">
-            <v-list-item color="secondary" @click="setCountry(item)" :active="country == item">
+          <div
+            v-for="(item, i) in allCountries"
+            :key="i"
+            class="text-caption"
+            :title="chainCountryName(item)"
+          >
+            <v-list-item
+              color="secondary"
+              @click="setCountry(item)"
+              :active="country == item"
+            >
               <template v-slot:prepend>
                 <div class="pr-3">
                   <!-- <flag :iso="item.cca2" :title="item.name.official" :squared="false" /> -->
@@ -45,7 +86,6 @@
       </v-menu>
     </v-text-field>
   </div>
-
 </template>
 
 <script setup>
@@ -68,210 +108,198 @@ const { number } = useRules();
 
 const country = ref({
   name: {
-    common: "DR Congo",
-    official: "Democratic Republic of the Congo",
+    common: "Kenya",
+    official: "Republic of Kenya",
     nativeName: {
-      fra: {
-        official: "République démocratique du Congo",
-        common: "RD Congo",
-      },
-      kon: {
-        official: "Repubilika ya Kongo Demokratiki",
-        common: "Repubilika ya Kongo Demokratiki",
-      },
-      lin: {
-        official: "Republiki ya Kongó Demokratiki",
-        common: "Republiki ya Kongó Demokratiki",
-      },
-      lua: {
-        official: "Ditunga dia Kongu wa Mungalaata",
-        common: "Ditunga dia Kongu wa Mungalaata",
+      eng: {
+        official: "Republic of Kenya",
+        common: "Kenya",
       },
       swa: {
-        official: "Jamhuri ya Kidemokrasia ya Kongo",
-        common: "Jamhuri ya Kidemokrasia ya Kongo",
+        official: "Republic of Kenya",
+        common: "Kenya",
       },
     },
   },
-  tld: [".cd"],
-  cca2: "CD",
-  ccn3: "180",
-  cca3: "COD",
-  cioc: "COD",
+  tld: [".ke"],
+  cca2: "KE",
+  ccn3: "404",
+  cioc: "KEN",
   independent: true,
   status: "officially-assigned",
   unMember: true,
   currencies: {
-    CDF: {
-      name: "Congolese franc",
-      symbol: "FC",
+    KES: {
+      symbol: "Sh",
+      name: "Kenyan shilling",
     },
   },
   idd: {
     root: "+2",
-    suffixes: ["43"],
+    suffixes: ["54"],
   },
-  capital: ["Kinshasa"],
-  altSpellings: [
-    "CD",
-    "DR Congo",
-    "Congo-Kinshasa",
-    "Congo, the Democratic Republic of the",
-    "DRC",
-  ],
+  capital: ["Nairobi"],
+  altSpellings: ["KE", "Republic of Kenya", "Jamhuri ya Kenya"],
   region: "Africa",
-  subregion: "Middle Africa",
+  subregion: "Eastern Africa",
   languages: {
-    fra: "French",
-    kon: "Kikongo",
-    lin: "Lingala",
-    lua: "Tshiluba",
+    eng: "English",
     swa: "Swahili",
   },
-  translations: {
-    ara: {
-      official: "جمهورية الكونغو الديمقراطية",
-      common: "الكونغو",
-    },
-    bre: {
-      official: "Republik Demokratel Kongo",
-      common: "Kongo-Kinshasa",
-    },
-    ces: {
-      official: "Demokratická republika Kongo",
-      common: "DR Kongo",
-    },
-    cym: {
-      official: "Gweriniaeth Ddemocrataidd Congo",
-      common: "Gweriniaeth Ddemocrataidd Congo",
-    },
-    deu: {
-      official: "Demokratische Republik Kongo",
-      common: "Kongo (Dem. Rep.)",
-    },
-    est: {
-      official: "Kongo Demokraatlik Vabariik",
-      common: "Kongo DV",
-    },
-    fin: {
-      official: "Kongon demokraattinen tasavalta",
-      common: "Kongon demokraattinen tasavalta",
-    },
-    fra: {
-      official: "République démocratique du Congo",
-      common: "Congo (Rép. dém.)",
-    },
-    hrv: {
-      official: "Demokratska Republika Kongo",
-      common: "Kongo, Demokratska Republika",
-    },
-    hun: {
-      official: "Kongói Demokratikus Köztársaság",
-      common: "Kongói Demokratikus Köztársaság",
-    },
-    ita: {
-      official: "Repubblica Democratica del Congo",
-      common: "Congo (Rep. Dem.)",
-    },
-    jpn: {
-      official: "コンゴ民主共和国",
-      common: "コンゴ民主共和国",
-    },
-    kor: {
-      official: "콩고 민주 공화국",
-      common: "콩고 민주 공화국",
-    },
-    nld: {
-      official: "Democratische Republiek Congo",
-      common: "Congo (DRC)",
-    },
-    per: {
-      official: "جمهوری دموکراتیک کنگو",
-      common: "کنگو دموکراتیک",
-    },
-    pol: {
-      official: "Demokratyczna Republika Konga",
-      common: "Demokratyczna Republika Konga",
-    },
-    por: {
-      official: "República Democrática do Congo",
-      common: "República Democrática do Congo",
-    },
-    rus: {
-      official: "Демократическая Республика Конго",
-      common: "Демократическая Республика Конго",
-    },
-    slk: {
-      official: "Konžská demokratická republika",
-      common: "Kongo",
-    },
-    spa: {
-      official: "República Democrática del Congo",
-      common: "Congo (Rep. Dem.)",
-    },
-    srp: {
-      official: "Демократска Република Конго",
-      common: "ДР Конго",
-    },
-    swe: {
-      official: "Demokratiska republiken Kongo",
-      common: "Kongo-Kinshasa",
-    },
-    tur: {
-      official: "Kongo Demokratik Cumhuriyeti",
-      common: "Kongo Demokratik Cumhuriyeti",
-    },
-    urd: {
-      official: "جمہوری جمہوریہ کانگو",
-      common: "کانگو",
-    },
-    zho: {
-      official: "刚果民主共和国",
-      common: "民主刚果",
-    },
-  },
-  latlng: [0, 25],
+  latlng: [1.0, 38.0],
   landlocked: false,
-  borders: ["AGO", "BDI", "CAF", "COG", "RWA", "SSD", "TZA", "UGA", "ZMB"],
-  area: 2344858,
+  borders: ["ETH", "SOM", "SSD", "TZA", "UGA"],
+  area: 580367.0,
   demonyms: {
     eng: {
-      f: "Congolese",
-      m: "Congolese",
+      f: "Kenyan",
+      m: "Kenyan",
     },
     fra: {
-      f: "Congolaise",
-      m: "Congolais",
+      f: "Kényane",
+      m: "Kényan",
     },
   },
-  flag: "🇨🇩",
+  cca3: "KEN",
+  translations: {
+    ara: {
+      official: "جمهورية كينيا",
+      common: "كينيا",
+    },
+    bre: {
+      official: "Republik Kenya",
+      common: "Kenya",
+    },
+    ces: {
+      official: "Keňská republika",
+      common: "Keňa",
+    },
+    cym: {
+      official: "Republic of Kenya",
+      common: "Kenya",
+    },
+    deu: {
+      official: "Republik Kenia",
+      common: "Kenia",
+    },
+    est: {
+      official: "Keenia Vabariik",
+      common: "Keenia",
+    },
+    fin: {
+      official: "Kenian tasavalta",
+      common: "Kenia",
+    },
+    fra: {
+      official: "République du Kenya",
+      common: "Kenya",
+    },
+    hrv: {
+      official: "Republika Kenija",
+      common: "Kenija",
+    },
+    hun: {
+      official: "Kenyai Köztársaság",
+      common: "Kenya",
+    },
+    ind: {
+      official: "Republik Kenya",
+      common: "Kenya",
+    },
+    ita: {
+      official: "Repubblica del Kenya",
+      common: "Kenya",
+    },
+    jpn: {
+      official: "ケニア共和国",
+      common: "ケニア",
+    },
+    kor: {
+      official: "케냐 공화국",
+      common: "케냐",
+    },
+    nld: {
+      official: "Republiek Kenia",
+      common: "Kenia",
+    },
+    per: {
+      official: "جمهوری کنیا",
+      common: "کنیا",
+    },
+    pol: {
+      official: "Republika Kenii",
+      common: "Kenia",
+    },
+    por: {
+      official: "República do Quénia",
+      common: "Quénia",
+    },
+    rus: {
+      official: "Республика Кения",
+      common: "Кения",
+    },
+    slk: {
+      official: "Kenská republika",
+      common: "Keňa",
+    },
+    spa: {
+      official: "República de Kenya",
+      common: "Kenia",
+    },
+    srp: {
+      official: "Република Кенија",
+      common: "Кенија",
+    },
+    swe: {
+      official: "Republiken Kenya",
+      common: "Kenya",
+    },
+    tur: {
+      official: "Kenya Cumhuriyeti",
+      common: "Kenya",
+    },
+    urd: {
+      official: "جمہوریہ کینیا",
+      common: "کینیا",
+    },
+    zho: {
+      official: "肯尼亚共和国",
+      common: "肯尼亚",
+    },
+  },
+  flag: "\uD83C\uDDF0\uD83C\uDDEA",
   maps: {
-    googleMaps: "https://goo.gl/maps/KfhNVn6VqdZXWu8n9",
-    openStreetMaps: "https://www.openstreetmap.org/relation/192795",
+    googleMaps: "https://goo.gl/maps/Ni9M7wcCxf8bJHLX8",
+    openStreetMaps: "https://www.openstreetmap.org/relation/192798",
   },
-  population: 108407721,
+  population: 53771300,
   gini: {
-    2012: 42.1,
+    2015: 40.8,
   },
-  fifa: "COD",
+  fifa: "KEN",
   car: {
-    signs: ["CGO"],
-    side: "right",
+    signs: ["EAK"],
+    side: "left",
   },
-  timezones: ["UTC+01:00", "UTC+02:00"],
+  timezones: ["UTC+03:00"],
   continents: ["Africa"],
   flags: {
-    png: "https://flagcdn.com/w320/cd.png",
-    svg: "https://flagcdn.com/cd.svg",
-    alt: "The flag of the Democratic Republic of the Congo has a sky-blue field with a yellow-edged red diagonal band that extends from the lower hoist-side corner to the upper fly-side corner of the field. A large five-pointed yellow star is situated above the diagonal band on the upper hoist side of the field.",
+    png: "https://flagcdn.com/w320/ke.png",
+    svg: "https://flagcdn.com/ke.svg",
+    alt:
+      "The flag of Kenya is composed of three equal horizontal bands of black, red with white top and bottom edges, and green. An emblem comprising a red, black and white Maasai shield covering two crossed white spears is superimposed at the center of the field.",
   },
   coatOfArms: {
-    png: "https://mainfacts.com/media/images/coats_of_arms/cd.png",
-    svg: "https://mainfacts.com/media/images/coats_of_arms/cd.svg",
+    png: "https://mainfacts.com/media/images/coats_of_arms/ke.png",
+    svg: "https://mainfacts.com/media/images/coats_of_arms/ke.svg",
   },
   startOfWeek: "monday",
   capitalInfo: {
-    latlng: [-4.32, 15.3],
+    latlng: [-1.28, 36.82],
+  },
+  postalCode: {
+    format: "#####",
+    regex: "^(\\d{5})$",
   },
 });
 const phone = computed({
@@ -283,9 +311,7 @@ const phone = computed({
           ? props.number.substring(0, 4)
           : `+${props.number.substring(0, 3)}`;
       num = props.number.substring(props.number.charAt(0) === "+" ? 4 : 3);
-      country.value = countries.value.find(
-        (c) => getCountryCallingCode(c) === code
-      );
+      country.value = countries.value.find((c) => getCountryCallingCode(c) === code);
     } else {
       num = props.number;
     }
@@ -314,9 +340,7 @@ const allCountries = computed(() => {
   let all = countries.value
     .sort((a, b) => (a.name.common > b.name.common ? 1 : -1))
     .filter((val) => {
-      return String(val.name.official)
-        .toLowerCase()
-        .includes(search.value.toLowerCase());
+      return String(val.name.official).toLowerCase().includes(search.value.toLowerCase());
     });
   return [
     country.value,

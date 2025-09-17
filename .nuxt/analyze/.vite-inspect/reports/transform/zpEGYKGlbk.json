@@ -1,0 +1,223 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/jobs.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <div class=\"jobs\" id=\"jobs\">\r\n    <LandingTitle title=\"Recherche d'Emplois\" />\r\n    <CoreMidScreenLayout :lg=\"10\" :xl=\"9\">\r\n      <div class=\"text-center mx-auto mt-5\" style=\"max-width: 80ch\">\r\n        <!-- data-aos=\"fade-up\"\r\n        data-aos-duration=\"1000\"\r\n        data-aos-delay=\"200\" -->\r\n        <span\r\n          >Un marché dynamique où les talents rencontrent les opportunités.\r\n          Découvrez des postes qui enflamment votre passion, connectez-vous avec\r\n          des entreprises innovantes et tracez votre voie vers le succès.\r\n          Libérez votre potentiel et redéfinissez ce que le travail signifie\r\n          pour vous en quelques étapes simples.</span\r\n        >\r\n      </div>\r\n      <v-divider class=\"my-10\"></v-divider>\r\n      <v-container class=\"pa-0 mb-10\" fluid>\r\n        <v-row>\r\n          <v-col\r\n            v-for=\"({ title, description, icon }, i) in jobs\"\r\n            :key=\"i\"\r\n            cols=\"12\"\r\n            sm=\"4\"\r\n            class=\"py-4 py-md-0 overflow-auto\"\r\n          >\r\n            <div\r\n              class=\"rounded-lg bg-transparent pa-2 pa-md-5 position-relative overflow-auto\"\r\n            >\r\n              <!-- :data-aos=\"i % 2 ? 'fade-left' : 'fade-right'\"\r\n              data-aos-duration=\"1500\"\r\n              data-aos-delay=\"400\" -->\r\n              <div class=\"d-flex flex-column\">\r\n                <div\r\n                  class=\"bg-card card-outlined pa-2 rounded-lg\"\r\n                  style=\"width: fit-content\"\r\n                >\r\n                  <Icon :name=\"icon\" size=\"1.5rem\" />\r\n                </div>\r\n                <div class=\"text-subtitle-1 my-2\">\r\n                  <b>{{ title }}</b>\r\n                </div>\r\n                <div class=\"text-caption\">\r\n                  <span>{{ description }}</span>\r\n                </div>\r\n              </div>\r\n              <div\r\n                class=\"position-absolute text-h1 font-weight-black\"\r\n                style=\"top: 50px; right: 0; z-index: 2; opacity: 0.075\"\r\n              >\r\n                <b>{{ i + 1 }}</b>\r\n              </div>\r\n            </div>\r\n          </v-col>\r\n        </v-row>\r\n      </v-container>\r\n      <div class=\"text-center\">\r\n        <!-- data-aos-duration=\"1000\"\r\n            data-aos-delay=\"100\"\r\n            data-aos=\"fade-up\" -->\r\n        <v-btn color=\"link\" rounded flat :to=\"{ name: 'jobs' }\">\r\n          <span>découvrir les emplois</span>\r\n        </v-btn>\r\n      </div>\r\n    </CoreMidScreenLayout>\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst jobs = [\r\n  {\r\n    title: \"Parcourir les offres d'emploi\",\r\n    description:\r\n      \"Parcourez facilement dans notre Job Explorer, où des opportunités attendent votre découverte.\",\r\n    banner:\r\n      \"https://www.getfoundquick.com/wp-content/uploads/2019/12/shutterstock_623585756.jpg\",\r\n    icon: \"line-md:compass-loop\",\r\n  },\r\n  {\r\n    title: \"Créer un compte\",\r\n    description:\r\n      \"Débloquez des possibilités illimitées en un seul clic en rejoignant notre communauté. \",\r\n    banner:\r\n      \"https://www.clipartkey.com/mpngs/m/22-224474_group-people-icon-png-clipart-png-download-social.png\",\r\n    icon: \"line-md:account\",\r\n  },\r\n  {\r\n    title: \"Obtenez votre emploi de rêve\",\r\n    description:\r\n      \"Lancez-vous dans la carrière de vos rêves avec nous. Votre voyage vers le succès commence ici.\",\r\n    banner:\r\n      \"https://media.bizj.us/view/img/10332478/howtobusinesssuccess*1200xx3992-2253-0-0.jpg\",\r\n    icon: \"line-md:briefcase\",\r\n  },\r\n];\r\n</script>\r\n\r\n<style lang=\"css\" scoped></style>\r\n",
+      "start": 1756473934921,
+      "end": 1756473935166,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473935166,
+      "end": 1756473935166,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473935166,
+      "end": 1756473935166,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473935166,
+      "end": 1756473935166,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473935167,
+      "end": 1756473935167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473935167,
+      "end": 1756473935167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473935167,
+      "end": 1756473935167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473935167,
+      "end": 1756473935167,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"jobs\",\n  id: \"jobs\"\n}\nconst _hoisted_2 = { class: \"rounded-lg bg-transparent pa-2 pa-md-5 position-relative overflow-auto\" }\nconst _hoisted_3 = { class: \"d-flex flex-column\" }\nconst _hoisted_4 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: {\"width\":\"fit-content\"}\n}\nconst _hoisted_5 = { class: \"text-subtitle-1 my-2\" }\nconst _hoisted_6 = { class: \"text-caption\" }\nconst _hoisted_7 = {\n  class: \"position-absolute text-h1 font-weight-black\",\n  style: {\"top\":\"50px\",\"right\":\"0\",\"z-index\":\"2\",\"opacity\":\"0.075\"}\n}\nconst _hoisted_8 = { class: \"text-center\" }\n\n\nconst _sfc_main = {\n  __name: 'jobs',\n  setup(__props) {\n\r\nconst jobs = [\r\n  {\r\n    title: \"Parcourir les offres d'emploi\",\r\n    description:\r\n      \"Parcourez facilement dans notre Job Explorer, où des opportunités attendent votre découverte.\",\r\n    banner:\r\n      \"https://www.getfoundquick.com/wp-content/uploads/2019/12/shutterstock_623585756.jpg\",\r\n    icon: \"line-md:compass-loop\",\r\n  },\r\n  {\r\n    title: \"Créer un compte\",\r\n    description:\r\n      \"Débloquez des possibilités illimitées en un seul clic en rejoignant notre communauté. \",\r\n    banner:\r\n      \"https://www.clipartkey.com/mpngs/m/22-224474_group-people-icon-png-clipart-png-download-social.png\",\r\n    icon: \"line-md:account\",\r\n  },\r\n  {\r\n    title: \"Obtenez votre emploi de rêve\",\r\n    description:\r\n      \"Lancez-vous dans la carrière de vos rêves avec nous. Votre voyage vers le succès commence ici.\",\r\n    banner:\r\n      \"https://media.bizj.us/view/img/10332478/howtobusinesssuccess*1200xx3992-2253-0-0.jpg\",\r\n    icon: \"line-md:briefcase\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_LandingTitle = _resolveComponent(\"LandingTitle\")\n  const _component_v_divider = _resolveComponent(\"v-divider\")\n  const _component_Icon = _resolveComponent(\"Icon\")\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n  const _component_v_btn = _resolveComponent(\"v-btn\")\n  const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_LandingTitle, { title: \"Recherche d'Emplois\" }),\n    _createVNode(_component_CoreMidScreenLayout, {\n      lg: 10,\n      xl: 9\n    }, {\n      default: _withCtx(() => [\n        _cache[1] || (_cache[1] = _createElementVNode(\"div\", {\n          class: \"text-center mx-auto mt-5\",\n          style: {\"max-width\":\"80ch\"}\n        }, [\n          _createElementVNode(\"span\", null, \"Un marché dynamique où les talents rencontrent les opportunités. Découvrez des postes qui enflamment votre passion, connectez-vous avec des entreprises innovantes et tracez votre voie vers le succès. Libérez votre potentiel et redéfinissez ce que le travail signifie pour vous en quelques étapes simples.\")\n        ], -1)),\n        _createVNode(_component_v_divider, { class: \"my-10\" }),\n        _createVNode(_component_v_container, {\n          class: \"pa-0 mb-10\",\n          fluid: \"\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_row, null, {\n              default: _withCtx(() => [\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(jobs, ({ title, description, icon }, i) => {\n                  return _createVNode(_component_v_col, {\n                    key: i,\n                    cols: \"12\",\n                    sm: \"4\",\n                    class: \"py-4 py-md-0 overflow-auto\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createElementVNode(\"div\", _hoisted_2, [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createElementVNode(\"div\", _hoisted_4, [\n                            _createVNode(_component_Icon, {\n                              name: icon,\n                              size: \"1.5rem\"\n                            }, null, 8, [\"name\"])\n                          ]),\n                          _createElementVNode(\"div\", _hoisted_5, [\n                            _createElementVNode(\"b\", null, _toDisplayString(title), 1)\n                          ]),\n                          _createElementVNode(\"div\", _hoisted_6, [\n                            _createElementVNode(\"span\", null, _toDisplayString(description), 1)\n                          ])\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_7, [\n                          _createElementVNode(\"b\", null, _toDisplayString(i + 1), 1)\n                        ])\n                      ])\n                    ]),\n                    _: 2\n                  }, 1024)\n                }), 64))\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_8, [\n          _createVNode(_component_v_btn, {\n            color: \"link\",\n            rounded: \"\",\n            flat: \"\",\n            to: { name: 'jobs' }\n          }, {\n            default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n              _createElementVNode(\"span\", null, \"découvrir les emplois\", -1)\n            ]))]),\n            _: 1\n          })\n        ])\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main",
+      "start": 1756473935167,
+      "end": 1756473935169,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473935169,
+      "end": 1756473935169,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473935169,
+      "end": 1756473935169,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473935172,
+      "end": 1756473935172,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473935172,
+      "end": 1756473935172,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"jobs\",\n  id: \"jobs\"\n}\nconst _hoisted_2 = { class: \"rounded-lg bg-transparent pa-2 pa-md-5 position-relative overflow-auto\" }\nconst _hoisted_3 = { class: \"d-flex flex-column\" }\nconst _hoisted_4 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: {\"width\":\"fit-content\"}\n}\nconst _hoisted_5 = { class: \"text-subtitle-1 my-2\" }\nconst _hoisted_6 = { class: \"text-caption\" }\nconst _hoisted_7 = {\n  class: \"position-absolute text-h1 font-weight-black\",\n  style: {\"top\":\"50px\",\"right\":\"0\",\"z-index\":\"2\",\"opacity\":\"0.075\"}\n}\nconst _hoisted_8 = { class: \"text-center\" }\n\n\nconst _sfc_main = {\n  __name: 'jobs',\n  setup(__props) {\n\r\nconst jobs = [\r\n  {\r\n    title: \"Parcourir les offres d'emploi\",\r\n    description:\r\n      \"Parcourez facilement dans notre Job Explorer, où des opportunités attendent votre découverte.\",\r\n    banner:\r\n      \"https://www.getfoundquick.com/wp-content/uploads/2019/12/shutterstock_623585756.jpg\",\r\n    icon: \"line-md:compass-loop\",\r\n  },\r\n  {\r\n    title: \"Créer un compte\",\r\n    description:\r\n      \"Débloquez des possibilités illimitées en un seul clic en rejoignant notre communauté. \",\r\n    banner:\r\n      \"https://www.clipartkey.com/mpngs/m/22-224474_group-people-icon-png-clipart-png-download-social.png\",\r\n    icon: \"line-md:account\",\r\n  },\r\n  {\r\n    title: \"Obtenez votre emploi de rêve\",\r\n    description:\r\n      \"Lancez-vous dans la carrière de vos rêves avec nous. Votre voyage vers le succès commence ici.\",\r\n    banner:\r\n      \"https://media.bizj.us/view/img/10332478/howtobusinesssuccess*1200xx3992-2253-0-0.jpg\",\r\n    icon: \"line-md:briefcase\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_LandingTitle = _resolveComponent(\"LandingTitle\")\n                                                             \n  const _component_Icon = _resolveComponent(\"Icon\")\n                                                     \n                                                     \n                                                                 \n                                                     \n  const _component_CoreMidScreenLayout = _resolveComponent(\"CoreMidScreenLayout\")\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_LandingTitle, { title: \"Recherche d'Emplois\" }),\n    _createVNode(_component_CoreMidScreenLayout, {\n      lg: 10,\n      xl: 9\n    }, {\n      default: _withCtx(() => [\n        _cache[1] || (_cache[1] = _createElementVNode(\"div\", {\n          class: \"text-center mx-auto mt-5\",\n          style: {\"max-width\":\"80ch\"}\n        }, [\n          _createElementVNode(\"span\", null, \"Un marché dynamique où les talents rencontrent les opportunités. Découvrez des postes qui enflamment votre passion, connectez-vous avec des entreprises innovantes et tracez votre voie vers le succès. Libérez votre potentiel et redéfinissez ce que le travail signifie pour vous en quelques étapes simples.\")\n        ], -1)),\n        _createVNode(_component_v_divider, { class: \"my-10\" }),\n        _createVNode(_component_v_container, {\n          class: \"pa-0 mb-10\",\n          fluid: \"\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_row, null, {\n              default: _withCtx(() => [\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(jobs, ({ title, description, icon }, i) => {\n                  return _createVNode(_component_v_col, {\n                    key: i,\n                    cols: \"12\",\n                    sm: \"4\",\n                    class: \"py-4 py-md-0 overflow-auto\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createElementVNode(\"div\", _hoisted_2, [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createElementVNode(\"div\", _hoisted_4, [\n                            _createVNode(_component_Icon, {\n                              name: icon,\n                              size: \"1.5rem\"\n                            }, null, 8, [\"name\"])\n                          ]),\n                          _createElementVNode(\"div\", _hoisted_5, [\n                            _createElementVNode(\"b\", null, _toDisplayString(title), 1)\n                          ]),\n                          _createElementVNode(\"div\", _hoisted_6, [\n                            _createElementVNode(\"span\", null, _toDisplayString(description), 1)\n                          ])\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_7, [\n                          _createElementVNode(\"b\", null, _toDisplayString(i + 1), 1)\n                        ])\n                      ])\n                    ]),\n                    _: 2\n                  }, 1024)\n                }), 64))\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_8, [\n          _createVNode(_component_v_btn, {\n            color: \"link\",\n            rounded: \"\",\n            flat: \"\",\n            to: { name: 'jobs' }\n          }, {\n            default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n              _createElementVNode(\"span\", null, \"découvrir les emplois\", -1)\n            ]))]),\n            _: 1\n          })\n        ])\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VDivider as _component_v_divider } from \"vuetify/lib/components/VDivider/index.mjs\"\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756473935172,
+      "end": 1756473935173,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473935173,
+      "end": 1756473935173,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473935173,
+      "end": 1756473935173,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473935173,
+      "end": 1756473935173,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473935173,
+      "end": 1756473935174,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473935174,
+      "end": 1756473935174,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473935177,
+      "end": 1756473935177,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473935177,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/landing/title.vue\";\nimport { default as __nuxt_component_1 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/nuxt-icon/dist/runtime/Icon.vue\";\nimport { default as __nuxt_component_2 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/mid-screen-layout.vue\";\nimport { resolveComponent as _resolveComponent, createVNode as _createVNode, createElementVNode as _createElementVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, withCtx as _withCtx } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"jobs\",\n  id: \"jobs\"\n}\nconst _hoisted_2 = { class: \"rounded-lg bg-transparent pa-2 pa-md-5 position-relative overflow-auto\" }\nconst _hoisted_3 = { class: \"d-flex flex-column\" }\nconst _hoisted_4 = {\n  class: \"bg-card card-outlined pa-2 rounded-lg\",\n  style: {\"width\":\"fit-content\"}\n}\nconst _hoisted_5 = { class: \"text-subtitle-1 my-2\" }\nconst _hoisted_6 = { class: \"text-caption\" }\nconst _hoisted_7 = {\n  class: \"position-absolute text-h1 font-weight-black\",\n  style: {\"top\":\"50px\",\"right\":\"0\",\"z-index\":\"2\",\"opacity\":\"0.075\"}\n}\nconst _hoisted_8 = { class: \"text-center\" }\n\n\nconst _sfc_main = {\n  __name: 'jobs',\n  setup(__props) {\n\r\nconst jobs = [\r\n  {\r\n    title: \"Parcourir les offres d'emploi\",\r\n    description:\r\n      \"Parcourez facilement dans notre Job Explorer, où des opportunités attendent votre découverte.\",\r\n    banner:\r\n      \"https://www.getfoundquick.com/wp-content/uploads/2019/12/shutterstock_623585756.jpg\",\r\n    icon: \"line-md:compass-loop\",\r\n  },\r\n  {\r\n    title: \"Créer un compte\",\r\n    description:\r\n      \"Débloquez des possibilités illimitées en un seul clic en rejoignant notre communauté. \",\r\n    banner:\r\n      \"https://www.clipartkey.com/mpngs/m/22-224474_group-people-icon-png-clipart-png-download-social.png\",\r\n    icon: \"line-md:account\",\r\n  },\r\n  {\r\n    title: \"Obtenez votre emploi de rêve\",\r\n    description:\r\n      \"Lancez-vous dans la carrière de vos rêves avec nous. Votre voyage vers le succès commence ici.\",\r\n    banner:\r\n      \"https://media.bizj.us/view/img/10332478/howtobusinesssuccess*1200xx3992-2253-0-0.jpg\",\r\n    icon: \"line-md:briefcase\",\r\n  },\r\n];\r\n\nreturn (_ctx, _cache) => {\n  const _component_LandingTitle = __nuxt_component_0\n                                                             \n  const _component_Icon = __nuxt_component_1\n                                                     \n                                                     \n                                                                 \n                                                     \n  const _component_CoreMidScreenLayout = __nuxt_component_2\n\n  return (_openBlock(), _createElementBlock(\"div\", _hoisted_1, [\n    _createVNode(_component_LandingTitle, { title: \"Recherche d'Emplois\" }),\n    _createVNode(_component_CoreMidScreenLayout, {\n      lg: 10,\n      xl: 9\n    }, {\n      default: _withCtx(() => [\n        _cache[1] || (_cache[1] = _createElementVNode(\"div\", {\n          class: \"text-center mx-auto mt-5\",\n          style: {\"max-width\":\"80ch\"}\n        }, [\n          _createElementVNode(\"span\", null, \"Un marché dynamique où les talents rencontrent les opportunités. Découvrez des postes qui enflamment votre passion, connectez-vous avec des entreprises innovantes et tracez votre voie vers le succès. Libérez votre potentiel et redéfinissez ce que le travail signifie pour vous en quelques étapes simples.\")\n        ], -1)),\n        _createVNode(_component_v_divider, { class: \"my-10\" }),\n        _createVNode(_component_v_container, {\n          class: \"pa-0 mb-10\",\n          fluid: \"\"\n        }, {\n          default: _withCtx(() => [\n            _createVNode(_component_v_row, null, {\n              default: _withCtx(() => [\n                (_openBlock(), _createElementBlock(_Fragment, null, _renderList(jobs, ({ title, description, icon }, i) => {\n                  return _createVNode(_component_v_col, {\n                    key: i,\n                    cols: \"12\",\n                    sm: \"4\",\n                    class: \"py-4 py-md-0 overflow-auto\"\n                  }, {\n                    default: _withCtx(() => [\n                      _createElementVNode(\"div\", _hoisted_2, [\n                        _createElementVNode(\"div\", _hoisted_3, [\n                          _createElementVNode(\"div\", _hoisted_4, [\n                            _createVNode(_component_Icon, {\n                              name: icon,\n                              size: \"1.5rem\"\n                            }, null, 8, [\"name\"])\n                          ]),\n                          _createElementVNode(\"div\", _hoisted_5, [\n                            _createElementVNode(\"b\", null, _toDisplayString(title), 1)\n                          ]),\n                          _createElementVNode(\"div\", _hoisted_6, [\n                            _createElementVNode(\"span\", null, _toDisplayString(description), 1)\n                          ])\n                        ]),\n                        _createElementVNode(\"div\", _hoisted_7, [\n                          _createElementVNode(\"b\", null, _toDisplayString(i + 1), 1)\n                        ])\n                      ])\n                    ]),\n                    _: 2\n                  }, 1024)\n                }), 64))\n              ]),\n              _: 1\n            })\n          ]),\n          _: 1\n        }),\n        _createElementVNode(\"div\", _hoisted_8, [\n          _createVNode(_component_v_btn, {\n            color: \"link\",\n            rounded: \"\",\n            flat: \"\",\n            to: { name: 'jobs' }\n          }, {\n            default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n              _createElementVNode(\"span\", null, \"découvrir les emplois\", -1)\n            ]))]),\n            _: 1\n          })\n        ])\n      ]),\n      _: 1\n    })\n  ]))\n}\n}\n\n}\n\n\n\nexport default _sfc_main\n\n/* Vuetify */\nimport { VBtn as _component_v_btn } from \"vuetify/lib/components/VBtn/index.mjs\"\nimport { VDivider as _component_v_divider } from \"vuetify/lib/components/VDivider/index.mjs\"\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\n\n",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473935179,
+      "end": 1756473935179,
+      "order": "normal"
+    }
+  ]
+}

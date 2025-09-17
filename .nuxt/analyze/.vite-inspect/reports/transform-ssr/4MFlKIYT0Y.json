@@ -1,0 +1,294 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue?vue&type=style&index=0&scoped=d7248ee4&lang.css?inline&used",
+  "transforms": [
+    {
+      "name": "vite:vue",
+      "result": "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px); */\r\n  /* background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n",
+      "start": 1756474003172,
+      "end": 1756474003172,
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue"
+        ],
+        "names": [],
+        "mappings": ";AAwFA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE;EACT,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;EAC/B,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;EAChC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,EAAE,CAAC;AAC/D",
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue",
+        "sourceRoot": "",
+        "sourcesContent": [
+          "<template>\r\n  <div class=\"w-100 \">\r\n\r\n    <div class=\"py-2 text-center\">\r\n      <b>Reset Password</b>\r\n    </div>\r\n\r\n    <div class=\"d-flex align-center justify-center w-100\">\r\n      <v-card class=\"mx-auto mt-4 pa-4 auth-card rounded-lg bg-transparent\" flat>\r\n\r\n\r\n        <v-form ref=\"formRef\" class=\"form-data\" @submit.prevent>\r\n\r\n          <CorePassword :password=\"payload.password\" :show-password=\"showPassword\"\r\n            @toggleShowPassword=\"showPassword = !showPassword\" @weakPassword=\"checkPassword\"\r\n            @setPassword=\"setPassword\" />\r\n\r\n          <v-text-field placeholder=\"Re-enter Password\" prepend-inner-icon=\"mdi-lock-outline\" :append-inner-icon=\"`${showConfirm ? 'mdi-eye-off-outline' : 'mdi-eye-outline'\r\n            }`\" @click:append-inner=\"showConfirm = !showConfirm\" class=\"mt-1\"\r\n            :type=\"`${showConfirm ? 'text' : 'password'}`\" @keypress.enter=\"handleSubmit\"\r\n            :rules=\"confirmPassword(payload.password)\" bg-color=\"white\" v-model=\"payload.confirmPassword\"\r\n            autocomplete=\"off\"></v-text-field>\r\n\r\n          <v-btn class=\"my-1 text-none text-caption\" flat density=\"comfortable\" color=\"primary-accent\" block\r\n            @click=\"handleSubmit()\" :loading=\"loading\">\r\n            <span>Reset Passord</span>\r\n          </v-btn>\r\n\r\n\r\n        </v-form>\r\n      </v-card>\r\n\r\n\r\n    </div>\r\n\r\n\r\n    <v-alert color=\"success\" variant=\"tonal\" class=\"w-100 text-h5 d-flex align-center justify-center\" width=\"100\"\r\n      closable v-if=\"data.message\">\r\n      <span>{{ data.message }}</span>\r\n\r\n    </v-alert>\r\n\r\n\r\n  </div>\r\n</template>\r\n\r\n<script setup>\r\nconst route = useRoute();\r\nconst token = route.params.token;\r\nimport { useAppStore } from '~/store/app';\r\nimport { useAuthStore } from '~/store/auth'\r\nconst { decodeToken, resetPassword } = useAuthStore()\r\nconst { loading } = storeToRefs(useAppStore())\r\nconst { passwordRule, confirmPassword } = useRules()\r\nconst showPassword = ref(false);\r\nconst showConfirm = ref(false);\r\nconst isPasswordWeak = ref(false);\r\nconst checkPassword = (val) => {\r\n  isPasswordWeak.value = val;\r\n};\r\nconst payload = ref({\r\n  password: \"\",\r\n  confirmPassword: \"\"\r\n});\r\nconst formRef = ref(\"\")\r\nconst data = ref('');\r\n\r\nconst setPassword = (val) => {\r\n  payload.value.password = val;\r\n};\r\nconst getData = async () => {\r\n  data.value = await decodeToken(token)\r\n}\r\nconst handleSubmit = async () => {\r\n  const { valid } = await formRef.value.validate()\r\n  if (valid) {\r\n    payload.value.userId = data.value.userId\r\n    const res = await resetPassword(payload.value)\r\n    if (res) navigateTo({ name: 'auth' })\r\n  }\r\n\r\n\r\n};\r\n\r\nwatchEffect(() => getData())\r\n</script>\r\n\r\n<style lang=\"css\" scoped>\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px); */\r\n  /* background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n</style>\r\n"
+        ]
+      }
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474003172,
+      "end": 1756474003172,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756474003172,
+      "end": 1756474003172,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474003172,
+      "end": 1756474003173,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756474003172,
+      "end": 1756474003173,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756474003174,
+      "end": 1756474003174,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".auth-card{width:clamp(320px,30%,420px)}",
+      "start": 1756474003174,
+      "end": 1756474003180,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue",
+        "mappings": "AACA,WACE,4BAGF",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue"
+        ],
+        "sourcesContent": [
+          "\r\n.auth-card {\r\n  width: clamp(320px, 30%, 420px);\r\n  /* backdrop-filter: blur(5px); */\r\n  /* background-color: rgba(255, 255, 255, 0.312) !important; */\r\n}\r\n"
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756474003180,
+      "end": 1756474003180,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756474003185,
+      "end": 1756474003185,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756474003186,
+      "end": 1756474003186,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": ".auth-card[data-v-d7248ee4]{width:clamp(320px,30%,420px)}",
+      "start": 1756474003189,
+      "end": 1756474003191,
+      "order": "normal",
+      "sourcemaps": {
+        "file": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue",
+        "mappings": "AAAA,4BAAW,4BAA4B",
+        "names": [],
+        "sources": [
+          "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/pages/auth/reset-password/[token].vue"
+        ],
+        "sourcesContent": [
+          null
+        ],
+        "version": 3
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756474003196,
+      "end": 1756474003196,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474003197,
+      "end": 1756474003197,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474003197,
+      "end": 1756474003197,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474003197,
+      "end": 1756474003197,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756474003197,
+      "end": 1756474003197,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756474003200,
+      "end": 1756474003200,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756474003201,
+      "end": 1756474003201,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756474003203,
+      "end": 1756474003203,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756474003203,
+      "end": 1756474003203,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756474003204,
+      "end": 1756474003204,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "export default \".auth-card[data-v-d7248ee4]{width:clamp(320px,30%,420px)}\"",
+      "start": 1756474003207,
+      "end": 1756474003207,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756474003207,
+      "end": 1756474003207,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756474003207,
+      "end": 1756474003207,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756474003207,
+      "end": 1756474003207,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756474003208,
+      "end": 1756474003208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756474003208,
+      "end": 1756474003208,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756474003208,
+      "end": 1756474003208,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003208,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756474003208,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003209,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756474003209,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003209,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756474003209,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003209,
+      "end": 1756474003209,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756474003209,
+      "end": 1756474003210,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-template",
+      "start": 1756474003210,
+      "end": 1756474003210,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756474003210,
+      "end": 1756474003210,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756474003210,
+      "end": 1756474003210,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756474003210,
+      "end": 1756474003210,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756474003210,
+      "end": 1756474003210,
+      "order": "normal"
+    }
+  ]
+}

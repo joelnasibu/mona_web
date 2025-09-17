@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <CoreMidScreenLayout class="py-2 card-white">
     <div class="d-flex align-center ga-4 text-caption px-2">
 
@@ -18,6 +19,36 @@
         </NuxtLink>
       </div>
 
+=======
+  <CoreMidScreenLayout class="py-2 bg-primary-dark">
+    <div class="d-flex align-center ga-4 text-caption px-2">
+      <div class="" v-if="!isMobile">
+        <v-icon
+          start
+          icon="mdi-menu"
+          title="View all categories"
+          size="x-large"
+          style="cursor: pointer"
+          @click="toggleStatus"
+        ></v-icon>
+      </div>
+      <div class="d-flex justify-space-between w-100 text-caption">
+        <NuxtLink
+          class="link-cat text-white"
+          v-for="{ category, id } in categoriesWithSubcategories.slice(
+            0,
+            isMobile || smAndDown ? 5 : 10
+          )"
+          :key="id"
+          :to="{
+            name: 'shop-name',
+            params: { name: sanitizeTitleForRoute(category) },
+          }"
+        >
+          <span>{{ capitalizeFirstLetter(category) }}</span>
+        </NuxtLink>
+      </div>
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
     </div>
     <ClientAppBarCategories />
   </CoreMidScreenLayout>
@@ -26,7 +57,11 @@
 <script setup>
 const { isMobile } = useDevice(),
   { sanitizeTitleForRoute, capitalizeFirstLetter } = useHelpers();
+<<<<<<< HEAD
 const { smAndDown } = useDisplay()
+=======
+const { smAndDown } = useDisplay();
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 
 import { useSubcategoryStore } from "~/store/subcategories";
 const { getSubcategories } = useSubcategoryStore(),
@@ -51,7 +86,10 @@ const { toggleStatus, getCategoriesByType } = useCategoryStore(),
     return Array.from(catMap.values());
   });
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 const drawer = ref(false);
 
 const cardWidth = computed(() => {
@@ -59,9 +97,13 @@ const cardWidth = computed(() => {
 });
 </script>
 
+<<<<<<< HEAD
 <style lang="css" scoped>
 .link-cat {
   color: rgba(var(--v-theme-primary-accent));
   font-weight: 600;
 }
 </style>
+=======
+<style lang="css" scoped></style>
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/locale/kk/_lib/formatDistance.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "const formatDistanceLocale = {\r\n  lessThanXSeconds: {\r\n    regular: {\r\n      one: \"1 секундтан аз\",\r\n      singularNominative: \"{{count}} секундтан аз\",\r\n      singularGenitive: \"{{count}} секундтан аз\",\r\n      pluralGenitive: \"{{count}} секундтан аз\",\r\n    },\r\n    future: {\r\n      one: \"бір секундтан кейін\",\r\n      singularNominative: \"{{count}} секундтан кейін\",\r\n      singularGenitive: \"{{count}} секундтан кейін\",\r\n      pluralGenitive: \"{{count}} секундтан кейін\",\r\n    },\r\n  },\r\n\r\n  xSeconds: {\r\n    regular: {\r\n      singularNominative: \"{{count}} секунд\",\r\n      singularGenitive: \"{{count}} секунд\",\r\n      pluralGenitive: \"{{count}} секунд\",\r\n    },\r\n    past: {\r\n      singularNominative: \"{{count}} секунд бұрын\",\r\n      singularGenitive: \"{{count}} секунд бұрын\",\r\n      pluralGenitive: \"{{count}} секунд бұрын\",\r\n    },\r\n    future: {\r\n      singularNominative: \"{{count}} секундтан кейін\",\r\n      singularGenitive: \"{{count}} секундтан кейін\",\r\n      pluralGenitive: \"{{count}} секундтан кейін\",\r\n    },\r\n  },\r\n\r\n  halfAMinute: (options) => {\r\n    if (options?.addSuffix) {\r\n      if (options.comparison && options.comparison > 0) {\r\n        return \"жарты минут ішінде\";\r\n      } else {\r\n        return \"жарты минут бұрын\";\r\n      }\r\n    }\r\n\r\n    return \"жарты минут\";\r\n  },\r\n\r\n  lessThanXMinutes: {\r\n    regular: {\r\n      one: \"1 минуттан аз\",\r\n      singularNominative: \"{{count}} минуттан аз\",\r\n      singularGenitive: \"{{count}} минуттан аз\",\r\n      pluralGenitive: \"{{count}} минуттан аз\",\r\n    },\r\n    future: {\r\n      one: \"минуттан кем \",\r\n      singularNominative: \"{{count}} минуттан кем\",\r\n      singularGenitive: \"{{count}} минуттан кем\",\r\n      pluralGenitive: \"{{count}} минуттан кем\",\r\n    },\r\n  },\r\n\r\n  xMinutes: {\r\n    regular: {\r\n      singularNominative: \"{{count}} минут\",\r\n      singularGenitive: \"{{count}} минут\",\r\n      pluralGenitive: \"{{count}} минут\",\r\n    },\r\n    past: {\r\n      singularNominative: \"{{count}} минут бұрын\",\r\n      singularGenitive: \"{{count}} минут бұрын\",\r\n      pluralGenitive: \"{{count}} минут бұрын\",\r\n    },\r\n    future: {\r\n      singularNominative: \"{{count}} минуттан кейін\",\r\n      singularGenitive: \"{{count}} минуттан кейін\",\r\n      pluralGenitive: \"{{count}} минуттан кейін\",\r\n    },\r\n  },\r\n\r\n  aboutXHours: {\r\n    regular: {\r\n      singularNominative: \"шамамен {{count}} сағат\",\r\n      singularGenitive: \"шамамен {{count}} сағат\",\r\n      pluralGenitive: \"шамамен {{count}} сағат\",\r\n    },\r\n    future: {\r\n      singularNominative: \"шамамен {{count}} сағаттан кейін\",\r\n      singularGenitive: \"шамамен {{count}} сағаттан кейін\",\r\n      pluralGenitive: \"шамамен {{count}} сағаттан кейін\",\r\n    },\r\n  },\r\n\r\n  xHours: {\r\n    regular: {\r\n      singularNominative: \"{{count}} сағат\",\r\n      singularGenitive: \"{{count}} сағат\",\r\n      pluralGenitive: \"{{count}} сағат\",\r\n    },\r\n  },\r\n\r\n  xDays: {\r\n    regular: {\r\n      singularNominative: \"{{count}} күн\",\r\n      singularGenitive: \"{{count}} күн\",\r\n      pluralGenitive: \"{{count}} күн\",\r\n    },\r\n    future: {\r\n      singularNominative: \"{{count}} күннен кейін\",\r\n      singularGenitive: \"{{count}} күннен кейін\",\r\n      pluralGenitive: \"{{count}} күннен кейін\",\r\n    },\r\n  },\r\n\r\n  aboutXWeeks: {\r\n    type: \"weeks\",\r\n    one: \"шамамен 1 апта\",\r\n    other: \"шамамен {{count}} апта\",\r\n  },\r\n\r\n  xWeeks: {\r\n    type: \"weeks\",\r\n    one: \"1 апта\",\r\n    other: \"{{count}} апта\",\r\n  },\r\n\r\n  aboutXMonths: {\r\n    regular: {\r\n      singularNominative: \"шамамен {{count}} ай\",\r\n      singularGenitive: \"шамамен {{count}} ай\",\r\n      pluralGenitive: \"шамамен {{count}} ай\",\r\n    },\r\n    future: {\r\n      singularNominative: \"шамамен {{count}} айдан кейін\",\r\n      singularGenitive: \"шамамен {{count}} айдан кейін\",\r\n      pluralGenitive: \"шамамен {{count}} айдан кейін\",\r\n    },\r\n  },\r\n\r\n  xMonths: {\r\n    regular: {\r\n      singularNominative: \"{{count}} ай\",\r\n      singularGenitive: \"{{count}} ай\",\r\n      pluralGenitive: \"{{count}} ай\",\r\n    },\r\n  },\r\n\r\n  aboutXYears: {\r\n    regular: {\r\n      singularNominative: \"шамамен {{count}} жыл\",\r\n      singularGenitive: \"шамамен {{count}} жыл\",\r\n      pluralGenitive: \"шамамен {{count}} жыл\",\r\n    },\r\n    future: {\r\n      singularNominative: \"шамамен {{count}} жылдан кейін\",\r\n      singularGenitive: \"шамамен {{count}} жылдан кейін\",\r\n      pluralGenitive: \"шамамен {{count}} жылдан кейін\",\r\n    },\r\n  },\r\n\r\n  xYears: {\r\n    regular: {\r\n      singularNominative: \"{{count}} жыл\",\r\n      singularGenitive: \"{{count}} жыл\",\r\n      pluralGenitive: \"{{count}} жыл\",\r\n    },\r\n    future: {\r\n      singularNominative: \"{{count}} жылдан кейін\",\r\n      singularGenitive: \"{{count}} жылдан кейін\",\r\n      pluralGenitive: \"{{count}} жылдан кейін\",\r\n    },\r\n  },\r\n\r\n  overXYears: {\r\n    regular: {\r\n      singularNominative: \"{{count}} жылдан астам\",\r\n      singularGenitive: \"{{count}} жылдан астам\",\r\n      pluralGenitive: \"{{count}} жылдан астам\",\r\n    },\r\n    future: {\r\n      singularNominative: \"{{count}} жылдан астам\",\r\n      singularGenitive: \"{{count}} жылдан астам\",\r\n      pluralGenitive: \"{{count}} жылдан астам\",\r\n    },\r\n  },\r\n\r\n  almostXYears: {\r\n    regular: {\r\n      singularNominative: \"{{count}} жылға жақын\",\r\n      singularGenitive: \"{{count}} жылға жақын\",\r\n      pluralGenitive: \"{{count}} жылға жақын\",\r\n    },\r\n    future: {\r\n      singularNominative: \"{{count}} жылдан кейін\",\r\n      singularGenitive: \"{{count}} жылдан кейін\",\r\n      pluralGenitive: \"{{count}} жылдан кейін\",\r\n    },\r\n  },\r\n};\r\n\r\nfunction declension(scheme, count) {\r\n  // scheme for count=1 exists\r\n  if (scheme.one && count === 1) return scheme.one;\r\n\r\n  const rem10 = count % 10;\r\n  const rem100 = count % 100;\r\n\r\n  // 1, 21, 31, ...\r\n  if (rem10 === 1 && rem100 !== 11) {\r\n    return scheme.singularNominative.replace(\"{{count}}\", String(count));\r\n\r\n    // 2, 3, 4, 22, 23, 24, 32 ...\r\n  } else if (rem10 >= 2 && rem10 <= 4 && (rem100 < 10 || rem100 > 20)) {\r\n    return scheme.singularGenitive.replace(\"{{count}}\", String(count));\r\n\r\n    // 5, 6, 7, 8, 9, 10, 11, ...\r\n  } else {\r\n    return scheme.pluralGenitive.replace(\"{{count}}\", String(count));\r\n  }\r\n}\r\n\r\nexport const formatDistance = (token, count, options) => {\r\n  const tokenValue = formatDistanceLocale[token];\r\n\r\n  if (typeof tokenValue === \"function\") return tokenValue(options);\r\n\r\n  if (tokenValue.type === \"weeks\") {\r\n    return count === 1\r\n      ? tokenValue.one\r\n      : tokenValue.other.replace(\"{{count}}\", String(count));\r\n  }\r\n\r\n  if (options?.addSuffix) {\r\n    if (options.comparison && options.comparison > 0) {\r\n      if (tokenValue.future) {\r\n        return declension(tokenValue.future, count);\r\n      } else {\r\n        return declension(tokenValue.regular, count) + \" кейін\";\r\n      }\r\n    } else {\r\n      if (tokenValue.past) {\r\n        return declension(tokenValue.past, count);\r\n      } else {\r\n        return declension(tokenValue.regular, count) + \" бұрын\";\r\n      }\r\n    }\r\n  } else {\r\n    return declension(tokenValue.regular, count);\r\n  }\r\n};\r\n",
+      "start": 1756473948299,
+      "end": 1756473948343,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473948343,
+      "end": 1756473948343,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473948343,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473948344,
+      "end": 1756473948344,
+      "order": "normal"
+    }
+  ]
+}

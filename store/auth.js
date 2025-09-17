@@ -1,12 +1,8 @@
 // Utilities
-import {
-  defineStore
-} from 'pinia'
-import {
-  useAppStore
-} from './app'
+import { defineStore } from 'pinia'
+import { useAppStore } from './app'
 
-const http = useHttp()
+// API endpoints
 const baseURL = `/auth`
 const userBaseURL = `/users`
 const emailBaseURL = `/auth/email`
@@ -33,6 +29,7 @@ export const useAuthStore = defineStore('auth', {
       this.app.setError(false)
       this.app.load(true)
       try {
+        const http = useHttp()
         const res = await http(`${baseURL}/login/`, {
           method: 'POST',
           body
@@ -58,6 +55,7 @@ export const useAuthStore = defineStore('auth', {
       this.app.setError(false)
       this.app.load(true)
       try {
+        const http = useHttp()
         const res = await http(`${baseURL}/confirm-user`, {
           method: 'POST',
           body
@@ -79,6 +77,7 @@ export const useAuthStore = defineStore('auth', {
       this.app.setError(false)
       this.app.load(true)
       try {
+        const http = useHttp()
         await http(`${baseURL}/logout/`, {
           method: 'POST',
           body: {
@@ -104,6 +103,7 @@ export const useAuthStore = defineStore('auth', {
       this.app.setError(false)
       this.app.load(true)
       try {
+        const http = useHttp()
         const res = await http(`${userBaseURL}/sign-up`, {
           method: 'POST',
           body
@@ -123,6 +123,7 @@ export const useAuthStore = defineStore('auth', {
       this.app.setError(false)
       this.app.load(true)
       try {
+        const http = useHttp()
         const res = await http(`${emailBaseURL}/verify/${userId}`, {
           method: 'PUT'
         })
@@ -143,6 +144,7 @@ export const useAuthStore = defineStore('auth', {
       this.app.setError(false)
       this.app.load(enableLoader ?? true)
       try {
+        const http = useHttp()
         const res = await http(`${userBaseURL}`, {
           method: 'GET'
         })

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/intlFormat.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { toDate } from \"./toDate.mjs\";\r\n\r\n/**\r\n * The locale string (see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl#locales_argument).\r\n */\r\n\r\n/**\r\n * The format options (see: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat#options)\r\n */\r\n\r\n/**\r\n * The locale options.\r\n */\r\n\r\n/**\r\n * @name intlFormat\r\n * @category Common Helpers\r\n * @summary Format the date with Intl.DateTimeFormat (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat).\r\n *\r\n * @description\r\n * Return the formatted date string in the given format.\r\n * The method uses [`Intl.DateTimeFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat) inside.\r\n * formatOptions are the same as [`Intl.DateTimeFormat` options](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat#using_options)\r\n *\r\n * > ⚠️ Please note that before Node version 13.0.0, only the locale data for en-US is available by default.\r\n *\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to format\r\n *\r\n * @returns The formatted date string\r\n *\r\n * @throws `date` must not be Invalid Date\r\n *\r\n * @example\r\n * // Represent 10 October 2019 in middle-endian format:\r\n * const result = intlFormat(new Date(2019, 9, 4, 12, 30, 13, 456))\r\n * //=> 10/4/2019\r\n */\r\n\r\n/**\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to format\r\n * @param localeOptions - An object with locale\r\n *\r\n * @returns The formatted date string\r\n *\r\n * @throws `date` must not be Invalid Date\r\n *\r\n * @example\r\n * // Represent 10 October 2019 in Korean.\r\n * // Convert the date with locale's options.\r\n * const result = intlFormat(new Date(2019, 9, 4, 12, 30, 13, 456), {\r\n *   locale: 'ko-KR',\r\n * })\r\n * //=> 2019. 10. 4.\r\n */\r\n\r\n/**\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to format\r\n * @param formatOptions - The format options\r\n *\r\n * @returns The formatted date string\r\n *\r\n * @throws `date` must not be Invalid Date\r\n *\r\n * @example\r\n * // Represent 10 October 2019.\r\n * // Convert the date with format's options.\r\n * const result = intlFormat.default(new Date(2019, 9, 4, 12, 30, 13, 456), {\r\n *   year: 'numeric',\r\n *   month: 'numeric',\r\n *   day: 'numeric',\r\n *   hour: 'numeric',\r\n * })\r\n * //=> 10/4/2019, 12 PM\r\n */\r\n\r\n/**\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to format\r\n * @param formatOptions - The format options\r\n * @param localeOptions - An object with locale\r\n *\r\n * @returns The formatted date string\r\n *\r\n * @throws `date` must not be Invalid Date\r\n *\r\n * @example\r\n * // Represent 10 October 2019 in German.\r\n * // Convert the date with format's options and locale's options.\r\n * const result = intlFormat(new Date(2019, 9, 4, 12, 30, 13, 456), {\r\n *   weekday: 'long',\r\n *   year: 'numeric',\r\n *   month: 'long',\r\n *   day: 'numeric',\r\n * }, {\r\n *   locale: 'de-DE',\r\n * })\r\n * //=> Freitag, 4. Oktober 2019\r\n */\r\n\r\nexport function intlFormat(date, formatOrLocale, localeOptions) {\r\n  let formatOptions;\r\n\r\n  if (isFormatOptions(formatOrLocale)) {\r\n    formatOptions = formatOrLocale;\r\n  } else {\r\n    localeOptions = formatOrLocale;\r\n  }\r\n\r\n  return new Intl.DateTimeFormat(localeOptions?.locale, formatOptions).format(\r\n    toDate(date),\r\n  );\r\n}\r\n\r\nfunction isFormatOptions(opts) {\r\n  return opts !== undefined && !(\"locale\" in opts);\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default intlFormat;\r\n",
+      "start": 1756473942338,
+      "end": 1756473942400,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473942400,
+      "end": 1756473942400,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473942400,
+      "end": 1756473942401,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473942401,
+      "end": 1756473942401,
+      "order": "normal"
+    }
+  ]
+}

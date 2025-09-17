@@ -1,0 +1,222 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/CategoriesSection.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <v-container fluid class=\"pa-6\">\r\n    <v-row>\r\n      <!-- Grid 1 -->\r\n      <v-col cols=\"12\" md=\"3\">\r\n        <div class=\"d-flex flex-column\" style=\"height: 340px;\">\r\n          <div class=\"text-h6 mb-2\">Deals and Promotions</div>\r\n          <v-hover v-slot=\"{ isHovering, props }\">\r\n            <router-link to=\"/shop/grid1\" class=\"flex-grow-1\">\r\n              <v-img\r\n                src=\"https://cdn.vuetifyjs.com/images/cards/sunshine.jpg\"\r\n                cover\r\n                class=\"flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer\"\r\n                v-bind=\"props\"\r\n                :elevation=\"isHovering ? 6 : 0\"\r\n              />\r\n            </router-link>\r\n          </v-hover>\r\n          <router-link\r\n            to=\"/shop/grid1\"\r\n            class=\"mt-2 text-orange-darken-2 font-weight-bold cursor-pointer\"\r\n          >\r\n            shop now...\r\n          </router-link>\r\n        </div>\r\n      </v-col>\r\n\r\n      <!-- Grid 2: Nested layout -->\r\n      <v-col cols=\"12\" md=\"3\">\r\n        <div class=\"d-flex flex-column\" style=\"height: 340px;\">\r\n          <div class=\"text-h6 mb-2\">Shop Home & Office</div>\r\n          <v-row no-gutters class=\" w-100\">\r\n            <!--  top image -->\r\n            <v-col cols=\"12\" class=\"pa-0\">\r\n              <v-hover v-slot=\"{ isHovering, props }\">\r\n                <router-link to=\"/shop/grid2/top\" class=\"w-100 d-block\">\r\n                  <v-img\r\n                    src=\"\"\r\n                    cover\r\n                    class=\"rounded-lg transition-ease-in-out cursor-pointer\"\r\n                    height=\"40\"\r\n                    v-bind=\"props\"\r\n                    :elevation=\"isHovering ? 6 : 0\"\r\n                  />\r\n                  <div class=\"text-center mt-1 text-body-2 font-weight-medium\">\r\n                     Top\r\n                  </div>\r\n                </router-link>\r\n              </v-hover>\r\n            </v-col>\r\n\r\n            <!-- Three images -->\r\n            <v-col cols=\"4\" v-for=\"n in 3\" :key=\"'grid2-'+n\" class=\"pa-1\">\r\n              <v-hover v-slot=\"{ isHovering, props }\">\r\n                <router-link :to=\"`/shop/grid2/small${n}`\" class=\"d-block\">\r\n                  <v-img\r\n                    :src=\"`https://picsum.photos/200/150?random=${30+n}`\"\r\n                    cover\r\n                    class=\"rounded-lg transition-ease-in-out cursor-pointer\"\r\n                    height=\"50\"\r\n                    v-bind=\"props\"\r\n                    :elevation=\"isHovering ? 6 : 0\"\r\n                  />\r\n                  <div class=\"text-center mt-1 text-body-2\">\r\n                    Small {{ n }}\r\n                  </div>\r\n                </router-link>\r\n              </v-hover>\r\n            </v-col>\r\n          </v-row>\r\n        </div>\r\n      </v-col>\r\n\r\n      <!-- Grid 3: Nested 2x2 -->\r\n      <v-col cols=\"12\" md=\"3\">\r\n        <div class=\"d-flex flex-column\" style=\"height: 340px;\">\r\n          <div class=\"text-h6 mb-2\">Electronics</div>\r\n          <v-row no-gutters class=\"flex-grow-1 pa-1\">\r\n            <v-col cols=\"6\" v-for=\"n in 4\" :key=\"'grid3-'+n\" class=\"pa-1\">\r\n              <v-hover v-slot=\"{ isHovering, props }\">\r\n                <router-link :to=\"`/shop/grid3/item${n}`\" class=\"d-block\">\r\n                  <v-img\r\n                    :src=\"`https://picsum.photos/200/150?random=${40+n}`\"\r\n                    cover\r\n                    class=\"rounded-lg transition-ease-in-out cursor-pointer\"\r\n                    height=\"40\"\r\n                    v-bind=\"props\"\r\n                    :elevation=\"isHovering ? 6 : 0\"\r\n                  />\r\n                  <div class=\"text-center mt-1 text-body-2\">\r\n                    Sub {{ n }}\r\n                  </div>\r\n                </router-link>\r\n              </v-hover>\r\n            </v-col>\r\n          </v-row>\r\n        </div>\r\n      </v-col>\r\n\r\n      <!-- Grid 4 -->\r\n      <v-col cols=\"12\" md=\"3\">\r\n        <div class=\"d-flex flex-column\" style=\"height: 340px;\">\r\n          <div class=\"text-h6 mb-2\">Health & Personal Care</div>\r\n          <v-hover v-slot=\"{ isHovering, props }\">\r\n            <router-link to=\"/shop/grid4\" class=\"flex-grow-1\">\r\n              <v-img\r\n                src=\"https://cdn.vuetifyjs.com/images/cards/forest.jpg\"\r\n                cover\r\n                class=\"flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer\"\r\n                v-bind=\"props\"\r\n                :elevation=\"isHovering ? 6 : 0\"\r\n              />\r\n            </router-link>\r\n          </v-hover>\r\n          <router-link\r\n            to=\"/shop/grid4\"\r\n            class=\"mt-2 text-orange-darken-2 font-weight-bold cursor-pointer\"\r\n          >\r\n            shop now...\r\n          </router-link>\r\n        </div>\r\n      </v-col>\r\n    </v-row>\r\n  </v-container>\r\n</template>\r\n",
+      "start": 1756473937657,
+      "end": 1756473937934,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473937934,
+      "end": 1756473937934,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, mergeProps as _mergeProps, createVNode as _createVNode, withCtx as _withCtx, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\nconst _hoisted_2 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\nconst _hoisted_3 = { class: \"text-center mt-1 text-body-2\" }\nconst _hoisted_4 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\nconst _hoisted_5 = { class: \"text-center mt-1 text-body-2\" }\nconst _hoisted_6 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\n\nfunction _sfc_render(_ctx, _cache) {\n  const _component_v_img = _resolveComponent(\"v-img\")\n  const _component_router_link = _resolveComponent(\"router-link\")\n  const _component_v_hover = _resolveComponent(\"v-hover\")\n  const _component_v_col = _resolveComponent(\"v-col\")\n  const _component_v_row = _resolveComponent(\"v-row\")\n  const _component_v_container = _resolveComponent(\"v-container\")\n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    fluid: \"\",\n    class: \"pa-6\"\n  }, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, null, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_1, [\n                _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Deals and Promotions\", -1)),\n                _createVNode(_component_v_hover, null, {\n                  default: _withCtx(({ isHovering, props }) => [\n                    _createVNode(_component_router_link, {\n                      to: \"/shop/grid1\",\n                      class: \"flex-grow-1\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_img, _mergeProps({\n                          src: \"https://cdn.vuetifyjs.com/images/cards/sunshine.jpg\",\n                          cover: \"\",\n                          class: \"flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer\"\n                        }, props, {\n                          elevation: isHovering ? 6 : 0\n                        }), null, 16, [\"elevation\"])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(_component_router_link, {\n                  to: \"/shop/grid1\",\n                  class: \"mt-2 text-orange-darken-2 font-weight-bold cursor-pointer\"\n                }, {\n                  default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                    _createTextVNode(\" shop now... \", -1)\n                  ]))]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_2, [\n                _cache[3] || (_cache[3] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Shop Home & Office\", -1)),\n                _createVNode(_component_v_row, {\n                  \"no-gutters\": \"\",\n                  class: \"w-100\"\n                }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_col, {\n                      cols: \"12\",\n                      class: \"pa-0\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_hover, null, {\n                          default: _withCtx(({ isHovering, props }) => [\n                            _createVNode(_component_router_link, {\n                              to: \"/shop/grid2/top\",\n                              class: \"w-100 d-block\"\n                            }, {\n                              default: _withCtx(() => [\n                                _createVNode(_component_v_img, _mergeProps({\n                                  src: '',\n                                  cover: \"\",\n                                  class: \"rounded-lg transition-ease-in-out cursor-pointer\",\n                                  height: \"40\"\n                                }, props, {\n                                  elevation: isHovering ? 6 : 0\n                                }), null, 16, [\"elevation\"]),\n                                _cache[2] || (_cache[2] = _createElementVNode(\"div\", { class: \"text-center mt-1 text-body-2 font-weight-medium\" }, \" Top \", -1))\n                              ]),\n                              _: 2\n                            }, 1024)\n                          ]),\n                          _: 1\n                        })\n                      ]),\n                      _: 1\n                    }),\n                    (_openBlock(), _createElementBlock(_Fragment, null, _renderList(3, (n) => {\n                      return _createVNode(_component_v_col, {\n                        cols: \"4\",\n                        key: 'grid2-'+n,\n                        class: \"pa-1\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(_component_v_hover, null, {\n                            default: _withCtx(({ isHovering, props }) => [\n                              _createVNode(_component_router_link, {\n                                to: `/shop/grid2/small${n}`,\n                                class: \"d-block\"\n                              }, {\n                                default: _withCtx(() => [\n                                  _createVNode(_component_v_img, _mergeProps({\n                                    src: `https://picsum.photos/200/150?random=${30+n}`,\n                                    cover: \"\",\n                                    class: \"rounded-lg transition-ease-in-out cursor-pointer\",\n                                    height: \"50\"\n                                  }, { ref_for: true }, props, {\n                                    elevation: isHovering ? 6 : 0\n                                  }), null, 16, [\"src\", \"elevation\"]),\n                                  _createElementVNode(\"div\", _hoisted_3, \" Small \" + _toDisplayString(n), 1)\n                                ]),\n                                _: 2\n                              }, 1032, [\"to\"])\n                            ]),\n                            _: 2\n                          }, 1024)\n                        ]),\n                        _: 2\n                      }, 1024)\n                    }), 64))\n                  ]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_4, [\n                _cache[4] || (_cache[4] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Electronics\", -1)),\n                _createVNode(_component_v_row, {\n                  \"no-gutters\": \"\",\n                  class: \"flex-grow-1 pa-1\"\n                }, {\n                  default: _withCtx(() => [\n                    (_openBlock(), _createElementBlock(_Fragment, null, _renderList(4, (n) => {\n                      return _createVNode(_component_v_col, {\n                        cols: \"6\",\n                        key: 'grid3-'+n,\n                        class: \"pa-1\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(_component_v_hover, null, {\n                            default: _withCtx(({ isHovering, props }) => [\n                              _createVNode(_component_router_link, {\n                                to: `/shop/grid3/item${n}`,\n                                class: \"d-block\"\n                              }, {\n                                default: _withCtx(() => [\n                                  _createVNode(_component_v_img, _mergeProps({\n                                    src: `https://picsum.photos/200/150?random=${40+n}`,\n                                    cover: \"\",\n                                    class: \"rounded-lg transition-ease-in-out cursor-pointer\",\n                                    height: \"40\"\n                                  }, { ref_for: true }, props, {\n                                    elevation: isHovering ? 6 : 0\n                                  }), null, 16, [\"src\", \"elevation\"]),\n                                  _createElementVNode(\"div\", _hoisted_5, \" Sub \" + _toDisplayString(n), 1)\n                                ]),\n                                _: 2\n                              }, 1032, [\"to\"])\n                            ]),\n                            _: 2\n                          }, 1024)\n                        ]),\n                        _: 2\n                      }, 1024)\n                    }), 64))\n                  ]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_6, [\n                _cache[6] || (_cache[6] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Health & Personal Care\", -1)),\n                _createVNode(_component_v_hover, null, {\n                  default: _withCtx(({ isHovering, props }) => [\n                    _createVNode(_component_router_link, {\n                      to: \"/shop/grid4\",\n                      class: \"flex-grow-1\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_img, _mergeProps({\n                          src: \"https://cdn.vuetifyjs.com/images/cards/forest.jpg\",\n                          cover: \"\",\n                          class: \"flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer\"\n                        }, props, {\n                          elevation: isHovering ? 6 : 0\n                        }), null, 16, [\"elevation\"])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(_component_router_link, {\n                  to: \"/shop/grid4\",\n                  class: \"mt-2 text-orange-darken-2 font-weight-bold cursor-pointer\"\n                }, {\n                  default: _withCtx(() => [...(_cache[5] || (_cache[5] = [\n                    _createTextVNode(\" shop now... \", -1)\n                  ]))]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])",
+      "start": 1756473937934,
+      "end": 1756473937939,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473937939,
+      "end": 1756473937939,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473937939,
+      "end": 1756473937939,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473937939,
+      "end": 1756473937939,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473937939,
+      "end": 1756473937939,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "const _sfc_main = {}\nimport { createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, mergeProps as _mergeProps, createVNode as _createVNode, withCtx as _withCtx, createTextVNode as _createTextVNode, renderList as _renderList, Fragment as _Fragment, openBlock as _openBlock, createElementBlock as _createElementBlock, toDisplayString as _toDisplayString, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\nconst _hoisted_2 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\nconst _hoisted_3 = { class: \"text-center mt-1 text-body-2\" }\nconst _hoisted_4 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\nconst _hoisted_5 = { class: \"text-center mt-1 text-body-2\" }\nconst _hoisted_6 = {\n  class: \"d-flex flex-column\",\n  style: {\"height\":\"340px\"}\n}\n\nfunction _sfc_render(_ctx, _cache) {\n                                                     \n  const _component_router_link = _resolveComponent(\"router-link\")\n                                                         \n                                                     \n                                                     \n                                                                 \n\n  return (_openBlock(), _createBlock(_component_v_container, {\n    fluid: \"\",\n    class: \"pa-6\"\n  }, {\n    default: _withCtx(() => [\n      _createVNode(_component_v_row, null, {\n        default: _withCtx(() => [\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_1, [\n                _cache[1] || (_cache[1] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Deals and Promotions\", -1)),\n                _createVNode(_component_v_hover, null, {\n                  default: _withCtx(({ isHovering, props }) => [\n                    _createVNode(_component_router_link, {\n                      to: \"/shop/grid1\",\n                      class: \"flex-grow-1\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_img, _mergeProps({\n                          src: \"https://cdn.vuetifyjs.com/images/cards/sunshine.jpg\",\n                          cover: \"\",\n                          class: \"flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer\"\n                        }, props, {\n                          elevation: isHovering ? 6 : 0\n                        }), null, 16, [\"elevation\"])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(_component_router_link, {\n                  to: \"/shop/grid1\",\n                  class: \"mt-2 text-orange-darken-2 font-weight-bold cursor-pointer\"\n                }, {\n                  default: _withCtx(() => [...(_cache[0] || (_cache[0] = [\n                    _createTextVNode(\" shop now... \", -1)\n                  ]))]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_2, [\n                _cache[3] || (_cache[3] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Shop Home & Office\", -1)),\n                _createVNode(_component_v_row, {\n                  \"no-gutters\": \"\",\n                  class: \"w-100\"\n                }, {\n                  default: _withCtx(() => [\n                    _createVNode(_component_v_col, {\n                      cols: \"12\",\n                      class: \"pa-0\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_hover, null, {\n                          default: _withCtx(({ isHovering, props }) => [\n                            _createVNode(_component_router_link, {\n                              to: \"/shop/grid2/top\",\n                              class: \"w-100 d-block\"\n                            }, {\n                              default: _withCtx(() => [\n                                _createVNode(_component_v_img, _mergeProps({\n                                  src: '',\n                                  cover: \"\",\n                                  class: \"rounded-lg transition-ease-in-out cursor-pointer\",\n                                  height: \"40\"\n                                }, props, {\n                                  elevation: isHovering ? 6 : 0\n                                }), null, 16, [\"elevation\"]),\n                                _cache[2] || (_cache[2] = _createElementVNode(\"div\", { class: \"text-center mt-1 text-body-2 font-weight-medium\" }, \" Top \", -1))\n                              ]),\n                              _: 2\n                            }, 1024)\n                          ]),\n                          _: 1\n                        })\n                      ]),\n                      _: 1\n                    }),\n                    (_openBlock(), _createElementBlock(_Fragment, null, _renderList(3, (n) => {\n                      return _createVNode(_component_v_col, {\n                        cols: \"4\",\n                        key: 'grid2-'+n,\n                        class: \"pa-1\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(_component_v_hover, null, {\n                            default: _withCtx(({ isHovering, props }) => [\n                              _createVNode(_component_router_link, {\n                                to: `/shop/grid2/small${n}`,\n                                class: \"d-block\"\n                              }, {\n                                default: _withCtx(() => [\n                                  _createVNode(_component_v_img, _mergeProps({\n                                    src: `https://picsum.photos/200/150?random=${30+n}`,\n                                    cover: \"\",\n                                    class: \"rounded-lg transition-ease-in-out cursor-pointer\",\n                                    height: \"50\"\n                                  }, { ref_for: true }, props, {\n                                    elevation: isHovering ? 6 : 0\n                                  }), null, 16, [\"src\", \"elevation\"]),\n                                  _createElementVNode(\"div\", _hoisted_3, \" Small \" + _toDisplayString(n), 1)\n                                ]),\n                                _: 2\n                              }, 1032, [\"to\"])\n                            ]),\n                            _: 2\n                          }, 1024)\n                        ]),\n                        _: 2\n                      }, 1024)\n                    }), 64))\n                  ]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_4, [\n                _cache[4] || (_cache[4] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Electronics\", -1)),\n                _createVNode(_component_v_row, {\n                  \"no-gutters\": \"\",\n                  class: \"flex-grow-1 pa-1\"\n                }, {\n                  default: _withCtx(() => [\n                    (_openBlock(), _createElementBlock(_Fragment, null, _renderList(4, (n) => {\n                      return _createVNode(_component_v_col, {\n                        cols: \"6\",\n                        key: 'grid3-'+n,\n                        class: \"pa-1\"\n                      }, {\n                        default: _withCtx(() => [\n                          _createVNode(_component_v_hover, null, {\n                            default: _withCtx(({ isHovering, props }) => [\n                              _createVNode(_component_router_link, {\n                                to: `/shop/grid3/item${n}`,\n                                class: \"d-block\"\n                              }, {\n                                default: _withCtx(() => [\n                                  _createVNode(_component_v_img, _mergeProps({\n                                    src: `https://picsum.photos/200/150?random=${40+n}`,\n                                    cover: \"\",\n                                    class: \"rounded-lg transition-ease-in-out cursor-pointer\",\n                                    height: \"40\"\n                                  }, { ref_for: true }, props, {\n                                    elevation: isHovering ? 6 : 0\n                                  }), null, 16, [\"src\", \"elevation\"]),\n                                  _createElementVNode(\"div\", _hoisted_5, \" Sub \" + _toDisplayString(n), 1)\n                                ]),\n                                _: 2\n                              }, 1032, [\"to\"])\n                            ]),\n                            _: 2\n                          }, 1024)\n                        ]),\n                        _: 2\n                      }, 1024)\n                    }), 64))\n                  ]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          }),\n          _createVNode(_component_v_col, {\n            cols: \"12\",\n            md: \"3\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"div\", _hoisted_6, [\n                _cache[6] || (_cache[6] = _createElementVNode(\"div\", { class: \"text-h6 mb-2\" }, \"Health & Personal Care\", -1)),\n                _createVNode(_component_v_hover, null, {\n                  default: _withCtx(({ isHovering, props }) => [\n                    _createVNode(_component_router_link, {\n                      to: \"/shop/grid4\",\n                      class: \"flex-grow-1\"\n                    }, {\n                      default: _withCtx(() => [\n                        _createVNode(_component_v_img, _mergeProps({\n                          src: \"https://cdn.vuetifyjs.com/images/cards/forest.jpg\",\n                          cover: \"\",\n                          class: \"flex-grow-1 rounded-lg transition-ease-in-out cursor-pointer\"\n                        }, props, {\n                          elevation: isHovering ? 6 : 0\n                        }), null, 16, [\"elevation\"])\n                      ]),\n                      _: 2\n                    }, 1024)\n                  ]),\n                  _: 1\n                }),\n                _createVNode(_component_router_link, {\n                  to: \"/shop/grid4\",\n                  class: \"mt-2 text-orange-darken-2 font-weight-bold cursor-pointer\"\n                }, {\n                  default: _withCtx(() => [...(_cache[5] || (_cache[5] = [\n                    _createTextVNode(\" shop now... \", -1)\n                  ]))]),\n                  _: 1\n                })\n              ])\n            ]),\n            _: 1\n          })\n        ]),\n        _: 1\n      })\n    ]),\n    _: 1\n  }))\n}\n\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['render',_sfc_render]])\n\n/* Vuetify */\nimport { VCol as _component_v_col, VRow as _component_v_row, VContainer as _component_v_container } from \"vuetify/lib/components/VGrid/index.mjs\"\nimport { VHover as _component_v_hover } from \"vuetify/lib/components/VHover/index.mjs\"\nimport { VImg as _component_v_img } from \"vuetify/lib/components/VImg/index.mjs\"\n\n",
+      "start": 1756473937939,
+      "end": 1756473937939,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473937939,
+      "end": 1756473937939,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473937939,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473937940,
+      "end": 1756473937940,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473937940,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473937943,
+      "end": 1756473937943,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@supabase/auth-js/dist/module/lib/constants.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { version } from './version';\r\n/** Current session will be checked for refresh at this interval. */\r\nexport const AUTO_REFRESH_TICK_DURATION_MS = 30 * 1000;\r\n/**\r\n * A token refresh will be attempted this many ticks before the current session expires. */\r\nexport const AUTO_REFRESH_TICK_THRESHOLD = 3;\r\n/*\r\n * Earliest time before an access token expires that the session should be refreshed.\r\n */\r\nexport const EXPIRY_MARGIN_MS = AUTO_REFRESH_TICK_THRESHOLD * AUTO_REFRESH_TICK_DURATION_MS;\r\nexport const GOTRUE_URL = 'http://localhost:9999';\r\nexport const STORAGE_KEY = 'supabase.auth.token';\r\nexport const AUDIENCE = '';\r\nexport const DEFAULT_HEADERS = { 'X-Client-Info': `gotrue-js/${version}` };\r\nexport const NETWORK_FAILURE = {\r\n    MAX_RETRIES: 10,\r\n    RETRY_INTERVAL: 2, // in deciseconds\r\n};\r\nexport const API_VERSION_HEADER_NAME = 'X-Supabase-Api-Version';\r\nexport const API_VERSIONS = {\r\n    '2024-01-01': {\r\n        timestamp: Date.parse('2024-01-01T00:00:00.0Z'),\r\n        name: '2024-01-01',\r\n    },\r\n};\r\n//# sourceMappingURL=constants.js.map",
+      "start": 1756473949561,
+      "end": 1756473949684,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949684,
+      "end": 1756473949684,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949684,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949685,
+      "end": 1756473949685,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@supabase/auth-js/dist/module/lib/errors.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export class AuthError extends Error {\r\n    constructor(message, status, code) {\r\n        super(message);\r\n        this.__isAuthError = true;\r\n        this.name = 'AuthError';\r\n        this.status = status;\r\n        this.code = code;\r\n    }\r\n}\r\nexport function isAuthError(error) {\r\n    return typeof error === 'object' && error !== null && '__isAuthError' in error;\r\n}\r\nexport class AuthApiError extends AuthError {\r\n    constructor(message, status, code) {\r\n        super(message, status, code);\r\n        this.name = 'AuthApiError';\r\n        this.status = status;\r\n        this.code = code;\r\n    }\r\n}\r\nexport function isAuthApiError(error) {\r\n    return isAuthError(error) && error.name === 'AuthApiError';\r\n}\r\nexport class AuthUnknownError extends AuthError {\r\n    constructor(message, originalError) {\r\n        super(message);\r\n        this.name = 'AuthUnknownError';\r\n        this.originalError = originalError;\r\n    }\r\n}\r\nexport class CustomAuthError extends AuthError {\r\n    constructor(message, name, status, code) {\r\n        super(message, status, code);\r\n        this.name = name;\r\n        this.status = status;\r\n    }\r\n}\r\nexport class AuthSessionMissingError extends CustomAuthError {\r\n    constructor() {\r\n        super('Auth session missing!', 'AuthSessionMissingError', 400, undefined);\r\n    }\r\n}\r\nexport function isAuthSessionMissingError(error) {\r\n    return isAuthError(error) && error.name === 'AuthSessionMissingError';\r\n}\r\nexport class AuthInvalidTokenResponseError extends CustomAuthError {\r\n    constructor() {\r\n        super('Auth session or user missing', 'AuthInvalidTokenResponseError', 500, undefined);\r\n    }\r\n}\r\nexport class AuthInvalidCredentialsError extends CustomAuthError {\r\n    constructor(message) {\r\n        super(message, 'AuthInvalidCredentialsError', 400, undefined);\r\n    }\r\n}\r\nexport class AuthImplicitGrantRedirectError extends CustomAuthError {\r\n    constructor(message, details = null) {\r\n        super(message, 'AuthImplicitGrantRedirectError', 500, undefined);\r\n        this.details = null;\r\n        this.details = details;\r\n    }\r\n    toJSON() {\r\n        return {\r\n            name: this.name,\r\n            message: this.message,\r\n            status: this.status,\r\n            details: this.details,\r\n        };\r\n    }\r\n}\r\nexport function isAuthImplicitGrantRedirectError(error) {\r\n    return isAuthError(error) && error.name === 'AuthImplicitGrantRedirectError';\r\n}\r\nexport class AuthPKCEGrantCodeExchangeError extends CustomAuthError {\r\n    constructor(message, details = null) {\r\n        super(message, 'AuthPKCEGrantCodeExchangeError', 500, undefined);\r\n        this.details = null;\r\n        this.details = details;\r\n    }\r\n    toJSON() {\r\n        return {\r\n            name: this.name,\r\n            message: this.message,\r\n            status: this.status,\r\n            details: this.details,\r\n        };\r\n    }\r\n}\r\nexport class AuthRetryableFetchError extends CustomAuthError {\r\n    constructor(message, status) {\r\n        super(message, 'AuthRetryableFetchError', status, undefined);\r\n    }\r\n}\r\nexport function isAuthRetryableFetchError(error) {\r\n    return isAuthError(error) && error.name === 'AuthRetryableFetchError';\r\n}\r\n/**\r\n * This error is thrown on certain methods when the password used is deemed\r\n * weak. Inspect the reasons to identify what password strength rules are\r\n * inadequate.\r\n */\r\nexport class AuthWeakPasswordError extends CustomAuthError {\r\n    constructor(message, status, reasons) {\r\n        super(message, 'AuthWeakPasswordError', status, 'weak_password');\r\n        this.reasons = reasons;\r\n    }\r\n}\r\nexport function isAuthWeakPasswordError(error) {\r\n    return isAuthError(error) && error.name === 'AuthWeakPasswordError';\r\n}\r\n//# sourceMappingURL=errors.js.map",
+      "start": 1756473949388,
+      "end": 1756473949482,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949482,
+      "end": 1756473949482,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949482,
+      "end": 1756473949483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949483,
+      "end": 1756473949483,
+      "order": "normal"
+    }
+  ]
+}

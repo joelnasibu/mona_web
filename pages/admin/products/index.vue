@@ -4,6 +4,7 @@
       <div class="d-flex align-center ga-3 flex-wrap">
         <AdminCoreSearch :search="search" @search="setSearch" />
         <div class="mt-1">
+<<<<<<< HEAD
           <v-btn prepend-icon="mdi-storefront-outline" class="card-outlined px-5 text-none text-caption"
             title="Select Business" density="compact" size="small" rounded="lg" flat id="selectBusiness" variant="text">
             <span>{{ business?.name }}</span>
@@ -17,21 +18,85 @@
           title="Status">
           <v-btn variant="text" v-for="({ name, value }, i) in statuses" :key="i" class="text-none text-caption"
             :value="value">
+=======
+          <v-btn
+            prepend-icon="mdi-storefront-outline"
+            class="card-outlined px-5 text-none text-caption"
+            title="Select Business"
+            density="compact"
+            size="small"
+            rounded="lg"
+            flat
+            id="selectBusiness"
+            variant="text"
+          >
+            <span>{{ business?.name }}</span>
+          </v-btn>
+          <div class="mt-1">
+            <AdminCoreSelect
+              activator="#selectBusiness"
+              :list="businessesList"
+              :listValue="business.name"
+              @setItem="setBusiness"
+            />
+          </div>
+        </div>
+        <v-btn-toggle
+          mandatory
+          color="black"
+          divided
+          border
+          density="compact"
+          class="rounded-lg"
+          v-model="status"
+          title="Status"
+        >
+          <v-btn
+            variant="text"
+            v-for="({ name, value }, i) in statuses"
+            :key="i"
+            class="text-none text-caption"
+            :value="value"
+          >
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             <span>{{ name }}</span>
           </v-btn>
         </v-btn-toggle>
         <v-spacer></v-spacer>
+<<<<<<< HEAD
         <v-btn icon="mdi-plus" size="x-small" flat color="primary-dark" title="Add product"
           :to="{ name: 'admin-products-create' }" v-if="currentUser.accessLevel === 3"></v-btn>
+=======
+        <v-btn
+          icon="mdi-plus"
+          size="x-small"
+          flat
+          color="primary-dark"
+          title="Add product"
+          :to="{ name: 'admin-products-create' }"
+        ></v-btn>
+        <!-- v-if="currentUser.accessLevel === 3" -->
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
       </div>
       <div class="mt-4">
         <AdminCoreTableHeader text="Products" :number="products.length" />
         <v-sheet width="100%" color="transparent">
+<<<<<<< HEAD
           <v-data-table density="compact" :headers="headers" :items="products" :loading="loading" class="bg-background">
+=======
+          <v-data-table
+            density="compact"
+            :headers="headers"
+            :items="products"
+            :loading="loading"
+            class="bg-background"
+          >
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             <template v-slot:[`item.no`]="{ item }">
               <span>{{ products.indexOf(item) + 1 }}</span>
             </template>
             <template v-slot:[`item.publish`]="{ item }">
+<<<<<<< HEAD
               <AdminBtnStatus :status="item.isPublished" :titles="{ isNot: 'Publish', isAlready: 'Published' }"
                 @submit="handlePublish(item)" />
             </template>
@@ -42,6 +107,23 @@
                   params: { id: item.productId },
                 })
                 " />
+=======
+              <AdminBtnStatus
+                :status="item.isPublished"
+                :titles="{ isNot: 'Publish', isAlready: 'Published' }"
+                @submit="handlePublish(item)"
+              />
+            </template>
+            <template v-slot:[`item.action`]="{ item }">
+              <AdminBtnDetailsBtn
+                @details="
+                  navigateTo({
+                    name: 'admin-products-id',
+                    params: { id: item.productId },
+                  })
+                "
+              />
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             </template>
           </v-data-table>
         </v-sheet>
@@ -49,8 +131,21 @@
       <v-dialog v-model="publishDialog" persistent fullscreen>
         <v-card class="card-outlined system-bg hide-scrollbar pa-0" rounded="0">
           <AdminCoreDialogHeader title="Publish product" @close="close">
+<<<<<<< HEAD
             <v-btn rounded flat color="link" class="text-caption text-none mx-2" prepend-icon="mdi-check-circle-outline"
               :loading="loading" size="small" @click="publishConfirmation">
+=======
+            <v-btn
+              rounded
+              flat
+              color="link"
+              class="text-caption text-none mx-2"
+              prepend-icon="mdi-check-circle-outline"
+              :loading="loading"
+              size="small"
+              @click="publishConfirmation"
+            >
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
               <span>Publish</span>
             </v-btn>
           </AdminCoreDialogHeader>
@@ -108,10 +203,18 @@ const getData = async () => {
   );
   data.value = replaceObjectEmptyStrings(data.value);
 
+<<<<<<< HEAD
   businesses.value = businessData.filter(i =>
     currentUser.value.accessLevel === 3
       ? i.userId === currentUser.value.userId
       : i)
+=======
+  businesses.value = businessData.filter((i) =>
+    currentUser.value.accessLevel === 3
+      ? i.userId === currentUser.value.userId
+      : i
+  );
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 };
 onMounted(() => {
   getData();
@@ -120,12 +223,21 @@ onMounted(() => {
 const products = computed(() => {
   return business.value.name !== "ALL BUSINESSES"
     ? filterDataPerField(data.value, search.value, {
+<<<<<<< HEAD
       isPublished: status.value,
       businessId: business.value.code ?? "",
     })
     : filterDataPerField(data.value, search.value, {
       isPublished: status.value,
     });
+=======
+        isPublished: status.value,
+        businessId: business.value.code ?? "",
+      })
+    : filterDataPerField(data.value, search.value, {
+        isPublished: status.value,
+      });
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 });
 
 const search = ref("");

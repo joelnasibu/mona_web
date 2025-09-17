@@ -2,6 +2,7 @@
   <div>
     <AdminCorePageHeader :route="route">
       <div class="d-flex align-center">
+<<<<<<< HEAD
         <v-btn prepend-icon="mdi-chevron-left" class="text-caption text-capitalize mr-2"
           :color="tab > 0 ? 'primary-accent' : ''" size="small" flat title="Previous Step" :disabled="!tab > 0"
           @click="navigate(tab - 1)" variant="text" rounded>
@@ -13,11 +14,52 @@
         </v-btn>
         <v-btn append-icon="mdi-chevron-right" size="small" flat class="ml-2 text-caption text-capitalize"
           title="Next Step" v-else @click="validation(tab)" color="primary-dark" rounded>
+=======
+        <v-btn
+          prepend-icon="mdi-chevron-left"
+          class="text-caption text-capitalize mr-2"
+          :color="tab > 0 ? 'primary-accent' : ''"
+          size="small"
+          flat
+          title="Previous Step"
+          :disabled="!tab > 0"
+          @click="navigate(tab - 1)"
+          variant="text"
+          rounded
+        >
+          <span>Prev</span>
+        </v-btn>
+        <v-btn
+          class="text-capitalize ml-2 text-caption"
+          prepend-icon="mdi-content-save"
+          size="small"
+          v-if="tab === sections.length - 1"
+          flat
+          color="primary-dark"
+          @click="submit"
+          :loading="loading"
+          rounded
+        >
+          <span>Save</span>
+        </v-btn>
+        <v-btn
+          append-icon="mdi-chevron-right"
+          size="small"
+          flat
+          class="ml-2 text-caption text-capitalize"
+          title="Next Step"
+          v-else
+          @click="validation(tab)"
+          color="primary-dark"
+          rounded
+        >
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           <span>Next</span>
         </v-btn>
       </div>
     </AdminCorePageHeader>
     <div class="mt-2">
+<<<<<<< HEAD
       <AdminCoreStepper :step="tab" :sections="sections" @navigate="navigate" @validation="validation" @save="submit" />
       <v-window v-model="tab" class="py-3">
         <v-window-item :value="0">
@@ -31,6 +73,45 @@
         </v-window-item>
         <v-window-item :value="3">
           <AdminProductInputsDescription :payload="payload" :trigger="triggers.stepFour" @step="navigate" />
+=======
+      <AdminCoreStepper
+        :step="tab"
+        :sections="sections"
+        @navigate="navigate"
+        @validation="validation"
+        @save="submit"
+      />
+      <v-window v-model="tab" class="py-3">
+        <v-window-item :value="0">
+          <AdminProductInputsBasic
+            :payload="payload"
+            :trigger="triggers.stepOne"
+            @step="navigate"
+            :edit="edit"
+          />
+        </v-window-item>
+        <v-window-item :value="1">
+          <AdminProductInputsBusiness
+            :payload="payload"
+            :trigger="triggers.stepTwo"
+            @step="navigate"
+          />
+        </v-window-item>
+        <v-window-item :value="2">
+          <AdminProductInputsStock
+            :payload="payload"
+            :trigger="triggers.stepThree"
+            @step="navigate"
+            :edit="edit"
+          />
+        </v-window-item>
+        <v-window-item :value="3">
+          <AdminProductInputsDescription
+            :payload="payload"
+            :trigger="triggers.stepFour"
+            @step="navigate"
+          />
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
         </v-window-item>
         <v-window-item :value="4">
           <AdminProductPreview :payload="payload" />
@@ -44,7 +125,11 @@
 const props = defineProps({
   edit: {
     type: Boolean,
+<<<<<<< HEAD
     default: false
+=======
+    default: false,
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   },
   payload: Object,
   route: String,
@@ -60,7 +145,11 @@ const tab = ref(0);
 const sections = [
   { title: "Product details", icon: "mdi-content-paste" },
   { title: "Business", icon: "mdi-storefront-outline" },
+<<<<<<< HEAD
   { title: "Stock", icon: "mdi-database-outline" },
+=======
+  { title: "Others", icon: "mdi-dots-horizontal" },
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   { title: "Product description", icon: "mdi-text" },
   { title: "Preview", icon: "mdi-file-outline" },
 ];

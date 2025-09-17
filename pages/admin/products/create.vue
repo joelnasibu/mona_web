@@ -6,7 +6,11 @@
 
 <script setup>
 definePageMeta({
+<<<<<<< HEAD
   middleware: ["vendor-only"],
+=======
+  // middleware: ["vendor-only"],
+>>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 });
 
 const payload = ref({

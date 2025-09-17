@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VWindow/VWindow.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { withDirectives as _withDirectives, resolveDirective as _resolveDirective, createVNode as _createVNode } from \"vue\";\r\n// Styles\r\nimport \"./VWindow.css\";\r\n\r\n// Components\r\nimport { VBtn } from \"../VBtn/index.mjs\"; // Composables\r\nimport { makeComponentProps } from \"../../composables/component.mjs\";\r\nimport { useGroup } from \"../../composables/group.mjs\";\r\nimport { useLocale, useRtl } from \"../../composables/locale.mjs\";\r\nimport { makeTagProps } from \"../../composables/tag.mjs\";\r\nimport { makeThemeProps, provideTheme } from \"../../composables/theme.mjs\"; // Directives\r\nimport { Touch } from \"../../directives/touch/index.mjs\"; // Utilities\r\nimport { computed, provide, ref, shallowRef, watch } from 'vue';\r\nimport { genericComponent, propsFactory, useRender } from \"../../util/index.mjs\"; // Types\r\nexport const VWindowSymbol = Symbol.for('vuetify:v-window');\r\nexport const VWindowGroupSymbol = Symbol.for('vuetify:v-window-group');\r\nexport const makeVWindowProps = propsFactory({\r\n  continuous: Boolean,\r\n  nextIcon: {\r\n    type: [Boolean, String, Function, Object],\r\n    default: '$next'\r\n  },\r\n  prevIcon: {\r\n    type: [Boolean, String, Function, Object],\r\n    default: '$prev'\r\n  },\r\n  reverse: Boolean,\r\n  showArrows: {\r\n    type: [Boolean, String],\r\n    validator: v => typeof v === 'boolean' || v === 'hover'\r\n  },\r\n  touch: {\r\n    type: [Object, Boolean],\r\n    default: undefined\r\n  },\r\n  direction: {\r\n    type: String,\r\n    default: 'horizontal'\r\n  },\r\n  modelValue: null,\r\n  disabled: Boolean,\r\n  selectedClass: {\r\n    type: String,\r\n    default: 'v-window-item--active'\r\n  },\r\n  // TODO: mandatory should probably not be exposed but do this for now\r\n  mandatory: {\r\n    type: [Boolean, String],\r\n    default: 'force'\r\n  },\r\n  ...makeComponentProps(),\r\n  ...makeTagProps(),\r\n  ...makeThemeProps()\r\n}, 'VWindow');\r\nexport const VWindow = genericComponent()({\r\n  name: 'VWindow',\r\n  directives: {\r\n    Touch\r\n  },\r\n  props: makeVWindowProps(),\r\n  emits: {\r\n    'update:modelValue': value => true\r\n  },\r\n  setup(props, _ref) {\r\n    let {\r\n      slots\r\n    } = _ref;\r\n    const {\r\n      themeClasses\r\n    } = provideTheme(props);\r\n    const {\r\n      isRtl\r\n    } = useRtl();\r\n    const {\r\n      t\r\n    } = useLocale();\r\n    const group = useGroup(props, VWindowGroupSymbol);\r\n    const rootRef = ref();\r\n    const isRtlReverse = computed(() => isRtl.value ? !props.reverse : props.reverse);\r\n    const isReversed = shallowRef(false);\r\n    const transition = computed(() => {\r\n      const axis = props.direction === 'vertical' ? 'y' : 'x';\r\n      const reverse = isRtlReverse.value ? !isReversed.value : isReversed.value;\r\n      const direction = reverse ? '-reverse' : '';\r\n      return `v-window-${axis}${direction}-transition`;\r\n    });\r\n    const transitionCount = shallowRef(0);\r\n    const transitionHeight = ref(undefined);\r\n    const activeIndex = computed(() => {\r\n      return group.items.value.findIndex(item => group.selected.value.includes(item.id));\r\n    });\r\n    watch(activeIndex, (newVal, oldVal) => {\r\n      const itemsLength = group.items.value.length;\r\n      const lastIndex = itemsLength - 1;\r\n      if (itemsLength <= 2) {\r\n        isReversed.value = newVal < oldVal;\r\n      } else if (newVal === lastIndex && oldVal === 0) {\r\n        isReversed.value = true;\r\n      } else if (newVal === 0 && oldVal === lastIndex) {\r\n        isReversed.value = false;\r\n      } else {\r\n        isReversed.value = newVal < oldVal;\r\n      }\r\n    });\r\n    provide(VWindowSymbol, {\r\n      transition,\r\n      isReversed,\r\n      transitionCount,\r\n      transitionHeight,\r\n      rootRef\r\n    });\r\n    const canMoveBack = computed(() => props.continuous || activeIndex.value !== 0);\r\n    const canMoveForward = computed(() => props.continuous || activeIndex.value !== group.items.value.length - 1);\r\n    function prev() {\r\n      canMoveBack.value && group.prev();\r\n    }\r\n    function next() {\r\n      canMoveForward.value && group.next();\r\n    }\r\n    const arrows = computed(() => {\r\n      const arrows = [];\r\n      const prevProps = {\r\n        icon: isRtl.value ? props.nextIcon : props.prevIcon,\r\n        class: `v-window__${isRtlReverse.value ? 'right' : 'left'}`,\r\n        onClick: group.prev,\r\n        'aria-label': t('$vuetify.carousel.prev')\r\n      };\r\n      arrows.push(canMoveBack.value ? slots.prev ? slots.prev({\r\n        props: prevProps\r\n      }) : _createVNode(VBtn, prevProps, null) : _createVNode(\"div\", null, null));\r\n      const nextProps = {\r\n        icon: isRtl.value ? props.prevIcon : props.nextIcon,\r\n        class: `v-window__${isRtlReverse.value ? 'left' : 'right'}`,\r\n        onClick: group.next,\r\n        'aria-label': t('$vuetify.carousel.next')\r\n      };\r\n      arrows.push(canMoveForward.value ? slots.next ? slots.next({\r\n        props: nextProps\r\n      }) : _createVNode(VBtn, nextProps, null) : _createVNode(\"div\", null, null));\r\n      return arrows;\r\n    });\r\n    const touchOptions = computed(() => {\r\n      if (props.touch === false) return props.touch;\r\n      const options = {\r\n        left: () => {\r\n          isRtlReverse.value ? prev() : next();\r\n        },\r\n        right: () => {\r\n          isRtlReverse.value ? next() : prev();\r\n        },\r\n        start: _ref2 => {\r\n          let {\r\n            originalEvent\r\n          } = _ref2;\r\n          originalEvent.stopPropagation();\r\n        }\r\n      };\r\n      return {\r\n        ...options,\r\n        ...(props.touch === true ? {} : props.touch)\r\n      };\r\n    });\r\n    useRender(() => _withDirectives(_createVNode(props.tag, {\r\n      \"ref\": rootRef,\r\n      \"class\": ['v-window', {\r\n        'v-window--show-arrows-on-hover': props.showArrows === 'hover'\r\n      }, themeClasses.value, props.class],\r\n      \"style\": props.style\r\n    }, {\r\n      default: () => [_createVNode(\"div\", {\r\n        \"class\": \"v-window__container\",\r\n        \"style\": {\r\n          height: transitionHeight.value\r\n        }\r\n      }, [slots.default?.({\r\n        group\r\n      }), props.showArrows !== false && _createVNode(\"div\", {\r\n        \"class\": \"v-window__controls\"\r\n      }, [arrows.value])]), slots.additional?.({\r\n        group\r\n      })]\r\n    }), [[_resolveDirective(\"touch\"), touchOptions.value]]));\r\n    return {\r\n      group\r\n    };\r\n  }\r\n});\r\n//# sourceMappingURL=VWindow.mjs.map",
+      "start": 1756473938667,
+      "end": 1756473939030,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473939030,
+      "end": 1756473939030,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473939030,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473939031,
+      "end": 1756473939031,
+      "order": "normal"
+    }
+  ]
+}

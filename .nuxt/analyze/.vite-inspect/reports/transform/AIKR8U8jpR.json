@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@supabase/auth-js/dist/module/GoTrueAdminApi.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "var __rest = (this && this.__rest) || function (s, e) {\r\n    var t = {};\r\n    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)\r\n        t[p] = s[p];\r\n    if (s != null && typeof Object.getOwnPropertySymbols === \"function\")\r\n        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {\r\n            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))\r\n                t[p[i]] = s[p[i]];\r\n        }\r\n    return t;\r\n};\r\nimport { _generateLinkResponse, _noResolveJsonResponse, _request, _userResponse, } from './lib/fetch';\r\nimport { resolveFetch } from './lib/helpers';\r\nimport { isAuthError } from './lib/errors';\r\nexport default class GoTrueAdminApi {\r\n    constructor({ url = '', headers = {}, fetch, }) {\r\n        this.url = url;\r\n        this.headers = headers;\r\n        this.fetch = resolveFetch(fetch);\r\n        this.mfa = {\r\n            listFactors: this._listFactors.bind(this),\r\n            deleteFactor: this._deleteFactor.bind(this),\r\n        };\r\n    }\r\n    /**\r\n     * Removes a logged-in session.\r\n     * @param jwt A valid, logged-in JWT.\r\n     * @param scope The logout sope.\r\n     */\r\n    async signOut(jwt, scope = 'global') {\r\n        try {\r\n            await _request(this.fetch, 'POST', `${this.url}/logout?scope=${scope}`, {\r\n                headers: this.headers,\r\n                jwt,\r\n                noResolveJson: true,\r\n            });\r\n            return { data: null, error: null };\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: null, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    /**\r\n     * Sends an invite link to an email address.\r\n     * @param email The email address of the user.\r\n     * @param options Additional options to be included when inviting.\r\n     */\r\n    async inviteUserByEmail(email, options = {}) {\r\n        try {\r\n            return await _request(this.fetch, 'POST', `${this.url}/invite`, {\r\n                body: { email, data: options.data },\r\n                headers: this.headers,\r\n                redirectTo: options.redirectTo,\r\n                xform: _userResponse,\r\n            });\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: { user: null }, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    /**\r\n     * Generates email links and OTPs to be sent via a custom email provider.\r\n     * @param email The user's email.\r\n     * @param options.password User password. For signup only.\r\n     * @param options.data Optional user metadata. For signup only.\r\n     * @param options.redirectTo The redirect url which should be appended to the generated link\r\n     */\r\n    async generateLink(params) {\r\n        try {\r\n            const { options } = params, rest = __rest(params, [\"options\"]);\r\n            const body = Object.assign(Object.assign({}, rest), options);\r\n            if ('newEmail' in rest) {\r\n                // replace newEmail with new_email in request body\r\n                body.new_email = rest === null || rest === void 0 ? void 0 : rest.newEmail;\r\n                delete body['newEmail'];\r\n            }\r\n            return await _request(this.fetch, 'POST', `${this.url}/admin/generate_link`, {\r\n                body: body,\r\n                headers: this.headers,\r\n                xform: _generateLinkResponse,\r\n                redirectTo: options === null || options === void 0 ? void 0 : options.redirectTo,\r\n            });\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return {\r\n                    data: {\r\n                        properties: null,\r\n                        user: null,\r\n                    },\r\n                    error,\r\n                };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    // User Admin API\r\n    /**\r\n     * Creates a new user.\r\n     * This function should only be called on a server. Never expose your `service_role` key in the browser.\r\n     */\r\n    async createUser(attributes) {\r\n        try {\r\n            return await _request(this.fetch, 'POST', `${this.url}/admin/users`, {\r\n                body: attributes,\r\n                headers: this.headers,\r\n                xform: _userResponse,\r\n            });\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: { user: null }, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    /**\r\n     * Get a list of users.\r\n     *\r\n     * This function should only be called on a server. Never expose your `service_role` key in the browser.\r\n     * @param params An object which supports `page` and `perPage` as numbers, to alter the paginated results.\r\n     */\r\n    async listUsers(params) {\r\n        var _a, _b, _c, _d, _e, _f, _g;\r\n        try {\r\n            const pagination = { nextPage: null, lastPage: 0, total: 0 };\r\n            const response = await _request(this.fetch, 'GET', `${this.url}/admin/users`, {\r\n                headers: this.headers,\r\n                noResolveJson: true,\r\n                query: {\r\n                    page: (_b = (_a = params === null || params === void 0 ? void 0 : params.page) === null || _a === void 0 ? void 0 : _a.toString()) !== null && _b !== void 0 ? _b : '',\r\n                    per_page: (_d = (_c = params === null || params === void 0 ? void 0 : params.perPage) === null || _c === void 0 ? void 0 : _c.toString()) !== null && _d !== void 0 ? _d : '',\r\n                },\r\n                xform: _noResolveJsonResponse,\r\n            });\r\n            if (response.error)\r\n                throw response.error;\r\n            const users = await response.json();\r\n            const total = (_e = response.headers.get('x-total-count')) !== null && _e !== void 0 ? _e : 0;\r\n            const links = (_g = (_f = response.headers.get('link')) === null || _f === void 0 ? void 0 : _f.split(',')) !== null && _g !== void 0 ? _g : [];\r\n            if (links.length > 0) {\r\n                links.forEach((link) => {\r\n                    const page = parseInt(link.split(';')[0].split('=')[1].substring(0, 1));\r\n                    const rel = JSON.parse(link.split(';')[1].split('=')[1]);\r\n                    pagination[`${rel}Page`] = page;\r\n                });\r\n                pagination.total = parseInt(total);\r\n            }\r\n            return { data: Object.assign(Object.assign({}, users), pagination), error: null };\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: { users: [] }, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    /**\r\n     * Get user by id.\r\n     *\r\n     * @param uid The user's unique identifier\r\n     *\r\n     * This function should only be called on a server. Never expose your `service_role` key in the browser.\r\n     */\r\n    async getUserById(uid) {\r\n        try {\r\n            return await _request(this.fetch, 'GET', `${this.url}/admin/users/${uid}`, {\r\n                headers: this.headers,\r\n                xform: _userResponse,\r\n            });\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: { user: null }, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    /**\r\n     * Updates the user data.\r\n     *\r\n     * @param attributes The data you want to update.\r\n     *\r\n     * This function should only be called on a server. Never expose your `service_role` key in the browser.\r\n     */\r\n    async updateUserById(uid, attributes) {\r\n        try {\r\n            return await _request(this.fetch, 'PUT', `${this.url}/admin/users/${uid}`, {\r\n                body: attributes,\r\n                headers: this.headers,\r\n                xform: _userResponse,\r\n            });\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: { user: null }, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    /**\r\n     * Delete a user. Requires a `service_role` key.\r\n     *\r\n     * @param id The user id you want to remove.\r\n     * @param shouldSoftDelete If true, then the user will be soft-deleted from the auth schema. Soft deletion allows user identification from the hashed user ID but is not reversible.\r\n     * Defaults to false for backward compatibility.\r\n     *\r\n     * This function should only be called on a server. Never expose your `service_role` key in the browser.\r\n     */\r\n    async deleteUser(id, shouldSoftDelete = false) {\r\n        try {\r\n            return await _request(this.fetch, 'DELETE', `${this.url}/admin/users/${id}`, {\r\n                headers: this.headers,\r\n                body: {\r\n                    should_soft_delete: shouldSoftDelete,\r\n                },\r\n                xform: _userResponse,\r\n            });\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: { user: null }, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    async _listFactors(params) {\r\n        try {\r\n            const { data, error } = await _request(this.fetch, 'GET', `${this.url}/admin/users/${params.userId}/factors`, {\r\n                headers: this.headers,\r\n                xform: (factors) => {\r\n                    return { data: { factors }, error: null };\r\n                },\r\n            });\r\n            return { data, error };\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: null, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n    async _deleteFactor(params) {\r\n        try {\r\n            const data = await _request(this.fetch, 'DELETE', `${this.url}/admin/users/${params.userId}/factors/${params.id}`, {\r\n                headers: this.headers,\r\n            });\r\n            return { data, error: null };\r\n        }\r\n        catch (error) {\r\n            if (isAuthError(error)) {\r\n                return { data: null, error };\r\n            }\r\n            throw error;\r\n        }\r\n    }\r\n}\r\n//# sourceMappingURL=GoTrueAdminApi.js.map",
+      "start": 1756473949362,
+      "end": 1756473949453,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949453,
+      "end": 1756473949453,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949453,
+      "end": 1756473949454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949454,
+      "end": 1756473949454,
+      "order": "normal"
+    }
+  ]
+}

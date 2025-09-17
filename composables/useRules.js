@@ -2,16 +2,21 @@ export const useRules = () => {
   const req = () => {
     return (v) => !!v || "Required";
   };
+  const emailOnly = () => {
+    return (v) => /.+@.+\..+/.test(v) || "Email not valid";
+  };
   const nameLength = () => {
     return (v) => (v && v.length >= 3) || "Name is too short";
   };
   return {
+    emailOnly,
     required() {
       return [req()];
     },
     email() {
-      return [req(), (v) => /.+@.+\..+/.test(v) || "Email not valid"];
+      return [req(), emailOnly()];
     },
+   
     number() {
       return [
         req(),

@@ -1,0 +1,225 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/models/job.js",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "export default class JobModel {\r\n  constructor(job) {\r\n    this.job = job;\r\n  }\r\n  get formatedJobRouteTitle() {\r\n    return String(this.job.jobName).toLowerCase().replaceAll(\" \", \"-\");\r\n  }\r\n  navigateToJobDetails() {\r\n    navigateTo({\r\n      name: \"jobs-id\",\r\n      params: {\r\n        name: this.formatedJobRouteTitle,\r\n        id: this.job.jobId ?? this.job.objectID,\r\n      },\r\n    });\r\n  }\r\n}",
+      "start": 1756473949042,
+      "end": 1756473949177,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473949177,
+      "end": 1756473949177,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { navigateTo } from '#app/composables/router';\nexport default class JobModel {\r\n  constructor(job) {\r\n    this.job = job;\r\n  }\r\n  get formatedJobRouteTitle() {\r\n    return String(this.job.jobName).toLowerCase().replaceAll(\" \", \"-\");\r\n  }\r\n  navigateToJobDetails() {\r\n    navigateTo({\r\n      name: \"jobs-id\",\r\n      params: {\r\n        name: this.formatedJobRouteTitle,\r\n        id: this.job.jobId ?? this.job.objectID,\r\n      },\r\n    });\r\n  }\r\n}",
+      "start": 1756473949177,
+      "end": 1756473949178,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnB,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvE,CAAC,CAAC,CAAC;AACH,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC1B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACzC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAChD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACR,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC;AACH"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473949178,
+      "end": 1756473949178,
+      "order": "normal"
+    }
+  ]
+}

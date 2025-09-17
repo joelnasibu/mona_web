@@ -1,0 +1,224 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/vuetify/lib/components/VCard/VCard.css",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": ".v-card {\r\n  display: block;\r\n  overflow: hidden;\r\n  overflow-wrap: break-word;\r\n  position: relative;\r\n  padding: 0;\r\n  text-decoration: none;\r\n  transition-duration: 0.28s;\r\n  transition-property: box-shadow, opacity, background;\r\n  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);\r\n  z-index: 0;\r\n  border-color: rgba(var(--v-border-color), var(--v-border-opacity));\r\n  border-style: solid;\r\n  border-width: 0;\r\n  border-radius: 4px;\r\n}\r\n.v-card--border {\r\n  border-width: thin;\r\n  box-shadow: none;\r\n}\r\n.v-card--absolute {\r\n  position: absolute;\r\n}\r\n.v-card--fixed {\r\n  position: fixed;\r\n}\r\n.v-card:hover > .v-card__overlay {\r\n  opacity: calc(var(--v-hover-opacity) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-card:focus-visible > .v-card__overlay {\r\n  opacity: calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier));\r\n}\r\n@supports not selector(:focus-visible) {\r\n  .v-card:focus > .v-card__overlay {\r\n    opacity: calc(var(--v-focus-opacity) * var(--v-theme-overlay-multiplier));\r\n  }\r\n}\r\n.v-card--active > .v-card__overlay, .v-card[aria-haspopup=menu][aria-expanded=true] > .v-card__overlay {\r\n  opacity: calc(var(--v-activated-opacity) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-card--active:hover > .v-card__overlay, .v-card[aria-haspopup=menu][aria-expanded=true]:hover > .v-card__overlay {\r\n  opacity: calc((var(--v-activated-opacity) + var(--v-hover-opacity)) * var(--v-theme-overlay-multiplier));\r\n}\r\n.v-card--active:focus-visible > .v-card__overlay, .v-card[aria-haspopup=menu][aria-expanded=true]:focus-visible > .v-card__overlay {\r\n  opacity: calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier));\r\n}\r\n@supports not selector(:focus-visible) {\r\n  .v-card--active:focus > .v-card__overlay, .v-card[aria-haspopup=menu][aria-expanded=true]:focus > .v-card__overlay {\r\n    opacity: calc((var(--v-activated-opacity) + var(--v-focus-opacity)) * var(--v-theme-overlay-multiplier));\r\n  }\r\n}\r\n.v-card--variant-plain, .v-card--variant-outlined, .v-card--variant-text, .v-card--variant-tonal {\r\n  background: transparent;\r\n  color: inherit;\r\n}\r\n.v-card--variant-plain {\r\n  opacity: 0.62;\r\n}\r\n.v-card--variant-plain:focus, .v-card--variant-plain:hover {\r\n  opacity: 1;\r\n}\r\n.v-card--variant-plain .v-card__overlay {\r\n  display: none;\r\n}\r\n.v-card--variant-elevated, .v-card--variant-flat {\r\n  background: rgb(var(--v-theme-surface));\r\n  color: rgba(var(--v-theme-on-surface), var(--v-high-emphasis-opacity));\r\n}\r\n.v-card--variant-elevated {\r\n  box-shadow: 0px 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 1px 1px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 1px 3px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));\r\n}\r\n.v-card--variant-flat {\r\n  box-shadow: 0px 0px 0px 0px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 0px 0px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 0px 0px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));\r\n}\r\n.v-card--variant-outlined {\r\n  border: thin solid currentColor;\r\n}\r\n.v-card--variant-text .v-card__overlay {\r\n  background: currentColor;\r\n}\r\n.v-card--variant-tonal .v-card__underlay {\r\n  background: currentColor;\r\n  opacity: var(--v-activated-opacity);\r\n  border-radius: inherit;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  pointer-events: none;\r\n}\r\n.v-card--disabled {\r\n  pointer-events: none;\r\n  user-select: none;\r\n}\r\n.v-card--disabled > :not(.v-card__loader) {\r\n  opacity: 0.6;\r\n}\r\n.v-card--flat {\r\n  box-shadow: none;\r\n}\r\n.v-card--hover {\r\n  cursor: pointer;\r\n}\r\n.v-card--hover::before, .v-card--hover::after {\r\n  border-radius: inherit;\r\n  bottom: 0;\r\n  content: \"\";\r\n  display: block;\r\n  left: 0;\r\n  pointer-events: none;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\r\n  transition: inherit;\r\n}\r\n.v-card--hover::before {\r\n  opacity: 1;\r\n  z-index: -1;\r\n  box-shadow: 0px 2px 1px -1px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 1px 1px 0px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 1px 3px 0px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));\r\n}\r\n.v-card--hover::after {\r\n  z-index: 1;\r\n  opacity: 0;\r\n  box-shadow: 0px 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));\r\n}\r\n.v-card--hover:hover::after {\r\n  opacity: 1;\r\n}\r\n.v-card--hover:hover::before {\r\n  opacity: 0;\r\n}\r\n.v-card--hover:hover {\r\n  box-shadow: 0px 5px 5px -3px var(--v-shadow-key-umbra-opacity, rgba(0, 0, 0, 0.2)), 0px 8px 10px 1px var(--v-shadow-key-penumbra-opacity, rgba(0, 0, 0, 0.14)), 0px 3px 14px 2px var(--v-shadow-key-ambient-opacity, rgba(0, 0, 0, 0.12));\r\n}\r\n.v-card--link {\r\n  cursor: pointer;\r\n}\r\n\r\n.v-card-actions {\r\n  align-items: center;\r\n  display: flex;\r\n  flex: none;\r\n  min-height: 52px;\r\n  padding: 0.5rem;\r\n}\r\n\r\n.v-card-item {\r\n  align-items: center;\r\n  display: grid;\r\n  flex: none;\r\n  grid-template-areas: \"prepend content append\";\r\n  grid-template-columns: max-content auto max-content;\r\n  padding: 0.625rem 1rem;\r\n}\r\n.v-card-item + .v-card-text {\r\n  padding-top: 0;\r\n}\r\n.v-card-item__prepend, .v-card-item__append {\r\n  align-items: center;\r\n  display: flex;\r\n}\r\n.v-card-item__prepend {\r\n  grid-area: prepend;\r\n  padding-inline-end: 0.5rem;\r\n}\r\n.v-card-item__append {\r\n  grid-area: append;\r\n  padding-inline-start: 0.5rem;\r\n}\r\n\r\n.v-card-item__content {\r\n  align-self: center;\r\n  grid-area: content;\r\n  overflow: hidden;\r\n}\r\n\r\n.v-card-title {\r\n  display: block;\r\n  flex: none;\r\n  font-size: 1.25rem;\r\n  font-weight: 500;\r\n  hyphens: auto;\r\n  letter-spacing: 0.0125em;\r\n  min-width: 0;\r\n  overflow-wrap: normal;\r\n  overflow: hidden;\r\n  padding: 0.5rem 1rem;\r\n  text-overflow: ellipsis;\r\n  text-transform: none;\r\n  white-space: nowrap;\r\n  word-break: normal;\r\n  word-wrap: break-word;\r\n}\r\n.v-card .v-card-title {\r\n  line-height: 2rem;\r\n}\r\n.v-card--density-comfortable .v-card-title {\r\n  line-height: 1.75rem;\r\n}\r\n.v-card--density-compact .v-card-title {\r\n  line-height: 1.55rem;\r\n}\r\n.v-card-item .v-card-title {\r\n  padding: 0;\r\n}\r\n.v-card-title + .v-card-text,\r\n.v-card-title + .v-card-actions {\r\n  padding-top: 0;\r\n}\r\n\r\n.v-card-subtitle {\r\n  display: block;\r\n  flex: none;\r\n  font-size: 0.875rem;\r\n  font-weight: 400;\r\n  letter-spacing: 0.0178571429em;\r\n  opacity: var(--v-medium-emphasis-opacity);\r\n  overflow: hidden;\r\n  padding: 0 1rem;\r\n  text-overflow: ellipsis;\r\n  text-transform: none;\r\n  white-space: nowrap;\r\n}\r\n.v-card .v-card-subtitle {\r\n  line-height: 1.25rem;\r\n}\r\n.v-card--density-comfortable .v-card-subtitle {\r\n  line-height: 1.125rem;\r\n}\r\n.v-card--density-compact .v-card-subtitle {\r\n  line-height: 1rem;\r\n}\r\n.v-card-item .v-card-subtitle {\r\n  padding: 0 0 0.25rem;\r\n}\r\n\r\n.v-card-text {\r\n  flex: 1 1 auto;\r\n  font-size: 0.875rem;\r\n  font-weight: 400;\r\n  letter-spacing: 0.0178571429em;\r\n  padding: 1rem;\r\n  text-transform: none;\r\n}\r\n.v-card .v-card-text {\r\n  line-height: 1.25rem;\r\n}\r\n.v-card--density-comfortable .v-card-text {\r\n  line-height: 1.2rem;\r\n}\r\n.v-card--density-compact .v-card-text {\r\n  line-height: 1.15rem;\r\n}\r\n\r\n.v-card__image {\r\n  display: flex;\r\n  height: 100%;\r\n  flex: 1 1 auto;\r\n  left: 0;\r\n  overflow: hidden;\r\n  position: absolute;\r\n  top: 0;\r\n  width: 100%;\r\n  z-index: -1;\r\n}\r\n\r\n.v-card__content {\r\n  border-radius: inherit;\r\n  overflow: hidden;\r\n  position: relative;\r\n}\r\n\r\n.v-card__loader {\r\n  bottom: auto;\r\n  top: 0;\r\n  left: 0;\r\n  position: absolute;\r\n  right: 0;\r\n  width: 100%;\r\n  z-index: 1;\r\n}\r\n\r\n.v-card__overlay {\r\n  background-color: currentColor;\r\n  border-radius: inherit;\r\n  position: absolute;\r\n  top: 0;\r\n  right: 0;\r\n  bottom: 0;\r\n  left: 0;\r\n  pointer-events: none;\r\n  opacity: 0;\r\n  transition: opacity 0.2s ease-in-out;\r\n}",
+      "start": 1756473943022,
+      "end": 1756473943083,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473943083,
+      "end": 1756473943083,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473943083,
+      "end": 1756473943083,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473943083,
+      "end": 1756473943083,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "result": ".v-card{border-color:rgba(var(--v-border-color),var(--v-border-opacity));border-radius:4px;border-style:solid;border-width:0;display:block;overflow:hidden;overflow-wrap:break-word;padding:0;position:relative;text-decoration:none;transition-duration:.28s;transition-property:box-shadow,opacity,background;transition-timing-function:cubic-bezier(.4,0,.2,1);z-index:0}.v-card--border{border-width:thin;box-shadow:none}.v-card--absolute{position:absolute}.v-card--fixed{position:fixed}.v-card:hover>.v-card__overlay{opacity:calc(var(--v-hover-opacity)*var(--v-theme-overlay-multiplier))}.v-card:focus-visible>.v-card__overlay{opacity:calc(var(--v-focus-opacity)*var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-card:focus>.v-card__overlay{opacity:calc(var(--v-focus-opacity)*var(--v-theme-overlay-multiplier))}}.v-card--active>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]>.v-card__overlay{opacity:calc(var(--v-activated-opacity)*var(--v-theme-overlay-multiplier))}.v-card--active:hover>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:hover>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-hover-opacity))*var(--v-theme-overlay-multiplier))}.v-card--active:focus-visible>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:focus-visible>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity))*var(--v-theme-overlay-multiplier))}@supports not selector(:focus-visible){.v-card--active:focus>.v-card__overlay,.v-card[aria-haspopup=menu][aria-expanded=true]:focus>.v-card__overlay{opacity:calc((var(--v-activated-opacity) + var(--v-focus-opacity))*var(--v-theme-overlay-multiplier))}}.v-card--variant-outlined,.v-card--variant-plain,.v-card--variant-text,.v-card--variant-tonal{background:transparent;color:inherit}.v-card--variant-plain{opacity:.62}.v-card--variant-plain:focus,.v-card--variant-plain:hover{opacity:1}.v-card--variant-plain .v-card__overlay{display:none}.v-card--variant-elevated,.v-card--variant-flat{background:rgb(var(--v-theme-surface));color:rgba(var(--v-theme-on-surface),var(--v-high-emphasis-opacity))}.v-card--variant-elevated{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12))}.v-card--variant-flat{box-shadow:0 0 0 0 var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 0 0 0 var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 0 0 0 var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12))}.v-card--variant-outlined{border:thin solid}.v-card--variant-text .v-card__overlay{background:currentColor}.v-card--variant-tonal .v-card__underlay{background:currentColor;border-radius:inherit;bottom:0;left:0;opacity:var(--v-activated-opacity);pointer-events:none;position:absolute;right:0;top:0}.v-card--disabled{pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.v-card--disabled>:not(.v-card__loader){opacity:.6}.v-card--flat{box-shadow:none}.v-card--hover{cursor:pointer}.v-card--hover:after,.v-card--hover:before{border-radius:inherit;bottom:0;content:\"\";display:block;left:0;pointer-events:none;position:absolute;right:0;top:0;transition:inherit}.v-card--hover:before{box-shadow:0 2px 1px -1px var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 1px 1px 0 var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 1px 3px 0 var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12));opacity:1;z-index:-1}.v-card--hover:after{box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12));opacity:0;z-index:1}.v-card--hover:hover:after{opacity:1}.v-card--hover:hover:before{opacity:0}.v-card--hover:hover{box-shadow:0 5px 5px -3px var(--v-shadow-key-umbra-opacity,rgba(0,0,0,.2)),0 8px 10px 1px var(--v-shadow-key-penumbra-opacity,rgba(0,0,0,.14)),0 3px 14px 2px var(--v-shadow-key-ambient-opacity,rgba(0,0,0,.12))}.v-card--link{cursor:pointer}.v-card-actions{align-items:center;display:flex;flex:none;min-height:52px;padding:.5rem}.v-card-item{align-items:center;display:grid;flex:none;grid-template-areas:\"prepend content append\";grid-template-columns:max-content auto max-content;padding:.625rem 1rem}.v-card-item+.v-card-text{padding-top:0}.v-card-item__append,.v-card-item__prepend{align-items:center;display:flex}.v-card-item__prepend{grid-area:prepend;padding-inline-end:.5rem}.v-card-item__append{grid-area:append;padding-inline-start:.5rem}.v-card-item__content{align-self:center;grid-area:content;overflow:hidden}.v-card-title{display:block;flex:none;font-size:1.25rem;font-weight:500;hyphens:auto;letter-spacing:.0125em;min-width:0;overflow:hidden;overflow-wrap:normal;padding:.5rem 1rem;text-overflow:ellipsis;text-transform:none;white-space:nowrap;word-break:normal;word-wrap:break-word}.v-card .v-card-title{line-height:2rem}.v-card--density-comfortable .v-card-title{line-height:1.75rem}.v-card--density-compact .v-card-title{line-height:1.55rem}.v-card-item .v-card-title{padding:0}.v-card-title+.v-card-actions,.v-card-title+.v-card-text{padding-top:0}.v-card-subtitle{display:block;flex:none;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;opacity:var(--v-medium-emphasis-opacity);overflow:hidden;padding:0 1rem;text-overflow:ellipsis;text-transform:none;white-space:nowrap}.v-card .v-card-subtitle{line-height:1.25rem}.v-card--density-comfortable .v-card-subtitle{line-height:1.125rem}.v-card--density-compact .v-card-subtitle{line-height:1rem}.v-card-item .v-card-subtitle{padding:0 0 .25rem}.v-card-text{flex:1 1 auto;font-size:.875rem;font-weight:400;letter-spacing:.0178571429em;padding:1rem;text-transform:none}.v-card .v-card-text{line-height:1.25rem}.v-card--density-comfortable .v-card-text{line-height:1.2rem}.v-card--density-compact .v-card-text{line-height:1.15rem}.v-card__image{display:flex;flex:1 1 auto;height:100%;left:0;overflow:hidden;position:absolute;top:0;width:100%;z-index:-1}.v-card__content{border-radius:inherit;overflow:hidden;position:relative}.v-card__loader{bottom:auto;width:100%;z-index:1}.v-card__loader,.v-card__overlay{left:0;position:absolute;right:0;top:0}.v-card__overlay{background-color:currentColor;border-radius:inherit;bottom:0;opacity:0;pointer-events:none;transition:opacity .2s ease-in-out}",
+      "start": 1756473943083,
+      "end": 1756473943113,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "result": "",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473943113,
+      "end": 1756473943113,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473943113,
+      "end": 1756473943114,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473943114,
+      "end": 1756473943114,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473943114,
+      "end": 1756473943114,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473943114,
+      "end": 1756473943114,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473943114,
+      "end": 1756473943114,
+      "order": "normal"
+    }
+  ]
+}

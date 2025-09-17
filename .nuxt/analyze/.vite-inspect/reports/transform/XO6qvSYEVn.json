@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/parseJSON.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "/**\r\n * @name parseJSON\r\n * @category Common Helpers\r\n * @summary Parse a JSON date string\r\n *\r\n * @description\r\n * Converts a complete ISO date string in UTC time, the typical format for transmitting\r\n * a date in JSON, to a JavaScript `Date` instance.\r\n *\r\n * This is a minimal implementation for converting dates retrieved from a JSON API to\r\n * a `Date` instance which can be used with other functions in the `date-fns` library.\r\n * The following formats are supported:\r\n *\r\n * - `2000-03-15T05:20:10.123Z`: The output of `.toISOString()` and `JSON.stringify(new Date())`\r\n * - `2000-03-15T05:20:10Z`: Without milliseconds\r\n * - `2000-03-15T05:20:10+00:00`: With a zero offset, the default JSON encoded format in some other languages\r\n * - `2000-03-15T05:20:10+05:45`: With a positive or negative offset, the default JSON encoded format in some other languages\r\n * - `2000-03-15T05:20:10+0000`: With a zero offset without a colon\r\n * - `2000-03-15T05:20:10`: Without a trailing 'Z' symbol\r\n * - `2000-03-15T05:20:10.1234567`: Up to 7 digits in milliseconds field. Only first 3 are taken into account since JS does not allow fractional milliseconds\r\n * - `2000-03-15 05:20:10`: With a space instead of a 'T' separator for APIs returning a SQL date without reformatting\r\n *\r\n * For convenience and ease of use these other input types are also supported\r\n * via [toDate](https://date-fns.org/docs/toDate):\r\n *\r\n * - A `Date` instance will be cloned\r\n * - A `number` will be treated as a timestamp\r\n *\r\n * Any other input type or invalid date strings will return an `Invalid Date`.\r\n *\r\n * @param dateStr - A fully formed ISO8601 date string to convert\r\n *\r\n * @returns The parsed date in the local time zone\r\n */\r\nexport function parseJSON(dateStr) {\r\n  const parts = dateStr.match(\r\n    /(\\d{4})-(\\d{2})-(\\d{2})[T ](\\d{2}):(\\d{2}):(\\d{2})(?:\\.(\\d{0,7}))?(?:Z|(.)(\\d{2}):?(\\d{2})?)?/,\r\n  );\r\n  if (parts) {\r\n    // Group 8 matches the sign\r\n    return new Date(\r\n      Date.UTC(\r\n        +parts[1],\r\n        +parts[2] - 1,\r\n        +parts[3],\r\n        +parts[4] - (+parts[9] || 0) * (parts[8] == \"-\" ? -1 : 1),\r\n        +parts[5] - (+parts[10] || 0) * (parts[8] == \"-\" ? -1 : 1),\r\n        +parts[6],\r\n        +((parts[7] || \"0\") + \"00\").substring(0, 3),\r\n      ),\r\n    );\r\n  }\r\n  return new Date(NaN);\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default parseJSON;\r\n",
+      "start": 1756473942519,
+      "end": 1756473942560,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473942560,
+      "end": 1756473942560,
+      "order": "normal"
+    }
+  ]
+}

@@ -1,0 +1,232 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/snackbar.vue",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "<template>\r\n  <client-only>\r\n    <div class=\"bg-white\" v-show=\"payload.status\">\r\n      <div\r\n        id=\"snackbar\"\r\n        class=\"bg-transparent\"\r\n        data-aos=\"fade-right\"\r\n        :style=\"styles\"\r\n      >\r\n        <v-alert\r\n          variant=\"tonal\"\r\n          :type=\"payload.type\"\r\n          density=\"compact\"\r\n          border=\"bottom\"\r\n          class=\"text-caption font-weight-bold elevation-2\"\r\n        >\r\n          <span>{{ payload.message }}</span>\r\n        </v-alert>\r\n      </div>\r\n    </div>\r\n  </client-only>\r\n</template>\r\n\r\n<script setup>\r\nconst props = defineProps({\r\n  payload: Object,\r\n});\r\n\r\nimport { useAppStore } from \"~/store/app\";\r\nconst { toggleSnackbar } = useAppStore();\r\nconst { isMobile } = useDevice();\r\n\r\nconst sendBack = () => {\r\n  toggleSnackbar({\r\n    status: false,\r\n    type: \"info\",\r\n    message: null,\r\n  });\r\n};\r\n\r\nwatch(\r\n  () => props.payload,\r\n  (newPayload) => {\r\n    if (newPayload?.status) {\r\n      setTimeout(() => {\r\n        sendBack();\r\n      }, 5000);\r\n    }\r\n  }\r\n);\r\nconst styles = computed(() => {\r\n  return isMobile ? mobileStyles : computerStyles;\r\n});\r\nconst mobileStyles = {\r\n  \"--bottom\": \"10px\",\r\n};\r\nconst computerStyles = {\r\n  \"--bottom\": \"50px\",\r\n};\r\n</script>\r\n\r\n<style scoped>\r\n#snackbar {\r\n  min-width: 200px;\r\n  background-color: #fff !important;\r\n  text-align: center;\r\n  border-radius: 5px;\r\n  position: fixed;\r\n  z-index: 10001;\r\n  right: 2%;\r\n  bottom: var(--bottom) !important;\r\n  -webkit-animation: fadein 0.5s, fadeout 0.2s 6s;\r\n  animation: fadein 0.5s, fadeout 0.2s 6s;\r\n}\r\n\r\n/* .animation {\r\n} */\r\n@keyframes fadein {\r\n  from {\r\n    right: 0;\r\n    opacity: 0;\r\n  }\r\n\r\n  to {\r\n    right: 2%;\r\n    opacity: 1;\r\n  }\r\n}\r\n\r\n@keyframes fadeout {\r\n  from {\r\n    right: 2%;\r\n    opacity: 1;\r\n  }\r\n\r\n  to {\r\n    right: 0;\r\n    opacity: 0;\r\n  }\r\n}\r\n</style>\r\n",
+      "start": 1756473938066,
+      "end": 1756473938247,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473938247,
+      "end": 1756473938247,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "result": "import { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, normalizeStyle as _normalizeStyle, vShow as _vShow, withDirectives as _withDirectives, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"bg-white\" }\n\nimport { useAppStore } from \"~/store/app\";\r\n\nconst _sfc_main = {\n  __name: 'snackbar',\n  props: {\r\n  payload: Object,\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\r\nconst { toggleSnackbar } = useAppStore();\r\nconst { isMobile } = useDevice();\r\n\r\nconst sendBack = () => {\r\n  toggleSnackbar({\r\n    status: false,\r\n    type: \"info\",\r\n    message: null,\r\n  });\r\n};\r\n\r\nwatch(\r\n  () => props.payload,\r\n  (newPayload) => {\r\n    if (newPayload?.status) {\r\n      setTimeout(() => {\r\n        sendBack();\r\n      }, 5000);\r\n    }\r\n  }\r\n);\r\nconst styles = computed(() => {\r\n  return isMobile ? mobileStyles : computerStyles;\r\n});\r\nconst mobileStyles = {\r\n  \"--bottom\": \"10px\",\r\n};\r\nconst computerStyles = {\r\n  \"--bottom\": \"50px\",\r\n};\r\n\nreturn (_ctx, _cache) => {\n  const _component_v_alert = _resolveComponent(\"v-alert\")\n  const _component_client_only = _resolveComponent(\"client-only\")\n\n  return (_openBlock(), _createBlock(_component_client_only, null, {\n    default: _withCtx(() => [\n      _withDirectives(_createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          id: \"snackbar\",\n          class: \"bg-transparent\",\n          \"data-aos\": \"fade-right\",\n          style: _normalizeStyle(_unref(styles))\n        }, [\n          _createVNode(_component_v_alert, {\n            variant: \"tonal\",\n            type: __props.payload.type,\n            density: \"compact\",\n            border: \"bottom\",\n            class: \"text-caption font-weight-bold elevation-2\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"span\", null, _toDisplayString(__props.payload.message), 1)\n            ]),\n            _: 1\n          }, 8, [\"type\"])\n        ], 4)\n      ], 512), [\n        [_vShow, __props.payload.status]\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/snackbar.vue?vue&type=style&index=0&scoped=4b0d7b2f&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-4b0d7b2f\"]])",
+      "start": 1756473938247,
+      "end": 1756473938251,
+      "order": "normal",
+      "sourcemaps": {
+        "mappings": ""
+      }
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "result": "import { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, normalizeStyle as _normalizeStyle, vShow as _vShow, withDirectives as _withDirectives, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"bg-white\" }\n\nimport { useAppStore } from \"~/store/app\";\r\n\nconst _sfc_main = {\n  __name: 'snackbar',\n  props: {\r\n  payload: Object,\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\r\nconst { toggleSnackbar } = useAppStore();\r\nconst { isMobile } = useDevice();\r\n\r\nconst sendBack = () => {\r\n  toggleSnackbar({\r\n    status: false,\r\n    type: \"info\",\r\n    message: null,\r\n  });\r\n};\r\n\r\nwatch(\r\n  () => props.payload,\r\n  (newPayload) => {\r\n    if (newPayload?.status) {\r\n      setTimeout(() => {\r\n        sendBack();\r\n      }, 5000);\r\n    }\r\n  }\r\n);\r\nconst styles = computed(() => {\r\n  return isMobile ? mobileStyles : computerStyles;\r\n});\r\nconst mobileStyles = {\r\n  \"--bottom\": \"10px\",\r\n};\r\nconst computerStyles = {\r\n  \"--bottom\": \"50px\",\r\n};\r\n\nreturn (_ctx, _cache) => {\n                                                         \n  const _component_client_only = _resolveComponent(\"client-only\")\n\n  return (_openBlock(), _createBlock(_component_client_only, null, {\n    default: _withCtx(() => [\n      _withDirectives(_createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          id: \"snackbar\",\n          class: \"bg-transparent\",\n          \"data-aos\": \"fade-right\",\n          style: _normalizeStyle(_unref(styles))\n        }, [\n          _createVNode(_component_v_alert, {\n            variant: \"tonal\",\n            type: __props.payload.type,\n            density: \"compact\",\n            border: \"bottom\",\n            class: \"text-caption font-weight-bold elevation-2\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"span\", null, _toDisplayString(__props.payload.message), 1)\n            ]),\n            _: 1\n          }, 8, [\"type\"])\n        ], 4)\n      ], 512), [\n        [_vShow, __props.payload.status]\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/snackbar.vue?vue&type=style&index=0&scoped=4b0d7b2f&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-4b0d7b2f\"]])\n\n/* Vuetify */\nimport { VAlert as _component_v_alert } from \"vuetify/lib/components/VAlert/index.mjs\"\n\n",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal",
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473938251,
+      "end": 1756473938251,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "result": "import { useDevice } from 'C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@nuxtjs/device/dist/runtime/composables/useDevice.mjs';\nimport { watch, computed } from 'vue';\nimport { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, normalizeStyle as _normalizeStyle, vShow as _vShow, withDirectives as _withDirectives, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"bg-white\" }\n\nimport { useAppStore } from \"~/store/app\";\r\n\nconst _sfc_main = {\n  __name: 'snackbar',\n  props: {\r\n  payload: Object,\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\r\nconst { toggleSnackbar } = useAppStore();\r\nconst { isMobile } = useDevice();\r\n\r\nconst sendBack = () => {\r\n  toggleSnackbar({\r\n    status: false,\r\n    type: \"info\",\r\n    message: null,\r\n  });\r\n};\r\n\r\nwatch(\r\n  () => props.payload,\r\n  (newPayload) => {\r\n    if (newPayload?.status) {\r\n      setTimeout(() => {\r\n        sendBack();\r\n      }, 5000);\r\n    }\r\n  }\r\n);\r\nconst styles = computed(() => {\r\n  return isMobile ? mobileStyles : computerStyles;\r\n});\r\nconst mobileStyles = {\r\n  \"--bottom\": \"10px\",\r\n};\r\nconst computerStyles = {\r\n  \"--bottom\": \"50px\",\r\n};\r\n\nreturn (_ctx, _cache) => {\n                                                         \n  const _component_client_only = _resolveComponent(\"client-only\")\n\n  return (_openBlock(), _createBlock(_component_client_only, null, {\n    default: _withCtx(() => [\n      _withDirectives(_createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          id: \"snackbar\",\n          class: \"bg-transparent\",\n          \"data-aos\": \"fade-right\",\n          style: _normalizeStyle(_unref(styles))\n        }, [\n          _createVNode(_component_v_alert, {\n            variant: \"tonal\",\n            type: __props.payload.type,\n            density: \"compact\",\n            border: \"bottom\",\n            class: \"text-caption font-weight-bold elevation-2\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"span\", null, _toDisplayString(__props.payload.message), 1)\n            ]),\n            _: 1\n          }, 8, [\"type\"])\n        ], 4)\n      ], 512), [\n        [_vShow, __props.payload.status]\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/snackbar.vue?vue&type=style&index=0&scoped=4b0d7b2f&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-4b0d7b2f\"]])\n\n/* Vuetify */\nimport { VAlert as _component_v_alert } from \"vuetify/lib/components/VAlert/index.mjs\"\n\n",
+      "start": 1756473938251,
+      "end": 1756473938253,
+      "order": "post",
+      "sourcemaps": {
+        "version": 3,
+        "sources": [
+          ""
+        ],
+        "names": [],
+        "mappings": ";;AAAA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAE1V,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAE1C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,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AAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEhE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnE,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACnC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACjC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC/C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACX,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC3C,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACtC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC9B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5B,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC7D,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACb,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACpC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAC5F,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACd,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACxB,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACf,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACvC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACN,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACP,CAAC,CAAC,CAAC,CAAC;AACJ;AACA;;AAEA;;;AAGA,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAE5I,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AAClD,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;AAEpF,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;AACZ,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC,CAAC;;"
+      }
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "result": "import { default as __nuxt_component_0 } from \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/nuxt/dist/app/components/client-only\";\nimport { useDevice } from 'C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/@nuxtjs/device/dist/runtime/composables/useDevice.mjs';\nimport { watch, computed } from 'vue';\nimport { unref as _unref, toDisplayString as _toDisplayString, createElementVNode as _createElementVNode, resolveComponent as _resolveComponent, withCtx as _withCtx, createVNode as _createVNode, normalizeStyle as _normalizeStyle, vShow as _vShow, withDirectives as _withDirectives, openBlock as _openBlock, createBlock as _createBlock } from \"vue\"\n\nconst _hoisted_1 = { class: \"bg-white\" }\n\nimport { useAppStore } from \"~/store/app\";\r\n\nconst _sfc_main = {\n  __name: 'snackbar',\n  props: {\r\n  payload: Object,\r\n},\n  setup(__props) {\n\r\nconst props = __props;\r\n\r\nconst { toggleSnackbar } = useAppStore();\r\nconst { isMobile } = useDevice();\r\n\r\nconst sendBack = () => {\r\n  toggleSnackbar({\r\n    status: false,\r\n    type: \"info\",\r\n    message: null,\r\n  });\r\n};\r\n\r\nwatch(\r\n  () => props.payload,\r\n  (newPayload) => {\r\n    if (newPayload?.status) {\r\n      setTimeout(() => {\r\n        sendBack();\r\n      }, 5000);\r\n    }\r\n  }\r\n);\r\nconst styles = computed(() => {\r\n  return isMobile ? mobileStyles : computerStyles;\r\n});\r\nconst mobileStyles = {\r\n  \"--bottom\": \"10px\",\r\n};\r\nconst computerStyles = {\r\n  \"--bottom\": \"50px\",\r\n};\r\n\nreturn (_ctx, _cache) => {\n                                                         \n  const _component_client_only = __nuxt_component_0\n\n  return (_openBlock(), _createBlock(_component_client_only, null, {\n    default: _withCtx(() => [\n      _withDirectives(_createElementVNode(\"div\", _hoisted_1, [\n        _createElementVNode(\"div\", {\n          id: \"snackbar\",\n          class: \"bg-transparent\",\n          \"data-aos\": \"fade-right\",\n          style: _normalizeStyle(_unref(styles))\n        }, [\n          _createVNode(_component_v_alert, {\n            variant: \"tonal\",\n            type: __props.payload.type,\n            density: \"compact\",\n            border: \"bottom\",\n            class: \"text-caption font-weight-bold elevation-2\"\n          }, {\n            default: _withCtx(() => [\n              _createElementVNode(\"span\", null, _toDisplayString(__props.payload.message), 1)\n            ]),\n            _: 1\n          }, 8, [\"type\"])\n        ], 4)\n      ], 512), [\n        [_vShow, __props.payload.status]\n      ])\n    ]),\n    _: 1\n  }))\n}\n}\n\n}\n\n\nimport \"C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/components/core/snackbar.vue?vue&type=style&index=0&scoped=4b0d7b2f&lang.css\"\n\nimport _export_sfc from '\u0000plugin-vue:export-helper'\nexport default /*#__PURE__*/_export_sfc(_sfc_main, [['__scopeId',\"data-v-4b0d7b2f\"]])\n\n/* Vuetify */\nimport { VAlert as _component_v_alert } from \"vuetify/lib/components/VAlert/index.mjs\"\n\n",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473938253,
+      "end": 1756473938253,
+      "order": "normal"
+    }
+  ]
+}

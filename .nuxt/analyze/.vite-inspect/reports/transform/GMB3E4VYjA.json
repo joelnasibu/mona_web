@@ -1,0 +1,216 @@
+{
+  "resolvedId": "C:/Users/ADMIN/Documents/GitHub/nairobi-market/frontend/node_modules/date-fns/formatRelative.mjs",
+  "transforms": [
+    {
+      "name": "vite:load-fallback",
+      "result": "import { differenceInCalendarDays } from \"./differenceInCalendarDays.mjs\";\r\nimport { format } from \"./format.mjs\";\r\nimport { toDate } from \"./toDate.mjs\";\r\nimport { defaultLocale } from \"./_lib/defaultLocale.mjs\";\r\nimport { getDefaultOptions } from \"./_lib/defaultOptions.mjs\";\r\n\r\n/**\r\n * The {@link formatRelative} function options.\r\n */\r\n\r\n/**\r\n * @name formatRelative\r\n * @category Common Helpers\r\n * @summary Represent the date in words relative to the given base date.\r\n *\r\n * @description\r\n * Represent the date in words relative to the given base date.\r\n *\r\n * | Distance to the base date | Result                    |\r\n * |---------------------------|---------------------------|\r\n * | Previous 6 days           | last Sunday at 04:30 AM   |\r\n * | Last day                  | yesterday at 04:30 AM     |\r\n * | Same day                  | today at 04:30 AM         |\r\n * | Next day                  | tomorrow at 04:30 AM      |\r\n * | Next 6 days               | Sunday at 04:30 AM        |\r\n * | Other                     | 12/31/2017                |\r\n *\r\n * @typeParam DateType - The `Date` type, the function operates on. Gets inferred from passed arguments. Allows to use extensions like [`UTCDate`](https://github.com/date-fns/utc).\r\n *\r\n * @param date - The date to format\r\n * @param baseDate - The date to compare with\r\n * @param options - An object with options\r\n *\r\n * @returns The date in words\r\n *\r\n * @throws `date` must not be Invalid Date\r\n * @throws `baseDate` must not be Invalid Date\r\n * @throws `options.locale` must contain `localize` property\r\n * @throws `options.locale` must contain `formatLong` property\r\n * @throws `options.locale` must contain `formatRelative` property\r\n *\r\n * @example\r\n * // Represent the date of 6 days ago in words relative to the given base date. In this example, today is Wednesday\r\n * const result = formatRelative(subDays(new Date(), 6), new Date())\r\n * //=> \"last Thursday at 12:45 AM\"\r\n */\r\nexport function formatRelative(date, baseDate, options) {\r\n  const _date = toDate(date);\r\n  const _baseDate = toDate(baseDate);\r\n\r\n  const defaultOptions = getDefaultOptions();\r\n  const locale = options?.locale ?? defaultOptions.locale ?? defaultLocale;\r\n  const weekStartsOn =\r\n    options?.weekStartsOn ??\r\n    options?.locale?.options?.weekStartsOn ??\r\n    defaultOptions.weekStartsOn ??\r\n    defaultOptions.locale?.options?.weekStartsOn ??\r\n    0;\r\n\r\n  const diff = differenceInCalendarDays(_date, _baseDate);\r\n\r\n  if (isNaN(diff)) {\r\n    throw new RangeError(\"Invalid time value\");\r\n  }\r\n\r\n  let token;\r\n  if (diff < -6) {\r\n    token = \"other\";\r\n  } else if (diff < -1) {\r\n    token = \"lastWeek\";\r\n  } else if (diff < 0) {\r\n    token = \"yesterday\";\r\n  } else if (diff < 1) {\r\n    token = \"today\";\r\n  } else if (diff < 2) {\r\n    token = \"tomorrow\";\r\n  } else if (diff < 7) {\r\n    token = \"nextWeek\";\r\n  } else {\r\n    token = \"other\";\r\n  }\r\n\r\n  const formatStr = locale.formatRelative(token, _date, _baseDate, {\r\n    locale,\r\n    weekStartsOn,\r\n  });\r\n  return format(_date, formatStr, { locale, weekStartsOn });\r\n}\r\n\r\n// Fallback for modularized imports:\r\nexport default formatRelative;\r\n",
+      "start": 1756473942230,
+      "end": 1756473942307,
+      "sourcemaps": null
+    },
+    {
+      "name": "nuxt:layer-aliasing",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:server-devonly:transform",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "pre"
+    },
+    {
+      "name": "nuxt:client-fallback-auto-id",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "pre"
+    },
+    {
+      "name": "vite:css",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:esbuild",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:json",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:vue-jsx",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:remove-plugin-metadata",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:chunk-error",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vuetify:import",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:components:imports",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "replace",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "ssr-styles",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:define",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:css-post",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:build-html",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:worker-import-meta-url",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:asset-import-meta-url",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "commonjs",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:dynamic-import-vars",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "vite:import-glob",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "normal"
+    },
+    {
+      "name": "nuxt:composable-keys",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:imports-transform",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "post"
+    },
+    {
+      "name": "unctx:transform",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:pages-macros-transform",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:runtime-paths-dep",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:route-injection-plugin",
+      "start": 1756473942307,
+      "end": 1756473942307,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:components-loader",
+      "start": 1756473942307,
+      "end": 1756473942308,
+      "order": "post"
+    },
+    {
+      "name": "nuxt:tree-shake-composables:transform",
+      "start": 1756473942308,
+      "end": 1756473942308,
+      "order": "post"
+    },
+    {
+      "name": "vite:build-import-analysis",
+      "start": 1756473942308,
+      "end": 1756473942308,
+      "order": "normal"
+    },
+    {
+      "name": "vite:reporter",
+      "start": 1756473942308,
+      "end": 1756473942308,
+      "order": "normal"
+    }
+  ]
+}
