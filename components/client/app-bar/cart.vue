@@ -16,7 +16,7 @@
               <v-card
                 flat
                 class="rounded-0 bg-transparent"
-                width="70"
+                width="71"
                 height="70"
               >
                 <v-img
