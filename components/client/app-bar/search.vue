@@ -1,8 +1,14 @@
 <template>
-  <CoreInputWithContent :placeholder="`Search ${keyword === 'SHOP'
-    ? 'products, brand, model'
-    : 'jobs, job types, keywords'
-    }...`" :keyword="keyword" @setSearchValue="searchValue" @validateSearch="validateSearch">
+  <CoreInputWithContent
+    :placeholder="`Search ${
+      keyword === 'SHOP'
+        ? 'products, brand, model'
+        : 'jobs, job types, keywords'
+    }...`"
+    :keyword="keyword"
+    @setSearchValue="searchValue"
+    @validateSearch="validateSearch"
+  >
     <!-- <template #action>
       <div class="bg">
         <v-btn
@@ -50,8 +56,15 @@
 </div>
 </template> -->
     <template #mainAction>
-      <v-btn icon="mdi-magnify" size="small" title="Search" :rounded="0" class="bg-primary px-5"
-        :disabled="!search.length" @click="goTo"></v-btn>
+      <v-btn
+        icon="mdi-magnify"
+        size="small"
+        title="Search"
+        :rounded="0"
+        class="bg-primary-dark px-5"
+        :disabled="!search.length"
+        @click="goTo"
+      ></v-btn>
     </template>
   </CoreInputWithContent>
 </template>

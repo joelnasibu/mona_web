@@ -1,1 +1,0 @@
-import{p as o}from"./entry.d7ew7f-K.js";class a{constructor(t){this.product=t}get formatedProductRouteTitle(){return String(this.product.productName).toLowerCase().replaceAll(" ","-")}navigateToProductDetails(){o({name:"shop-product-name-id",params:{name:this.formatedProductRouteTitle,id:this.product.productId??this.product.objectID}})}}export{a as P};

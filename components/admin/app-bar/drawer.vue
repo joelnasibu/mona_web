@@ -4,6 +4,7 @@
       color="drawer"
       :rail="drawerValue"
       width="240"
+      rail-width="50"
       id="mainDrawer"
     >
       <template v-slot:prepend>
@@ -13,11 +14,38 @@
             height="52"
           ></v-img>
         </div>
+      </template>
+      <v-divider class="mt-2"></v-divider>
+      <v-list density="compact" class="hide-scrollbar" nav>
+        <div
+          class="text-caption"
+          v-for="({ title, link, icon }, index) in filteredMenus.filter(
+            (m) => !m.append
+          )"
+          :title="title"
+          :key="index"
+        >
+          <v-list-item
+            :to="{ name: link }"
+            :value="link"
+            :active="$route.name === link"
+            color="primary"
+          >
+            <template v-slot:prepend>
+              <v-icon :icon="icon"></v-icon>
+            </template>
+            <span>{{ title }}</span>
+          </v-list-item>
+        </div>
+      </v-list>
+      <template v-slot:append>
         <v-divider class="mt-2"></v-divider>
-        <v-list density="compact">
+        <v-list density="compact" nav>
           <div
             class="text-caption"
-            v-for="({ title, link, icon }, index) in filteredMenus"
+            v-for="({ title, link, icon }, index) in filteredMenus.filter(
+              (m) => m.append
+            )"
             :title="title"
             :key="index"
           >
@@ -77,24 +105,24 @@ const menus = [
     icon: "mdi-format-list-checks",
     access: [1, 2, 3],
   },
-  {
-    title: "Job applications",
-    link: "admin-job-applications",
-    icon: "mdi-list-status",
-    access: [1, 2, 3],
-  },
-  {
-    title: "Business types",
-    link: "admin-business-types",
-    icon: "mdi-handshake-outline",
-    access: [1, 2],
-  },
-  {
-    title: "Job types",
-    link: "admin-job-types",
-    icon: "mdi-briefcase-outline ",
-    access: [1, 2],
-  },
+  // {
+  //   title: "Job applications",
+  //   link: "admin-job-applications",
+  //   icon: "mdi-list-status",
+  //   access: [1, 2, 3],
+  // },
+  // {
+  //   title: "Business types",
+  //   link: "admin-business-types",
+  //   icon: "mdi-handshake-outline",
+  //   access: [1, 2],
+  // },
+  // {
+  //   title: "Job types",
+  //   link: "admin-job-types",
+  //   icon: "mdi-briefcase-outline ",
+  //   access: [1, 2],
+  // },
   {
     title: "Categories",
     link: "admin-categories",
@@ -107,19 +135,19 @@ const menus = [
     icon: "mdi-alpha-s-box-outline",
     access: [1, 2],
   },
-  {
-    title: "Industries",
-    link: "admin-industries",
-    icon: "mdi-alpha-i-box-outline",
-    access: [1, 2],
-  },
-  { title: "Sizes", link: "admin-sizes", icon: "mdi-size-xs", access: [1, 2] },
-  {
-    title: "Skills",
-    link: "admin-skills",
-    icon: "mdi-format-list-checks",
-    access: [1, 2],
-  },
+  // {
+  //   title: "Industries",
+  //   link: "admin-industries",
+  //   icon: "mdi-alpha-i-box-outline",
+  //   access: [1, 2],
+  // },
+  // { title: "Sizes", link: "admin-sizes", icon: "mdi-size-xs", access: [1, 2] },
+  // {
+  //   title: "Skills",
+  //   link: "admin-skills",
+  //   icon: "mdi-format-list-checks",
+  //   access: [1, 2],
+  // },
   {
     title: "Email Templates",
     link: "admin-email-templates",
@@ -144,6 +172,20 @@ const menus = [
     link: "admin-users",
     icon: "mdi-account-outline",
     access: [1, 2],
+  },
+  {
+    title: "Support",
+    link: "admin-support",
+    icon: "mdi-help-circle-outline",
+    access: [1, 2],
+    append: true,
+  },
+  {
+    title: "Configurations",
+    link: "admin-config-markets",
+    icon: "mdi-cog-outline",
+    access: [1],
+    append: true,
   },
 ];
 

@@ -16,29 +16,22 @@
             </v-col>
             <v-col cols="12" sm="6">
               <div class="d-flex ga-2 preview-row">
+                <span>Market</span>
+                <b>{{ payload.market }}</b>
+              </div>
+              <div class="d-flex ga-2 preview-row">
                 <span>Name</span>
                 <b>{{ payload.businessName }}</b>
               </div>
               <div class="d-flex ga-2 preview-row">
-                <span>Type</span>
-                <b>{{ payload.businessType }}</b>
+                <span>Store Number</span>
+                <b>{{ payload.storeNumber }}</b>
               </div>
               <div class="d-flex ga-2 preview-row">
-                <span>Tax identification n&deg;</span>
-                <b>{{ payload.taxIdentificationNumber }}</b>
+                <span>PIN</span>
+                <b>{{ payload.pin }}</b>
               </div>
-              <div class="d-flex ga-2 preview-row">
-                <span>Registration n&deg;</span>
-                <b>{{ payload.registrationNumber }}</b>
-              </div>
-              <div class="d-flex ga-2 preview-row">
-                <span>Bank account name</span>
-                <b>{{ payload.bankDetails.accountName }}</b>
-              </div>
-              <div class="d-flex ga-2 preview-row">
-                <span>Bank account number</span>
-                <b>{{ payload.bankDetails.accountNo }}</b>
-              </div>
+
               <div class="d-flex ga-2 preview-row">
                 <span>Registration date</span>
                 <b>{{ dateFormat_Month(payload.dateOfRegistration) }}</b>
@@ -54,10 +47,10 @@
           <b>Contact</b>
         </div>
         <div class="mt-4">
-          <div class="d-flex ga-2 preview-row">
+          <!-- <div class="d-flex ga-2 preview-row">
             <span>Business website</span>
             <b>{{ payload.website }}</b>
-          </div>
+          </div> -->
           <div class="d-flex ga-2 preview-row">
             <span>Business email address</span>
             <b>{{ payload.email }}</b>
@@ -96,16 +89,30 @@
       <v-col cols="12" class="preview-header">
         <b>Address</b>
       </v-col>
-      <div class="px-3 mt-4 w-100">
-        <AdminAddressDetails :payload="payload" />
+      <div class="px-3 w-100">
+        <div class="d-flex ga-2 preview-row">
+          <span>Longitude</span>
+          <b>{{ payload.longitude }}</b>
+        </div>
+        <div class="d-flex ga-2 preview-row">
+          <span>Latitude</span>
+          <b>{{ payload.latitude }}</b>
+        </div>
       </div>
     </v-row>
     <v-row>
       <v-col cols="12" class="preview-header">
-        <b>Business summary</b>
+        <b>Payment Methods</b>
       </v-col>
       <div class="px-3 py-4 w-100 text-caption">
-        <div v-html="payload.summary"></div>
+        <div class="d-flex ga-2 preview-row">
+          <span>M-Pesa</span>
+          <b></b>
+        </div>
+        <div class="d-flex ga-2 preview-row">
+          <span>Buy Goods</span>
+          <b></b>
+        </div>
       </div>
     </v-row>
   </v-container>

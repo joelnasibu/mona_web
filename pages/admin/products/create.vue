@@ -6,7 +6,7 @@
 
 <script setup>
 definePageMeta({
-  middleware: ["vendor-only"],
+  // middleware: ["vendor-only"],
 });
 
 const payload = ref({

@@ -92,6 +92,41 @@ export const useRoleStore = defineStore('role', {
       } catch (e) {
         this.helpers.errorHandler(e)
       }
+    },
+    async updateRole(body) {
+      this.app.setError(false)
+      this.app.load(true)
+      try {
+        const res = await this.http(`${baseURL}/${body.id}`, {
+          method: 'PUT',
+          body
+        })
+        this.app.load(false)
+        this.app.toggleSnackbar({
+          status: true,
+          type: 'success',
+          message: res.message ?? 'Role updated successfully!'
+        })
+      } catch (e) {
+        this.helpers.errorHandler(e)
+      }
+    },
+    async deleteRole(id) {
+      this.app.setError(false)
+      this.app.load(true)
+      try {
+        const res = await this.http(`${baseURL}/${id}`, {
+          method: 'DELETE'
+        })
+        this.app.load(false)
+        this.app.toggleSnackbar({
+          status: true,
+          type: 'success',
+          message: res.message ?? 'Role deleted successfully!'
+        })
+      } catch (e) {
+        this.helpers.errorHandler(e)
+      }
     }
   }
 })

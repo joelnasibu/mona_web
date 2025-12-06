@@ -12,29 +12,22 @@
                 <v-text-field
                   label="Business email address"
                   v-model="payload.email"
-                  :rules="payload.businessType === 'FORMAL' ? email() : []"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
-                <Telephone
-                  :number="payload.phone"
-                  @set-phone="setPhone"
-                  :required="true"
-                />
+                <Telephone :number="payload.phone" @set-phone="setPhone" />
               </v-col>
 
               <v-col cols="12" sm="4">
                 <v-text-field
                   label="Contact person names"
                   v-model="payload.contactPerson.names"
-                  :rules="fullName()"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="4">
                 <v-text-field
                   label="Contact person email"
                   v-model="payload.contactPerson.email"
-                  :rules="email()"
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="4">
@@ -42,7 +35,6 @@
                   label="Contact person phone"
                   :number="payload.contactPerson.phone"
                   @set-phone="setContactPersonPhone"
-                  :required="true"
                 />
               </v-col>
             </v-row>

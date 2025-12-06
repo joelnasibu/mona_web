@@ -6,14 +6,14 @@
     <v-app-bar
       absolute
       class="card-white"
-      :height="smallSize ? 110 : 64"
+      :height="smAndDown ? 110 : 60"
       flat
       id="appBar"
     >
       <CoreMidScreenLayout class="px-1 px-md-1">
         <div class="d-flex align-center">
           <NuxtLink to="/shop">
-            <v-img src="/full.png" width="135"></v-img>
+            <v-img src="/fulls.png" width="250" style="margin-left: -40px;"></v-img>
           </NuxtLink>
           <v-container class="pa-0" fluid>
             <v-row class="ma-auto" align="center" justify="end">
@@ -26,9 +26,9 @@
               </v-col>
 
               <v-col xs="8" sm="8" md="4" lg="4">
-                <div class="d-flex align-center justify-end ga-4 ga-md-0">
+                <div class="d-flex align-center justify-end ga-4">
                   <ClientAppBarAccount class="mx-2 mx-md-0" />
-                  <div class="d-flex align-center" v-if="!isMobile">
+                  <!-- <div class="d-flex align-center" v-if="!isMobile">
                     <div class="d-flex align-center text-caption px-3 ga-5">
                       <NuxtLink
                         v-for="{ name, link } in links"
@@ -40,13 +40,13 @@
                       </NuxtLink>
                     </div>
                   </div>
-                  <v-spacer v-if="!isMobile"></v-spacer>
-                  <div class="" title="My shopping cart">
+                  <v-spacer v-if="!isMobile"></v-spacer> -->
+                  <div class="mt-1" title="My shopping cart">
                     <v-badge :content="cart.length" color="primary-accent">
                       <Icon
                         name="solar:cart-large-2-linear"
-                        class="mr-1 cursor-pointer text-primary-accent"
-                        size="1.6rem"
+                        class="mr-1 cursor-pointer text-primary-dark"
+                        :size="smallSize ? '1.5rem' : '1.2rem'"
                         @click="openCart"
                       />
                     </v-badge>

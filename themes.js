@@ -3,7 +3,7 @@ export default {
     colors: {
       primary: "#0e6597",
       "primary-accent": "#4494c4",
-      "primary-dark": "#0f74a0",
+      "primary-dark": "#032F46",
       secondary: "#e6672b",
       "secondary-accent": "#3dc642",
       "secondary-dark": "#164717",

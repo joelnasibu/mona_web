@@ -1,22 +1,48 @@
 <template>
   <div>
-<!-- <pre class="text-caption">{{payload}}</pre> -->
-    <AdminCoreStepper :step="tab" :sections="sections" @navigate="navigate" @validation="validation" @save="submit" />
+    <!-- <pre class="text-caption">{{payload}}</pre> -->
+    <AdminCoreStepper
+      :step="tab"
+      :sections="sections"
+      @navigate="navigate"
+      @validation="validation"
+      @save="submit"
+    />
     <v-window v-model="tab">
       <v-window-item :value="0">
-        <ClientShopBusinessAccountType :payload="payload" :trigger="triggers.stepOne" @step="navigate" />
+        <ClientShopBusinessAccountType
+          :payload="payload"
+          :trigger="triggers.stepOne"
+          @step="navigate"
+        />
       </v-window-item>
       <v-window-item :value="1">
-        <ClientShopBusinessBasic :payload="payload" :trigger="triggers.stepTwo" @step="navigate" />
+        <ClientShopBusinessBasic
+          :payload="payload"
+          :trigger="triggers.stepTwo"
+          @step="navigate"
+        />
       </v-window-item>
       <v-window-item :value="2">
-        <ClientShopBusinessAccountSetup :payload="payload" :trigger="triggers.stepThree" @step="navigate" />
+        <ClientShopBusinessAccountSetup
+          :payload="payload"
+          :trigger="triggers.stepThree"
+          @step="navigate"
+        />
       </v-window-item>
       <v-window-item :value="3">
-        <ClientShopBusinessCredentials :payload="payload" :trigger="triggers.stepFour" @step="navigate" />
+        <ClientShopBusinessCredentials
+          :payload="payload"
+          :trigger="triggers.stepFour"
+          @step="navigate"
+        />
       </v-window-item>
       <v-window-item :value="4">
-        <ClientShopBusinessPreview :payload="payload" @step="navigate" @submit="submit" />
+        <ClientShopBusinessPreview
+          :payload="payload"
+          @step="navigate"
+          @submit="submit"
+        />
       </v-window-item>
     </v-window>
   </div>
@@ -86,7 +112,7 @@ const validation = (index) => {
 };
 
 const submit = async () => {
-  if (payload.value.change) await upgradeUser(payload.value)
+  if (payload.value.change) await upgradeUser(payload.value);
   else await createUser(payload.value);
   if (!error.value)
     setTimeout(() => {

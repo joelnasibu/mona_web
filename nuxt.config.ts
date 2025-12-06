@@ -22,7 +22,7 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/png', href: '/favicon/favicon-16x16.png', sizes: '16x16' },
       ],
       meta: [
-        { name: 'theme-color', content: '#6947b1' },
+        { name: 'theme-color', content: '#032f46' },
         { name: 'keywords', content: 'e-commerce, e commerce, job, searching job, ' },
         { name: 'description', content: 'Skill up description' },
         { name: 'author', content: 'MijiniTech' },
