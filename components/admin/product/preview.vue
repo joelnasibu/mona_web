@@ -10,12 +10,6 @@
             <v-row align="center">
               <v-col cols="12" sm="6" class="text-center">
                 <div class="d-flex ga-4">
-<<<<<<< HEAD
-                  <div class="rounded-lg" style="
-                      border: 1.5px solid rgba(var(--v-theme-border)) !important;
-                    ">
-                    <AdminCoreImage :image="payload.thumbnail" :view="true" :profile="false" :editable="false" />
-=======
                   <div
                     class="rounded-lg"
                     style="
@@ -28,7 +22,6 @@
                       :profile="false"
                       :editable="false"
                     />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                   </div>
                   <div class="d-flex flex-wrap ga-3">
                     <div class="" v-for="(img, i) in payload.images" :key="i">
@@ -85,11 +78,7 @@
                       currencyFormat(
                         Number(
                           payload.price -
-<<<<<<< HEAD
-                          priceAfterDiscount(payload.price, payload.discount)
-=======
                             priceAfterDiscount(payload.price, payload.discount)
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                         )
                       )
                     }}</b>
@@ -107,27 +96,6 @@
     <v-container class="text-caption" fluid>
       <v-row>
         <v-col cols="12" class="preview-header">
-<<<<<<< HEAD
-          <v-badge :content="payload.stock?.length" inline color="link" location="end">
-            <b class="mr-5">Stock Details</b>
-          </v-badge>
-        </v-col>
-        <v-col cols="12">
-          <v-data-table density="compact" :headers="headers" :items="payload.stock" class="bg-background">
-            <template v-slot:[`item.no`]="{ item }">
-              <span>{{ payload.stock.indexOf(item) + 1 }}</span>
-            </template>
-            <template v-slot:[`item.price`]="{ item }">
-              <span>{{ currencyFormat(item.price) }}</span>
-            </template>
-            <template v-slot:[`item.expiration_date`]="{ item }">
-              <span>{{ item.expiration_date ? dateFormat_Month(item.expiration_date) : "-" }}</span>
-            </template>
-            <template v-slot:[`item.color`]="{ item }">
-              <v-card :color="item.color" width="15" height="15" flat rounded="circle"></v-card>
-            </template>
-          </v-data-table>
-=======
           <b class="mr-5">Other Details</b>
         </v-col>
         <v-col cols="12">
@@ -157,7 +125,6 @@
             <span>Expiry Date</span>
             <b>{{ payload.expiration_date }}</b>
           </div>
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
         </v-col>
       </v-row>
     </v-container>

@@ -84,13 +84,8 @@ const menus = [
   // { name: "Dashboard", route: "admin", accessLevel: [1, 2, 3] },
   { name: "Businesses", route: "admin-businesses", accessLevel: [1, 2, 3] },
   { name: "Products", route: "admin-products", accessLevel: [1, 2, 3] },
-<<<<<<< HEAD
-  { name: "Jobs", route: "admin-jobs", accessLevel: [1, 2, 3] },
-  { name: "Users", route: "admin-users", accessLevel: [3] },
-=======
   // { name: "Jobs", route: "admin-jobs", accessLevel: [1, 2, 3] },
   // { name: "Users", route: "admin-users", accessLevel: [3] },
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   {
     name: "Website",
     icon: "mdi-open-in-new",

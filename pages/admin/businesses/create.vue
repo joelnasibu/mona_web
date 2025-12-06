@@ -2,19 +2,6 @@
   <div>
     <AdminCorePageHeader route="admin-businesses">
       <div class="d-flex align-center">
-<<<<<<< HEAD
-        <v-btn prepend-icon="mdi-chevron-left" class="text-caption text-capitalize mr-2"
-          :color="tab > 0 ? 'primary-accent' : ''" size="small" flat title="Previous Step" :disabled="!tab > 0"
-          @click="navigate(tab - 1)" variant="text" rounded>
-          <span>Prev</span>
-        </v-btn>
-        <v-btn class="text-capitalize ml-2 text-caption" prepend-icon="mdi-content-save" size="small"
-          v-if="tab === sections.length - 1" flat color="primary-dark" @click="submit" :loading="loading" rounded>
-          <span>Save</span>
-        </v-btn>
-        <v-btn append-icon="mdi-chevron-right" size="small" flat class="ml-2 text-caption text-capitalize"
-          title="Next Step" v-else @click="validation(tab )" color="primary-dark" rounded>
-=======
         <v-btn
           prepend-icon="mdi-chevron-left"
           class="text-caption text-capitalize mr-2"
@@ -53,24 +40,11 @@
           color="primary-dark"
           rounded
         >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           <span>Next</span>
         </v-btn>
       </div>
     </AdminCorePageHeader>
     <div class="mt-2">
-<<<<<<< HEAD
-      <AdminCoreStepper :step="tab" :sections="sections" @navigate="navigate" @validation="validation" @save="submit" />
-      <v-window v-model="tab">
-        <v-window-item :value="0">
-          <AdminBusinessCreateBasic :payload="payload" :trigger="triggers.stepOne" @step="navigate" />
-        </v-window-item>
-        <v-window-item :value="1">
-          <AdminBusinessCreateContact :payload="payload" :trigger="triggers.stepTwo" @step="navigate" />
-        </v-window-item>
-        <v-window-item :value="2">
-          <AdminAddressInputs :payload="payload" :trigger="triggers.stepThree" @step="navigate" />
-=======
       <AdminCoreStepper
         :step="tab"
         :sections="sections"
@@ -99,20 +73,15 @@
             :trigger="triggers.stepThree"
             @step="navigate"
           />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
         </v-window-item>
         <v-window-item :value="3">
           <CoreMidScreenLayout>
             <div class="mt-3">
-<<<<<<< HEAD
-              <AdminBusinessCreateOthers :payload="payload" :trigger="triggers.stepFour" @step="navigate" />
-=======
               <AdminBusinessCreatePaymentMethod
                 :payload="payload"
                 :trigger="triggers.stepFour"
                 @step="navigate"
               />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             </div>
           </CoreMidScreenLayout>
         </v-window-item>
@@ -177,11 +146,7 @@ const sections = [
   { title: "Basic Info", icon: "mdi-folder-information-outline" },
   { title: "Contact", icon: "mdi-phone-outline" },
   { title: "Address", icon: "mdi-map-marker-outline" },
-<<<<<<< HEAD
-  { title: "Other details", icon: "mdi-menu" },
-=======
   { title: "Payment Method", icon: "mdi-credit-card-outline" },
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   { title: "Preview", icon: "mdi-file-outline" },
 ];
 const triggers = ref({
@@ -229,17 +194,6 @@ const submit = async () => {
   //   else formdata.append(item, payload.value[item])
   // }
 
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-=======
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   await createBusiness(payload.value);
   if (!error.value)
     setTimeout(() => {

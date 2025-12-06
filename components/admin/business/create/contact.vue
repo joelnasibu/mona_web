@@ -12,42 +12,22 @@
                 <v-text-field
                   label="Business email address"
                   v-model="payload.email"
-<<<<<<< HEAD
-                  :rules="payload.businessType === 'FORMAL' ? email() : []"
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12" sm="6">
-                <Telephone
-                  :number="payload.phone"
-                  @set-phone="setPhone"
-                  :required="true"
-                />
-=======
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="6">
                 <Telephone :number="payload.phone" @set-phone="setPhone" />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
               </v-col>
 
               <v-col cols="12" sm="4">
                 <v-text-field
                   label="Contact person names"
                   v-model="payload.contactPerson.names"
-<<<<<<< HEAD
-                  :rules="fullName()"
-=======
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="4">
                 <v-text-field
                   label="Contact person email"
                   v-model="payload.contactPerson.email"
-<<<<<<< HEAD
-                  :rules="email()"
-=======
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                 ></v-text-field>
               </v-col>
               <v-col cols="12" sm="4">
@@ -55,10 +35,6 @@
                   label="Contact person phone"
                   :number="payload.contactPerson.phone"
                   @set-phone="setContactPersonPhone"
-<<<<<<< HEAD
-                  :required="true"
-=======
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                 />
               </v-col>
             </v-row>

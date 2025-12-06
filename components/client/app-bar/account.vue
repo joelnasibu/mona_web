@@ -1,12 +1,6 @@
 <template>
   <v-menu open-on-hover eager="">
     <template v-slot:activator="{ props }">
-<<<<<<< HEAD
-      <div class="cursor-pointer text-caption d-flex align-center text-primary-accent" style="font-weight: 600"
-        v-bind="props">
-        <v-avatar :image="currentUser.picture ?? profileImage" color="white" size="25" v-if="isLoggeIn"></v-avatar>
-        <Icon v-else name="line-md:account" :size="isMobile ? '1.5rem' : '1.2rem'" />
-=======
       <div
         class="cursor-pointer text-caption d-flex align-center text-primary-dark"
         style="font-weight: 600"
@@ -23,20 +17,12 @@
           name="line-md:account"
           :size="isMobile ? '1.5rem' : '1.2rem'"
         />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
         <div class="d-flex align-center" v-if="!isMobile">
           <span class="px-2">Account</span>
           <v-icon icon="mdi-chevron-down" size="x-small"></v-icon>
         </div>
       </div>
     </template>
-<<<<<<< HEAD
-    <v-list density="compact" class="mt-4 elevation-3 card-outlined pa-0 rounded-lg" lines="false" min-width="200px">
-      <div class="" v-if="isLoggeIn">
-        <v-list-item class="pt-3">
-          <template v-slot:prepend>
-            <v-avatar :image="currentUser.picture ?? profileImage" color="white" size="40"></v-avatar>
-=======
     <v-list
       density="compact"
       class="mt-4 elevation-3 card-outlined pa-0 rounded-lg"
@@ -51,7 +37,6 @@
               color="white"
               size="40"
             ></v-avatar>
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           </template>
           <div class="text-caption d-flex flex-column">
             <span>{{ userNames }}</span>
@@ -67,17 +52,12 @@
           </v-list-item>
         </div>
         <v-divider class="my-2"></v-divider>
-<<<<<<< HEAD
-        <v-list-item class="text-caption" v-for="({ title, icon, route }, i) in filteredLinks" :key="i"
-          :to="{ name: route }">
-=======
         <v-list-item
           class="text-caption"
           v-for="({ title, icon, route }, i) in filteredLinks"
           :key="i"
           :to="{ name: route }"
         >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           <template v-slot:prepend>
             <Icon class="mr-3" size="15px" :name="`${icon}`" />
           </template>
@@ -85,9 +65,6 @@
         </v-list-item>
       </div>
       <v-list-item class="px-2 text-caption pt-3" v-else>
-<<<<<<< HEAD
-        <v-btn class="text-caption" block color="primary" flat size="small" @click="handleRedirect">
-=======
         <v-btn
           class="text-caption"
           block
@@ -96,7 +73,6 @@
           size="small"
           @click="handleRedirect"
         >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           <span>Login | Register</span>
         </v-btn>
       </v-list-item>
@@ -105,13 +81,9 @@
         <v-list-item class="pa-0" :to="{ name: 'create-business-account' }">
           <v-divider></v-divider>
           <div class="py-1 text-caption text-center">
-<<<<<<< HEAD
-            <span class="text-decoration-underline text-center">Create business account</span>
-=======
             <span class="text-decoration-underline text-center"
               >Create business account</span
             >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           </div>
         </v-list-item>
         <v-list-item class="pa-0" @click="handleLogout" v-if="isLoggeIn">
@@ -132,20 +104,11 @@ const props = defineProps({
 
 const { isMobile } = useDevice();
 const route = useRoute();
-<<<<<<< HEAD
-const emit = defineEmits('logout', 'redirect')
-=======
 const emit = defineEmits("logout", "redirect");
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 import { useAppStore } from "~/store/app";
 const app = useAppStore();
 const { currentUser, isAdmin, isLoggeIn, profileImage } = storeToRefs(app);
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 const links = [
   {
     title: "My account",
@@ -191,13 +154,8 @@ const filteredLinks = computed(() => {
     return route.fullPath.includes("/shop")
       ? link.shop
       : route.fullPath.includes("/job")
-<<<<<<< HEAD
-        ? link.job
-        : link;
-=======
       ? link.job
       : link;
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   });
 });
 
@@ -214,11 +172,7 @@ const handleLogout = () => {
     });
 
   window.location.reload();
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 
 const handleRedirect = () => {
   const routeRedirect = {
@@ -229,11 +183,7 @@ const handleRedirect = () => {
   navigateTo({
     name: "auth",
   });
-<<<<<<< HEAD
-}
-=======
 };
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 </script>
 
 <style lang="css" scoped></style>

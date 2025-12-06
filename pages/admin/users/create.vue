@@ -2,10 +2,6 @@
   <div>
     <AdminCorePageHeader route="admin-users">
       <div class="d-flex align-center">
-<<<<<<< HEAD
-        <v-btn class="text-capitalize ml-2 text-caption" prepend-icon="mdi-content-save" size="small" flat
-          color="primary-dark" @click="submit" :loading="loading" rounded>
-=======
         <v-btn
           class="text-capitalize ml-2 text-caption"
           prepend-icon="mdi-content-save"
@@ -16,7 +12,6 @@
           :loading="loading"
           rounded
         >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           <span>Save</span>
         </v-btn>
       </div>
@@ -25,34 +20,15 @@
       <v-container class="pa-0" fluid>
         <v-row>
           <v-col cols="12" sm="3">
-<<<<<<< HEAD
-            <AdminCoreImage :profile="true" :image="payload.picture" @set-image="setImage" />
-=======
             <AdminCoreImage
               :profile="true"
               :image="payload.picture"
               @set-image="setImage"
             />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
           </v-col>
           <v-col cols="12" sm="9">
             <v-container class="pa-0 row-form-data" fluid>
               <v-row>
-<<<<<<< HEAD
-                <v-col cols="12" sm="4">
-                  <v-text-field label="First name" v-model="payload.firstname" :rules="name()"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="4">
-                  <v-text-field label="Last name" v-model="payload.lastname" :rules="name()"></v-text-field>
-                </v-col>
-                <v-col cols="12" sm="4">
-                  <v-text-field label="Username" v-model="payload.username" :rules="required()"></v-text-field>
-                </v-col>
-              </v-row>
-              <v-row>
-                <v-col cols="12" sm="6">
-                  <v-text-field label="Email address" v-model="payload.email" :rules="email()"></v-text-field>
-=======
                 <v-col cols="12" sm="6">
                   <v-text-field
                     label="First name"
@@ -78,7 +54,6 @@
                     v-model="payload.email"
                     :rules="emailOnly()"
                   ></v-text-field>
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                 </v-col>
                 <v-col cols="12" sm="6">
                   <Telephone :number="payload.phone" @setPhone="setPhone" />
@@ -86,17 +61,6 @@
               </v-row>
               <v-row>
                 <v-col cols="12" sm="6">
-<<<<<<< HEAD
-                  <v-text-field label="Gender" v-model="payload.gender" id="selectGender" readonly></v-text-field>
-                  <AdminCoreSelect activator="#selectGender" :list="['MALE', 'FEMALE']" :listValue="payload.gender"
-                    @setItem="setGender" />
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <v-text-field label="Role" v-model="role" :rules="required()" id="selectRole" readonly
-                    append-inner-icon="mdi-chevron-down"></v-text-field>
-
-                  <AdminCoreSelect activator="#selectRole" :list="listRoles" :listValue="role" @setItem="setRole" />
-=======
                   <v-text-field
                     label="Gender"
                     v-model="payload.gender"
@@ -126,18 +90,11 @@
                     :listValue="role"
                     @setItem="setRole"
                   />
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                 </v-col>
               </v-row>
               <v-row>
                 <v-col cols="12" sm="6">
                   <div class="text-right text-caption">
-<<<<<<< HEAD
-                    <span class="text-decoration-underline cursor-pointer" @click="
-                      payload.password = payload.cpassword = randPassword();
-                    showPassword = true;
-                    ">Generate password</span>
-=======
                     <span
                       class="text-decoration-underline cursor-pointer"
                       @click="
@@ -146,23 +103,11 @@
                       "
                       >Generate password</span
                     >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                   </div>
                 </v-col>
               </v-row>
               <v-row>
                 <v-col cols="12" sm="6">
-<<<<<<< HEAD
-                  <CorePassword :password="payload.password" :show-password="showPassword"
-                    @toggleShowPassword="showPassword = !showPassword" @weakPassword="checkPassword"
-                    @setPassword="setPassword" />
-                </v-col>
-                <v-col cols="12" sm="6">
-                  <v-text-field label="Confirm password" v-model="payload.cpassword"
-                    :rules="confirmPassword(payload.password)" prepend-inner-icon="mdi-lock-outline"
-                    :type="`${showPassword ? 'text' : 'password'}`" :append-inner-icon="`${showPassword ? 'mdi-eye-off-outline' : 'mdi-eye-outline'
-                      }`" @click:append-inner="showPassword = !showPassword"></v-text-field>
-=======
                   <CorePassword
                     :password="payload.password"
                     :show-password="showPassword"
@@ -183,7 +128,6 @@
                     }`"
                     @click:append-inner="showPassword = !showPassword"
                   ></v-text-field>
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
                 </v-col>
               </v-row>
             </v-container>
@@ -195,11 +139,7 @@
 </template>
 
 <script setup>
-<<<<<<< HEAD
-const { required, name, number, email, confirmPassword } = useRules();
-=======
 const { required, name, number, emailOnly, confirmPassword } = useRules();
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 const { digitsOnly, randPassword } = useHelpers();
 
 import { useAppStore } from "~/store/app";
@@ -215,11 +155,7 @@ const { getRoles } = useRoleStore(),
   getData = async () => {
     loadRoles.value = true;
     roles.value = await getRoles(false);
-<<<<<<< HEAD
-    console.log("roles", roles.value)
-=======
     console.log("roles", roles.value);
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
     loadRoles.value = false;
     // console.table(roles.value);
   };
@@ -228,16 +164,6 @@ onMounted(() => {
 });
 
 const listRoles = computed(() => {
-<<<<<<< HEAD
-  return roles.value.filter((r) =>
-    currentUser.value.accessLevel === 1
-      ? r
-      : r.level === currentUser.value.accessLevel &&
-      r.role !== currentUser.value.role
-  )
-    .map((r) => r.role);
-}),
-=======
     return roles.value
       .filter((r) =>
         currentUser.value.accessLevel === 1
@@ -247,7 +173,6 @@ const listRoles = computed(() => {
       )
       .map((r) => r.role);
   }),
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   role = ref(""),
   setRole = (val) => {
     role.value = val;

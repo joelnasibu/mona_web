@@ -1,23 +1,15 @@
 <template>
   <div class="d-flex align-center ga-5 text-caption">
-<<<<<<< HEAD
-    <div class="d-flex align-center" v-for="{ name, route, children, icon, external } in links" :key="route">
-=======
     <div
       class="d-flex align-center"
       v-for="{ name, route, children, icon, external } in links"
       :key="route"
     >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
       <NuxtLink v-if="!children" :to="{ name: route }">
         <span>{{ name }}</span>
       </NuxtLink>
       <div class="" v-if="children">
         <div class="d-flex align-center" id="link">
-<<<<<<< HEAD
-          <v-icon :icon="icon" v-if="icon" start color="grey-darken-2" size="x-small"></v-icon>
-          <NuxtLink :to="{ name: route }" :target="external ? '_blank' : '_self'">
-=======
           <v-icon
             :icon="icon"
             v-if="icon"
@@ -29,21 +21,16 @@
             :to="{ name: route }"
             :target="external ? '_blank' : '_self'"
           >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             <span>{{ name }}</span>
           </NuxtLink>
         </div>
         <v-menu activator="#link" open-on-hover>
-<<<<<<< HEAD
-          <v-list class="pa-0 mt-1 rounded-lg card-outlined bg-white" min-width="150" density="compact" lines="false">
-=======
           <v-list
             class="pa-0 mt-1 rounded-lg card-outlined bg-white"
             min-width="150"
             density="compact"
             lines="false"
           >
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             <div class="" v-for="{ name, route } in children" :key="route">
               <v-list-item :to="{ name: route }" target="_blank">{{
                 name
@@ -65,11 +52,7 @@ const menus = [
   // { name: "Dashboard", route: "admin", accessLevel: [1, 2, 3] },
   { name: "Businesses", route: "admin-businesses", accessLevel: [1, 2, 3] },
   { name: "Products", route: "admin-products", accessLevel: [1, 2, 3] },
-<<<<<<< HEAD
-  { name: "Jobs", route: "admin-jobs", accessLevel: [1, 2, 3] },
-=======
   // { name: "Jobs", route: "admin-jobs", accessLevel: [1, 2, 3] },
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   { name: "Users", route: "admin-users", accessLevel: [3] },
   {
     name: "Website",

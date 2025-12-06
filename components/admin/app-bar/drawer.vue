@@ -4,10 +4,7 @@
       color="drawer"
       :rail="drawerValue"
       width="240"
-<<<<<<< HEAD
-=======
       rail-width="50"
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
       id="mainDrawer"
     >
       <template v-slot:prepend>
@@ -17,13 +14,6 @@
             height="52"
           ></v-img>
         </div>
-<<<<<<< HEAD
-        <v-divider class="mt-2"></v-divider>
-        <v-list density="compact">
-          <div
-            class="text-caption"
-            v-for="({ title, link, icon }, index) in filteredMenus"
-=======
       </template>
       <v-divider class="mt-2"></v-divider>
       <v-list density="compact" class="hide-scrollbar" nav>
@@ -56,7 +46,6 @@
             v-for="({ title, link, icon }, index) in filteredMenus.filter(
               (m) => m.append
             )"
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
             :title="title"
             :key="index"
           >
@@ -116,26 +105,6 @@ const menus = [
     icon: "mdi-format-list-checks",
     access: [1, 2, 3],
   },
-<<<<<<< HEAD
-  {
-    title: "Job applications",
-    link: "admin-job-applications",
-    icon: "mdi-list-status",
-    access: [1, 2, 3],
-  },
-  {
-    title: "Business types",
-    link: "admin-business-types",
-    icon: "mdi-handshake-outline",
-    access: [1, 2],
-  },
-  {
-    title: "Job types",
-    link: "admin-job-types",
-    icon: "mdi-briefcase-outline ",
-    access: [1, 2],
-  },
-=======
   // {
   //   title: "Job applications",
   //   link: "admin-job-applications",
@@ -154,7 +123,6 @@ const menus = [
   //   icon: "mdi-briefcase-outline ",
   //   access: [1, 2],
   // },
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   {
     title: "Categories",
     link: "admin-categories",
@@ -167,21 +135,6 @@ const menus = [
     icon: "mdi-alpha-s-box-outline",
     access: [1, 2],
   },
-<<<<<<< HEAD
-  {
-    title: "Industries",
-    link: "admin-industries",
-    icon: "mdi-alpha-i-box-outline",
-    access: [1, 2],
-  },
-  { title: "Sizes", link: "admin-sizes", icon: "mdi-size-xs", access: [1, 2] },
-  {
-    title: "Skills",
-    link: "admin-skills",
-    icon: "mdi-format-list-checks",
-    access: [1, 2],
-  },
-=======
   // {
   //   title: "Industries",
   //   link: "admin-industries",
@@ -195,7 +148,6 @@ const menus = [
   //   icon: "mdi-format-list-checks",
   //   access: [1, 2],
   // },
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
   {
     title: "Email Templates",
     link: "admin-email-templates",
@@ -221,8 +173,6 @@ const menus = [
     icon: "mdi-account-outline",
     access: [1, 2],
   },
-<<<<<<< HEAD
-=======
   {
     title: "Support",
     link: "admin-support",
@@ -237,7 +187,6 @@ const menus = [
     access: [1],
     append: true,
   },
->>>>>>> de5333dcf35abadaf9f91b69322130f22b8ea041
 ];
 
 const filteredMenus = computed(() => {
